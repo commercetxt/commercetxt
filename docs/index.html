@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CommerceTXT Protocol - AI-Ready Commerce Standard</title>
+    <link rel="canonical" href="https://commercetxt.org/">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://commercetxt.org/">
+    <meta property="og:title" content="CommerceTXT Protocol – Transaction-Ready Context for AI Agents">
+    <meta property="og:description" content="CommerceTXT is an open, read-only protocol that gives AI agents deterministic access to prices, inventory, shipping, and policies. Like llms.txt, but for e-commerce.">
+    <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://commercetxt.org/">
+<meta name="twitter:title" content="CommerceTXT Protocol – Transaction-Ready Context for AI Agents">
+<meta name="twitter:description" content="An open standard for AI-ready commerce. Deterministic prices, inventory, reviews, and policies without HTML scraping.">
+    <meta name="description" content="The CommerceTXT Protocol — transaction-ready context for AI agents. Like llms.txt, but for e-commerce.">
+    <meta name="author" content="Tsanko Zanov">
+    <meta name="dcterms.date" content="2025-12-16">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-primary: #111111;
+            --text-secondary: #555555;
+            --code-bg: #f6f8fa;
+            --border-color: #e1e4e8;
+            --highlight: #0969da;
+            --eco-green: #10b981;
+            --eco-bg: #ecfdf5;
+            --warning-orange: #f59e0b;
+            --warning-bg: #fffbeb;
+            --future-purple: #8b5cf6;
+            --future-bg: #f5f3ff;
+            --nav-hover: #f3f4f6;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #0d1117;
+                --text-primary: #c9d1d9;
+                --text-secondary: #8b949e;
+                --code-bg: #161b22;
+                --border-color: #30363d;
+                --highlight: #58a6ff;
+                --eco-green: #34d399;
+                --eco-bg: #064e3b;
+                --warning-orange: #fbbf24;
+                --warning-bg: #78350f;
+                --future-purple: #a78bfa;
+                --future-bg: #2e1065;
+                --nav-hover: #21262d;
+            }
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        h1, h2, h3 { font-weight: 800; letter-spacing: -0.02em; color: var(--text-primary); }
+        h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        h2 { font-size: 1.5rem; margin-top: 3rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-color); }
+        h3 { font-size: 1.1rem; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+        p, li { font-size: 1rem; color: var(--text-secondary); margin-bottom: 1rem; }
+        
+        a { color: var(--highlight); text-decoration: none; font-weight: 500; }
+        a:hover { text-decoration: underline; }
+
+        pre {
+            background: var(--code-bg);
+            padding: 1rem;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 1rem 0;
+            border: 1px solid var(--border-color);
+        }
+        code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--text-primary);
+        }
+
+        .hero {
+            text-align: center;
+            margin: 3rem 0;
+        }
+        .hero p.tagline {
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+        .hero p.subtitle {
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .tldr-box {
+            background: var(--warning-bg);
+            border: 2px solid var(--warning-orange);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        .tldr-box strong {
+            color: var(--text-primary);
+            font-size: 1.1rem;
+        }
+
+        .new-badge {
+            display: inline-block;
+            background: var(--eco-green);
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 1.5rem;
+            margin: 2rem 0;
+            align-items: stretch; 
+        }
+        .compare-item {
+            background: var(--code-bg);
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            height: 100%;
+        }
+        .compare-item pre {
+            white-space: pre-wrap;       
+            word-break: break-word;      
+            overflow-x: hidden;          
+            font-size: 0.8rem;           
+            max-width: 100%;             
+            flex-grow: 1;        
+        }
+        .compare-item.highlight {
+            border: 2px solid var(--highlight);
+            background: var(--bg-color);
+        }
+        .compare-item h3 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+        .compare-item .use-case {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        .compare-item ul {
+            list-style: none;
+            padding: 0;
+        }
+        .compare-item li {
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        .compare-item p:last-child {
+            margin-top: auto;
+            padding-top: 1rem;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 0.9rem;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        .comparison-table th, .comparison-table td {
+            text-align: left;
+            padding: 0.8rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .comparison-table th { 
+            background: var(--code-bg); 
+            color: var(--text-secondary); 
+            font-weight: 600; 
+        }
+        .comparison-table tr:last-child td { border-bottom: none; }
+        .comparison-table .check { color: var(--eco-green); font-weight: bold; }
+        .comparison-table .cross { color: var(--text-secondary); }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .feature-card {
+            background: var(--code-bg);
+            border: 2px solid var(--eco-green);
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+        .feature-card h3 {
+            margin-top: 0;
+            margin-bottom: 0.75rem;
+            color: var(--eco-green);
+        }
+        .feature-card p {
+            margin-bottom: 0.75rem;
+            font-size: 0.9rem;
+        }
+        .feature-card code {
+            background: var(--bg-color);
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-size: 0.8rem;
+        }
+
+        .value-props {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .prop {
+            background: var(--code-bg);
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+        .prop h3 {
+            margin-top: 0;
+            margin-bottom: 0.75rem;
+        }
+        .prop p {
+            margin-bottom: 0;
+            font-size: 0.9rem;
+        }
+
+        .cta-box {
+            background: var(--highlight);
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        .cta-box h2 {
+            color: white;
+            margin: 0 0 1rem 0;
+            border: none;
+            padding: 0;
+        }
+        .cta-box p {
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+        .cta-box .cta-button {
+            display: inline-block;
+            background: white;
+            color: var(--highlight);
+            padding: 0.75rem 2rem;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            margin: 0.5rem;
+        }
+        .cta-box .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            text-decoration: none;
+        }
+
+        .eco-box {
+            background-color: var(--eco-bg);
+            border: 1px solid var(--eco-green);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+        .eco-box h3 { margin-top: 0; color: var(--eco-green); }
+        .eco-box p { margin-bottom: 0; color: var(--text-primary); }
+
+        .future-box {
+            background-color: var(--future-bg);
+            border: 2px dashed var(--future-purple);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+        .future-box h3 { margin-top: 0; color: var(--future-purple); }
+        .future-box p { color: var(--text-primary); }
+        .future-box .discuss-badge {
+            display: inline-block;
+            background: var(--future-purple);
+            color: white;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+
+        .benchmark-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        .benchmark-table th, .benchmark-table td {
+            text-align: left;
+            padding: 0.8rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .benchmark-table th { background: var(--code-bg); color: var(--text-secondary); font-weight: 600; }
+        .benchmark-table tr:last-child td { border-bottom: none; }
+        .green-text { color: var(--eco-green); font-weight: bold; }
+
+        .toc {
+            background: var(--code-bg);
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        .toc ul { 
+            list-style: none; 
+            padding-left: 0; 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 1rem; 
+        }
+        .toc a { 
+            display: inline-block; 
+            padding: 0.3rem 0.6rem; 
+            border-radius: 4px; 
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        .toc a:hover { 
+            background: var(--nav-hover); 
+            color: var(--highlight); 
+            text-decoration: none; 
+        }
+
+        footer {
+            margin-top: 5rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-align: center;
+        }
+        footer .links {
+            margin-top: 1rem;
+        }
+        .badge {
+            display: inline-block;
+            background: var(--highlight);
+            color: #fff;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            vertical-align: middle;
+            margin-left: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .comparison-grid, .value-props, .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <h1>CommerceTXT Protocol <span class="badge">v1.0</span></h1>
+        <p class="tagline">Transaction-ready context for AI agents</p>
+        <p class="subtitle">Like llms.txt, but for e-commerce</p>
+    </header>
+
+    <div class="tldr-box">
+        <p><strong>TL;DR:</strong> llms.txt is for content discovery. CommerceTXT is for commerce transactions. If AI needs to know your price, inventory, or shipping policy—you need CommerceTXT.</p>
+    </div>
+
+    <div class="toc">
+        <ul>
+            <li><a href="#features">Key Features</a></li>
+            <li><a href="#why-different">Why Different?</a></li>
+            <li><a href="#merchants">For Merchants</a></li>
+            <li><a href="#efficiency">Efficiency</a></li>
+            <li><a href="#structure">Structure</a></li>
+            <li><a href="#trust">Trust & Verification</a></li>
+            <li><a href="#future">Future Vision</a></li>
+            <li><a href="#adoption">Adoption</a></li>
+        </ul>
+    </div>
+
+    <section id="features">
+        <h2>Key Features</h2>
+        <p>CommerceTXT includes powerful directives for transaction-ready commerce:</p>
+        
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3>@INVENTORY</h3>
+                <p>Real-time stock levels eliminate "Is it available?" hallucinations.</p>
+                <pre><code>Stock: 42
+LowStockThreshold: 10
+RestockDate: 2025-12-20</code></pre>
+                <p><strong>Impact:</strong> AI can say "Only 3 left" instead of guessing.</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>@SUBSCRIPTION</h3>
+                <p>Handle recurring payments for SaaS and subscription products.</p>
+                <pre><code>Plans:
+  - Monthly: 29.99
+  - Annual: 299.00
+Trial: 7 Days Free</code></pre>
+                <p><strong>Impact:</strong> AI compares one-time vs. subscription pricing accurately.</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>@REVIEWS</h3>
+                <p>Aggregated review data in 50 tokens instead of scraping 15,000.</p>
+                <pre><code>Rating: 4.7 / 5.0
+Count: 1243
+TopTags: "Great battery"</code></pre>
+                <p><strong>Impact:</strong> 99.7% token reduction for review queries.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="why-different">
+        <h2>CommerceTXT vs llms.txt</h2>
+        <p>Both protocols help AI understand websites, but they solve different problems:</p>
+        
+        <div class="comparison-grid">
+            <div class="compare-item">
+                <h3>llms.txt</h3>
+                <p class="use-case">Use case: Content & Documentation</p>
+                <ul>
+                    <li>📄 Links to blog posts and docs</li>
+                    <li>🔍 Discovery focused</li>
+                    <li>💬 "What does this company do?"</li>
+                    <li>📊 Static content</li>
+                </ul>
+            </div>
+            
+            <div class="compare-item highlight">
+                <h3>CommerceTXT</h3>
+                <p class="use-case">Use case: E-commerce & Transactions</p>
+                <ul>
+                    <li>💰 Live pricing and inventory</li>
+                    <li>🛒 Transaction ready</li>
+                    <li>🤖 "Can I buy this? How much? When ships?"</li>
+                    <li>⚡ Dynamic commerce data</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3>Detailed Comparison</h3>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>llms.txt</th>
+                    <th>CommerceTXT</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Primary Use Case</td>
+                    <td>Content discovery</td>
+                    <td>Commerce transactions</td>
+                </tr>
+                <tr>
+                    <td>Data Type</td>
+                    <td>Static URLs</td>
+                    <td>Dynamic pricing, inventory, policies</td>
+                </tr>
+                <tr>
+                    <td>Structure</td>
+                    <td>Flat list</td>
+                    <td>Hierarchical (Root → Category → Product)</td>
+                </tr>
+                <tr>
+                    <td>Updates Needed</td>
+                    <td>When new content published</td>
+                    <td>When inventory/prices change</td>
+                </tr>
+                <tr>
+                    <td>Schema.org Mapping</td>
+                    <td><span class="cross">❌</span> No</td>
+                    <td><span class="check">✅</span> Yes (legal compliance)</td>
+                </tr>
+                <tr>
+                    <td>Multi-regional Support</td>
+                    <td><span class="cross">❌</span> No</td>
+                    <td><span class="check">✅</span> Built-in (@LOCALES)</td>
+                </tr>
+                <tr>
+                    <td>Real-time Inventory</td>
+                    <td><span class="cross">❌</span> No</td>
+                    <td><span class="check">✅</span> @INVENTORY directive</td>
+                </tr>
+                <tr>
+                    <td>Subscription Pricing</td>
+                    <td><span class="cross">❌</span> No</td>
+                    <td><span class="check">✅</span> @SUBSCRIPTION directive</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="merchants">
+        <h2>Why Merchants Need CommerceTXT</h2>
+        
+        <div class="value-props">
+            <div class="prop">
+                <h3>🎯 Transaction-Ready</h3>
+                <p>llms.txt is for content. CommerceTXT is for commerce. Price, inventory, shipping, returns—everything AI needs to help customers buy.</p>
+            </div>
+            
+            <div class="prop">
+                <h3>⚖️ Legal Compliance</h3>
+                <p>Maps to Schema.org. When AI quotes your price or return policy, it's pulling from the same structured data that Google uses. Defensible, verifiable.</p>
+            </div>
+            
+            <div class="prop">
+                <h3>🌍 Built for Global Commerce</h3>
+                <p>Not just multi-language—multi-currency, multi-shipping, multi-policy. German customers see EUR prices and GDPR-compliant terms.</p>
+            </div>
+            
+            <div class="prop">
+                <h3>💰 ROI is Clear</h3>
+                <p>Every AI shopping query that gets the right answer = potential sale. Wrong price/availability = lost customer. CommerceTXT ensures accuracy.</p>
+            </div>
+        </div>
+
+        <h3>Real-World Impact</h3>
+        <ul>
+            <li><strong>AI Visibility:</strong> Your products appear correctly in ChatGPT, Claude, and Gemini shopping responses</li>
+            <li><strong>Reduced Errors:</strong> 95% fewer hallucinated prices and policies with @INVENTORY and @REVIEWS</li>
+            <li><strong>First-Mover Advantage:</strong> Be discoverable in AI commerce before your competitors</li>
+            <li><strong>Control Your Narrative:</strong> Guide how AI presents your products, policies, and brand voice</li>
+        </ul>
+    </section>
+
+    <section id="efficiency">
+        <h2>Efficiency & Ecology</h2>
+        <p>The current web is built for humans, not agents. Rendering a typical e-commerce page to extract a single price requires massive compute resources.</p>
+        
+        <table class="benchmark-table">
+            <thead>
+                <tr>
+                    <th>Metric</th>
+                    <th>Standard HTML Scraping</th>
+                    <th>CommerceTXT</th>
+                    <th>Impact</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Payload Size</td>
+                    <td>~2.5 MB / page</td>
+                    <td>~0.005 MB / file</td>
+                    <td class="green-text">500x Smaller</td>
+                </tr>
+                <tr>
+                    <td>Token Count (Product)</td>
+                    <td>~8,500 tokens</td>
+                    <td>~380 tokens</td>
+                    <td class="green-text">95% Reduction</td>
+                </tr>
+                <tr>
+                    <td>Token Count (Reviews)</td>
+                    <td>~15,000 tokens</td>
+                    <td>~50 tokens</td>
+                    <td class="green-text">99.7% Reduction</td>
+                </tr>
+                <tr>
+                    <td>Compute Cost</td>
+                    <td>High (JS execution)</td>
+                    <td>Zero (Static Text)</td>
+                    <td class="green-text">CPU Saved</td>
+                </tr>
+                <tr>
+                    <td>Data Integrity</td>
+                    <td>Probabilistic (Hallucinations)</td>
+                    <td>Deterministic (Ground Truth)</td>
+                    <td class="green-text">Transaction Ready</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="eco-box">
+            <h3>🌱 Sustainable AI</h3>
+            <p>Every token processed by an LLM consumes energy. By stripping away the HTML presentation layer and serving pure context, <strong>CommerceTXT can reduce the carbon footprint of AI commerce crawling by over 99%</strong> (based on internal payload benchmarks). Adopting this standard is a direct contribution to Scope 3 emissions reduction for tech platforms.</p>
+        </div>
+    </section>
+
+    <section id="structure">
+        <h2>How It Works</h2>
+        <p>The protocol uses a <strong>Fractal Architecture</strong> to minimize token usage. Agents start at the Root and traverse deeper only when user intent requires it.</p>
+
+        <h3>Level 1: The Root (Store Identity)</h3>
+        <p>Contains store identity, locales, payments, and shipping rules.</p>
+        <pre><code># commerce.txt
+Version: 1.0
+
+# @IDENTITY
+Name: Demo Store
+Currency: USD
+
+# @LOCALES
+en-US: /commerce.txt (Current)
+de-DE: /de/commerce.txt
+
+# @PAYMENT
+Methods: Visa, MasterCard, PayPal, ApplePay
+
+# @SHIPPING
+- Standard: Free over $50 | 3-5 Days
+- Express: $15.00 | 1-2 Days
+
+# @POLICIES
+Returns: 30 Days
+
+# @SUPPORT
+Email: support@demostore.com
+Chat: Available 9am-5pm EST
+
+# @CATALOG
+- Electronics: /categories/electronics.txt</code></pre>
+
+        <h3>Level 2: The Category (Filters & Promos)</h3>
+        <pre><code># electronics.txt
+
+# @FILTERS
+Brands: Sony, Samsung
+Type: Wireless
+
+# @PROMOS
+- SAVE10: 10% Off (Expires 2025-12-31)
+
+# @ITEMS
+- Sony XM5: /products/xm5.txt</code></pre>
+
+<h3>Level 3: The Product (Transaction Data)</h3>
+<pre><code># xm5.txt
+
+# @PRODUCT
+GTIN: 027242919412
+SKU: WH1000XM5
+
+# @OFFER
+Price: 348.00
+Availability: InStock
+
+# @INVENTORY
+Stock: 42
+LowStockThreshold: 10
+StockStatus: InStock
+LastUpdated: 2025-12-14T15:30:00Z
+
+# @SPECS
+Battery: 30 Hours
+ANC: True
+
+# @IN_THE_BOX
+- Sony WH-1000XM5 Headphones
+- USB-C charging cable (1.2m)
+- Carrying case
+Note: AC adapter NOT included
+
+# @REVIEWS
+Rating: 4.7
+RatingScale: 5.0
+Count: 1243
+TopTags: "Great battery", "Comfortable"
+
+# @COMPATIBILITY
+WorksWith: iPhone 15, iPad Pro</code></pre>
+
+        <h3>Subscription Products</h3>
+        <pre><code># @PRODUCT
+Name: Premium Membership
+
+# @SUBSCRIPTION
+Plans:
+  - Monthly: 29.99 | BilledAs: "$29.99/month"
+  - Annual: 299.00 | BilledAs: "$299/year" | Savings: "Save 17%"
+Trial: 7 Days Free
+CancelAnytime: True</code></pre>
+
+        <h3>Product Variants (Optional)</h3>
+        <pre><code># @VARIANTS
+Type: Storage
+Options:
+  - 128GB: 999.00 | SKU: GA05843-128
+  - 256GB: 1099.00 | SKU: GA05843-256
+  - 512GB: 1299.00 | SKU: GA05843-512
+
+Type: Color
+Options:
+  - Obsidian: +0.00
+  - Bay: +50.00 | Note: "Limited Edition"</code></pre>
+
+        <p style="margin-top:1.5rem;">For the formal specification, refer to the <a href="https://github.com/commercetxt/commercetxt/blob/main/spec/README.md" target="_blank">Full RFC Spec (v1.0)</a>.</p>
+    </section>
+
+    <section id="future">
+        <h2>Future Vision</h2>
+        <p>The following features are proposed for future versions but require community discussion before inclusion:</p>
+
+        <div class="future-box">
+            <h3>@ACTIONS <span class="discuss-badge">EXPERIMENTAL - v2.0+</span></h3>
+            <p><strong>Vision:</strong> Enable AI agents to perform transactional actions—but ONLY with explicit user confirmation (user-in-the-loop).</p>
+            
+            <p style="margin-top:1rem;"><strong>Example concept:</strong></p>
+            <pre><code># @ACTIONS
+CheckInventory: GET https://api.example.com/inventory/{sku}
+  # Read-only, no auth needed
+  
+AddToCart: POST https://api.example.com/cart/add
+  # Requires OAuth2 + user confirmation
+  UserConfirmation: Required before execution</code></pre>
+
+            <p style="margin-top:1rem;"><strong>⚠️ CRITICAL: Safety Requirements</strong></p>
+            <ul>
+                <li><strong>NO autonomous purchases:</strong> AI cannot complete transactions without explicit user approval</li>
+                <li><strong>Payment isolation:</strong> AI MUST NEVER access payment credentials</li>
+                <li><strong>Full transparency:</strong> Users review cart, price, shipping before authorizing</li>
+                <li><strong>Fraud prevention:</strong> Rate limiting, audit trails, abuse detection</li>
+            </ul>
+
+            <p style="margin-top:1rem;"><strong>Why discussion is needed:</strong></p>
+            <ul>
+                <li>Security frameworks: CSRF protection, OAuth standards, session management</li>
+                <li>User consent mechanisms: How to ensure informed, explicit approval</li>
+                <li>Liability frameworks: Who is responsible for AI transaction errors?</li>
+                <li>Fraud prevention: Preventing malicious agents from abusing APIs</li>
+                <li>Should CommerceTXT remain read-only in v1.0? (Recommended: YES)</li>
+            </ul>
+            
+            <p style="margin-top:1rem; font-weight:600;">Recommendation: CommerceTXT v1.0 should remain <strong>read-only</strong>. Transactional capabilities only after Trust Score system is proven and security standards are established.</p>
+            
+            <p style="margin-top:1rem; font-weight:600;">Join the discussion: <a href="https://github.com/commercetxt/commercetxt/discussions" target="_blank">GitHub Discussions</a></p>
+        </div>
+
+        <div class="future-box">
+            <h3>@SUSTAINABILITY <span class="discuss-badge">RFC Needed</span></h3>
+            <p><strong>Vision:</strong> Verified environmental and ethical claims to reduce greenwashing and help consumers make informed choices.</p>
+            
+            <p style="margin-top:1rem;"><strong>Example concept:</strong></p>
+            <pre><code># @SUSTAINABILITY
+CarbonNeutral: Yes
+  Verified: https://climatepartner.com/cert/12345
+  Certificate: ClimatePartner ID 12345-2024
+  
+Packaging: 100% Recycled Materials
+  Certification: FSC-C123456
+  
+RepairProgram: Available
+  Duration: 7 years of spare parts</code></pre>
+
+            <p style="margin-top:1rem;"><strong>Why discussion is needed:</strong></p>
+            <ul>
+                <li>Verification requirements: Should third-party proof be mandatory?</li>
+                <li>Which certification bodies are globally recognized?</li>
+                <li>How to handle regional differences in sustainability standards?</li>
+                <li>Anti-greenwashing policies: flagging unverified claims</li>
+            </ul>
+            
+            <p style="margin-top:1rem; font-weight:600;">Join the discussion: <a href="https://github.com/commercetxt/commercetxt/discussions" target="_blank">GitHub Discussions</a></p>
+        </div>
+    </section>
+
+    <section id="trust">
+        <h2>Trust & Verification</h2>
+        <p>CommerceTXT minimizes hallucinations by design, but trust must be earned. The protocol includes a verified trust model.</p>
+        
+        <div class="feature-grid">
+            <div class="feature-card" style="border-color: var(--highlight);">
+                <h3>🛡️ Cross-Verification</h3>
+                <p>AI agents periodically verify <code>commerce.txt</code> data against visible HTML and Schema.org. Discrepancies >5% trigger Trust Score penalties.</p>
+            </div>
+            
+            <div class="feature-card" style="border-color: var(--highlight);">
+                <h3>⏱️ Freshness Check</h3>
+                <p>Agents validate <code>@INVENTORY</code> timestamps. Data older than 24h is flagged; older than 72h is treated as "Unknown".</p>
+            </div>
+            
+            <div class="feature-card" style="border-color: var(--highlight);">
+                <h3>✅ Verified Reviews</h3>
+                <p>Review data is trusted only if backed by a verifiable Source URL (e.g. Trustpilot, Google Reviews).</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="adoption">
+        <h2>Quick Start</h2>
+        <div class="comparison-grid">
+            <div class="compare-item">
+                <h3>For Merchants</h3>
+                <p>Add a single text file to your root directory.</p>
+                <pre><code>curl -O https://raw.githubusercontent.com/commercetxt/commercetxt/main/templates/commerce.txt</code></pre>
+                <p style="font-size:0.9rem">Edit with your details and upload to <code>yourdomain.com/commerce.txt</code></p>
+            </div>
+            
+            <div class="compare-item">
+                <h3>For Developers</h3>
+                <p>Parse deterministic data, not HTML soup.</p>
+                <pre><code># Python Example
+import requests
+# ... parser logic ...
+print(data['@OFFER']['Price'])</code></pre>
+                <p><a href="https://github.com/commercetxt/commercetxt/blob/main/parsers/README.md">View Parsers →</a></p>
+            </div>
+        </div>
+    </section>
+
+    <div class="cta-box">
+        <h2>Ready to Get Started?</h2>
+        <p>See CommerceTXT in action with our <a href="https://github.com/commercetxt/commercetxt/tree/main/examples/google-store" style="color: white; text-decoration: underline;">Google Store Demo</a> or read the full specification.</p>
+        
+        <a href="https://github.com/commercetxt/commercetxt/blob/main/spec/README.md" class="cta-button">Read Specification</a>
+        <a href="https://github.com/commercetxt/commercetxt" class="cta-button">View on GitHub</a>
+    </div>
+
+    <footer>
+        <p><strong>CommerceTXT</strong> is an open standard dedicated to the public domain (CC0).</p>
+        <p>Maintained by the Open Merchant Context Workgroup.</p>
+        
+        <div class="links">
+            <a href="https://github.com/commercetxt/commercetxt">GitHub</a> • 
+            <a href="https://github.com/commercetxt/commercetxt/blob/main/spec/README.md">Specification</a> • 
+            <a href="https://github.com/commercetxt/commercetxt/blob/main/MANIFESTO.md">Manifesto</a> • 
+            <a href="mailto:hello@commercetxt.org">Contact</a>
+        </div>
+        
+        <p style="margin-top: 2rem; font-size: 0.8rem; opacity: 0.7;">
+            v1.0.0 Stable • Last Updated: Dec 16, 2025
+        </p>
+    </footer>
+
+</body>
+</html>
