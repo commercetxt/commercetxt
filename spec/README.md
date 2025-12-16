@@ -129,7 +129,43 @@ Currency: USD
 
 ---
 
-### 4.3 @PRODUCT (Tier 1: Minimal)
+### 4.3 @FILTERS (Tier 2: Standard)
+
+**Purpose:** Defines available attributes for filtering products within a category context. Helps AI understand the scope of the collection.
+
+**Location:** Category files
+
+**Syntax:** Key-value pairs where values are list or range descriptions.
+
+**Example:**
+```
+# @FILTERS
+Brands: Sony, Bose, Sennheiser
+Type: Over-Ear, On-Ear, Earbuds
+PriceRange: $50 - $500
+Features: ANC, Wireless, Bluetooth
+```
+
+---
+
+### 4.4 @ITEMS (Tier 1: Minimal)
+
+**Purpose:** Lists the products contained in a specific category or collection file.
+
+**Location:** Category files
+
+**Syntax:** List items with format: `- ProductName: /path/to/product.txt`
+
+**Example:**
+```
+# @ITEMS
+- Sony WH-1000XM5: /products/sony-xm5.txt
+- Bose QC45: /products/bose-qc45.txt
+```
+
+---
+
+### 4.5 @PRODUCT (Tier 1: Minimal)
 
 **Purpose:** Product identification using industry-standard identifiers.
 
@@ -156,7 +192,7 @@ Model: WH-1000XM5
 
 ---
 
-### 4.4 @OFFER (Tier 1: Minimal)
+### 4.6 @OFFER (Tier 1: Minimal)
 
 **Purpose:** Transactional data (price and availability).
 
@@ -227,7 +263,7 @@ TaxIncluded: False
 
 ---
 
-### 4.5 @INVENTORY (Tier 2: Standard)
+### 4.7 @INVENTORY (Tier 2: Standard)
 
 **Purpose:** Real-time stock level visibility for AI agents.
 
@@ -289,7 +325,7 @@ LastUpdated: 2025-12-16T09:30:00Z
 
 ---
 
-### 4.6 @SUBSCRIPTION (Tier 2: Standard, Optional)
+### 4.8 @SUBSCRIPTION (Tier 2: Standard, Optional)
 
 **Purpose:** Define recurring payment options for subscription-based products.
 
@@ -360,7 +396,7 @@ SkipOrPause: Available
 
 ---
 
-### 4.7 @REVIEWS (Tier 2: Standard, Optional)
+### 4.9 @REVIEWS (Tier 2: Standard, Optional)
 
 **Purpose:** Aggregated review data to reduce hallucinations and token waste from scraping review pages.
 
@@ -459,7 +495,7 @@ Custom Source: "The merchant reports 4.7/5 stars based on 1,243 reviews (unverif
 
 ---
 
-### 4.8 @VARIANTS (Tier 3: Rich, Optional)
+### 4.10 @VARIANTS (Tier 3: Rich, Optional)
 
 **Purpose:** Handle product variations (size, color, storage, etc.) without creating separate files for each variant.
 
@@ -623,7 +659,7 @@ Use separate product files when:
 
 ---
 
-### 4.9 @LOCALES (Tier 2: Standard)
+### 4.11 @LOCALES (Tier 2: Standard)
 
 **Purpose:** Multi-regional support with locale-specific context files.
 
@@ -646,7 +682,7 @@ fr-FR: /fr/commerce.txt
 
 ---
 
-### 4.10 @SHIPPING (Tier 2: Standard)
+### 4.12 @SHIPPING (Tier 2: Standard)
 
 **Purpose:** Shipping methods, costs, and carriers.
 
@@ -664,7 +700,7 @@ Regions: US, Canada, Mexico
 
 ---
 
-### 4.11 @PAYMENT (Tier 2: Standard)
+### 4.13 @PAYMENT (Tier 2: Standard)
 
 **Purpose:** Accepted payment methods.
 
@@ -680,7 +716,7 @@ Currency: USD
 
 ---
 
-### 4.12 @POLICIES (Tier 2: Standard)
+### 4.14 @POLICIES (Tier 2: Standard)
 
 **Purpose:** Store policies (returns, warranties, privacy).
 
@@ -697,7 +733,7 @@ RefundMethod: Original payment method | 5-7 business days
 
 ---
 
-### 4.13 @SPECS (Tier 2: Standard)
+### 4.15 @SPECS (Tier 2: Standard)
 
 **Purpose:** Product specifications and technical details.
 
@@ -721,7 +757,24 @@ Dimensions: 152.8 × 72.0 × 8.5 mm
 
 ---
 
-### 4.14 @IN_THE_BOX (Tier 2: Standard, Optional)
+### 4.16 @SUPPORT (Tier 2: Standard)
+
+**Purpose:** Customer service contact channels to help AI agents resolve user issues or direct inquiries properly.
+
+**Location:** Root file
+
+**Example:**
+```
+# @SUPPORT
+Email: support@example.com
+Phone: +1-800-555-0199
+Chat: Available Mon-Fri 9am-5pm EST
+Hours: Mon-Fri 09:00-17:00
+```
+
+---
+
+### 4.17 @IN_THE_BOX (Tier 2: Standard, Optional)
 
 **Purpose:** List package contents to answer "What's included?" questions.
 
@@ -750,7 +803,7 @@ Note: AC adapter NOT included
 
 ---
 
-### 4.15 @COMPATIBILITY (Tier 3: Rich, Optional)
+### 4.18 @COMPATIBILITY (Tier 3: Rich, Optional)
 
 **Purpose:** Solve "Does X work with Y?" questions.
 
@@ -766,7 +819,7 @@ NotCompatibleWith: iPhone 14 and earlier (Lightning port)
 
 ---
 
-### 4.16 @SEMANTIC_LOGIC (Tier 3: Rich, Optional)
+### 4.19 @SEMANTIC_LOGIC (Tier 3: Rich, Optional)
 
 **Purpose:** Guide AI reasoning with merchant-defined logic.
 
@@ -784,7 +837,7 @@ NotCompatibleWith: iPhone 14 and earlier (Lightning port)
 
 ---
 
-### 4.17 @BRAND_VOICE (Tier 3: Rich, Optional)
+### 4.20 @BRAND_VOICE (Tier 3: Rich, Optional)
 
 **Purpose:** Instruct AI on tone and communication style.
 
@@ -800,7 +853,7 @@ Emphasis: Sustainability, Long-term value, Transparency
 
 ---
 
-### 4.18 @PROMOS (Tier 2: Standard, Optional)
+### 4.21 @PROMOS (Tier 2: Standard, Optional)
 
 **Purpose:** Dynamic offers and promotions that AI can quote.
 
@@ -835,6 +888,8 @@ Emphasis: Sustainability, Long-term value, Transparency
 | @SUBSCRIPTION | Plans | offer.priceSpecification | Array |
 | @SHIPPING | Cost | offer.shippingDetails | Number |
 | @SPECS | * | product.additionalProperty | Key-Value |
+| @SUPPORT | Email | contactPoint.email | String |
+| @SUPPORT | Phone | contactPoint.telephone | String |
 | @IN_THE_BOX | * | product.itemListElement | Array |
 
 ---

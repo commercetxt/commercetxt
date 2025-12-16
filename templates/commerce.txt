@@ -1,0 +1,41 @@
+# commerce.txt - Root Context File
+# Documentation: https://commercetxt.org/spec
+# Usage: Place this file at https://yourdomain.com/commerce.txt
+
+Version: 1.0
+LastUpdated: 2025-01-01
+
+# @IDENTITY
+# --------------------------------------------------------
+Name: [Your Store Name]
+Description: [Short description of what you sell]
+Currency: [USD/EUR/BGN]
+URL: [https://yourdomain.com]
+
+# @POLICIES
+# --------------------------------------------------------
+Returns: [e.g., 30 Days | Buyer pays shipping]
+Warranty: [e.g., 2 Years Standard Manufacturer Warranty]
+Privacy: [Link to your privacy policy]
+
+# @SHIPPING
+# --------------------------------------------------------
+# Format: Service | Cost | Timeframe
+- Standard: [Free over $50 | 3-5 Days]
+- Express: [$15.00 | 1-2 Days]
+Carriers: [FedEx, DHL, Speedy, Econt]
+
+# @PAYMENT
+# --------------------------------------------------------
+Methods: [Visa, MasterCard, PayPal, ApplePay, CashOnDelivery]
+
+# @SUPPORT
+# --------------------------------------------------------
+Email: [support@yourdomain.com]
+Chat: [Available 9am-5pm EST]
+
+# @CATALOG
+# --------------------------------------------------------
+# Link to your category node files. Use relative or absolute paths.
+- [Category Name 1]: /categories/category-1.txt
+- [Category Name 2]: /categories/category-2.txt

@@ -1,0 +1,22 @@
+# Category Context File
+# Parent: /commerce.txt
+
+# @FILTERS
+# --------------------------------------------------------
+# Attributes available in this category
+Brands: [Brand A, Brand B, Brand C]
+Type: [Type A, Type B]
+PriceRange: [$50 - $500]
+
+# @PROMOS
+# --------------------------------------------------------
+# Active coupons for this category
+- [CODE]: [Description, e.g., 10% Off] | Expires: [YYYY-MM-DD]
+
+# @ITEMS
+# --------------------------------------------------------
+# List of products in this category.
+# Ideally generated automatically by your CMS.
+- [Product Name 1]: /categories/products/product-1.txt
+- [Product Name 2]: /categories/products/product-2.txt
+- [Product Name 3]: /categories/products/product-3.txt

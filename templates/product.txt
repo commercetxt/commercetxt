@@ -1,0 +1,55 @@
+# Product Context File
+# Context: Transactional Data
+
+# @PRODUCT
+# --------------------------------------------------------
+Name: [Full Product Name]
+SKU: [Merchant SKU]
+GTIN: [EAN/UPC Barcode - Critical for Google]
+Brand: [Brand Name]
+
+# @OFFER
+# --------------------------------------------------------
+Price: [0.00]
+Currency: [USD/EUR]
+Availability: [InStock / OutOfStock / PreOrder]
+Condition: [New / Used]
+# TaxIncluded: [True / False]
+# TaxNote: [e.g., "Plus sales tax at checkout"]
+
+# @INVENTORY (Optional but Recommended)
+# --------------------------------------------------------
+Stock: [Integer]
+LowStockThreshold: [e.g., 5]
+LastUpdated: [ISO-8601 Timestamp]
+
+# @SPECS
+# --------------------------------------------------------
+Color: [Value]
+Material: [Value]
+Dimensions: [Value]
+Weight: [Value]
+
+# @VARIANTS (Optional)
+# --------------------------------------------------------
+# Type: [Color / Size]
+# Options:
+#   - [Option A]: [Price or Modifier] | SKU: [VariantSKU]
+#   - [Option B]: [Price or Modifier] | SKU: [VariantSKU]
+
+# @IN_THE_BOX (Optional)
+# --------------------------------------------------------
+- [Item 1]
+- [Item 2]
+# Note: [e.g., Charger not included]
+
+# @REVIEWS (Optional)
+# --------------------------------------------------------
+Rating: [4.5]
+Count: [120]
+TopTags: ["Great quality", "Fast shipping"]
+Source: [https://trustpilot.com/review/...]
+
+# @COMPATIBILITY (Optional)
+# --------------------------------------------------------
+WorksWith: [Related Product A, Related Product B]
