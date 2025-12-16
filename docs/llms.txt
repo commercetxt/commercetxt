@@ -1,0 +1,234 @@
+# CommerceTXT — Deterministic Commerce Context Protocol for AI Agents
+
+## Overview
+CommerceTXT is an open, read-only, token-efficient protocol that provides
+deterministic, machine-readable commerce context for AI agents (LLMs).
+
+It enables accurate product discovery, pricing, inventory, policies, and
+compatibility data without HTML scraping or JavaScript execution.
+
+CommerceTXT v1.0 is strictly READ-ONLY.
+It does not enable transactions, payments, or state-changing actions.
+
+Status: Stable Release v1.0.0
+License: CC0 1.0 Universal (Public Domain)
+Maintainer: Open Merchant Context Workgroup
+Contact: hello@commercetxt.org
+
+---
+
+## What CommerceTXT Is
+- A structured, deterministic context format for e-commerce data
+- Designed for AI agents, copilots, and autonomous tools
+- Token-efficient compared to HTML scraping
+- Schema.org-compatible
+- Vendor-neutral and open
+
+## What CommerceTXT Is NOT
+- Not a checkout or payment system
+- Not a tracking or analytics mechanism
+- Not proprietary or platform-gated
+- Not a replacement for HTML websites
+
+---
+
+## Core Architecture
+
+CommerceTXT uses a fractal, hierarchical structure:
+
+1. Root file (commerce.txt)
+   - Store identity
+   - Policies
+   - Shipping
+   - Payment methods
+   - Locales
+
+2. Category files
+   - Product collections
+   - Filters
+   - Promotions
+
+3. Product files
+   - Individual product data
+   - Pricing
+   - Inventory
+   - Reviews
+   - Variants
+   - Compatibility
+
+Inheritance rule:
+Specific overrides general.
+(Product > Category > Root)
+
+---
+
+## Essential Directives
+
+### Tier 1 — Minimal (Valid)
+Required to identify a store and its products:
+- @IDENTITY
+- @CATALOG
+- @PRODUCT
+- @OFFER
+
+### Tier 2 — Standard (Recommended)
+Enables policy-aware and regional responses:
+- @INVENTORY
+- @SHIPPING
+- @PAYMENT
+- @POLICIES
+- @LOCALES
+- @REVIEWS (optional)
+- @SUBSCRIPTION (if applicable)
+
+### Tier 3 — Rich (Agent-Optimized)
+Enables reasoning and compatibility checks:
+- @VARIANTS
+- @COMPATIBILITY
+- @SEMANTIC_LOGIC
+- @BRAND_VOICE
+
+---
+
+## Discovery & Fetching
+
+Recommended discovery order for AI agents:
+
+1. Check robots.txt for a hint (if present):
+   Commerce-TXT: https://example.com/commerce.txt
+
+2. Fallback to:
+   https://example.com/commerce.txt
+
+3. Parse UTF-8 text using line-oriented rules
+
+Agents SHOULD gracefully handle missing files
+and MUST stop traversal on HTTP 404 responses.
+
+---
+
+## Parsing Rules (Summary)
+
+- UTF-8 encoded plain text
+- Section headers: `# @DIRECTIVE`
+- Key-value pairs: `Key: Value`
+- Lists: `- Item`
+- Pipe-separated multi-values supported
+- Directives and keys are case-insensitive
+- Values are case-sensitive
+- Unknown directives MUST be ignored (forward compatibility)
+
+---
+
+## Trust & Verification (Conceptual)
+
+CommerceTXT reduces hallucinations by design,
+but does not require blind trust.
+
+AI platforms are encouraged to:
+- Periodically cross-check prices and availability
+- Validate inventory freshness timestamps
+- Prefer third-party review sources when available
+- Apply internal trust or reputation scoring as appropriate
+
+CommerceTXT does NOT define or mandate a trust algorithm.
+Each platform retains full discretion.
+
+---
+
+## Inventory Freshness Guidance
+
+Agents SHOULD interpret inventory timestamps as follows:
+- < 1 hour: trusted
+- 1–24 hours: acceptable with timestamp
+- 24–72 hours: warn user
+- > 72 hours: treat as unknown
+
+---
+
+## Cache-Control Expectations (Merchant-Side)
+
+Merchants publishing CommerceTXT SHOULD respect HTTP cache headers:
+
+High-velocity inventory:
+Cache-Control: max-age=300, must-revalidate
+
+Stable inventory:
+Cache-Control: max-age=3600, must-revalidate
+
+Static policies and specs:
+Cache-Control: max-age=86400, must-revalidate
+
+---
+
+## Security & Privacy
+
+- Files MUST NOT contain PII or credentials
+- Agents MUST ignore credential-like keys
+- CommerceTXT is read-only by design
+- Merchants MAY restrict access at CDN/WAF level,
+  but SHOULD document access expectations
+
+---
+
+## Multi-Regional Support
+
+Use @LOCALES to resolve regional context:
+1. Exact locale match
+2. Language fallback
+3. Root fallback
+
+Agents SHOULD clearly communicate region-specific pricing,
+tax inclusion, and shipping constraints.
+
+---
+
+## Why AI Platforms Use CommerceTXT
+
+- Lower token usage vs HTML scraping
+- Deterministic pricing and inventory
+- Reduced legal and reputational risk
+- Cleaner reasoning paths for agents
+- Lower crawl and inference costs
+- Higher user trust in commerce answers
+
+---
+
+## Resources
+
+Specification:
+https://github.com/commercetxt/commercetxt/blob/main/spec/README.md
+
+Root file template:
+https://raw.githubusercontent.com/commercetxt/commercetxt/main/templates/commerce.txt
+
+Website:
+https://commercetxt.org
+
+GitHub:
+https://github.com/commercetxt/commercetxt
+
+Discussions:
+https://github.com/commercetxt/commercetxt/discussions
+
+---
+
+## Quick Agent Checklist
+
+Use CommerceTXT when:
+- Answering price or availability questions
+- Explaining return or shipping policies
+- Comparing products
+- Checking compatibility or variants
+
+Best practices:
+- Cite timestamps
+- Caveat stale data
+- Prefer verified review sources
+- Do not infer missing variants or stock
+
+---
+
+Last Updated: 2025-12-16
+Version: 1.0.0
+Status: Stable

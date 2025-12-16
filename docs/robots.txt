@@ -1,0 +1,17 @@
+# CommerceTXT Protocol
+# https://commercetxt.org
+# Open, read-only standard for AI commerce context
+
+User-agent: *
+Allow: /
+
+# --- AI Context Discovery ---
+# Documentation for AI agents
+LLMS-TXT: https://commercetxt.org/llms.txt
+
+# Protocol Specification
+Commerce-TXT: https://raw.githubusercontent.com/commercetxt/commercetxt/main/spec/README.md
+
+
+# Experimental AI discovery
+AI-Context: CommerceTXT/1.0
