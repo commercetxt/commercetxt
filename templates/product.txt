@@ -5,6 +5,7 @@
 # --------------------------------------------------------
 Name: [Full Product Name]
 SKU: [Merchant SKU]
+URL: [https://yourdomain.com/products/product-name]
 GTIN: [EAN/UPC Barcode - Critical for Google]
 Brand: [Brand Name]
 
@@ -49,6 +50,17 @@ Rating: [4.5]
 Count: [120]
 TopTags: ["Great quality", "Fast shipping"]
 Source: [https://trustpilot.com/review/...]
+
+# @IMAGES (Optional)
+# --------------------------------------------------------
+# - Main: [https://cdn.yourdomain.com/product-main.jpg]
+# - Front: [https://cdn.yourdomain.com/product-front.jpg] | Alt: "Front view"
+
+# @AGE_RESTRICTION (Optional - for regulated products)
+# --------------------------------------------------------
+# MinimumAge: [18/21]
+# Reason: ["Contains alcohol" / "Tobacco product"]
+# VerificationRequired: [True]
 
 # @COMPATIBILITY (Optional)
 # --------------------------------------------------------
