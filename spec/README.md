@@ -1,7 +1,10 @@
 # CommerceTXT Protocol Specification
+[![Version](https://img.shields.io/badge/version-1.0.1-blue.svg)](https://github.com/commercetxt/commercetxt/releases)
+[![License](https://img.shields.io/badge/license-CC0%201.0-green.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
+[![Status](https://img.shields.io/badge/status-stable-success.svg)]()
 
-**Version:** 1.0.0  
-**Date:** 2025-12-16  
+**Version:** 1.0.1  
+**Date:** 2025-12-17  
 **Status:** Stable Release  
 **Maintainer:** Open Merchant Context Workgroup  
 **License:** CC0 1.0 Universal (Public Domain)
@@ -175,6 +178,9 @@ Features: ANC, Wireless, Bluetooth
 - Name: String
 - SKU: String (merchant identifier)
 
+**Recommended Fields:**
+- URL: String (canonical product page URL)
+
 **Optional Fields:**
 - GTIN: String (Global Trade Item Number - barcode)
 - Brand: String
@@ -186,9 +192,19 @@ Features: ANC, Wireless, Bluetooth
 Name: Sony WH-1000XM5
 GTIN: 027242919412
 SKU: WH1000XM5
+URL: https://techstore.example.com/products/sony-wh-1000xm5
 Brand: Sony
 Model: WH-1000XM5
 ```
+
+**Why URL is Recommended:**
+While agents can attempt to construct product URLs from file paths 
+or @IDENTITY.URL + path resolution, explicit URLs eliminate ambiguity 
+and are essential for:
+- Providing direct purchase links to users
+- Multi-language sites with different URL structures
+- SEO canonical URL references
+- Future transactional features (@ACTIONS)
 
 ---
 
@@ -869,6 +885,69 @@ Emphasis: Sustainability, Long-term value, Transparency
 
 ---
 
+### 4.22 @IMAGES (Tier 2: Standard, Optional)
+
+**Purpose:** Provide direct image URLs to eliminate the need for HTML scraping.
+
+**Location:** Leaf (Product) files
+
+**Syntax:** List items with URL and optional metadata
+
+**Example:**
+```
+# @IMAGES
+- Main: https://cdn.example.com/products/sony-xm5-main.jpg
+- Front: https://cdn.example.com/products/sony-xm5-front.jpg | Alt: "Sony XM5 front view"
+- Side: https://cdn.example.com/products/sony-xm5-side.jpg
+- InBox: https://cdn.example.com/products/sony-xm5-box.jpg | Alt: "Package contents"
+```
+
+**Why this matters:**
+
+Without @IMAGES, AI agents must:
+1. Scrape HTML to find `<img>` tags 
+2. Extract image URLs from DOM
+3. Make separate HTTP requests for each image
+4. Process images with vision models (additional cost)
+
+With @IMAGES:
+1. Agent reads commerce.txt
+2. Gets image URLs directly
+3. Can fetch only needed images on-demand
+
+**Benefits:**
+- **Efficiency:** No HTML parsing needed for image discovery
+- **Accuracy:** Ensures agents use canonical product images (not thumbnails or ads)
+- **Performance:** Agents can pre-fetch images in parallel
+- **User Experience:** Enables faster visual product recommendations in chat interfaces
+
+**Schema.org Mapping:**
+- Main → product.image
+- Additional images → product.image (array)
+
+---
+
+
+### 4.23 @AGE_RESTRICTION (Tier 2: Standard, Optional)
+
+**Purpose:** Indicate age requirements for purchase.
+
+**Location:** Leaf (Product) files
+
+**Example:**
+```
+# @AGE_RESTRICTION
+MinimumAge: 18
+Reason: "Contains alcohol"
+VerificationRequired: True
+RestrictedRegions: All
+```
+
+**Benefits:** AI can warn users before they attempt to purchase age-restricted items.
+
+---
+
+
 ## 5. Schema.org Mapping Table
 
 | Directive | CommerceTXT Key | Schema.org Property | Type |
@@ -891,7 +970,9 @@ Emphasis: Sustainability, Long-term value, Transparency
 | @SUPPORT | Email | contactPoint.email | String |
 | @SUPPORT | Phone | contactPoint.telephone | String |
 | @IN_THE_BOX | * | product.itemListElement | Array |
-
+| @IMAGES | Main | product.image | String |
+| @IMAGES | Additional | product.image | Array |
+| @AGE_RESTRICTION | MinimumAge | offer.eligibleAge | Integer |
 ---
 
 ## 6. Compliance Tiers
@@ -920,6 +1001,8 @@ To accommodate different store sizes, compliance is defined in tiers.
 - @REVIEWS
 - @PROMOS
 - @IN_THE_BOX
+- @IMAGES
+- @AGE_RESTRICTION (if applicable for regulated products)
 
 ### Tier 3: Rich (Agent Optimized)
 
@@ -1355,6 +1438,7 @@ LastUpdated: 2025-12-16T09:30:00Z
 Name: Sony WH-1000XM5 Wireless Noise Cancelling Headphones
 GTIN: 027242919412
 SKU: WH1000XM5
+URL: https://techstore.example.com/products/sony-wh-1000xm5
 Brand: Sony
 Model: WH-1000XM5
 Category: Over-Ear Headphones
@@ -1430,6 +1514,13 @@ Requires: Bluetooth 4.2+ or wired connection (3.5mm)
 OptimalWith: Devices supporting LDAC codec (Sony Xperia, Pixel phones)
 NotCompatibleWith: Devices without Bluetooth or 3.5mm jack
 
+# @IMAGES
+- Main: https://cdn.techstore.example.com/products/sony-xm5-main.jpg
+- Front: https://cdn.techstore.example.com/products/sony-xm5-front.jpg | Alt: "Sony WH-1000XM5 front view"
+- Side: https://cdn.techstore.example.com/products/sony-xm5-side.jpg | Alt: "Side profile showing touch controls"
+- Wearing: https://cdn.techstore.example.com/products/sony-xm5-wearing.jpg | Alt: "Person wearing headphones"
+- InBox: https://cdn.techstore.example.com/products/sony-xm5-contents.jpg | Alt: "Package contents laid out"
+
 # @SEMANTIC_LOGIC
 - If user asks about "ANC vs Bose" → "XM5 has slightly better ANC, longer battery (30h vs 24h)"
 - If user asks about "for flying" → "Excellent for travel: 30h battery, superior ANC, foldable design"
@@ -1452,6 +1543,28 @@ RecyclingProgram: Yes
   Details: https://sony.com/recycling
   TradeIn: $50 credit for recycling any brand headphones
 Unverified: False
+```
+
+### Example: Age-Restricted Product (Wine)
+```
+# wine-cabernet.txt
+
+# @PRODUCT
+Name: Napa Valley Cabernet Sauvignon 2020
+SKU: WINE-CAB-2020
+URL: https://wineshop.example.com/products/cabernet-2020
+
+# @OFFER
+Price: 45.00
+Currency: USD
+Availability: InStock
+
+# @AGE_RESTRICTION
+MinimumAge: 21
+Reason: "Alcoholic beverage"
+VerificationRequired: True
+RestrictedRegions: US, Canada
+Note: "ID verification required at delivery"
 ```
 
 ---
@@ -1498,9 +1611,9 @@ These tools enforce critical validation rules:
 
 ## End of Specification
 
-**Version:** 1.0.0 (Stable Release)  
-**Release Date:** December 16, 2025  
-**Last Modified:** 2025-12-16  
+**Version:** 1.0.1 (Stable Release)  
+**Release Date:** December 17, 2025  
+**Last Modified:** 2025-12-17  
 **Contact:** hello@commercetxt.org  
 **GitHub:** https://github.com/commercetxt/commercetxt/
 **Website:** https://commercetxt.org
