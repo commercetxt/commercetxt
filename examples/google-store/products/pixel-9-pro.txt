@@ -1,0 +1,212 @@
+# pixel-9-pro.txt - Google Pixel 9 Pro
+# Tier 3: Rich Implementation (Complete Reference Example)
+# Parent: /categories/smartphones.txt
+# Last Updated: 2025-12-17T09:30:00Z
+
+ProductID: PIXEL-9-PRO-2024
+LastUpdated: 2025-12-17T09:30:00Z
+
+# @PRODUCT
+# --------------------------------------------------------
+Name: Google Pixel 9 Pro
+GTIN: 840244705800
+SKU: GA05843
+Brand: Google
+Model: Pixel 9 Pro
+Category: Smartphone
+ReleaseDate: 2024-10-04
+Description: Premium AI-powered smartphone with advanced camera system and 7 years of updates
+
+# @OFFER
+# --------------------------------------------------------
+Price: 999.00
+Currency: USD
+Availability: InStock
+Condition: New
+PriceValidUntil: 2025-12-31T23:59:59Z
+TaxIncluded: False
+TaxNote: "Sales tax calculated at checkout based on shipping address"
+MSRP: 999.00
+
+# @INVENTORY
+# --------------------------------------------------------
+Stock: 156
+LowStockThreshold: 20
+StockStatus: InStock
+MaxQuantityPerOrder: 2
+LastUpdated: 2025-12-17T09:30:00Z
+ReservedStock: 12
+AvailableForPurchase: 144
+Note: "Total inventory across all configurations. See @VARIANTS for per-SKU stock levels."
+
+# @VARIANTS
+# --------------------------------------------------------
+# Flattened multi-dimensional variants to prevent hallucinations
+# Format: Color / Storage : Price | SKU | Stock | Metadata
+Type: Configuration
+Options:
+  # Obsidian (Black) - All storage options available
+  - Obsidian / 128GB: 999.00  | SKU: GA05843-128-OBS | Stock: 22 | Hex: #202124
+  - Obsidian / 256GB: 1099.00 | SKU: GA05843-256-OBS | Stock: 38 | Hex: #202124
+  - Obsidian / 512GB: 1299.00 | SKU: GA05843-512-OBS | Stock: 18 | Hex: #202124
+  
+  # Porcelain (White/Cream) - All storage options available
+  - Porcelain / 128GB: 999.00  | SKU: GA05843-128-POR | Stock: 16 | Hex: #F1EEE9
+  - Porcelain / 256GB: 1099.00 | SKU: GA05843-256-POR | Stock: 28 | Hex: #F1EEE9
+  - Porcelain / 512GB: 1299.00 | SKU: GA05843-512-POR | Stock: 14 | Hex: #F1EEE9
+  
+  # Hazel (Green) - LIMITED: Only 256GB and 512GB
+  - Hazel / 256GB: 1099.00 | SKU: GA05843-256-HAZ | Stock: 12 | Hex: #6E7D7B
+  - Hazel / 512GB: 1299.00 | SKU: GA05843-512-HAZ | Stock: 9  | Hex: #6E7D7B
+  # Note: Hazel not available in 128GB configuration
+  
+  # Rose Quartz (Pink) - EXCLUSIVE: Online only, limited stock
+  - Rose Quartz / 128GB: 999.00  | SKU: GA05843-128-RQ | Stock: 6  | Hex: #F2D5D7 | Note: "Online exclusive"
+  - Rose Quartz / 256GB: 1099.00 | SKU: GA05843-256-RQ | Stock: 10 | Hex: #F2D5D7 | Note: "Online exclusive"
+  - Rose Quartz / 512GB: 1349.00 | SKU: GA05843-512-RQ | Stock: 3  | Hex: #F2D5D7 | Note: "Online exclusive, limited edition pricing"
+
+# Why flattened? 
+# - Real-world constraint: Hazel color discontinued in 128GB
+# - Rose Quartz 512GB has premium pricing (+$50) and limited stock (only 3 units)
+# - Prevents AI from hallucinating "Hazel 128GB available" or "Rose Quartz widely available"
+
+# @REVIEWS
+# --------------------------------------------------------
+Rating: 4.6
+RatingScale: 5.0
+Count: 2847
+Verified: 92%
+TopTags: "Amazing camera", "Fast performance", "Great battery life", "Expensive", "No charger included"
+Source: https://www.google.com/shopping/customerreviews/merchantId=115940885
+LastUpdated: 2025-12-17T08:00:00Z
+
+# @SPECS
+# --------------------------------------------------------
+# Display
+Display: 6.3" LTPO OLED (Super Actua)
+Resolution: 2856 x 1280 pixels (495 ppi)
+RefreshRate: 1-120Hz adaptive
+PeakBrightness: 3000 nits (HDR)
+Protection: Corning Gorilla Glass Victus 2
+
+# Performance
+Processor: Google Tensor G4
+RAM: 16GB LPDDR5X
+Storage: 128GB / 256GB / 512GB (UFS 4.0)
+OS: Android 15
+Updates: 7 years of OS updates + security patches (guaranteed until October 2031)
+
+# Camera System
+RearCamera: Triple camera system
+MainCamera: 50MP Octa PD wide (f/1.68, 82° FOV, OIS)
+UltrawideCamera: 48MP Quad PD ultrawide (f/1.7, 123° FOV)
+TelephotoCamera: 48MP Quad PD telephoto (f/2.8, 5x optical zoom, 10x Super Res Zoom, OIS)
+FrontCamera: 42MP Dual PD selfie (f/2.2, 103° ultrawide FOV)
+VideoCapture: 4K at 60fps (all cameras), 8K at 30fps (main only)
+CameraFeatures: Night Sight, Magic Eraser, Best Take, Audio Magic Eraser, Macro Focus
+
+# Battery & Charging
+Battery: 4700 mAh
+BatteryLife: 24+ hours typical use | 72+ hours with Extreme Battery Saver
+ChargingSpeed: 27W wired (USB Power Delivery 3.0) | 21W wireless (Qi-certified)
+ChargingTime: 0-50% in approximately 30 minutes (with 30W+ charger)
+ReverseWireless: Battery Share (charge other devices wirelessly)
+
+# Connectivity
+5G: Sub-6 GHz + mmWave (US models)
+WiFi: Wi-Fi 7 (802.11be)
+Bluetooth: 5.3
+NFC: Yes (Google Pay + digital car keys)
+UWB: Ultra-wideband chip (precise location tracking)
+USB: USB-C 3.2 Gen 2 (10 Gbps data transfer, DisplayPort 1.4)
+eSIM: Dual eSIM support
+
+# Physical Specifications
+Dimensions: 152.8 × 72.0 × 8.5 mm (6.0 × 2.8 × 0.3 inches)
+Weight: 199g (7.0 oz)
+WaterResistance: IP68 (6m depth for 30 minutes)
+DustResistance: IP68 certified
+Build: Aluminum frame, Gorilla Glass Victus 2 front and back
+
+# AI Features (Powered by Gemini)
+- Gemini AI assistant (integrated)
+- Magic Eraser (remove unwanted objects from photos)
+- Best Take (combine multiple shots for perfect group photo)
+- Audio Magic Eraser (remove background noise from videos)
+- Circle to Search (search anything on screen)
+- Live Translate (real-time voice and text translation)
+- Call Screen (AI answers calls for you)
+- Hold for Me (AI waits on hold)
+
+# @IN_THE_BOX
+# --------------------------------------------------------
+- Google Pixel 9 Pro smartphone
+- USB-C to USB-C cable (1m, USB 2.0)
+- Quick Switch Adapter (USB-A female to USB-C male, for transferring data from old phone)
+- SIM ejection tool
+- Quick Start Guide
+Note: Power adapter NOT included. Use any USB-C Power Delivery charger (30W or higher recommended). Google 30W USB-C charger available separately ($25).
+
+# @COMPATIBILITY
+# --------------------------------------------------------
+WorksWith: Android Auto, Pixel Watch 3, Pixel Watch 2, Pixel Buds Pro 2, Pixel Buds Pro, Google TV, Chromecast, Nest Hub, Nest devices
+Requires: Google Account (free), Active cellular plan (nano-SIM or eSIM)
+OptimalWith: Google One subscription (cloud storage, VPN, photo editing), Fitbit Premium (advanced health insights), YouTube Premium
+CarrierCompatibility: All major US carriers (Verizon, AT&T, T-Mobile, Google Fi, US Cellular, Visible, Mint Mobile)
+NotCompatibleWith: CDMA-only networks (legacy Verizon 3G - discontinued)
+
+# @SEMANTIC_LOGIC
+# --------------------------------------------------------
+# AI reasoning guidance for common customer questions
+
+- If user asks "camera vs iPhone 16 Pro" → "Pixel 9 Pro excels in computational photography (Night Sight, Magic Eraser, AI-powered zoom). iPhone 16 Pro has better ProRes video and slightly better video stabilization. For stills, especially in low light, Pixel is often rated higher."
+
+- If user asks "battery life" → "24+ hours typical use (mix of standby, browsing, photos, videos). Charges 0-50% in 30 minutes with 30W+ charger. Extreme Battery Saver extends to 72+ hours."
+
+- If user asks "charger not included" → "Power adapter sold separately for environmental reasons (reduce e-waste). Use any USB-C PD charger 30W or higher. Google's 30W charger is $25. Most recent laptop chargers work too."
+
+- If user asks "trade-in value" → "Up to $699 credit depending on device condition. Accepts any brand (iPhone, Samsung, OnePlus, etc.). Instant quote online. Free shipping label provided."
+
+- If user asks "7 years of updates" → "Industry-leading: Guaranteed OS updates through October 2031 + monthly security patches. Includes major Android versions (Android 15, 16, 17, 18, 19, 20, 21)."
+
+- If user asks "Gemini AI features" → "Built-in: Circle to Search, Magic Eraser, Best Take, Live Translate, Call Screen. Free 1 year Gemini Advanced trial ($19.99/month value) included with purchase."
+
+- If user asks "5G support" → "Full 5G: Sub-6 GHz (nationwide coverage) + mmWave (ultra-fast in select cities). Works on all US carriers."
+
+- If user asks "storage recommendation" → "128GB: Basic use, rely on cloud. 256GB: Recommended for most (photos, apps, offline content). 512GB: Power users, lots of 4K video recording."
+
+- If user asks "color availability" → "Obsidian and Porcelain: All storage sizes. Hazel: Only 256GB and 512GB. Rose Quartz: Online exclusive, limited stock."
+
+- If user compares to "Pixel 9" (non-Pro) → "Pro adds: Telephoto camera (5x zoom), 16GB RAM vs 12GB, brighter display (3000 vs 2700 nits), better front camera (42MP vs 10.5MP). Price difference: $200."
+
+- If user asks "worth upgrading from Pixel 8 Pro?" → "Key upgrades: Tensor G4 (30% faster AI tasks), brighter display (+15%), better battery efficiency (+2 hours), refined design (lighter, slimmer), Wi-Fi 7. Cameras similar quality. If Pixel 8 Pro working well, not urgent."
+
+# @PROMOS
+# --------------------------------------------------------
+# Active promotions (December 2025)
+- PIXEL200: $200 off 256GB or 512GB models | Code auto-applied | Expires: 2025-12-31 | Final price: $899 (256GB), $1,099 (512GB)
+- TRADEIN: Trade in any phone | Up to $699 credit | Instant online quote | Condition-based pricing
+- BUNDLE: Buy Pixel 9 Pro + Pixel Watch 3 | Save $100 on watch | Automatically applied in cart
+- STUDENT: UNiDAYS student verification | Additional 10% off | Cannot combine with PIXEL200
+- FINANCING: 0% APR for 24 months via Google Store Financing or Affirm | No credit check impact | Approved instantly
+
+# @SUSTAINABILITY
+# --------------------------------------------------------
+# Environmental and ethical commitments (with verification)
+
+RepairProgram: Google Authorized Service Provider network
+  Duration: Spare parts availability guaranteed for 7 years
+  Details: https://store.google.com/us/repair
+  Coverage: Screen, battery, camera, ports (out-of-warranty repairs available)
+
+TradeIn: Up to $699 credit for old phones (any brand)
+  Link: https://store.google.com/us/magazine/trade_in
+  RecyclingPartner: PCS Wireless (R2 and e-Stewards certified e-waste recycler)
+  Process: Data securely wiped, devices refurbished or responsibly recycled
+
+CarbonNeutral: Carbon neutral for Pixel 9 lineup (Scope 1, 2, 3)
+  Offset: High-quality carbon offsets via verified projects
+  Methodology: https://sustainability.google/commitments/carbon/
+  Certification: Certified by SCS Global Services
+
+Unverified: False

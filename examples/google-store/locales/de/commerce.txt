@@ -1,0 +1,86 @@
+# commerce.txt - Google Store Deutschland
+# Locale: de-DE (German / Germany)
+# Version: 1.0
+# DISCLAIMER: Unofficial demo for educational purposes only
+
+Version: 1.0
+LastUpdated: 2025-12-17T10:00:00Z
+
+# @IDENTITY
+# --------------------------------------------------------
+Name: Google Store
+URL: https://store.google.com/de
+Currency: EUR
+Language: de-DE
+Description: Geräte und Zubehör von Google
+
+# @LOCALES
+# --------------------------------------------------------
+de-DE: /locales/de/commerce.txt (Aktuell)
+en-US: /commerce.txt
+en-GB: /locales/uk/commerce.txt
+fr-FR: /locales/fr/commerce.txt
+ja-JP: /locales/jp/commerce.txt
+
+# @BRAND_VOICE
+# --------------------------------------------------------
+Tone: Freundlich, Hilfsbereit, Informativ
+Restrictions: Klare Erklärungen, Fokus auf Benutzervorteile, Kein technisches Fachjargon
+Emphasis: Innovation, Einfachheit, Hilfsbereitschaft, Nachhaltigkeit
+
+# @PAYMENT
+# --------------------------------------------------------
+Methods: Visa, MasterCard, Amex, PayPal, Google Pay, SEPA-Lastschrift, Klarna
+Installments: Verfügbar (Ratenzahlung über Klarna - 0% effektiver Jahreszins)
+Currency: EUR
+AcceptedCurrencies: EUR, USD, GBP
+
+# @SHIPPING
+# --------------------------------------------------------
+# Deutsche Versandoptionen
+- Standard: Kostenlos | 3-5 Werktage
+- Express: 9,99 EUR | 1-2 Werktage
+Carriers: DHL, Hermes
+Regions: Deutschland, Österreich, Schweiz, EU (27 Länder)
+International: Begrenzte Verfügbarkeit | Kunde zahlt Zoll und Steuern
+
+# @POLICIES
+# --------------------------------------------------------
+Returns: 14 Tage Widerrufsrecht (gesetzlich vorgeschrieben in der EU) | Kostenloser Rückversand
+Warranty: 2 Jahre gesetzliche Gewährleistung (EU-Recht) + optionale Preferred Care
+Privacy: https://policies.google.com/privacy?hl=de
+RefundMethod: Original-Zahlungsmethode | Bearbeitung innerhalb von 5-10 Werktagen
+PriceMatch: Nicht verfügbar
+
+# @SUPPORT
+# --------------------------------------------------------
+Email: store-support-de@google.com
+Phone: +49 30 300 149 000 (Deutschland)
+Chat: Verfügbar 24/7 (Deutsch, Englisch)
+Hours: Montag-Freitag 08:00-20:00 CET, Samstag-Sonntag 10:00-18:00 CET
+
+# @CATALOG
+# --------------------------------------------------------
+- Smartphones: /locales/de/categories/smartphones.txt
+- Smartwatches: /locales/de/categories/smartwatches.txt
+- Earbuds: /locales/de/categories/earbuds.txt
+- Tablets: /locales/de/categories/tablets.txt
+- Smart Home: /locales/de/categories/smart-home.txt
+- Abonnements: /locales/de/categories/subscriptions.txt
+- Zubehör: /locales/de/categories/accessories.txt
+
+# @PROMOS
+# --------------------------------------------------------
+# Aktive Aktionen (Dezember 2025)
+- TRADEIN: Altes Gerät eintauschen | Bis zu 699 EUR Gutschrift
+- STUDENT: Studentenrabatt über UNiDAYS | 10% auf ausgewählte Pixel-Geräte
+- BUNDLE: Bundle-Angebot | Pixel 9 Pro + Pixel Watch 3 kaufen, 100 EUR sparen
+
+# EU-SPECIFIC NOTES
+# --------------------------------------------------------
+# Wichtige Unterschiede zu US-Store:
+# - Alle Preise inkl. 19% Mehrwertsteuer (Deutschland)
+# - 14 Tage Widerrufsrecht (EU-Gesetz) statt 15 Tage
+# - 2 Jahre gesetzliche Gewährleistung (EU-Recht) statt 1 Jahr
+# - SEPA-Lastschrift und Klarna-Ratenzahlung verfügbar
+# - DHL Express-Versand statt FedEx
