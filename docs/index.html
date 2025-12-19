@@ -204,10 +204,10 @@
         .comparison-table .cross { color: var(--text-secondary); }
 
         .feature-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 1.5rem;
-            margin: 2rem 0;
+         display: grid;
+         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+         gap: 1.5rem;
+         margin: 2rem 0;
         }
         .feature-card {
             background: var(--code-bg);
@@ -396,7 +396,7 @@
 <body>
 
     <header class="hero">
-        <h1>CommerceTXT Protocol <span class="badge">v1.0</span></h1>
+        <h1>CommerceTXT Protocol <span class="badge">v1.0.1</span></h1>
         <p class="tagline">Transaction-ready context for AI agents</p>
         <p class="subtitle">Like llms.txt, but for e-commerce</p>
     </header>
@@ -450,7 +450,16 @@ Count: 1243
 TopTags: "Great battery"</code></pre>
                 <p><strong>Impact:</strong> 99.7% token reduction for review queries.</p>
             </div>
-        </div>
+
+            <div class="feature-card">
+                <h3>@IMAGES <span class="new-badge">NEW</span></h3>
+                <p>Direct image URLs eliminate HTML scraping for product visuals.</p>
+                <pre><code>- Main: cdn.example.com/main.jpg
+        - Front: cdn.example.com/front.jpg</code></pre>
+                <p><strong>Impact:</strong> Instant image discovery without DOM parsing.</p>
+            </div>
+        
+        
     </section>
 
     <section id="why-different">
@@ -777,15 +786,15 @@ AddToCart: POST https://api.example.com/cart/add
             
             <p style="margin-top:1rem;"><strong>Example concept:</strong></p>
             <pre><code># @SUSTAINABILITY
-CarbonNeutral: Yes
-  Verified: https://climatepartner.com/cert/12345
-  Certificate: ClimatePartner ID 12345-2024
+         CarbonNeutral: Yes
+         Verified: https://climatepartner.com/cert/12345
+         Certificate: ClimatePartner ID 12345-2024
   
-Packaging: 100% Recycled Materials
-  Certification: FSC-C123456
+         Packaging: 100% Recycled Materials
+         Certification: FSC-C123456
   
-RepairProgram: Available
-  Duration: 7 years of spare parts</code></pre>
+         RepairProgram: Available
+         Duration: 7 years of spare parts</code></pre>
 
             <p style="margin-top:1rem;"><strong>Why discussion is needed:</strong></p>
             <ul>
@@ -863,7 +872,7 @@ print(data['@OFFER']['Price'])</code></pre>
         </div>
         
         <p style="margin-top: 2rem; font-size: 0.8rem; opacity: 0.7;">
-            v1.0.0 Stable • Last Updated: Dec 16, 2025
+            v1.0.1 Stable • Last Updated: Dec 17, 2025
         </p>
     </footer>
 

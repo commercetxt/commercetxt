@@ -4,7 +4,7 @@
 > Like llms.txt, but for e-commerce
 
 [![License: CC0](https://img.shields.io/badge/License-CC0_1.0-lightgrey.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
-[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://commercetxt.org)
+[![Version](https://img.shields.io/badge/version-1.0.1-blue.svg)](https://commercetxt.org)
 [![Standard](https://img.shields.io/badge/standard-stable-green.svg)](./spec/README.md)
 
 ---
@@ -202,6 +202,12 @@ AI: [Reads 5 KB file, 380 tokens]
 - Multi-regional support
 - Complete specification
 - **Parser implementations (in development)**
+
+### v1.0.1 (Released - Dec 2025) 
+- @IMAGES directive (direct image URLs)
+- @AGE_RESTRICTION directive (regulated products)
+- @PRODUCT URL field clarification
+- Enhanced documentation
 
 ### v1.1 (Q1 2026)
 - @SUSTAINABILITY directive (verified environmental claims)
