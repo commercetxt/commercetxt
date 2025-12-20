@@ -20,7 +20,7 @@ CommerceTXT is an open, read-only protocol that enables AI agents to access accu
 - Product specifications and compatibility
 - Customer reviews (aggregated)
 
-**Result:** 95-99% token reduction, zero hallucinations, better user experience.
+**Result:** ~95% token reduction and elimination of price and inventory hallucinations.
 
 ---
 
@@ -90,6 +90,7 @@ AI agents read this structured data directly—no scraping, no guessing, no hall
    ```
    Commerce-TXT: https://yourstore.com/commerce.txt
    ```
+   Non-standard hint. Primary discovery is via direct fetch.
 
 4. **Use generator** (optional)
    - Online: Coming soon
@@ -125,7 +126,7 @@ No more "prices may vary" or "appears to be in stock"—data is either correct o
 - **Reduction: 95%+**
 
 ### Schema.org Compatible
-Maps directly to existing structured data standards. Works *with* your current setup, not against it.
+CommerceTXT uses Schema.org as a semantic vocabulary, not as a web serialization format. Maps directly to existing structured data standards. Works *with* your current setup, not against it. 
 
 ### Multi-Regional Support
 Built-in locale resolution for different currencies, languages, and policies.
@@ -140,8 +141,9 @@ CC0 license—no permission needed to implement. Vendor-neutral infrastructure.
 
 ## Documentation
 
-- **[Full Specification](./spec/README.md)** - Technical RFC (v1.0.0)
+- **[Full Specification](./spec/README.md)** - Technical RFC (v1.0.1)
 - **[Manifesto](./MANIFESTO.md)** - Why AI platforms should support this
+- **[Contributors](./CONTRIBUTORS.md)** - Project contributors
 - **[Examples](./examples/)** - Real commerce.txt files
 - **[Parsers](./parsers/)** - Reference implementations  (coming soon)
 - **[Website](https://commercetxt.org)** - Interactive guides
@@ -194,42 +196,95 @@ AI: [Reads 5 KB file, 380 tokens]
 
 ---
 
-## Roadmap
+# Roadmap (Community-Driven)
 
-### v1.0.0 (Stable Release - Dec 2025)
-- Core directives (@PRODUCT, @OFFER, @INVENTORY, @REVIEWS)
-- Trust Score framework
-- Multi-regional support
-- Complete specification
-- **Parser implementations (in development)**
+---
+## **v1.1 (Q1 2026 - Focus: Trust & Discovery)** 
+**Upgraded in response to feedback from [Hacker News](https://news.ycombinator.com/item?id=46289481) and [Schema.org](https://github.com/schemaorg/schemaorg/discussions/4651) communities.**
 
-### v1.0.1 (Released - Dec 2025) 
-- @IMAGES directive (direct image URLs)
-- @AGE_RESTRICTION directive (regulated products)
-- @PRODUCT URL field clarification
-- Enhanced documentation
+### Discovery Improvements (The "Frictionless" Update)
+* **HTML Link Discovery:** Support for `<link rel="commercetxt" href="...">` in `<head>` 
+  - Enables merchants on restricted platforms (Shopify, Wix) to point to externally hosted files
+  - Fallback for environments where root file access is blocked
+  
+* **Well-Known First:** Mandate `/.well-known/commerce.txt` as primary path (RFC 8615 compliant)
+  - Root `/commerce.txt` becomes legacy fallback
+  - Aligns with IETF best practices (credit: HN community feedback)
 
-### v1.1 (Q1 2026)
-- @SUSTAINABILITY directive (verified environmental claims)
-- Enhanced validation tools
-- More parser implementations
-- Merchant onboarding tooling
+* **Technical Rigor (Schema.org Integration):**
+    * **Formal Grammar:** Strict rules for escaping special characters (`|`, `:`, `\n`) to ensure parser stability.
+    * **Semantic Mapping:** Publishing formal Turtle definitions to ensure 1:1 mapping with Schema.org vocabulary.
+    * **Graph Flattening:** Standardized way to represent multi-currency offers and complex product models in a flat-file format.
 
-### v2.0+ (Future)
-- @ACTIONS (transactional capabilities - requires industry consensus)
-- Real-time API integration
-- Advanced trust mechanisms
+### Data Integrity & Freshness
+* **@TIMESTAMP (Global):** Document-level timestamp for freshness validation
+  - Prevents "stale inventory" hallucinations
+  - Enables agent-side caching strategies
+  - Format: ISO-8601 timestamp
+
+* **@SUSTAINABILITY (Optional):** Verified environmental claims
+  - Carbon footprint, recycled materials, repair programs
+  - Requires third-party verification URL (anti-greenwashing)
+  - Example: `CarbonNeutral: Yes | Verified: https://climatepartner.com/cert/12345`
+
+### Reference Implementations
+* **Openfront Integration:** First production implementation
+  - Open source Shopify alternative by @theturtletalks
+  - Provides real-world validation of spec
+  - Case study: [link to be added]
+
+### Ethical Sales Guidance
+* **@PURCHASE_ADVICE:** Merchant-defined key selling points
+  - Factual highlights to prevent AI from "hallucinating" features the product does not have.
+  - Example: `Highlights: 5-year warranty, Free repairs, Carbon-neutral shipping`
+
+* **@COMPARISON_CONTEXT:** How to position vs competitors
+  - Transparent competitive advantages
+  - Example: `vs. CompetitorX: Better battery (30h vs 20h), Lower price ($200 less)`
+
+### Advanced Features (Experimental)
+* **Multi-Variant @BRAND_VOICE:** A/B testing for brand personality
+  - Requires analytics infrastructure (out of scope for v1.x)
+  - Community feedback needed before standardization
 
 ---
 
-## Community
+## v2.0 (2027+) - "Transactional Layer" (Requires Community Consensus)
+**Theme:** From read-only context to actionable commerce (if community decides this is valuable).
 
-### Get Involved
+### Proposed (Not Finalized)
+* **@ACTIONS:** Transactional directives (add to cart, apply coupon)
+  - Requires extensive security review
+  - User-in-the-loop mandatory for all transactions
+  - Open question: Should CommerceTXT remain read-only forever?
 
-- **GitHub Discussions:** Share ideas, ask questions
-- **Discord:** Real-time chat (coming soon)
-- **Email:** hello@commercetxt.org
+* **@ANALYTICS:** Anonymous conversion tracking
+  - Privacy-first approach (no PII)
+  - Helps merchants measure AI shopping channel ROI
 
+---
+
+## Community Involvement
+* **Working Group:** Open to all contributors
+  - Decisions by consensus, not dictation
+  
+* **Reference Implementations:**
+  - Openfront (in progress - Q1 2026)
+  - Seeking: WooCommerce plugin, Magento extension
+  
+* **AI Platform Adoption:**
+  - Target: OpenAI, Anthropic, Google to support in ChatGPT/Claude/Gemini
+  - Community help needed: We are specifically looking for contacts within **Search Quality**, **LLM Training**, and **GPTs/Plugins Infrastructure** teams. Who has contacts at these companies?
+
+---
+
+## How to Contribute
+1. **Propose features:** Open GitHub Issues with `[RFC]` prefix
+2. **Review spec:** Technical feedback on mapping, syntax, edge cases
+3. **Build implementations:** Plugins for e-commerce platforms
+4. **Spread awareness:** Write blog posts, conference talks, podcasts
+
+**Join the discussion:** https://github.com/commercetxt/commercetxt/discussions
 
 ---
 
@@ -256,7 +311,7 @@ Your prices are already public in HTML. CommerceTXT doesn't expose new data—it
 No. Tier 1 (Minimal) requires only 4 directives. Add more as needed. See [Compliance Tiers](./spec/README.md#6-compliance-tiers).
 
 ### Which AI platforms support this?
-CommerceTXT is newly launched (v1.0.0). We're in active discussions with Anthropic, OpenAI, and Google. See [Manifesto](./MANIFESTO.md) for pitch.
+CommerceTXT is newly launched (v1.0.1). We're in active discussions with Anthropic, OpenAI, and Google. See [Manifesto](./MANIFESTO.md) for pitch.
 
 ### How do I keep data fresh?
 Set appropriate `Cache-Control` headers (5-60 minutes). For dynamic inventory, generate commerce.txt on-demand from your database.
@@ -271,8 +326,8 @@ Set appropriate `Cache-Control` headers (5-60 minutes). For dynamic inventory, g
 
 ## Status
 
-**Current Version:** 1.0.0 (Stable Release)  
-**Release Date:** December 16, 2025  
+**Current Version:** 1.0.1 (Stable Release)  
+**Release Date:** December 17, 2025  
 **Stability:** Production-ready  
 **Breaking Changes:** None expected in v1.x
 
@@ -298,7 +353,7 @@ No attribution required (but appreciated).
 - **Specification:** https://github.com/commercetxt/commercetxt/blob/main/spec/README.md
 - **GitHub:** https://github.com/commercetxt/commercetxt/
 - **Discussions:** https://github.com/commercetxt/commercetxt/discussions
-- **Twitter:** Coming soon
+- **X:** https://x.com/CommerceTXT
 
 ---
 
