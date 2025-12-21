@@ -299,6 +299,40 @@ No single company owns CommerceTXT. It's open infrastructure for the Agentic Web
 
 ---
 
+## Design Philosophy
+
+CommerceTXT was refined through extensive community discussion (see [Hacker News](https://news.ycombinator.com/item?id=46289481) and [Schema.org](https://github.com/schemaorg/schemaorg/discussions/4651)). Below are the core principles behind the protocol.
+
+---
+
+### Why not just use a standard JSON API or CSV dump?
+
+**The "Syntax Tax" Problem:** Traditional APIs (JSON/XML) and CSVs are designed for deterministic software. For LLMs, every bracket, quote, and comma is a token that costs money and consumes context window. CommerceTXT uses a minimal, line-oriented format to achieve a **~95% reduction in token overhead**.
+
+**Logic over Raw Data:** A CSV is a dump of facts. CommerceTXT allows merchants to provide **@SEMANTIC_LOGIC** and **@BRAND_VOICE**, guiding the AI on how to interpret data (e.g., "Always mention battery life when compared to competitors").
+
+---
+
+### Isn't it better to just improve HTML scraping?
+
+**The "Fragility Tax":** Relying on scrapers forces AI agents to guess data from thousands of different store layouts. This leads to hallucinations, especially with complex pricing (variants, taxes, discounts). CommerceTXT provides a **deterministic fast-lane** — the AI doesn't have to guess; it knows.
+
+---
+
+### Why a protocol specifically for LLMs?
+
+**New paradigms require new protocols.** Just as the Web needed HTTP (not Gopher), AI agents need protocols optimized for token costs, latency and hallucination risks—constraints that 2010-era REST APIs weren't built to handle.
+
+---
+
+### Won't this make it easier for competitors to scrape my prices?
+
+Your pricing is already public in your HTML. Competitors are already scraping you. CommerceTXT doesn't expose *new* data. It makes legitimate AI assistants (ChatGPT, Claude, Gemini) more efficient at driving traffic to your store while **reducing CPU/bandwidth load** from heavy scrapers. Think "organized parking" instead of "bot chaos."
+
+---
+
+*For detailed answers, see [FAQ.md](./FAQ.md).*
+
 ## FAQ
 
 ### Is this a replacement for HTML?
