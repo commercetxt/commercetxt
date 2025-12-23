@@ -1,0 +1,13 @@
+{
+  "name": "Tier 1 Minimal Compliance",
+  "description": "Minimal valid CommerceTXT document",
+  "input": {
+    "content": "Version: 1.0.1\n\n# @IDENTITY\nName: Demo Store\nCurrency: USD\n\n# @PRODUCT\nName: Sample Product\nSKU: SAMPLE-001\n\n# @OFFER\nPrice: 19.99\nAvailability: InStock\n"
+  },
+  "expected": {
+    "version": "1.0.1",
+    "directives": ["IDENTITY", "PRODUCT", "OFFER"],
+    "errors": [],
+    "warnings": []
+  }
+}

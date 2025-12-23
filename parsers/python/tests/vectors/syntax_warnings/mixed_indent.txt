@@ -1,0 +1,4 @@
+# @IDENTITY
+  Name: Mixed Indent Store
+Currency: USD
+   # Bad Indent here

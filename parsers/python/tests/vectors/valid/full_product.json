@@ -1,0 +1,11 @@
+{
+  "name": "Full Product Example",
+  "description": "Product with inventory, reviews and catalog",
+  "input": {
+    "content": "Version: 1.0.1\nLastUpdated: 2025-12-17T10:00:00Z\n\n# @IDENTITY\nName: Demo Store\nCurrency: USD\nURL: https://demo.example.com\n\n# @PRODUCT\nName: Sony WH-1000XM5\nSKU: WH1000XM5\nGTIN: 027242919412\n\n# @OFFER\nPrice: 348.00\nAvailability: InStock\n\n# @INVENTORY\nStock: 42\nLastUpdated: 2025-12-17T09:00:00Z\n\n# @REVIEWS\nRating: 4.7\nCount: 1243\n\n# @CATALOG\n- Electronics: /categories/electronics.txt\n"
+  },
+  "expected": {
+    "errors": [],
+    "warnings": []
+  }
+}

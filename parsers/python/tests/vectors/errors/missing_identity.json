@@ -1,0 +1,12 @@
+{
+  "name": "Missing IDENTITY",
+  "description": "IDENTITY directive is mandatory",
+  "input": {
+    "content": "# @PRODUCT\nName: Test\n\n# @OFFER\nPrice: 10.00\nAvailability: InStock\n"
+  },
+  "expected": {
+    "errors": [
+      "Missing required @IDENTITY directive"
+    ]
+  }
+}

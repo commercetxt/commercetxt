@@ -1,0 +1,16 @@
+{
+  "name": "Review Tag Violations",
+  "description": "Triggers warnings for exceeding tag count and length limits in @REVIEWS.",
+  "input": {
+    "content": "Version: 1.0.1\n\n# @IDENTITY\nName: Test Store\nCurrency: USD\n\n# @PRODUCT\nName: Test Product\nSKU: TEST-002\n\n# @OFFER\nPrice: 50.00\nAvailability: InStock\n\n# @REVIEWS\nRating: 4.5\nRatingScale: 5.0\nCount: 10\nTopTags: \"Tag One\", \"Tag Two\", \"Tag Three\", \"Tag Four\", \"Tag Five\", \"Tag Six\", \"Extremely Long Tag Name That Violates Limits\"\n"
+  },
+  "expected": {
+    "version": "1.0.1",
+    "directives": ["IDENTITY", "PRODUCT", "OFFER", "REVIEWS"],
+    "errors": [],
+    "warnings": [
+      "@REVIEWS TopTags exceed recommended limit of 5",
+      "@REVIEWS Tag too long (>20 chars): Extremely Long Tag Name That Violates Limits"
+    ]
+  }
+}

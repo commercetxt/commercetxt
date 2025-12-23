@@ -1,0 +1,4 @@
+# @OFFER
+Price: 10.00
+Availability: InStock
+# Missing @IDENTITY -> Should cause Error

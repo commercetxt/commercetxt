@@ -1,0 +1,13 @@
+{
+  "name": "UTF-8 Sanity Check",
+  "description": "Ensures the parser handles Cyrillic, Emojis and special currency symbols correctly.",
+  "input": {
+    "content": "Version: 1.0.1\n\n# @IDENTITY\nName: Магазин „Техно“ 🚀\nCurrency: BGN\n\n# @PRODUCT\nName: Смартфон „Звезда“\nDescription: Най-добрият модел за 2025 г. ✨\n"
+  },
+  "expected": {
+    "version": "1.0.1",
+    "directives": ["IDENTITY", "PRODUCT"],
+    "errors": [],
+    "warnings": []
+  }
+}

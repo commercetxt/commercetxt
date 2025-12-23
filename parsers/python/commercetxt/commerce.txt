@@ -1,0 +1,76 @@
+# commerce.txt - Google Store
+# Version: 1.0
+# DISCLAIMER: Unofficial demo for educational purposes only
+
+Version: 1.0
+LastUpdated: 2025-12-17T10:00:00Z
+
+# @IDENTITY
+# --------------------------------------------------------
+Name: Google Store
+URL: https://store.google.com
+Currency: USD
+Description: Devices and accessories made by Google
+
+# @LOCALES
+# --------------------------------------------------------
+en-US: /commerce.txt (Current)
+en-GB: /locales/uk/commerce.txt
+de-DE: /locales/de/commerce.txt
+fr-FR: /locales/fr/commerce.txt
+ja-JP: /locales/jp/commerce.txt
+
+# @BRAND_VOICE
+# --------------------------------------------------------
+Tone: Friendly, Helpful, Informative
+Restrictions: Clear explanations, Focus on user benefits, No technical jargon overload
+Emphasis: Innovation, Simplicity, Helpfulness, Sustainability
+
+# @PAYMENT
+# --------------------------------------------------------
+Methods: Visa, MasterCard, Amex, Discover, PayPal, Google Pay
+Installments: Available (0% APR for 24 months on select products via Google Store Financing or Affirm)
+Currency: USD
+AcceptedCurrencies: USD, GBP, EUR, JPY, CAD, AUD
+
+# @SHIPPING
+# --------------------------------------------------------
+# US Shipping (default locale)
+- Standard: Free on all orders | 5-7 business days
+- Express: $14.99 | 2-3 business days
+- Overnight: $24.99 | Next business day (orders before 12PM PT, Mon-Fri only)
+Carriers: FedEx, UPS
+Regions: US (all 50 states), Puerto Rico, US Virgin Islands
+International: Limited availability | Customer responsible for duties and taxes
+
+# @POLICIES
+# --------------------------------------------------------
+Returns: 15 Days from delivery (Free return shipping for defective items)
+Warranty: 1 Year Limited Manufacturer Warranty (Extended coverage via Preferred Care available)
+Privacy: https://policies.google.com/privacy
+RefundMethod: Original payment method | Processed within 5-10 business days of receipt
+PriceMatch: Not available
+
+# @SUPPORT
+# --------------------------------------------------------
+Email: store-support@google.com
+Phone: 1-855-836-3987 (US toll-free)
+Chat: Available 24/7 (English, Spanish)
+Hours: 24/7 support for urgent issues | Business hours: Mon-Fri 5AM-9PM PT, Sat-Sun 7AM-5PM PT
+
+# @CATALOG
+# --------------------------------------------------------
+- Smartphones: /categories/smartphones.txt
+- Smartwatches: /categories/smartwatches.txt
+- Earbuds: /categories/earbuds.txt
+- Tablets: /categories/tablets.txt
+- Smart Home: /categories/smart-home.txt
+- Subscriptions: /categories/subscriptions.txt
+- Accessories: /categories/accessories.txt
+
+# @PROMOS
+# --------------------------------------------------------
+# Active promotions (as of December 2025)
+- TRADEIN: Trade in your old device | Up to $699 credit for phones, $420 for tablets
+- STUDENT: Student discount via UNiDAYS | 10% off select Pixel devices
+- BUNDLE: Bundle and save | Buy Pixel 9 Pro + Pixel Watch 3, save $100

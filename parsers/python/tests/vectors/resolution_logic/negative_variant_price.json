@@ -1,0 +1,13 @@
+{
+  "name": "Negative Variant Price",
+  "description": "Validation error when a variant price modifier results in a negative final price.",
+  "input": {
+    "content": "Version: 1.0.1\n\n# @IDENTITY\nName: Test Store\nCurrency: USD\n\n# @PRODUCT\nName: Test Product\nSKU: TEST-001\n\n# @OFFER\nPrice: 10.00\nAvailability: InStock\n\n# @VARIANTS\nType: Discount\nOptions:\n  - Extreme Discount: -15.00 | SKU: TEST-EXT-DISC\n"
+  },
+  "expected": {
+    "version": "1.0.1",
+    "directives": ["IDENTITY", "PRODUCT", "OFFER", "VARIANTS"],
+    "errors": ["Variant 'Extreme Discount' results in negative price"],
+    "warnings": []
+  }
+}

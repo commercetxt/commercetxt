@@ -1,0 +1,13 @@
+{
+  "name": "Invalid Timestamp",
+  "description": "LastUpdated must be ISO-8601",
+  "input": {
+    "content": "# @IDENTITY\nName: Demo\nCurrency: USD\n\n# @INVENTORY\nStock: 10\nLastUpdated: yesterday\n"
+  },
+  "expected": {
+    "errors": [],
+    "warnings": [
+      "Invalid LastUpdated timestamp"
+    ]
+  }
+}

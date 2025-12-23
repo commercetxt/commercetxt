@@ -1,0 +1,13 @@
+{
+  "name": "Stale Inventory Warning",
+  "description": "@INVENTORY LastUpdated older than 72 hours",
+  "input": {
+    "content": "# @IDENTITY\nName: Demo Store\nCurrency: USD\n\n# @OFFER\nPrice: 49.99\nAvailability: InStock\n\n# @INVENTORY\nStock: 5\nLastUpdated: 2025-12-01T10:00:00Z\n"
+  },
+  "expected": {
+    "errors": [],
+    "warnings": [
+      "@INVENTORY data is stale"
+    ]
+  }
+}

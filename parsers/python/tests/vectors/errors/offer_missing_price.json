@@ -1,0 +1,12 @@
+{
+  "name": "Offer Missing Price",
+  "description": "Price is mandatory in OFFER",
+  "input": {
+    "content": "# @IDENTITY\nName: Demo\nCurrency: USD\n\n# @OFFER\nAvailability: InStock\n"
+  },
+  "expected": {
+    "errors": [
+      "@OFFER missing required 'Price'"
+    ]
+  }
+}

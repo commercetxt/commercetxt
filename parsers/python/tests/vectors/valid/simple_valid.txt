@@ -1,0 +1,6 @@
+# @IDENTITY
+Name: Valid Store
+Currency: USD
+# @OFFER
+Price: 10.00
+Availability: InStock

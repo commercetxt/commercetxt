@@ -1,0 +1,13 @@
+{
+  "name": "Variants Without Offer",
+  "description": "@VARIANTS used without base @OFFER",
+  "input": {
+    "content": "# @IDENTITY\nName: Demo Store\nCurrency: USD\n\n# @VARIANTS\n- Color: Black | PriceDelta: 10\n"
+  },
+  "expected": {
+    "errors": [],
+    "warnings": [
+      "@VARIANTS used without base @OFFER"
+    ]
+  }
+}

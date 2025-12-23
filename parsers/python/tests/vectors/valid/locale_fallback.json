@@ -1,0 +1,17 @@
+{
+  "name": "Locale Fallback Resolution",
+  "description": "Tests the language-level fallback logic for locales in the Root file.",
+  "input": {
+    "content": "Version: 1.0.1\n\n# @IDENTITY\nName: Global Store\nCurrency: USD\n\n# @LOCALES\nen-US: /commerce.txt\nfr-FR: /fr/commerce.txt\nfr: /fr-generic/commerce.txt\nde: /de/commerce.txt\n"
+  },
+  "expected": {
+    "version": "1.0.1",
+    "directives": ["IDENTITY", "LOCALES"],
+    "errors": [],
+    "warnings": [],
+    "resolution_test": {
+      "user_locale": "fr-CA",
+      "expected_path": "/fr-generic/commerce.txt"
+    }
+  }
+}

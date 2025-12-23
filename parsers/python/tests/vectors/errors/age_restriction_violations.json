@@ -1,0 +1,13 @@
+{
+  "name": "Age Restriction Violations",
+  "description": "Validates that MinimumAge is a positive integer.",
+  "input": {
+    "content": "Version: 1.0.1\n\n# @IDENTITY\nName: Adult Store\nCurrency: EUR\n\n# @AGE_RESTRICTION\nMinimumAge: -18\nVerificationRequired: True\n"
+  },
+  "expected": {
+    "version": "1.0.1",
+    "directives": ["IDENTITY", "AGE_RESTRICTION"],
+    "errors": ["MinimumAge cannot be negative"],
+    "warnings": []
+  }
+}

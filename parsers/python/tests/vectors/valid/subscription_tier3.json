@@ -1,0 +1,13 @@
+{
+  "name": "Subscription Tier 3",
+  "description": "Tests Tier 3 subscription directives and nested plan items.",
+  "input": {
+    "content": "Version: 1.0.1\n\n# @IDENTITY\nName: SaaS Provider\nCurrency: USD\n\n# @SUBSCRIPTION\nPlans:\n  - Monthly: 29.00 | Features: Basic\n  - Annual: 290.00 | Features: Premium, Support\nCancelAnytime: True\n"
+  },
+  "expected": {
+    "version": "1.0.1",
+    "directives": ["IDENTITY", "SUBSCRIPTION"],
+    "errors": [],
+    "warnings": []
+  }
+}

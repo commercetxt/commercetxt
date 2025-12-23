@@ -1,0 +1,9 @@
+# @IDENTITY
+Name: Warning Store
+Currency: USD
+# @OFFER
+Price: 10.00
+Availability: InStock
+# @IMAGES
+- Name: Main
+- Alt: This is a very very very very very very very very very very very very very very very very very very very very very long text that exceeds limit
