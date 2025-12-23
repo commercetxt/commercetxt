@@ -1,0 +1,40 @@
+name: CommerceTXT Python CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install ruff mypy black pytest pytest-asyncio pytest-cov
+          pip install -e parsers/python/
+
+      - name: Check formatting with Black
+        run: black --check parsers/python/
+
+      - name: Lint with Ruff
+        run: ruff check parsers/python/
+
+      - name: Type check with Mypy
+        run: mypy parsers/python/
+
+      - name: Run Tests
+        run: |
+          cd parsers/python
+          pytest tests/ --cov=commercetxt
