@@ -31,6 +31,11 @@ def main():
     )
     parser.add_argument("--metrics", action="store_true", help="Show performance data")
     parser.add_argument("--prompt", action="store_true", help="Generate AI prompt")
+    parser.add_argument(
+        "--validate",
+        action="store_true",
+        help="Only validate the file without outputting content",
+    )
 
     args = parser.parse_args()
 
@@ -80,9 +85,10 @@ def main():
 
     bridge = CommerceAIBridge(final_result)
 
-    # Handle output. Decide between prompt, JSON, or text report.
-    if args.prompt:
-        print("\n--- GENERATED AI PROMPT ---")
+    # Handle output. Decide between prompt, JSON, validate or text report.
+    if args.validate:
+        print_validation_report(final_result, file_path)
+    elif args.prompt:
         print(bridge.generate_low_token_prompt())
     elif args.json:
         out = {
@@ -97,6 +103,21 @@ def main():
 
     # Exit with code 1 if errors found. Else 0.
     sys.exit(1 if final_result.errors else 0)
+
+
+def print_validation_report(result, path):
+    """Specific output for the --validate flag."""
+    print(f"--- Validation Report: {path.name} ---")
+    print(f"Status: {'PASSED' if not result.errors else 'FAILED'}")
+    print(f"Errors: {len(result.errors)}")
+    for e in result.errors:
+        print(f"  [!] {e}")
+    print(f"Warnings: {len(result.warnings)}")
+    for w in result.warnings:
+        print(f"  [*] {w}")
+
+    if not result.errors:
+        print("\nConclusion: File conforms to CommerceTXT protocol.")
 
 
 def print_human_readable(result, path):

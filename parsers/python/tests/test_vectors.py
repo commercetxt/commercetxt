@@ -48,9 +48,7 @@ class TestVectors:
         validator = CommerceTXTValidator()
         validator.validate(result)
 
-        assert (
-            len(result.errors) > 0
-        ), f"File {Path(file_path).name} should have errors."
+        assert len(result.errors) > 0, f"File {Path(file_path).name} should have errors."
 
     @pytest.mark.parametrize("file_path", get_vector_files("warnings"))
     def test_warning_vectors(self, file_path):
@@ -64,9 +62,7 @@ class TestVectors:
         validator = CommerceTXTValidator()
         validator.validate(result)
 
-        assert (
-            len(result.warnings) > 0
-        ), f"File {Path(file_path).name} should have warnings."
+        assert len(result.warnings) > 0, f"File {Path(file_path).name} should have warnings."
 
     @pytest.mark.parametrize("file_path", get_vector_files("syntax_warnings"))
     def test_syntax_vectors(self, file_path):
@@ -77,6 +73,4 @@ class TestVectors:
         parser = CommerceTXTParser()
         result = parser.parse(content)
 
-        assert (
-            len(result.warnings) > 0 or len(result.errors) > 0
-        ), f"File {Path(file_path).name} syntax passed."
+        assert len(result.warnings) > 0 or len(result.errors) > 0, f"File {Path(file_path).name} syntax passed."

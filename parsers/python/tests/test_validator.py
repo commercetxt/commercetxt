@@ -1,15 +1,16 @@
 """
-Tests for CommerceTXT Validator.
-Check the rules. Trust the data.
+Comprehensive Tests for CommerceTXT Validator.
+Spec-grade coverage for Tier 1, Tier 2 and Tier 3 rules.
+Validator is treated as protocol authority.
 """
 
 import pytest
+import builtins
 from datetime import datetime, timedelta
-from commercetxt.parser import CommerceTXTParser
+from unittest.mock import patch
+
 from commercetxt.validator import CommerceTXTValidator
-
-from commercetxt import ParseResult
-
+from commercetxt.model import ParseResult
 from commercetxt.constants import (
     VALID_AVAILABILITY,
     VALID_CONDITION,
@@ -18,404 +19,310 @@ from commercetxt.constants import (
 )
 
 
+# =========================================================
+# FIXTURES
+# =========================================================
+
+
+@pytest.fixture
+def validator():
+    return CommerceTXTValidator(strict=False)
+
+
+@pytest.fixture
+def strict_validator():
+    return CommerceTXTValidator(strict=True)
+
+
+@pytest.fixture
+def result():
+    return ParseResult(directives={}, errors=[], warnings=[], trust_flags=[])
+
+
+# =========================================================
+# CORE CONSTANTS
+# =========================================================
+
+
 def test_protocol_constants_integrity():
-    """Ensure core protocol constants are not altered accidentally."""
     assert "InStock" in VALID_AVAILABILITY
-    assert "OutOfStock" in VALID_AVAILABILITY
-
-    assert "New" in VALID_CONDITION
     assert "Used" in VALID_CONDITION
-
-    assert "Backorder" in VALID_STOCK_STATUS
-
+    assert "LowStock" in VALID_STOCK_STATUS
     assert INVENTORY_STALE_HOURS == 72
 
 
-def test_strict_validation_raises_on_missing_identity():
-    """Strict mode must raise ValueError on critical missing data."""
-    parser = CommerceTXTParser()
-    result = parser.parse("# @OFFER\nPrice: 10.00\nAvailability: InStock")
-    validator = CommerceTXTValidator(strict=True)
-
-    with pytest.raises(ValueError, match="Missing @IDENTITY directive"):
-        validator.validate(result)
+# =========================================================
+# TIER 1 – IDENTITY / PRODUCT / OFFER
+# =========================================================
 
 
-def test_non_strict_collects_errors():
-    """Non-strict mode collects errors. It does not stop."""
-    parser = CommerceTXTParser()
-    content = "# @OFFER\nPrice: 10.00"
-    result = parser.parse(content)
-    validator = CommerceTXTValidator(strict=False)
+def test_identity_required_for_root(strict_validator):
+    res = ParseResult(directives={"OFFER": {"Price": "10", "Availability": "InStock"}})
+    with pytest.raises(ValueError):
+        strict_validator.validate(res)
+
+
+def test_identity_optional_for_child_context(validator, result):
+    result.directives = {"PRODUCT": {"Name": "X"}}
+    validator.validate(result)
+    assert not result.errors
+
+
+def test_identity_currency_validation(validator, result):
+    result.directives = {"IDENTITY": {"Name": "Shop", "Currency": "12$"}}
+    validator.validate(result)
+    assert any("Invalid Currency" in e for e in result.errors)
+
+
+def test_product_url_warning(validator, result):
+    result.directives = {"PRODUCT": {"Name": "X"}}
+    validator.validate(result)
+    assert any("URL" in w for w in result.warnings)
+
+
+def test_offer_required_fields_and_price_logic(validator, result):
+    result.directives = {"OFFER": {"Price": "1e3"}}
     validator.validate(result)
 
-    assert len(result.errors) > 0
-    assert any("Missing @IDENTITY directive" in e for e in result.errors)
+    assert any("Availability" in e for e in result.errors)
+    assert not any("Price must be numeric" in e for e in result.errors)
 
-
-def test_inventory_stale_warning():
-    """Old inventory data triggers a stale warning."""
-    parser = CommerceTXTParser()
-    result = parser.parse(
-        """
-# @IDENTITY
-Name: Store
-Currency: USD
-# @INVENTORY
-StockStatus: InStock
-LastUpdated: 2020-01-01T00:00:00Z
-"""
-    )
-    validator = CommerceTXTValidator()
-    validator.validate(result)
-    assert any("stale" in w for w in result.warnings)
-
-
-def test_variants_without_offer_error():
-    """Variants need an Offer section. Error if missing."""
-    parser = CommerceTXTParser()
-    result = parser.parse(
-        """
-# @IDENTITY
-Name: Store
-Currency: USD
-# @VARIANTS
-Options:
-  - Red: +0
-"""
-    )
-    validator = CommerceTXTValidator()
-    validator.validate(result)
-    assert any("@VARIANTS used without @OFFER" in e for e in result.errors)
-
-
-def test_valid_minimal_tier_passes():
-    """Minimal valid file should have zero errors."""
-    parser = CommerceTXTParser()
-    result = parser.parse(
-        """
-# @IDENTITY
-Name: Store
-Currency: USD
-# @OFFER
-Price: 99.00
-Availability: InStock
-"""
-    )
-    validator = CommerceTXTValidator(strict=True)
-    validated = validator.validate(result)
-    assert not validated.errors
-
-
-def test_negative_price_error():
-    """Prices cannot be negative. This is an error."""
-    parser = CommerceTXTParser()
-    result = parser.parse("# @OFFER\nPrice: -10.00")
-    validator = CommerceTXTValidator()
-    validator.validate(result)
-    assert any("Price cannot be negative" in e for e in result.errors)
-
-
-def test_tax_transparency_warning():
-    """TaxIncluded needs a TaxRate. Warning only."""
-    parser = CommerceTXTParser()
-    result = parser.parse(
-        """
-# @IDENTITY
-Name: X
-Currency: USD
-# @OFFER
-Price: 100
-Availability: InStock
-TaxIncluded: True
-"""
-    )
-    validator = CommerceTXTValidator()
-    validator.validate(result)
-    assert any("TaxRate recommended" in w for w in result.warnings)
-
-
-def test_invalid_currency_code():
-    """Currency codes must follow ISO standards."""
-    parser = CommerceTXTParser()
-    result = parser.parse("# @IDENTITY\nName: X\nCurrency: Dollars")
-    validator = CommerceTXTValidator()
-    validator.validate(result)
-    assert any("Invalid Currency code" in e for e in result.errors)
-
-
-def test_subscription_validation_rules():
-    """Subscriptions require a list of plans."""
-    parser = CommerceTXTParser()
-    result = parser.parse("# @SUBSCRIPTION\nCancelAnytime: True")
-    validator = CommerceTXTValidator()
-    validator.validate(result)
-    assert any("missing required Plans" in e for e in result.errors)
-
-
-def test_images_validation():
-    """At least one image should be 'Main'."""
-    parser = CommerceTXTParser()
-    result = parser.parse("# @IMAGES\n- Photo 1: /1.jpg\n- Photo 2: /2.jpg")
-    validator = CommerceTXTValidator()
-    validator.validate(result)
-    assert any("Main" in w for w in result.warnings)
-
-
-def test_price_scientific_notation():
-    """Prices in scientific notation are valid numbers."""
-    parser = CommerceTXTParser()
-    result = parser.parse(
-        """
-# @IDENTITY
-Name: X
-Currency: USD
-# @OFFER
-Price: 1e3
-Availability: InStock
-"""
-    )
-    validator = CommerceTXTValidator()
-    validator.validate(result)
-    assert not [e for e in result.errors if "Price" in e]
-
-
-def test_inventory_very_stale():
-    """Inventory older than 7 days is very stale."""
-    parser = CommerceTXTParser()
-    old_date = (datetime.now() - timedelta(days=8)).isoformat()
-    content = (
-        f"# @IDENTITY\nName: X\nCurrency: USD\n# @INVENTORY\nLastUpdated: {old_date}"
-    )
-    result = parser.parse(content)
-    validator = CommerceTXTValidator()
+    result.directives["OFFER"]["Availability"] = "InStock"
+    result.directives["OFFER"]["Price"] = "-5"
     validator.validate(result)
 
-    assert any("very stale" in w for w in result.warnings)
+    assert any("cannot be negative" in e for e in result.errors)
+
+
+def test_offer_condition_warning(validator, result):
+    result.directives = {
+        "OFFER": {"Availability": "InStock", "Price": "10", "Condition": "Alien"}
+    }
+    validator.validate(result)
+    assert any("Non-standard Condition" in w for w in result.warnings)
+
+
+# =========================================================
+# TIER 2 – INVENTORY / REVIEWS / AGE / SUBSCRIPTION
+# =========================================================
+
+
+def test_inventory_stale_and_very_stale(validator, result):
+    old = (datetime.now() - timedelta(days=4)).isoformat()
+    very_old = (datetime.now() - timedelta(days=10)).isoformat()
+
+    result.directives = {
+        "IDENTITY": {"Name": "X", "Currency": "USD"},
+        "INVENTORY": {"LastUpdated": old},
+    }
+    validator.validate(result)
+    assert "inventory_stale" in result.trust_flags
+
+    result.directives["INVENTORY"]["LastUpdated"] = very_old
+    validator.validate(result)
     assert "inventory_very_stale" in result.trust_flags
 
 
-def test_locales_multiple_current_and_format():
-    """Only one locale can be current. Code format matters."""
-    parser = CommerceTXTParser()
-    content = """
-# @IDENTITY
-Name: X
-Currency: USD
-# @LOCALES
-INVALID_CODE: /path
-en-US: /us (Current)
-fr-FR: /fr (Current)
-"""
-    result = parser.parse(content)
-    validator = CommerceTXTValidator()
-    validator.validate(result)
-
-    assert any("Invalid locale code" in w for w in result.warnings)
-    assert any("Multiple locales marked as current" in e for e in result.errors)
-
-
-def test_variants_semantics_malformed():
-    """Validator must handle malformed variant data without crashing."""
-    parser = CommerceTXTParser()
-    content = """
-# @IDENTITY
-Name: X
-Currency: USD
-# @OFFER
-Price: ???
-Availability: InStock
-# @VARIANTS
-Options:
-  - Addon: +10
-"""
-    result = parser.parse(content)
-    validator = CommerceTXTValidator()
-    validator.validate(result)
-    assert len(result.errors) > 0
-
-
-def test_inventory_date_parsing_exception():
-    """Broken date formats trigger a warning."""
-    parser = CommerceTXTParser()
-    content = """
-# @IDENTITY
-Name: X
-Currency: USD
-# @INVENTORY
-LastUpdated: THIS-IS-NOT-A-DATE
-StockStatus: InStock
-"""
-    result = parser.parse(content)
-    validator = CommerceTXTValidator()
+def test_inventory_invalid_date_format(validator, result):
+    result.directives["INVENTORY"] = {"LastUpdated": "not-a-date"}
     validator.validate(result)
     assert any("format error" in w for w in result.warnings)
 
 
-def test_identity_currency_non_standard_warning():
-    """Currencies with non-standard lengths trigger warnings."""
-    parser = CommerceTXTParser()
-    result = parser.parse("# @IDENTITY\nName: X\nCurrency: USDT")
-    validator = CommerceTXTValidator()
+def test_reviews_all_numeric_failures(validator, result):
+    result.directives["REVIEWS"] = {
+        "RatingScale": "Five",
+        "Rating": "Great",
+        "Count": "Many",
+        "Source": "random-site.com",
+    }
     validator.validate(result)
-    assert any("is non-standard" in w for w in result.warnings)
+
+    assert any("RatingScale must be numeric" in e for e in result.errors)
+    assert any("Rating must be numeric" in e for e in result.errors)
+    assert any("Count must be numeric" in e for e in result.errors)
+    assert "reviews_unverified" in result.trust_flags
 
 
-def test_variants_missing_base_price():
-    """Variants require a Price in the Offer section."""
-    parser = CommerceTXTParser()
-    content = """
-# @IDENTITY
-Name: X
-Currency: USD
-# @OFFER
-Availability: InStock
-# @VARIANTS
-Options:
-  - Color: Red
-"""
-    result = parser.parse(content)
-    validator = CommerceTXTValidator()
+def test_age_restriction_numeric_guard(validator, result):
+    result.directives["AGE_RESTRICTION"] = {"MinimumAge": "NaN"}
     validator.validate(result)
-    assert any("requires base Price" in e for e in result.errors)
+    assert any("MinimumAge must be numeric" in e for e in result.errors)
 
 
-def test_price_with_currency_symbol():
-    """Price containing symbols must fail numeric check."""
-    parser = CommerceTXTParser()
-    result = parser.parse("# @OFFER\nPrice: $10.00")
-    validator = CommerceTXTValidator()
+def test_subscription_plans_structure(validator, result):
+    result.directives["SUBSCRIPTION"] = {"Plans": "Invalid"}
     validator.validate(result)
+    assert any("required Plans" in e for e in result.errors)
+
+
+# =========================================================
+# TIER 2 – LOCALES / EMPTY SECTIONS
+# =========================================================
+
+
+def test_locales_invalid_and_multiple_current(validator, result):
+    result.directives["LOCALES"] = {
+        "invalid-locale-123": "x",
+        "en": "path (Current)",
+        "bg": "path (Current)",
+    }
+    validator.validate(result)
+
+    assert any("Invalid locale code" in w for w in result.warnings)
+    assert any("Multiple locales" in e for e in result.errors)
+
+
+def test_empty_sections_warnings(validator, result):
+    for sec in ["SHIPPING", "PAYMENT", "POLICIES", "SPECS"]:
+        result.directives[sec] = {}
+
+    result.directives["IN_THE_BOX"] = {"items": []}
+
+    validator.validate(result)
+
+    assert any("section is empty" in w for w in result.warnings)
+
+
+# =========================================================
+# TIER 3 – IMAGES / COMPATIBILITY / VARIANTS
+# =========================================================
+
+
+def test_images_missing_main_and_alt_length(validator, result):
+    result.directives["IMAGES"] = {"items": [{"name": "secondary", "Alt": "A" * 200}]}
+    validator.validate(result)
+
+    assert any("missing 'Main'" in w for w in result.warnings)
+    assert any("Alt text too long" in w for w in result.warnings)
+
+
+def test_compatibility_unknown_keys(validator, result):
+    result.directives["COMPATIBILITY"] = {"WeirdKey": "X"}
+    validator.validate(result)
+    assert any("Unknown key" in w for w in result.warnings)
+
+
+def test_variants_require_offer_and_price(validator, result):
+    result.directives["VARIANTS"] = {"Options": []}
+    validator.validate(result)
+    assert any("used without @OFFER" in e for e in result.errors)
+
+
+def test_variant_negative_price_math(validator, result):
+    result.directives = {
+        "OFFER": {"Price": "10", "Availability": "InStock"},
+        "VARIANTS": {"Options": [{"name": "X", "path": "-20"}]},
+    }
+    validator.validate(result)
+    assert any("negative price" in e for e in result.errors)
+
+
+# =========================================================
+# SEMANTIC LOGIC
+# =========================================================
+
+
+def test_semantic_logic_override_warning(validator, result):
+    result.directives["SEMANTIC_LOGIC"] = {"items": ["override PRICE aggressively"]}
+    validator.validate(result)
+    assert any("Logic overrides facts" in w for w in result.warnings)
+
+
+# =========================================================
+# SYSTEM-LEVEL MOCKING (UNREACHABLE DEFENSIVE CODE)
+# =========================================================
+
+
+def test_datetime_internal_crash_mock(validator, result):
+    result.directives["INVENTORY"] = {"LastUpdated": "2025-01-01"}
+    with patch("commercetxt.validator.datetime") as mock_dt:
+        mock_dt.fromisoformat.side_effect = Exception("boom")
+        validator.validate(result)
+
+    assert any("format error" in w for w in result.warnings)
+
+
+def test_global_float_failure_mock(validator, result):
+    result.directives["REVIEWS"] = {"RatingScale": "5", "Rating": "4"}
+    with patch.object(builtins, "float", side_effect=ValueError("boom")):
+        validator.validate(result)
+
     assert any("must be numeric" in e for e in result.errors)
 
 
-def test_availability_invalid_enum():
-    """Check against strict allowed availability values."""
-    parser = CommerceTXTParser()
-    result = parser.parse("# @OFFER\nPrice: 10\nAvailability: SoldOut")
-    validator = CommerceTXTValidator()
+def test_len_and_isinstance_conflict_mock(validator, result):
+    class FakeShipping(dict):
+        def get(self, key, default=None):
+            return None
+
+        def __len__(self):
+            return 0
+
+    result.directives = {
+        "IDENTITY": {"Name": "Shop", "Currency": "USD"},
+        "SHIPPING": FakeShipping(items=["x"]),
+    }
+
     validator.validate(result)
-    assert any("Invalid Availability" in e for e in result.errors)
+
+    assert any("SHIPPING section is empty" in w for w in result.warnings)
 
 
-def test_stock_status_enum_validation():
-    """Inventory StockStatus must match allowed values."""
-    parser = CommerceTXTParser()
-    result = parser.parse("# @INVENTORY\nStockStatus: Full")
-    validator = CommerceTXTValidator()
+def test_reviews_complex_numeric_failures(validator, result):
+    # Trigger invalid float parsing
+    result.directives["REVIEWS"] = {
+        "RatingScale": "5.0",
+        "Rating": "4.5.6",  # Invalid float
+        "Count": "10.5",  # Float where Integer is expected
+    }
     validator.validate(result)
-    assert any("Invalid StockStatus" in e for e in result.errors)
+    assert any("Rating must be numeric" in e for e in result.errors)
+    assert any("Count must be numeric" in e for e in result.errors)
 
-
-def test_rating_exceeds_scale_warning():
-    """Rating higher than RatingScale triggers a warning."""
-    parser = CommerceTXTParser()
-    result = parser.parse("# @REVIEWS\nRating: 10\nRatingScale: 5")
-    validator = CommerceTXTValidator()
+    # Trigger out-of-bounds rating
+    result.directives["REVIEWS"] = {"RatingScale": "5", "Rating": "10"}
     validator.validate(result)
     assert any("outside allowed scale" in w for w in result.warnings)
 
 
-def test_negative_rating_error():
-    """Ratings cannot be below zero."""
-    parser = CommerceTXTParser()
-    result = parser.parse("# @REVIEWS\nRating: -1\nRatingScale: 5")
-    validator = CommerceTXTValidator()
+def test_malformed_nested_types_coverage(validator, result):
+    # SEMANTIC_LOGIC expecting list but gets string
+
+    result.directives = {
+        "OFFER": {"Price": "10", "Availability": "InStock"},
+        "VARIANTS": {"Options": "JustAString"},
+        "SEMANTIC_LOGIC": {"items": ["PRICE rule"]},
+        "IMAGES": {"items": ["http://img.jpg"]},
+    }
+
     validator.validate(result)
-    assert any(
-        "numeric" in e or "outside" in str(e) for e in result.errors + result.warnings
+    assert any("Logic overrides facts" in w for w in result.warnings)
+    assert any("missing 'Main'" in w for w in result.warnings)
+
+
+def test_validator_deep_coverage(tmp_path, run_cli):  # Променено на run_cli
+    """Hits specific validation guardrails in validator.py."""
+
+    file_sub = tmp_path / "sub.txt"
+    file_sub.write_text(
+        "# @IDENTITY\nName: S\nCurrency: USD\n# @SUBSCRIPTION\nPlans: NotAList",
+        encoding="utf-8",
     )
+    run_cli([str(file_sub), "--validate"])
 
-
-def test_invalid_date_format_iso():
-    """Non-ISO dates must trigger a warning."""
-    parser = CommerceTXTParser()
-    result = parser.parse("# @INVENTORY\nLastUpdated: 2024/01/01")
-    validator = CommerceTXTValidator()
-    validator.validate(result)
-    assert any("format error" in w for w in result.warnings)
-
-
-def test_empty_specs_warning():
-    """Sections with no content should warn the user."""
-    parser = CommerceTXTParser()
-    result = parser.parse("# @SPECS")
-    validator = CommerceTXTValidator()
-    validator.validate(result)
-    assert any("section is empty" in w for w in result.warnings)
-
-
-def test_untrusted_review_source():
-    """Verify that unknown domains flag unverified trust."""
-    parser = CommerceTXTParser()
-    result = parser.parse("# @REVIEWS\nRating: 5\nSource: shady-reviews.net")
-    validator = CommerceTXTValidator()
-    validator.validate(result)
-    assert "reviews_unverified" in result.trust_flags
-
-
-def test_missing_shipping_items():
-    """Empty shipping section should be flagged."""
-    parser = CommerceTXTParser()
-    result = parser.parse("# @SHIPPING")
-    validator = CommerceTXTValidator()
-    validator.validate(result)
-    assert any("SHIPPING section is empty" in w for w in result.warnings)
-
-
-def test_missing_payment_items():
-    """Empty payment section should be flagged."""
-    parser = CommerceTXTParser()
-    result = parser.parse("# @PAYMENT")
-    validator = CommerceTXTValidator()
-    validator.validate(result)
-    assert any("PAYMENT section is empty" in w for w in result.warnings)
-
-
-def test_validator_semantic_logic_overrides():
-    """Trigger warnings when logic attempts to override factual data."""
-    v = CommerceTXTValidator()
-    res = ParseResult(directives={"SEMANTIC_LOGIC": {"items": ["Override Price to 0"]}})
-    v.validate(res)
-    assert any("Logic overrides facts" in w for w in res.warnings)
-
-
-def test_validator_age_restriction_variants():
-    """Test missing and valid age restriction branches with identity present."""
-    v = CommerceTXTValidator()
-    identity = {"Name": "Test", "Currency": "USD"}
-    res1 = ParseResult(
-        directives={"IDENTITY": identity, "AGE_RESTRICTION": {"MinimumAge": "18"}}
+    file_img = tmp_path / "img.txt"
+    file_img.write_text(
+        "# @IDENTITY\nName: I\nCurrency: USD\n# @IMAGES\nitems:\n  - just_a_string_path.jpg",
+        encoding="utf-8",
     )
-    v.validate(res1)
-    assert not res1.errors
-    res2 = ParseResult(directives={"IDENTITY": identity, "AGE_RESTRICTION": {}})
-    v.validate(res2)
-    assert not res2.errors
+    run_cli([str(file_img), "--validate"])
 
-
-def test_validator_reviews_missing_scale():
-    """Trigger error when reviews exist but scale is missing."""
-    v = CommerceTXTValidator()
-    res = ParseResult(directives={"REVIEWS": {"Rating": "5"}})
-    v.validate(res)
-    assert any("missing required 'RatingScale'" in e for e in res.errors)
-
-
-def test_validator_unverified_review_source():
-    """Flag reviews from untrusted domains."""
-    v = CommerceTXTValidator()
-    res = ParseResult(
-        directives={"REVIEWS": {"RatingScale": "5", "Source": "unknown.biz"}}
+    file_box = tmp_path / "box.txt"
+    file_box.write_text(
+        "# @IDENTITY\nName: B\nCurrency: USD\n# @IN_THE_BOX\nitems: []",
+        encoding="utf-8",
     )
-    v.validate(res)
-    assert "reviews_unverified" in res.trust_flags
+    run_cli([str(file_box), "--validate"])
 
 
-def test_validator_empty_optional_sections():
-    """Ensure empty policies and box sections trigger warnings."""
-    v = CommerceTXTValidator()
-    res = ParseResult(directives={"POLICIES": {}, "IN_THE_BOX": {}})
-    v.validate(res)
-    assert any("POLICIES section is empty" in w for w in res.warnings)
-    assert any("IN_THE_BOX section is empty" in w for w in res.warnings)

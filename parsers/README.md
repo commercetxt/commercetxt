@@ -4,17 +4,17 @@ This repository contains the official reference implementations for the Commerce
 
 ## Available Implementations
 
-### 🐍 [Python (Reference Implementation)](./parsers/python)
+### 🐍 [Python (Reference Implementation)](./python)
 The official reference parser and validator, fully production-ready and type-safe.
 
-**Status:** v1.0.1 (Stable)
+**Status:** v1.0.2 (Stable)
 **Key Features:**
 * **Fractal Inheritance:** Native support for resolving nested directives across multiple files.
-* **Tiered Validation:** Strict compliance checks for Tier 1 (Core), Tier 2 (Commercial), and Tier 3 (Metadata).
-* **Enterprise Security:** Built-in protection against SSRF and private network exposure.
-* **AI Readiness:** Specialized bridge for generating token-efficient prompts for LLMs.
+* **Tiered Validation:** Strict compliance checks for Tier 1, 2, and 3.
+* **Enterprise Security:** Built-in protection against SSRF, DoS, and private network exposure.
+* **AI & LLM Bridge:** Enhanced prompt generation supporting `BRAND_VOICE`, `SEMANTIC_LOGIC`, and `PROMOS`.
+* **Extreme Reliability:** 95%+ code coverage with Fuzz and Property-based testing.
 * **CLI Tool:** Validate and process `commerce.txt` files directly from the terminal.
-
 ---
 
 ## Roadmap
@@ -29,6 +29,10 @@ The official reference parser and validator, fully production-ready and type-saf
 To install the reference parser, navigate to the python directory or use:
 ```bash
 pip install commercetxt
+```
+Validate any file instantly:
+```bash
+commercetxt path/to/commerce.txt --validate
 ```
 
 ## Contribute

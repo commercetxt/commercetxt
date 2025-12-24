@@ -4,9 +4,9 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "commercetxt"
-version = "1.0.1"
+version = "1.0.2"
 authors = [
-  { name="Tsanko Zanov", email="hello@commercetxt.org" },
+  { name = "Tsanko Zanov", email = "hello@commercetxt.org" },
 ]
 description = "A robust, secure Python reference parser for the CommerceTXT protocol."
 readme = "README.md"
@@ -20,14 +20,22 @@ classifiers = [
 ]
 dependencies = []
 
+[project.urls]
+"Homepage" = "https://commercetxt.org"
+"Repository" = "https://github.com/commercetxt/commercetxt"
+"Issues" = "https://github.com/commercetxt/commercetxt/issues"
+"Documentation" = "https://github.com/commercetxt/commercetxt/tree/main/parsers/python"
+
 [project.optional-dependencies]
 async = ["aiofiles"]
 dev = [
     "pytest>=7.0",
     "pytest-asyncio",
     "pytest-cov",
+    "hypothesis",
     "black",
-    "mypy"
+    "mypy",
+    "ruff"
 ]
 
 [project.scripts]
@@ -41,7 +49,7 @@ target-version = ['py38']
 python_version = "3.8"
 warn_return_any = true
 warn_unused_configs = true
-mypy_path = "parsers/python"
+mypy_path = "."
 explicit_package_bases = true
 namespace_packages = true
 

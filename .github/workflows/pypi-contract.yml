@@ -1,0 +1,56 @@
+name: PyPI Contract Test
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  contract-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install from PyPI
+        run: |
+          python -m pip install --upgrade pip
+          pip install commercetxt
+
+      - name: Show installed version
+        run: |
+          python - << 'EOF'
+          import commercetxt
+          print("Installed commercetxt version:", commercetxt.__version__)
+          EOF
+
+      - name: Contract smoke test
+        run: |
+          python - << 'EOF'
+          from commercetxt import (
+              CommerceTXTParser,
+              CommerceTXTValidator,
+              CommerceTXTResolver,
+              ParseResult,
+          )
+
+          parser = CommerceTXTParser(strict=False)
+          result = parser.parse("# @IDENTITY\nName: Test\nCurrency: USD")
+
+          validator = CommerceTXTValidator(strict=False)
+          validator.validate(result)
+
+          resolver = CommerceTXTResolver()
+          merged = resolver.merge(result, result)
+
+          assert isinstance(result, ParseResult)
+          assert "IDENTITY" in merged.directives
+
+          print("PyPI contract test passed")
+          EOF

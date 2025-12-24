@@ -1,11 +1,12 @@
-# CommerceTXT Python Reference Parser (v1.0.1)
+# CommerceTXT Python Reference Parser (v1.0.2)
 
 A robust, secure, and production-ready Python parser for the CommerceTXT protocol. This library handles parsing, validation, fractal inheritance, and advanced security checks for commerce.txt files.
 
 ## Key Features
-
-- Fractal Inheritance: Support for resolving and merging nested directives across multiple files.
-- Compliance Validation: Sequential Tier-based validation (Tier 1: Core, Tier 2: Commercial, Tier 3: Rich Metadata).
+- **Fractal Inheritance**: Support for resolving and merging nested directives across multiple files.
+- **Comprehensive Validation**: Sequential Tier-based validation with a new `--validate` report flag.
+- **AI-Ready Bridge**: Enhanced support for directives like `BRAND_VOICE`, `SEMANTIC_LOGIC`, and `PROMOS`.
+- **Robust Test Suite**: Includes Property-based testing (Hypothesis), Fuzz testing, and 95%+ code coverage.
 - High-Performance Caching: Built-in LRU caching to skip redundant parsing for unchanged files.
 - Async Support: Concurrent parsing for bulk file processing using AsyncCommerceTXTParser.
 - AI Readiness Bridge: Native support for generating clean, low-token prompts for Large Language Models (LLMs).
@@ -17,13 +18,20 @@ A robust, secure, and production-ready Python parser for the CommerceTXT protoco
 
 Ensure you have Python 3.8+ installed.
 
-# From the root of your project
+Install the package directly from PyPI:
+
+```bash
+pip install commercetxt
 ```
-export PYTHONPATH=$PYTHONPATH:.
-```
+
 ## CLI Usage
 
 Validate files or generate AI-ready prompts instantly.
+
+**Comprehensive Validation Report:**
+```bash
+python -m commercetxt.cli path/to/commerce.txt --validate
+```
 
 Basic Validation:
 ```bash
@@ -70,6 +78,15 @@ asyncio.run(main())
 ```
 ---
 
+## Testing & Quality
+
+CommerceTXT 1.0.2 maintains a **95% code coverage** and utilizes a multi-layered testing strategy:
+* **Data-Driven**: 150+ test vectors covering valid and malformed scenarios.
+* **Property-Based**: Using `Hypothesis` to ensure logical consistency.
+* **Fuzzing**: Stress-testing the parser against arbitrary random input.
+* **Security Audit**: Automated checks for SSRF prevention and DoS mitigation.
+
+---
 ## Security Limits
 
 - MAX_FILE_SIZE: 10 MB

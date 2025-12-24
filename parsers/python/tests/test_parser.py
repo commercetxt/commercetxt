@@ -468,10 +468,23 @@ def test_logging_handler_reuse():
 def test_cache_logic():
     """Verify that repeated calls return the same object (fast)."""
     content = "# @IDENTITY\nName: CacheTest\nCurrency: USD"
-    # Първо извикване - парсва се реално
     res1 = parse_cached(content)
-    # Второ извикване - трябва да дойде директно от LRU кеша
     res2 = parse_cached(content)
 
     assert res1 is res2  # Проверка за еднакъв адрес в паметта (cache hit)
     assert res1.directives["IDENTITY"]["Name"] == "CacheTest"
+
+
+def test_parser_edge_cases(tmp_path, run_cli):
+    """Test edge cases via CLI interface."""
+    empty = tmp_path / "empty.txt"
+    empty.write_text("", encoding="utf-8")
+    code, stdout, stderr = run_cli([str(empty)])
+    assert code == 1
+    assert "Missing @IDENTITY" in stderr or "ERROR" in stdout
+
+    bad_syntax = tmp_path / "syntax.txt"
+    bad_syntax.write_text("This line has no colon and no at-sign", encoding="utf-8")
+    code, stdout, stderr = run_cli([str(bad_syntax)])
+
+    assert "Unknown syntax" in stdout or "WARN" in stdout

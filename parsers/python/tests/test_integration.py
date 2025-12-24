@@ -4,6 +4,7 @@ Test the whole. Verify the parts.
 """
 
 import pytest
+from datetime import datetime, timedelta
 
 from commercetxt import ParseResult
 from commercetxt.parser import CommerceTXTParser
@@ -237,3 +238,138 @@ Options:
     assert not result.errors
     assert "VARIANTS" in result.directives
     assert result.directives["OFFER"]["Price"] == "348.00"
+
+
+def test_inventory_trust_flags_propagation():
+    """Test that stale inventory data triggers trust flags."""
+    
+    parser = CommerceTXTParser()
+    validator = CommerceTXTValidator()
+
+    content = f"""
+# @IDENTITY
+Name: Store
+Currency: USD
+
+# @INVENTORY
+LastUpdated: {(datetime.now() - timedelta(days=10)).isoformat()}
+"""
+    result = parser.parse(content)
+    validator.validate(result)
+
+    assert "inventory_very_stale" in result.trust_flags
+
+
+def test_offer_partial_override():
+    """Test that product-level OFFER overrides root-level OFFER partially."""
+
+    parser = CommerceTXTParser()
+    resolver = CommerceTXTResolver()
+    validator = CommerceTXTValidator()
+
+    root = parser.parse(
+        """
+# @IDENTITY
+Name: Store
+Currency: USD
+# @OFFER
+Price: 100
+Availability: InStock
+"""
+    )
+
+    product = parser.parse(
+        """
+# @PRODUCT
+Name: Item
+# @OFFER
+Price: 80
+"""
+    )
+
+    validator.validate(root)
+    validator.validate(product)
+
+    merged = resolver.merge(root, product)
+
+    assert merged.directives["OFFER"]["Price"] == "80"
+    assert merged.directives["OFFER"]["Availability"] == "InStock"
+
+
+def test_reviews_unverified_trust_flag():
+    """Test that unverified reviews trigger the correct trust flag."""
+    parser = CommerceTXTParser()
+    validator = CommerceTXTValidator()
+
+    content = """
+# @REVIEWS
+RatingScale: 5
+Rating: 4.5
+Source: some-random-site.com
+"""
+    result = parser.parse(content)
+    validator.validate(result)
+
+    assert "reviews_unverified" in result.trust_flags
+
+
+def test_semantic_logic_merge_behavior():
+    """Test that SEMANTIC_LOGIC directives are merged correctly."""
+    parser = CommerceTXTParser()
+    resolver = CommerceTXTResolver()
+    validator = CommerceTXTValidator()
+
+    root = parser.parse(
+        """
+# @SEMANTIC_LOGIC
+- override price dynamically
+"""
+    )
+
+    product = parser.parse(
+        """
+# @OFFER
+Price: 100
+Availability: InStock
+"""
+    )
+
+    validator.validate(root)
+    validator.validate(product)
+
+    merged = resolver.merge(root, product)
+
+    assert "SEMANTIC_LOGIC" in merged.directives
+    assert any("Logic overrides facts" in w for w in merged.warnings)
+
+
+def test_inventory_merge_consistency():
+    """Test that INVENTORY directives are merged and trust flags set."""
+    parser = CommerceTXTParser()
+    resolver = CommerceTXTResolver()
+    validator = CommerceTXTValidator()
+
+    root = parser.parse(
+        """
+# @IDENTITY
+Name: Store
+Currency: USD
+# @INVENTORY
+LastUpdated: 2020-01-01
+"""
+    )
+
+    product = parser.parse(
+        """
+# @PRODUCT
+Name: Item
+"""
+    )
+
+    validator.validate(root)
+    validator.validate(product)
+
+    merged = resolver.merge(root, product)
+
+    assert "INVENTORY" in merged.directives
+    assert "inventory_very_stale" in merged.trust_flags

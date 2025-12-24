@@ -1,0 +1,13 @@
+# @IDENTITY
+Name: Type Integrity Test
+Currency: USD
+
+# @REVIEWS
+- Just a list item 1
+- Just a list item 2
+
+# @COMPATIBILITY
+- Value without a key
+
+# @IN_THE_BOX
+Items: [This is a list, but the parser might pass it as a string if malformed]

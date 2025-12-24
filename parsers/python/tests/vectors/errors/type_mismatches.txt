@@ -1,0 +1,13 @@
+# @IDENTITY
+Name: Type Mismatch Shop
+Currency: USD
+
+# @REVIEWS
+- 5 stars
+- superb quality
+
+# @COMPATIBILITY
+- Compatible with all devices
+
+# @IN_THE_BOX
+Description: Includes charger, user manual, and warranty card
