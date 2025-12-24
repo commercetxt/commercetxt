@@ -61,3 +61,4 @@ ignore_missing_imports = true
 asyncio_mode = "auto"
 testpaths = ["tests"]
 python_files = "test_*.py"
+pythonpath = ["."]
