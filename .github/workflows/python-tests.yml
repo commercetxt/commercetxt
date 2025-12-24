@@ -26,8 +26,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install ruff mypy black pytest pytest-asyncio pytest-cov
-          pip install -e parsers/python/
+          pip install -e "./parsers/python[dev]"
 
       - name: Check formatting with Black
         run: black --check parsers/python/
@@ -41,4 +40,4 @@ jobs:
       - name: Run Tests
         run: |
           cd parsers/python
-          pytest tests/ --cov=commercetxt
+          pytest tests/ --cov=commercetxt --cov-report=xml
