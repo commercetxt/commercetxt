@@ -324,5 +324,3 @@ def test_validator_deep_coverage(tmp_path, run_cli):  # Променено на 
         encoding="utf-8",
     )
     run_cli([str(file_box), "--validate"])
-
-

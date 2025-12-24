@@ -242,7 +242,7 @@ Options:
 
 def test_inventory_trust_flags_propagation():
     """Test that stale inventory data triggers trust flags."""
-    
+
     parser = CommerceTXTParser()
     validator = CommerceTXTValidator()
 
