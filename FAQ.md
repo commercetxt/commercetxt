@@ -117,38 +117,40 @@ See [Grammar Formalization](./spec/README.md#2-syntax--grammar-ebnf) (v1.1).
 ---
 
 ### Why not just use JSON-LD?
-JSON-LD is excellent for SEO, but it is often buried in massive HTML pages, requiring agents to download 600KB+ to find 5KB of data. CommerceTXT provides a **~95% reduction in token overhead**. Exact reductions vary by page structure and model. Figures are based on typical retail product pages. Furthermore, traditional APIs lack specific directives for AI behavior like **@SEMANTIC_LOGIC** and **@BRAND_VOICE**.
+JSON-LD is excellent for SEO, but it is often buried in massive HTML pages, requiring agents to download 600KB+ just to extract 5KB of data. CommerceTXT provides a **~95% reduction in token overhead**.
+
+### How is this different from `llms.txt`?
+**`llms.txt` is for reading. CommerceTXT is for buying.**
+
+While `llms.txt` is excellent for documentation (unstructured RAG), it fails at commerce:
+- **No Transactional Schema:** Markdown lacks rigid structures for SKUs, variants, taxes, and live inventory logic.
+- **Actionability:** You cannot reliably "Add to Cart" from a generic Markdown file.
+- **Precision:** CommerceTXT is built specifically for agents where price precision and stock availability are non-negotiable. When money changes hands, hallucinations are not an option.
+
+### Why not use the Model Context Protocol (MCP)?
+**MCP is a pipe, not a discovery standard.**
+
+While powerful for internal connections, MCP introduces costs that CommerceTXT eliminates:
+- **Token Overhead:** Agents must read tool definitions (JSON Schema) with every request, burning context window just to set up the connection.
+- **Compute Cost:** MCP requires an active server to handle requests. Merchants pay for compute on every query.
+- **Scale:** CommerceTXT is a **static file**. It costs $0 to host (CDN/Cache) and requires minimal tokens to read. Static beats dynamic for broad web discovery.
+
+### Can't AI just map and scrape HTML efficiently?
+While LLMs are good at creating scrapers, this approach suffers from two major flaws:
+
+1. **The Maintenance Trap:**
+   **"Cleaning" is still parsing.** Developers often rely on libraries to convert HTML into "friendly" text formats. This creates a hidden dependency. If the site's DOM or CSS classes change, the "cleaner" breaks. CommerceTXT removes this fragility entirely by offering a deterministic contract that requires no cleaning.
+
+2. **Economic Inefficiency:**
+   Feeding 8,000 tokens of HTML noise into an LLM context window is expensive ($/token) and reduces accuracy ("Lost in the Middle" phenomenon). **We trade compute for developer time.** An agent reading a clean text file is economically viable; an agent scraping HTML for every query is not.
 
 ### Why not use /.well-known/ from the start?
 Initial decision was the root file (`/commerce.txt`) for maximum compatibility with restricted platforms. Following feedback regarding **RFC 8615**, the v1.1 update will establish `/.well-known/commerce.txt` as the primary path with a fallback to the root. This ensures backward compatibility with early adopters.
 
-
 ### Why a new format instead of CSV or YAML?
-- **CSV:** Facts without context. No support for logic or hierarchy.
-- **YAML:** Brittle due to whitespace sensitivity and heavy for LLM tokenizers.
-- **CommerceTXT:** Line-oriented, fault-tolerant, and modeled after the success of `robots.txt`.
-
-### Can't AI just map and scrape HTML efficiently?
-While LLMs are good at creating scrapers, this approach suffers from the **"Maintenance Trap"**. 
-- **Fragility:** Scrapers break whenever a website updates its layout or CSS, requiring constant re-mapping. 
-- **Latency:** Analyzing a new store's HTML to build a mapping adds significant "cold start" latency for an AI agent.
-- **Limited Scope:** Scraping can only extract visible data. It cannot capture merchant intent, brand voice, or complex logic that isn't explicitly rendered in HTML. 
-
-CommerceTXT provides a **deterministic contract**. The agent doesn't have to guess or map; it simply reads.
-
-**Concrete example:**
-
-Say Amazon changes their price display from:
-`<span class="a-price">348</span>`
-to:
-`<div data-price="348">348</div>`
-
-Your AI mapping breaks. Multiply this by:
-- 1,000 stores
-- 50 layout changes/year per store
-= 50,000 breaking changes annually
-
-CommerceTXT: 1 parser, 0 breaking changes (protocol is versioned).
+- **CSV:** Facts without context. No support for logic, hierarchy, or directives.
+- **YAML:** Brittle due to whitespace sensitivity. One wrong space breaks the file. Heavy for LLM tokenizers.
+- **CommerceTXT:** Line-oriented, fault-tolerant, and modeled after the proven success of `robots.txt`.
 
 ---
 
