@@ -1,10 +1,14 @@
 """
-Tests for CommerceTXT vectors.
-The files are in the folders. We read them and we see if they are true.
+CommerceTXT Vector Tests.
+
+Tests fixture files for valid, error, warning, and syntax warning scenarios.
+Validates parser and validator behavior against spec-compliant test data.
 """
 
-import pytest
 from pathlib import Path
+
+import pytest
+
 from commercetxt import CommerceTXTParser, CommerceTXTValidator
 
 
@@ -17,15 +21,15 @@ def get_vector_files(folder_name):
 
 
 class TestVectors:
-    """
-    A class to test different scenarios.
+    """A class to test different scenarios.
+
     Good files must be good. Bad files must be caught.
     """
 
     @pytest.mark.parametrize("file_path", get_vector_files("valid"))
     def test_valid_vectors(self, file_path):
         """These files are clean. They must have no errors."""
-        with open(file_path, "r", encoding="utf-8") as f:
+        with open(file_path, encoding="utf-8") as f:
             content = f.read()
 
         parser = CommerceTXTParser()
@@ -39,7 +43,7 @@ class TestVectors:
     @pytest.mark.parametrize("file_path", get_vector_files("errors"))
     def test_error_vectors(self, file_path):
         """These files are broken. The validator must find the fault."""
-        with open(file_path, "r", encoding="utf-8") as f:
+        with open(file_path, encoding="utf-8") as f:
             content = f.read()
 
         parser = CommerceTXTParser()
@@ -55,7 +59,7 @@ class TestVectors:
     @pytest.mark.parametrize("file_path", get_vector_files("warnings"))
     def test_warning_vectors(self, file_path):
         """These files are not perfect. There must be warnings."""
-        with open(file_path, "r", encoding="utf-8") as f:
+        with open(file_path, encoding="utf-8") as f:
             content = f.read()
 
         parser = CommerceTXTParser()
@@ -71,10 +75,10 @@ class TestVectors:
     @pytest.mark.parametrize("file_path", get_vector_files("syntax_warnings"))
     def test_syntax_vectors(self, file_path):
         """The syntax is wrong. The parser must see it early."""
-        with open(file_path, "r", encoding="utf-8") as f:
+        with open(file_path, encoding="utf-8") as f:
             content = f.read()
 
-        parser = CommerceTXTParser()
+        parser = CommerceTXTParser(auto_detect_indent=False)
         result = parser.parse(content)
 
         assert (

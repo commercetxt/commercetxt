@@ -4,61 +4,181 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "commercetxt"
-version = "1.0.2"
+version = "1.0.3"
 authors = [
   { name = "Tsanko Zanov", email = "hello@commercetxt.org" },
 ]
-description = "A robust, secure Python reference parser for the CommerceTXT protocol."
+description = "Python reference parser + RAG tools for the CommerceTXT protocol."
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.10"
 license = "MIT"
-classifiers = [
-    "Programming Language :: Python :: 3",
-    "Operating System :: OS Independent",
-    "Topic :: Software Development :: Libraries :: Python Modules",
-    "Intended Audience :: Developers",
+
+keywords = [
+  "commercetxt", "protocol", "ecommerce", "ai", "llm", "rag",
+  "shopping", "product-feed", "schema-org", "json-ld", "agents",
+  "inventory", "pricing", "realtime", "grounding", "catalog"
 ]
+
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Operating System :: OS Independent",
+
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+
+  "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
+  "Topic :: Software Development :: Libraries",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+  "Typing :: Typed",
+]
+
+# Core stays minimal (parser-only)
 dependencies = []
 
 [project.urls]
-"Homepage" = "https://commercetxt.org"
-"Repository" = "https://github.com/commercetxt/commercetxt"
-"Issues" = "https://github.com/commercetxt/commercetxt/issues"
-"Documentation" = "https://github.com/commercetxt/commercetxt/tree/main/parsers/python"
+Homepage = "https://commercetxt.org"
+Specification = "https://github.com/commercetxt/commercetxt/tree/main/spec"
+Documentation = "https://github.com/commercetxt/commercetxt/tree/main/parsers/python"
+Quickstart = "https://github.com/commercetxt/commercetxt#quickstart"
+Repository = "https://github.com/commercetxt/commercetxt"
+Issues = "https://github.com/commercetxt/commercetxt/issues"
+Changelog = "https://github.com/commercetxt/commercetxt/releases"
 
 [project.optional-dependencies]
-async = ["aiofiles"]
+cli = ["colorama>=0.4.6"]
+async = ["aiofiles>=23.0.0"]
+
 dev = [
-    "pytest>=7.0",
-    "pytest-asyncio",
-    "pytest-cov",
-    "hypothesis",
-    "black",
-    "mypy",
-    "ruff"
+  "pytest>=7.0",
+  "pytest-asyncio>=0.23",
+  "pytest-cov>=4.0",
+  "hypothesis>=6.0",
+  "black>=24.0",
+  "mypy>=1.7",
+  "ruff>=0.5",
+  "types-colorama>=0.4.15",
+  "types-redis>=4.6.0",
+  "aiosqlite>=0.19.0",
+]
+
+# ---- RAG extras (modular) ----
+rag-local = ["sentence-transformers>=2.2.0"]
+
+rag-openai = ["openai>=1.0.0"]
+
+rag-faiss = [
+  "faiss-cpu",
+  "numpy>=1.24",
+]
+
+rag-qdrant = ["qdrant-client>=1.7.0"]
+rag-pinecone = ["pinecone>=5.0.0"]
+rag-redis = ["redis>=5.0.0"]
+
+# Convenience bundle (local-first)
+rag = [
+  "sentence-transformers>=2.2.0",
+  "faiss-cpu",
+  "numpy>=1.24",
+  "redis>=5.0.0",
+]
+
+# Everything bundle (heavy)
+rag-all = [
+  "openai>=1.0.0",
+  "sentence-transformers>=2.2.0",
+  "pinecone>=5.0.0",
+  "qdrant-client>=1.7.0",
+  "faiss-cpu",
+  "numpy>=1.24",
+  "redis>=5.0.0",
 ]
 
 [project.scripts]
 commercetxt = "commercetxt.cli:main"
 
+[tool.setuptools]
+include-package-data = true
+
+# Add an empty file: commercetxt/py.typed
+[tool.setuptools.package-data]
+commercetxt = ["py.typed"]
+
 [tool.black]
 line-length = 88
-target-version = ['py38']
+target-version = ["py310"]
 
 [tool.mypy]
-python_version = "3.8"
+mypy_path = "parsers/python"
+python_version = "3.10"
 warn_return_any = true
 warn_unused_configs = true
-mypy_path = "."
 explicit_package_bases = true
 namespace_packages = true
+no_implicit_optional = true
 
 [[tool.mypy.overrides]]
 module = "hypothesis.*"
 ignore_missing_imports = true
 
+[[tool.mypy.overrides]]
+module = [
+    "redis",
+    "redis.*",
+    "openai",
+    "openai.*",
+    "httpx",
+    "httpx.*",
+    "faiss",
+    "faiss.*",
+    "numpy",
+    "numpy.*",
+    "qdrant_client",
+    "qdrant_client.*",
+    "pinecone",
+    "pinecone.*",
+    "sentence_transformers",
+    "sentence_transformers.*",
+    "prometheus_client",
+    "prometheus_client.*",
+    "aiosqlite",
+    "aiosqlite.*",
+]
+ignore_missing_imports = true
+follow_imports = "skip"
+
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
 testpaths = ["tests"]
 python_files = "test_*.py"
-pythonpath = ["."]
+pythonpath = [""]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 88
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "S", "B", "UP", "N", "ERA", "PLR"]
+ignore = ["D100", "D104", "S101"]
+
+[tool.ruff.lint.per-file-ignores]
+"**/tests/**" = ["PLR2004", "D103"]
+# Parser has complex parsing logic by design
+"commercetxt/parser.py" = ["PLR0912"]
+# Schema bridge generates complex nested JSON-LD structures
+"commercetxt/rag/tools/schema_bridge.py" = ["PLR0912", "PLR0915"]
+# Generator has complex shard generation logic with many edge cases
+"commercetxt/rag/core/generator.py" = ["PLR0912", "PLR0915"]
+# Storage/vector store drivers need many configuration parameters
+"commercetxt/rag/drivers/*.py" = ["PLR0913", "S608", "S310"]
+"commercetxt/rag/async_pipeline.py" = ["PLR0913"]
+# Health monitoring has complex branching for component checks
+"commercetxt/rag/monitoring/health.py" = ["PLR0912"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"

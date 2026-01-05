@@ -1,44 +1,94 @@
 # CommerceTXT Parsers
 
-This repository contains the official reference implementations for the CommerceTXT protocol. These tools are designed to be secure, fast, and compliant with the latest specification.
+Official reference implementations for the CommerceTXT protocol. Secure, fast, and compliant with Protocol v1.0.1.
+
+- [Protocol specification v1.0.1](../spec/README.md)
+- [Examples](../examples/)
+- [Tests](./python/tests/)
+
+---
 
 ## Available Implementations
 
 ### 🐍 [Python (Reference Implementation)](./python)
-The official reference parser and validator, fully production-ready and type-safe.
+Official reference parser - production-ready and type-safe.
 
-**Status:** v1.0.2 (Stable)
-**Key Features:**
-* **Fractal Inheritance:** Native support for resolving nested directives across multiple files.
-* **Tiered Validation:** Strict compliance checks for Tier 1, 2, and 3.
-* **Enterprise Security:** Built-in protection against SSRF, DoS, and private network exposure.
-* **AI & LLM Bridge:** Enhanced prompt generation supporting `BRAND_VOICE`, `SEMANTIC_LOGIC`, and `PROMOS`.
-* **Extreme Reliability:** 95%+ code coverage with Fuzz and Property-based testing.
-* **CLI Tool:** Validate and process `commerce.txt` files directly from the terminal.
+**Status:** v1.0.3 (Stable - January 2026)  
+**Protocol:** v1.0.1  
+**Coverage:** 82%
+
+**Features**
+- Full Protocol Support (Tier 1/2/3)
+- Fractal Inheritance (multi-file resolution)
+- UTF-16/32 Support (Excel exports)
+- Security Hardened (SSRF/DoS protection)
+- AI Bridge (~120 tokens vs 8,500+)
+- Async Support (bulk processing)
+- LRU Caching
+- CLI Tools
+
+**RAG & AI Tools**
+- AI Health Checker (0-100 scoring)
+- Schema.org Bridge (JSON-LD)
+- Semantic Normalizer
+- RAG Pipeline (vector databases)
+- Async RAG Pipeline
+
+**Vector DB Support:**  
+Pinecone, Qdrant, Redis, FAISS, In-Memory
+
+**Resources**
+- [README](./python/README.md)
+- [Source Code](./python/commercetxt)
+- [PyPI](https://pypi.org/project/commercetxt/)
+
+---
+
+## Quick Start
+
+### Installation
+```bash
+pip install commercetxt
+```
+
+### Basic Usage
+```python
+from commercetxt import parse_file
+
+result = parse_file('commerce.txt')
+product = result.directives.get('PRODUCT', {})
+print(f"Product: {product.get('Name')}")
+```
+
+### CLI
+```bash
+commercetxt commerce.txt --validate
+commercetxt product.txt --prompt
+commercetxt product.txt --health
+```
+
 ---
 
 ## Roadmap
 
-* **JavaScript / TypeScript:** (In Progress) Browser-compatible parser for frontend integration.
-* **Go:** (Planned) High-performance parser for microservices.
-* **Rust:** (Planned) Memory-safe implementation for system-level integration.
+* **JavaScript/TypeScript:** (Planned Q1 2026) Browser-compatible parser
+* **Go:** (Planned Q2 2026) High-performance microservices
+* **Rust:** (Planned Q3 2026) Memory-safe system integration
+* **PHP:** (Community Request) WordPress/WooCommerce
 
 ---
-
-## Installation (Python)
-To install the reference parser, navigate to the python directory or use:
-```bash
-pip install commercetxt
-```
-Validate any file instantly:
-```bash
-commercetxt path/to/commerce.txt --validate
-```
 
 ## Contribute
 
-We welcome contributions! If you would like to build a parser in your favorite language (Go, JavaScript, TypeScript, Rust, etc.), please open an Issue or a Pull Request.
+Build a parser in your language! Open an Issue or Pull Request.
+
+**Guidelines:**
+- Follow [Specification v1.0.1](../spec/README.md)
+- Include comprehensive tests
+- Add security protections (SSRF, DoS)
+- Provide examples and documentation
 
 ---
 
-**© 2025 [CommerceTXT](https://commercetxt.org) Project | MIT License** 
+**© 2026 [CommerceTXT](https://commercetxt.org) Project | MIT License**
+

@@ -1,0 +1,19 @@
+# commerce.txt - Category File
+# Tests ITEMS and FILTERS directives for category level
+
+Version: 1.0.3
+
+# @IDENTITY
+Name: Electronics Category
+Currency: USD
+
+# @FILTERS
+Brands: Sony, Bose, AudioTech, JBL
+Type: Headphones, Earbuds, Speakers
+PriceRange: $20 - $500
+Features: Wireless, ANC, Waterproof
+
+# @ITEMS
+- Premium Headphones: /products/premium-headphones.txt
+- Budget Earbuds: /products/budget-earbuds.txt
+- Portable Speaker: /products/portable-speaker.txt

@@ -3,22 +3,21 @@ Performance tracking for CommerceTXT.
 Measure the speed. Count the events.
 """
 
+from __future__ import annotations
+
 import time
 from collections import defaultdict
-from typing import Any, Dict
+from typing import Any
 
 
 class Metrics:
     """A single place for all data points."""
 
-    _instance = None
+    _default_instance: Metrics | None = None
 
-    def __new__(cls):
-        """Ensure only one instance exists."""
-        if cls._instance is None:
-            cls._instance = super(Metrics, cls).__new__(cls)
-            cls._instance.reset()
-        return cls._instance
+    def __init__(self):
+        """Initialize a new metrics instance."""
+        self.reset()
 
     def reset(self):
         """Clear all stored data."""
@@ -51,7 +50,7 @@ class Metrics:
         """Alias for gauge."""
         self.gauges[name] = value
 
-    def get_stats(self) -> Dict[str, Any]:
+    def get_stats(self) -> dict[str, Any]:
         """Return all metrics as a dictionary."""
         return {
             "timers": self.timers,
@@ -59,7 +58,47 @@ class Metrics:
             "gauges": dict(self.gauges),
         }
 
+    @classmethod
+    def get_default(cls) -> Metrics:
+        """
+        Get the default singleton instance.
+        This is the application-level singleton for production use.
+        """
+        if cls._default_instance is None:
+            cls._default_instance = cls()
+        return cls._default_instance
+
+    @classmethod
+    def reset_default(cls):
+        """
+        Reset the default singleton instance.
+        Useful for test isolation.
+        """
+        if cls._default_instance is not None:
+            cls._default_instance.reset()
+
+    @classmethod
+    def clear_default(cls):
+        """
+        Clear the default singleton instance entirely.
+        Creates a fresh instance on next get_default() call.
+        """
+        cls._default_instance = None
+
 
 def get_metrics() -> Metrics:
-    """Access the metrics instance."""
-    return Metrics()
+    """
+    Access the default metrics instance.
+
+    For production code: Always returns the same singleton.
+    For tests: Use metrics parameter in constructors for isolation.
+
+    Example:
+        # Production:
+        metrics = get_metrics()
+
+        # Tests (isolated):
+        test_metrics = Metrics()  # Fresh instance
+        parser = CommerceTXTParser(metrics=test_metrics)
+    """
+    return Metrics.get_default()

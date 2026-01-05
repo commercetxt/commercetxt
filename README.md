@@ -59,7 +59,7 @@ Availability: InStock
 
 # @INVENTORY
 Stock: 42
-LastUpdated: 2025-12-15T10:00:00Z
+LastUpdated: 2026-01-05T10:00:00Z
 
 # @REVIEWS
 Rating: 4.7
@@ -93,25 +93,30 @@ AI agents read this structured data directly—no scraping, no guessing, no hall
    Non-standard hint. Primary discovery is via direct fetch.
 
 4. **Use generator** (optional)
-   - Online: Coming soon
+   - Python parser: `pip install commercetxt` (see [Python Parser](./parsers/python/))
+   - Online validator: Coming soon
    - Shopify plugin: Coming soon
 
 ### For AI Platform Developers
 
 ```python
 # Python example
-import requests
+from commercetxt import parse_file
 
-# Discover commerce.txt
-response = requests.get('https://example.com/commerce.txt')
-commerce_data = parse_commercetxt(response.text)
+# Parse commerce.txt from file
+result = parse_file('commerce.txt')
 
 # Access structured data
-print(f"Price: ${commerce_data['@OFFER']['Price']}")
-print(f"Stock: {commerce_data['@INVENTORY']['Stock']}")
+product = result.directives.get('PRODUCT', {})
+offer = result.directives.get('OFFER', {})
+inventory = result.directives.get('INVENTORY', {})
+
+print(f"Product: {product.get('Name')}")
+print(f"Price: ${offer.get('Price')}")
+print(f"Stock: {inventory.get('Stock')}")
 ```
 
-See [Parser Documentation](./parsers/) (coming soon) for implementation details.
+See [Python Parser Documentation](./parsers/python/README.md) for full implementation details.
 
 ---
 
@@ -145,7 +150,7 @@ CC0 license—no permission needed to implement. Vendor-neutral infrastructure.
 - **[Manifesto](./MANIFESTO.md)** - Why AI platforms should support this
 - **[Contributors](./CONTRIBUTORS.md)** - Project contributors
 - **[Examples](./examples/)** - Real commerce.txt files
-- **[Parsers](./parsers/)** - Reference implementations  (coming soon)
+- **[Python Parser](./parsers/python/)** - Reference implementation (v1.0.3)
 - **[Website](https://commercetxt.org)** - Interactive guides
 
 ---
@@ -288,6 +293,18 @@ AI: [Reads 5 KB file, 380 tokens]
 
 ---
 
+## Language & Unicode Policy
+
+- **Project language:** English (docs, code comments, CLI/user-facing strings).
+- **Tests may include Unicode** (Cyrillic, accents, emojis) on purpose to validate:
+  - encoding detection (UTF-8/UTF-16/UTF-32),
+  - BOM handling,
+  - parsing stability with non-ASCII content.
+- Please **do not remove Cyrillic text from tests/fixtures** unless a test explicitly requires it.
+
+---
+
+
 ## Who's Behind This?
 
 **Initiated by:** Tsanko Zanov  
@@ -345,7 +362,7 @@ Your prices are already public in HTML. CommerceTXT doesn't expose new data—it
 No. Tier 1 (Minimal) requires only 4 directives. Add more as needed. See [Compliance Tiers](./spec/README.md#6-compliance-tiers).
 
 ### Which AI platforms support this?
-CommerceTXT is newly launched (v1.0.1). We're in active discussions with Anthropic, OpenAI, and Google. See [Manifesto](./MANIFESTO.md) for pitch.
+CommerceTXT is newly launched (v1.0.1). Python Parser v1.0.3 is available. We're in active discussions with Anthropic, OpenAI, and Google. See [Manifesto](./MANIFESTO.md) for pitch.
 
 ### How do I keep data fresh?
 Set appropriate `Cache-Control` headers (5-60 minutes). For dynamic inventory, generate commerce.txt on-demand from your database.
@@ -360,8 +377,8 @@ Set appropriate `Cache-Control` headers (5-60 minutes). For dynamic inventory, g
 
 ## Status
 
-**Current Version:** 1.0.1 (Stable Release)  
-**Release Date:** December 17, 2025  
+**Protocol Version:** 1.0.1 (Stable Release - December 17, 2025)  
+**Python Parser:** 1.0.3 (January 5, 2026)  
 **Stability:** Production-ready  
 **Breaking Changes:** None expected in v1.x
 
@@ -388,6 +405,14 @@ No attribution required (but appreciated).
 - **GitHub:** https://github.com/commercetxt/commercetxt/
 - **Discussions:** https://github.com/commercetxt/commercetxt/discussions
 - **X:** https://x.com/CommerceTXT
+
+---
+
+## 🤖 AI Context
+
+[![AI Context](https://img.shields.io/badge/AI-Context-blue?logo=openai)](CONTEXT.md)
+
+**For AI Agents:** See [`CONTEXT.md`](CONTEXT.md) for architectural overview, dataset details, and coding standards.
 
 ---
 

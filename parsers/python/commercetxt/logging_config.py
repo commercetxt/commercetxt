@@ -3,11 +3,12 @@ Logging for CommerceTXT.
 Track the parser. See the errors.
 """
 
+from __future__ import annotations
+
 import logging
-from typing import Optional
 
 
-def get_logger(name: str, level: Optional[str] = None) -> logging.Logger:
+def get_logger(name: str, level: str | None = None) -> logging.Logger:
     """
     Get a configured logger.
     It tells you what happens and when.

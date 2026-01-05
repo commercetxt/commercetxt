@@ -4,13 +4,20 @@ Ensures protection against SSRF, DoS, and malicious obfuscation attempts.
 """
 
 import socket
+import threading
 from unittest.mock import patch
 
-from commercetxt.security import is_safe_url
+import pytest
+
+from commercetxt.limits import MAX_LINE_LENGTH
 from commercetxt.parser import CommerceTXTParser
 from commercetxt.resolver import resolve_path
-from commercetxt.limits import MAX_LINE_LENGTH
-
+from commercetxt.security import (
+    _is_blocked_pattern,
+    clear_dns_cache,
+    get_dns_cache_info,
+    is_safe_url,
+)
 
 # ============================================================================
 # 1. NETWORK PERIMETER PROTECTION (SSRF PREVENTION)
@@ -65,7 +72,7 @@ def test_handles_invalid_input_gracefully():
 
 
 def test_missing_hostname_coverage():
-    """Covers line 45: Block URLs that result in empty hostnames."""
+    """Empty hostname in URL is blocked."""
     assert is_safe_url("http:///path/to/resource") is False
 
 
@@ -80,14 +87,24 @@ def test_blocks_exotic_ip_notation():
     assert is_safe_url("http://0x7f.0.0.1/file") is False  # Hex
     assert is_safe_url("http://2130706433/file") is False  # Integer
 
+    # Deep boundary check for integer IPs
+    from commercetxt.constants import LOOPBACK_IP_END, LOOPBACK_IP_START
+
+    assert _is_blocked_pattern(str(LOOPBACK_IP_START)) is True
+    assert _is_blocked_pattern(str(LOOPBACK_IP_END)) is True
+    assert _is_blocked_pattern(str(LOOPBACK_IP_START - 1)) is False
+
 
 def test_blocks_url_with_at_symbol():
-    """The @ symbol used for user-auth spoofing must be blocked if pointing to local hosts."""
+    """
+    The @ symbol used for user-auth spoofing must be blocked
+    if pointing to local hosts.
+    """
     assert is_safe_url("http://example.com@localhost/file") is False
 
 
 def test_blocks_backslash_confusion():
-    """Backslashes used in obfuscation (line 37) must be rejected."""
+    """Backslashes in URLs are rejected."""
     assert is_safe_url("https://example.com\\@google.com") is False
     assert is_safe_url("https://example.com\\admin") is False
 
@@ -142,6 +159,12 @@ def test_integer_ip_overflow_coverage():
         assert is_safe_url("http://2130706433/") is False
 
 
+def test_safe_url_exception_handler_deep():
+    """Target lines 50-51: Force an exception in is_safe_url."""
+    with patch("commercetxt.security.urlparse", side_effect=Exception("Parsing error")):
+        assert is_safe_url("https://example.com") is False
+
+
 def test_ssrf_resolve_protection():
     """Ensure the high-level resolver utilizes security checks to block unsafe paths."""
 
@@ -156,3 +179,78 @@ def test_ssrf_resolve_protection():
             "security" in e.lower() or "blocked" in e.lower() for e in result.errors
         )
         assert found_security_error, f"Failed to block unsafe path: {url}"
+
+
+# ============================================================================
+# 6. DNS CACHE TESTS (from test_dns_cache.py)
+# ============================================================================
+
+
+class TestDNSCache:
+    """DNS cache functionality tests."""
+
+    @pytest.fixture(autouse=True)
+    def cleanup_cache(self):
+        """Auto-cleanup cache before each test."""
+        clear_dns_cache()
+        yield
+        clear_dns_cache()
+
+    def test_cache_hits_and_misses(self):
+        """Test basic cache hit/miss behavior."""
+        info_before = get_dns_cache_info()
+        initial_misses = info_before["misses"]
+
+        is_safe_url("http://example.com/path1")
+        info_after = get_dns_cache_info()
+        assert info_after["misses"] > initial_misses
+
+        is_safe_url("http://example.com/path2")
+        info_final = get_dns_cache_info()
+        assert info_final["hits"] > info_after["hits"]
+
+    def test_cache_clear_and_info_structure(self):
+        """Test cache clearing and info structure."""
+        is_safe_url("http://example.com")
+        info = get_dns_cache_info()
+
+        assert all(k in info for k in ["hits", "misses", "maxsize", "currsize"])
+        assert info["maxsize"] == 1000
+        assert info["currsize"] > 0
+
+        clear_dns_cache()
+        assert get_dns_cache_info()["currsize"] == 0
+
+    def test_mocked_dns_caching(self):
+        """Test caching with mocked DNS resolution."""
+        call_count = {"count": 0}
+
+        def mock_gethostbyname(host):
+            call_count["count"] += 1
+            return "93.184.216.34" if host == "example.com" else None
+
+        with patch("socket.gethostbyname", side_effect=mock_gethostbyname):
+            is_safe_url("http://example.com")
+            assert call_count["count"] == 1
+            is_safe_url("http://example.com/other")
+            assert call_count["count"] == 1  # No additional DNS call
+
+    def test_concurrent_access(self):
+        """Test DNS cache with concurrent access."""
+        results, errors = [], []
+
+        def worker():
+            try:
+                for i in range(10):
+                    results.append(is_safe_url(f"http://example.com/path{i}"))
+            except Exception as e:
+                errors.append(e)
+
+        threads = [threading.Thread(target=worker) for _ in range(5)]
+        for t in threads:
+            t.start()
+        for t in threads:
+            t.join()
+
+        assert len(errors) == 0
+        assert len(results) == 50

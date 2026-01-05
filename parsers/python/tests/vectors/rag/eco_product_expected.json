@@ -1,0 +1,39 @@
+{
+  "product": {
+    "ITEM": "Organic Cotton Summer Dress",
+    "BRAND": "EcoWear",
+    "PRICE": "89.99",
+    "CURRENCY": "USD",
+    "AVAILABILITY": "InStock",
+    "CONDITION": "New",
+    "SPECS": {
+      "Material": "100% Organic Cotton",
+      "Weight": "0.3 kg",
+      "Size": "S, M, L, XL",
+      "Care": "Machine washable",
+      "certification": "GOTS Certified, Fair Trade"
+    },
+    "DESCRIPTION": "Lightweight summer dress made from sustainable organic cotton"
+  },
+  "expected_tags": [
+    "mid_range",
+    "ready_to_ship",
+    "brand_new_condition",
+    "brand_ecowear",
+    "apparel",
+    "lightweight",
+    "natural_material",
+    "cotton",
+    "organic_certified",
+    "fair_trade_certified",
+    "summer_seasonal"
+  ],
+  "expected_shard_types": [
+    "subject_anchor",
+    "price",
+    "currency",
+    "specification",
+    "description"
+  ]
+}
+

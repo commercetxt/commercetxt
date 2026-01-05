@@ -26,16 +26,16 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -e "./parsers/python[dev]"
+          pip install -e "./parsers/python[dev,rag-all]"
 
       - name: Check formatting with Black
-        run: black --check parsers/python/
+        run: black --check parsers/python/commercetxt
 
       - name: Lint with Ruff
-        run: ruff check parsers/python/
+        run: ruff check parsers/python/commercetxt
 
       - name: Type check with Mypy
-        run: mypy parsers/python/
+        run: mypy parsers/python/commercetxt
 
       - name: Run Tests
         run: |

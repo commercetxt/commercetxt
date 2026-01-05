@@ -5,6 +5,7 @@ Find the files. Merge the data. Stay secure.
 
 import json
 from pathlib import Path
+
 import pytest
 
 from commercetxt import CommerceTXTResolver, ParseResult
@@ -18,7 +19,7 @@ def load_vector(path_parts: list):
     vector_path = VECTORS_DIR.joinpath(*path_parts)
     if not vector_path.exists():
         pytest.skip(f"Test vector not found: {vector_path}")
-    with open(vector_path, "r", encoding="utf-8") as f:
+    with open(vector_path, encoding="utf-8") as f:
         return json.load(f)
 
 
@@ -93,9 +94,12 @@ def test_error_accumulation():
     child = ParseResult(errors=["Err2"], warnings=["Warn2"], trust_flags=["T2"])
     merged = CommerceTXTResolver().merge(parent, child)
 
-    assert "Err1" in merged.errors and "Err2" in merged.errors
-    assert "Warn1" in merged.warnings and "Warn2" in merged.warnings
-    assert "T1" in merged.trust_flags and "T2" in merged.trust_flags
+    assert "Err1" in merged.errors
+    assert "Err2" in merged.errors
+    assert "Warn1" in merged.warnings
+    assert "Warn2" in merged.warnings
+    assert "T1" in merged.trust_flags
+    assert "T2" in merged.trust_flags
 
 
 def test_resolve_path_404_handling():
@@ -103,7 +107,7 @@ def test_resolve_path_404_handling():
     from commercetxt.resolver import resolve_path
 
     def mock_loader(p):
-        raise FileNotFoundError()
+        raise FileNotFoundError
 
     result = resolve_path("/missing.txt", mock_loader)
     assert "404" in result.errors[0]
@@ -142,7 +146,8 @@ def test_merge_preserves_trust_flags():
     p1 = ParseResult(trust_flags=["flag1"])
     p2 = ParseResult(trust_flags=["flag2"])
     merged = CommerceTXTResolver().merge(p1, p2)
-    assert "flag1" in merged.trust_flags and "flag2" in merged.trust_flags
+    assert "flag1" in merged.trust_flags
+    assert "flag2" in merged.trust_flags
 
 
 def test_resolver_handles_none_parent():
@@ -219,10 +224,57 @@ def test_resolve_path_generic_exception():
     """Catch unexpected loader errors. Return them as results."""
 
     def bomb_loader(path):
-        raise RuntimeError("Fatal Disk Error")
+        msg = "Fatal Disk Error"
+        raise RuntimeError(msg)
 
     result = resolve_path("test.txt", bomb_loader)
     assert "Fatal Disk Error" in result.errors[0]
+
+
+class TestCircularDependency:
+    """Circular dependency detection tests."""
+
+    def test_detection(self):
+        """Test circular dependency detection."""
+        resolver = CommerceTXTResolver()
+        parent = ParseResult()
+        parent._source_path = "/root/file1.txt"
+        child = ParseResult()
+        child._source_path = "/root/file2.txt"
+
+        merged1 = resolver.merge(parent, child)
+        assert merged1 is not None
+
+        circular = ParseResult()
+        circular._source_path = "/root/file1.txt"
+
+        with pytest.raises(ValueError, match="Circular dependency"):
+            resolver.merge(merged1, circular)
+
+    def test_reset_tracking(self):
+        """Test resolver tracking reset."""
+        resolver = CommerceTXTResolver()
+        r1 = ParseResult()
+        r1._source_path = "/file1.txt"
+        r2 = ParseResult()
+        r2._source_path = "/file2.txt"
+
+        resolver.merge(r1, r2)
+        resolver.reset_tracking()
+
+        r3 = ParseResult()
+        r3._source_path = "/file1.txt"
+        r4 = ParseResult()
+        r4._source_path = "/file2.txt"
+
+        merged = resolver.merge(r3, r4)
+        assert merged is not None
+
+    def test_no_source_path(self):
+        """Test merge without _source_path."""
+        resolver = CommerceTXTResolver()
+        merged = resolver.merge(ParseResult(), ParseResult())
+        assert merged is not None
 
 
 if __name__ == "__main__":

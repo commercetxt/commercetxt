@@ -3,13 +3,14 @@ Integration tests for CommerceTXT.
 Test the whole. Verify the parts.
 """
 
+from datetime import datetime, timedelta, timezone
+
 import pytest
-from datetime import datetime, timedelta
 
 from commercetxt import ParseResult
 from commercetxt.parser import CommerceTXTParser
-from commercetxt.validator import CommerceTXTValidator
 from commercetxt.resolver import CommerceTXTResolver
+from commercetxt.validator import CommerceTXTValidator
 
 
 def test_full_pipeline_root_to_product():
@@ -252,7 +253,7 @@ Name: Store
 Currency: USD
 
 # @INVENTORY
-LastUpdated: {(datetime.now() - timedelta(days=10)).isoformat()}
+LastUpdated: {(datetime.now(timezone.utc) - timedelta(days=10)).isoformat()}
 """
     result = parser.parse(content)
     validator.validate(result)
@@ -349,13 +350,19 @@ def test_inventory_merge_consistency():
     resolver = CommerceTXTResolver()
     validator = CommerceTXTValidator()
 
+    stale_date = (
+        (datetime.now(timezone.utc) - timedelta(days=10))
+        .isoformat()
+        .replace("+00:00", "Z")
+    )
+
     root = parser.parse(
-        """
+        f"""
 # @IDENTITY
 Name: Store
 Currency: USD
 # @INVENTORY
-LastUpdated: 2020-01-01
+LastUpdated: {stale_date}
 """
     )
 

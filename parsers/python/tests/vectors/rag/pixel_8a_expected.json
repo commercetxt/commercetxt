@@ -1,0 +1,38 @@
+{
+  "product": {
+    "ITEM": "Google Pixel 8a",
+    "BRAND": "Google",
+    "PRICE": "499.00",
+    "CURRENCY": "USD",
+    "AVAILABILITY": "InStock",
+    "CONDITION": "New",
+    "SPECS": {
+      "Display": "6.1\" OLED (Actua)",
+      "Processor": "Google Tensor G3",
+      "RAM": "8GB LPDDR5X",
+      "Storage": "128GB / 256GB (UFS 3.1)",
+      "Weight": "188g",
+      "Dimensions": "152.1 x 72.7 x 8.9 mm",
+      "Material": "Glass front (Gorilla Glass 3), Plastic back",
+      "Battery": "4492 mAh"
+    },
+    "DESCRIPTION": "Affordable AI-powered smartphone with flagship features and 7 years of updates"
+  },
+  "expected_tags": [
+    "premium",
+    "ready_to_ship",
+    "brand_new_condition",
+    "lightweight",
+    "synthetic_material",
+    "glass_ceramic_material",
+    "plastic"
+  ],
+  "expected_shard_types": [
+    "subject_anchor",
+    "price",
+    "currency",
+    "specification",
+    "description"
+  ]
+}
+

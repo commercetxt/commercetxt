@@ -1,0 +1,24 @@
+# commerce.txt - Age Restriction Product
+# Tests @AGE_RESTRICTION directive
+
+Version: 1.0.3
+LastUpdated: 2025-12-31T09:00:00Z
+
+# @IDENTITY
+Name: Adult Content Store
+URL: https://adult.example.com
+Currency: USD
+
+# @PRODUCT
+Name: Age-Restricted Content
+SKU: ARC-001
+URL: https://adult.example.com/products/content
+
+# @OFFER
+Price: 49.99
+Availability: InStock
+
+# @AGE_RESTRICTION
+MinimumAge: 18
+Reason: Contains mature content
+VerificationRequired: True

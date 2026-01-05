@@ -1,490 +1,514 @@
 """
-Tests for the CommerceTXT Parser.
-Verify parsing logic. Protect the syntax.
+CommerceTXT Parser Tests.
+
+Tests parsing, encoding, sections, nesting, and list handling.
 """
 
-import json
-from pathlib import Path
 import pytest
 
-from commercetxt import CommerceTXTParser
-from commercetxt.resolver import CommerceTXTResolver
-from commercetxt.model import ParseResult
-from commercetxt.logging_config import get_logger
-from commercetxt.cache import parse_cached
-
-VECTORS_DIR = Path(__file__).parent / "vectors"
+from commercetxt import CommerceTXTParser, parse_file
+from commercetxt.limits import MAX_LINE_LENGTH, MAX_NESTING_DEPTH, MAX_SECTIONS
+from commercetxt.parser import _try_read_with_encoding, read_commerce_file
 
 
-def load_vectors(category: str):
-    """Load JSON test vectors. Skip if missing."""
-    category_dir = VECTORS_DIR / category
-    if not category_dir.exists():
-        pytest.skip(f"Vectors directory not found: {category_dir}")
-        return
-    for file in category_dir.glob("*.json"):
-        with open(file, "r", encoding="utf-8") as f:
-            yield file.stem, json.load(f)
+@pytest.fixture
+def parser():
+    """Default parser instance."""
+    return CommerceTXTParser()
 
 
-def test_minimal_valid_document():
-    """Check basic structure. Verify metadata and normalization."""
-    parser = CommerceTXTParser()
-    content = """
-Version: 1.0.1
-# @IDENTITY
-Name: Demo Store
-Currency: USD
-# @OFFER
-Price: 19.99
-Availability: InStock
-"""
+# =============================================================================
+# Encoding & File Reading
+# =============================================================================
+
+
+def test_encoding_detection(tmp_path):
+    """UTF-8 BOM detected. Invalid encodings rejected."""
+    content = "# @IDENTITY\nName: Store\nCurrency: USD"
+
+    # UTF-8 with BOM
+    f = tmp_path / "bom.txt"
+    f.write_bytes(b"\xef\xbb\xbf" + content.encode("utf-8"))
+    c, e = read_commerce_file(f)
+    assert "IDENTITY" in c
+    assert e in ("utf-8", "utf-8-sig")
+
+    # Invalid encoding
+    f_inv = tmp_path / "invalid.txt"
+    f_inv.write_bytes(b"\xff\xfe\x00\xd8")
+    with pytest.raises(UnicodeDecodeError):
+        read_commerce_file(f_inv, encoding="ascii")
+
+    # Explicit encoding mismatch
+    f_utf16 = tmp_path / "utf16.txt"
+    f_utf16.write_text("Data", encoding="utf-16")
+    with pytest.raises(UnicodeDecodeError):
+        read_commerce_file(f_utf16, encoding="ascii")
+
+    # Successful explicit encoding
+    f_utf8 = tmp_path / "utf8.txt"
+    f_utf8.write_text("Data", encoding="utf-8")
+    c, e = read_commerce_file(f_utf8, encoding="utf-8")
+    assert c == "Data" and e == "utf-8"
+
+
+def test_read_non_existent_file():
+    """Missing file raises FileNotFoundError."""
+    with pytest.raises(FileNotFoundError):
+        read_commerce_file("non_existent_file_xyz_123.txt")
+
+
+# =============================================================================
+# Line Processing & Limits
+# =============================================================================
+
+
+@pytest.mark.parametrize(
+    "line, expected_key",
+    [
+        ("  # @TEST  ", "TEST"),
+        ("#@TEST", "TEST"),
+        ("# @test", "TEST"),
+    ],
+)
+def test_directive_normalization(parser, line, expected_key):
+    """Section headers normalize whitespace and case."""
+    result = parser.parse(f"{line}\nK: V")
+    assert expected_key in result.directives
+
+
+def test_max_line_length(parser):
+    """Long lines are truncated with warning."""
+    long_line = "K: " + ("x" * (MAX_LINE_LENGTH + 1))
+    result = parser.parse("# @TEST\n" + long_line)
+    assert any("truncating" in w.lower() for w in result.warnings)
+
+
+def test_max_sections(parser):
+    """Section count is capped at MAX_SECTIONS."""
+    content = "\n".join([f"# @S{i}\nKey: Value" for i in range(MAX_SECTIONS + 1)])
     result = parser.parse(content)
-    assert result.version == "1.0.1"
-    assert result.directives["IDENTITY"]["Name"] == "Demo Store"
-    assert result.directives["IDENTITY"]["Currency"] == "USD"
-
-
-def test_utf8_sanity_parsing():
-    """Ensure UTF-8 characters and emojis parse correctly."""
-    parser = CommerceTXTParser()
-    content = """
-Version: 1.0.1
-# @IDENTITY
-Name: Магазин „Техно" 🚀
-Currency: BGN
-# @PRODUCT
-Name: Смартфон „Звезда"
-Description: Best model for 2025. ✨
-"""
-    result = parser.parse(content)
-    assert result.directives["IDENTITY"]["Name"] == 'Магазин „Техно" 🚀'
-    assert result.directives["PRODUCT"]["Name"] == 'Смартфон „Звезда"'
-    assert "✨" in result.directives["PRODUCT"]["Description"]
-
-
-def test_list_parsing():
-    """Verify flat lists store items correctly."""
-    parser = CommerceTXTParser()
-    content = """
-# @CATALOG
-- Electronics: /categories/electronics.txt
-"""
-    result = parser.parse(content)
-    # Global lists are stored under 'items'.
-    assert "items" in result.directives["CATALOG"]
-    assert result.directives["CATALOG"]["items"][0]["name"] == "Electronics"
-
-
-def test_subscription_nested_parsing():
-    """Verify nested attributes in lists parse as TitleCase keys."""
-    parser = CommerceTXTParser()
-    content = """
-# @SUBSCRIPTION
-Plans:
-  - Monthly: 29.00 | Features: Basic
-"""
-    result = parser.parse(content)
-    assert result.directives["SUBSCRIPTION"]["Plans"][0]["Features"] == "Basic"
-
-
-def test_deep_n_level_nesting():
-    """Ensure infinite nesting works when enabled."""
-    parser = CommerceTXTParser(nested=True)
-    content = """
-# @VARIANTS
-Options:
-  - Color:
-      - Black:
-          - SKU: A1
-      - White
-  - Size:
-      - Small
-"""
-    result = parser.parse(content)
-    options = result.directives["VARIANTS"]["Options"]
-
-    color_node = options[0]
-    assert color_node["name"] == "Color"
-
-    black_node = color_node["children"][0]
-    assert black_node["name"] == "Black"
-
-    sku_node = black_node["children"][0]
-    assert sku_node["name"] == "SKU"
-    assert sku_node["path"] == "A1"
-
-    assert options[1]["name"] == "Size"
-
-
-def test_empty_file_handling():
-    """Empty files must not crash. Return empty result."""
-    parser = CommerceTXTParser()
-    result = parser.parse("")
-    assert result.directives == {}
-    assert result.version is None
-    assert not result.errors
-
-
-def test_only_comments_file():
-    """Comment-only files must produce no data and no warnings."""
-    parser = CommerceTXTParser()
-    result = parser.parse("# Comment 1\n# Comment 2")
-    assert result.directives == {}
-    assert not result.warnings
-
-
-def test_whitespace_only_file():
-    """Ignore files containing only whitespace."""
-    parser = CommerceTXTParser()
-    result = parser.parse("   \n\n\t\t\n   ")
-    assert result.directives == {}
-    assert not result.errors
-
-
-def test_malformed_section_header():
-    """Invalid headers must trigger a syntax warning."""
-    parser = CommerceTXTParser()
-    result = parser.parse("# @ IDENTITY\nName: Test")
-    assert len(result.warnings) > 0
-    assert "Unknown syntax" in result.warnings[0]
-
-
-def test_duplicate_section_override():
-    """New sections overwrite old ones with the same name."""
-    parser = CommerceTXTParser()
-    result = parser.parse("# @OFFER\nPrice: 10\n# @OFFER\nPrice: 20")
-    assert result.directives["OFFER"]["Price"] == "20"
-
-
-def test_very_long_line():
-    """Long lines must not crash the system."""
-    parser = CommerceTXTParser()
-    long_value = "A" * 100000
-    result = parser.parse(f"# @IDENTITY\nName: {long_value}")
-    assert len(result.directives["IDENTITY"]["Name"]) == 100000
-
-
-def test_url_with_query_params():
-    """URLs with complex query strings must parse cleanly."""
-    parser = CommerceTXTParser()
-    result = parser.parse("# @IMAGES\n- Main: http://example.com/img.jpg?w=500&h=300")
-    assert "w=500" in result.directives["IMAGES"]["items"][0]["path"]
-
-
-def test_inconsistent_indentation_warning():
-    """Warn when indentation is not divisible by indent_width."""
-    parser = CommerceTXTParser(indent_width=2)
-    content = """
-# @SECTION
-  - Item 1
-   - Item 2
-"""
-    result = parser.parse(content)
-    assert any("Inconsistent indentation" in w for w in result.warnings)
-
-
-def test_directive_case_normalization():
-    """Force all directive names to uppercase."""
-    parser = CommerceTXTParser()
-    result = parser.parse("# @identity\nName: Test")
-    assert "IDENTITY" in result.directives
-
-
-def test_colon_in_value():
-    """Handle colons inside values, such as timestamps."""
-    parser = CommerceTXTParser()
-    content = """
-# @MISC
-Time: 12:00:00
-URL: http://example.com
-"""
-    result = parser.parse(content)
-    assert result.directives["MISC"]["Time"] == "12:00:00"
-    assert result.directives["MISC"]["URL"] == "http://example.com"
-
-
-def test_currency_invalid_length_parsing():
-    """Verify currency code validation errors. Expect Hemingway messages."""
-    parser = CommerceTXTParser()
-    res_short = parser.parse("# @IDENTITY\nName: X\nCurrency: U")
-    res_long = parser.parse("# @IDENTITY\nName: X\nCurrency: USDTD")
-
-    from commercetxt.validator import CommerceTXTValidator
-
-    validator = CommerceTXTValidator()
-    validator.validate(res_short)
-    validator.validate(res_long)
-
-    # Sync with Hemingway: 'Use ISO 4217 code'
-    assert any("Use ISO 4217 code" in e for e in res_short.errors)
-    assert any("Use ISO 4217 code" in e for e in res_long.errors)
-
-
-def test_multi_value_parsing_coverage():
-    """Check piped values within keys."""
-    parser = CommerceTXTParser()
-    content = "# @LINKS\nSocial: Facebook: fb.com | Twitter: tw.com | JustValue"
-    result = parser.parse(content)
-    social = result.directives["LINKS"]["Social"]
-
-    assert social["Facebook"] == "fb.com"
-    assert social["Twitter"] == "tw.com"
-    assert social["value"] == "JustValue"
-
-
-def test_parser_strict_mode_raises_error():
-    """Strict mode must raise ValueError on parsing issues."""
-    parser = CommerceTXTParser(strict=True, indent_width=2)
-    content = "# @SECTION\n   - Bad Indentation"
-    with pytest.raises(ValueError, match="Inconsistent indentation"):
-        parser.parse(content)
-
-
-def test_list_item_complex_parsing():
-    """Handle mixed content types in lists."""
-    parser = CommerceTXTParser()
-    content = """
-# @LINKS
-- http://example.com | Meta: Data
-- Key: Value | Link: http://example.com/image.jpg
-- Complex: http://site.com | http: //not-a-url
-"""
-    result = parser.parse(content)
-    items = result.directives["LINKS"]["items"]
-
-    assert items[0]["value"] == "http://example.com"
-    assert items[0]["Meta"] == "Data"
-    assert items[1]["Link"] == "http://example.com/image.jpg"
-    assert items[2]["url"] == "http: //not-a-url"
-
-
-def test_max_sections_limit():
-    """Guard against section overflow."""
-    from commercetxt.limits import MAX_SECTIONS
-
-    parser = CommerceTXTParser()
-    content = "\n".join(
-        [f"# @SECTION_{i}\nKey: Value" for i in range(MAX_SECTIONS + 1)]
-    )
-    result = parser.parse(content)
-
     assert len(result.directives) == MAX_SECTIONS
-    assert any(
-        f"Max sections limit ({MAX_SECTIONS}) reached" in w for w in result.warnings
-    )
+    assert any("limit" in w.lower() for w in result.warnings)
 
 
-def test_max_nesting_depth_protection():
-    """Guard against infinite recursion in nested lists."""
-    from commercetxt.limits import MAX_NESTING_DEPTH
+def test_large_file_boundary(parser):
+    """File at exact limit passes. One byte over fails."""
+    from commercetxt.limits import MAX_FILE_SIZE
 
-    parser = CommerceTXTParser(nested=True)
-    content = "# @DEEP\n"
-    for i in range(MAX_NESTING_DEPTH + 5):
-        content += "  " * i + "- Item\n"
+    content_ok = "v" * MAX_FILE_SIZE
+    result_ok = parser.parse(content_ok)
+    assert not result_ok.errors
 
+    content_fail = "v" * (MAX_FILE_SIZE + 1)
+    result_fail = parser.parse(content_fail)
+    assert any("Security: File too large" in e for e in result_fail.errors)
+
+
+def test_max_sections_boundary(parser):
+    """Exactly MAX_SECTIONS is allowed. One more triggers warning."""
+    content = "\n".join([f"# @S{i}\nK: V" for i in range(MAX_SECTIONS)])
     result = parser.parse(content)
-    assert any(
-        f"Max nesting depth ({MAX_NESTING_DEPTH}) exceeded" in w
-        for w in result.warnings
-    )
+    assert len(result.directives) == MAX_SECTIONS
+    assert not any("limit" in w.lower() for w in result.warnings)
+
+    result2 = parser.parse(content + "\n# @EXTRA\nK: V")
+    assert len(result2.directives) == MAX_SECTIONS
+    assert any("limit" in w.lower() for w in result2.warnings)
 
 
-def test_resolver_path_traversal_security():
-    """Resolver must block path traversal attempts."""
-    from commercetxt.resolver import resolve_path
-
-    def mock_loader(p):
-        return ""
-
-    result_etc = resolve_path("/etc/passwd", mock_loader)
-    result_traversal = resolve_path("../../config.php", mock_loader)
-
-    assert any("Security: Path traversal" in e for e in result_etc.errors)
-    assert any("Security: Path traversal" in e for e in result_traversal.errors)
+def test_malformed_section_warn(parser):
+    """Malformed section header produces warning."""
+    result = parser.parse("# @ INVALID SECTION")
+    assert any("Malformed section header" in w for w in result.warnings)
 
 
-def test_resolver_merge_logic():
-    """Child data must overwrite parent data during merge."""
-    resolver = CommerceTXTResolver()
-    parent = ParseResult(directives={"IDENTITY": {"Name": "Parent", "Currency": "USD"}})
-    child = ParseResult(directives={"IDENTITY": {"Name": "Child"}})
-
-    merged = resolver.merge(parent, child)
-    assert merged.directives["IDENTITY"]["Name"] == "Child"
-    assert merged.directives["IDENTITY"]["Currency"] == "USD"
+def test_strict_mode_failure():
+    """Strict mode raises on malformed sections."""
+    parser = CommerceTXTParser(strict=True)
+    with pytest.raises(ValueError, match="Malformed section header"):
+        parser.parse("# @ INVALID SECTION")
 
 
-def test_ai_readiness_calculation():
-    """Calculate the score for LLM readiness."""
-    from commercetxt.bridge import CommerceAIBridge
-
-    bad_res = ParseResult(directives={"IDENTITY": {"Name": "Store"}})
-    bridge_bad = CommerceAIBridge(bad_res)
-    score_bad = bridge_bad.calculate_readiness_score()
-
-    good_res = ParseResult(
-        version="1.0.1",
-        directives={
-            "IDENTITY": {"Name": "Store", "Currency": "USD"},
-            "OFFER": {"Price": "100", "Availability": "InStock"},
-        },
-    )
-    bridge_good = CommerceAIBridge(good_res)
-    score_good = bridge_good.calculate_readiness_score()
-
-    assert score_good["score"] > score_bad["score"]
-    assert score_good["grade"] == "A"
+# =============================================================================
+# Section & Key-Value Logic
+# =============================================================================
 
 
-def test_nested_list_with_no_root_key():
-    """Verify that nesting works even without an explicit key."""
-    parser = CommerceTXTParser()
-    content = "# @SECTION\n  - Item 1\n    - Sub 1"
-    result = parser.parse(content)
-    assert "items" in result.directives["SECTION"]
-    assert result.directives["SECTION"]["items"][0]["children"][0]["value"] == "Sub 1"
+def test_duplicate_key_wins_last(parser):
+    """Last value wins for duplicate keys."""
+    result = parser.parse("# @T\nKey: First\nKey: Last")
+    assert result.directives["T"]["Key"] == "Last"
 
 
-def test_long_key_handling():
-    """Keys with many characters must parse correctly."""
-    parser = CommerceTXTParser()
-    long_key = "A" * 100
-    result = parser.parse(f"# @SECTION\n{long_key}: Value")
-    assert result.directives["SECTION"][long_key] == "Value"
+def test_metadata_detection(parser):
+    """Version and LastUpdated extracted from file header."""
+    result = parser.parse("Version: 1.0.0\nLastUpdated: 2025-01-01\n# @T\nK: V")
+    assert result.version == "1.0.0"
+    assert result.last_updated == "2025-01-01"
 
 
-def test_duplicate_key_in_section():
-    """Last key wins if a section has duplicates."""
-    parser = CommerceTXTParser()
-    result = parser.parse("# @SECTION\nKey: First\nKey: Second")
-    assert result.directives["SECTION"]["Key"] == "Second"
+def test_multi_value_pipe(parser):
+    """Pipe separates multiple values. URLs preserve internal pipes."""
+    result = parser.parse("# @T\nTags: A | B | C")
+    tags = result.directives["T"]["Tags"]
+    assert "A" in str(tags) and "B" in str(tags)
+
+    result = parser.parse("# @S\nURL: http://ex.com?q=1|2 | note: test")
+    assert result.directives["S"]["URL"]["url"] == "http://ex.com?q=1|2"
+    assert result.directives["S"]["URL"]["note"] == "test"
 
 
-def test_multiple_pipes_parsing():
-    """Parser must split multiple pipes into keys."""
-    parser = CommerceTXTParser()
-    content = "# @S\nK: V1 | K2: V2 | K3: V3"
-    result = parser.parse(content)
-    assert result.directives["S"]["K"]["K2"] == "V2"
-    assert result.directives["S"]["K"]["K3"] == "V3"
+# =============================================================================
+# List & Nesting
+# =============================================================================
 
 
-def test_empty_section_header():
-    """Empty section names should be ignored or warned."""
-    parser = CommerceTXTParser()
-    result = parser.parse("# @\nKey: Value")
+def test_list_parsing_basic(parser):
+    """List items parsed with name and path."""
+    result = parser.parse("# @CATALOG\n- Electronics: /e.txt\n- Books: /b.txt")
+    items = result.directives["CATALOG"]["items"]
+    assert len(items) == 2
+    assert items[0]["name"] == "Electronics"
+
+
+def test_nested_list_depth(parser):
+    """Nesting beyond MAX_NESTING_DEPTH produces warning."""
+    parser_nested = CommerceTXTParser(nested=True)
+    content = "# @T\n"
+    for i in range(MAX_NESTING_DEPTH + 1):
+        content += ("  " * i) + f"- L{i}\n"
+    result = parser_nested.parse(content)
+    assert any("nesting depth" in w.lower() for w in result.warnings)
+
+
+def test_list_non_nested(parser):
+    """Non-nested mode flattens all list items."""
+    p = CommerceTXTParser(nested=False)
+    result = p.parse("# @S\n- A\n  - B")
+    assert len(result.directives["S"]["items"]) == 2
+    assert result.directives["S"]["items"][1]["value"] == "B"
+
+
+def test_last_empty_key_persistence(parser):
+    """Empty key collects subsequent list items."""
+    result = parser.parse("# @S\nList:\n- A\n- B\nNewKey: V")
+    assert result.directives["S"]["List"] == [{"value": "A"}, {"value": "B"}]
+    assert result.directives["S"]["NewKey"] == "V"
+
+    result = parser.parse("# @S1\nEmptyKey:\n# @S2\n- Item")
+    assert "EmptyKey" not in result.directives["S1"]
+    assert result.directives["S2"]["items"] == [{"value": "Item"}]
+
+
+def test_duplicate_case_insensitive_keys(parser):
+    """Keys are case-insensitive. Last value wins."""
+    result = parser.parse("# @S\nname: Alice\nNAME: Bob")
+    assert len(result.directives["S"]) == 1
+    assert result.directives["S"]["NAME"] == "Bob"
+
+
+def test_list_without_section(parser):
+    """Orphan list items without section are ignored."""
+    result = parser.parse("- Orphaned Item")
+    assert "items" not in result.directives
     assert not result.directives
 
 
-def test_bom_removal():
-    """Parser should strip UTF-8 BOM and detect the first header correctly."""
-    parser = CommerceTXTParser()
-    content = "\ufeff# @IDENTITY\nName: Store"
+# =============================================================================
+# Level Detection
+# =============================================================================
+
+
+@pytest.mark.parametrize(
+    "directive, expected_level",
+    [
+        ("CATALOG", "root"),
+        ("ITEMS", "category"),
+        ("FILTERS", "category"),
+        ("PRODUCT", "product"),
+    ],
+)
+def test_level_detection(parser, directive, expected_level):
+    """Section type determines context level."""
+    result = parser.parse(f"# @{directive}\nK: Value")
+    assert result.level == expected_level
+
+
+# =============================================================================
+# URL & Integration
+# =============================================================================
+
+
+def test_url_unwrapping_special(parser):
+    """Single URL unwrapped. Multi-value with path preserved."""
+    result = parser.parse("# @T\nLINK: https://ex.com")
+    assert result.directives["T"]["LINK"] == "https://ex.com"
+
+    result = parser.parse("# @T\nDATA: item.json | path: /data")
+    assert result.directives["T"]["DATA"]["path"] == "/data"
+
+
+def test_url_preservation(parser):
+    """Complex URLs with colons and pipes preserved."""
+    url = "https://example.com/api?q=1|2&t=a:b"
+    result = parser.parse(f"# @T\nURL: {url}")
+    assert result.directives["T"]["URL"] == url
+
+
+def test_parse_file_integration(tmp_path):
+    """parse_file reads and parses a file."""
+    f = tmp_path / "test.txt"
+    f.write_text("# @IDENTITY\nName: Test", encoding="utf-8")
+    result = parse_file(str(f))
+    assert result.directives["IDENTITY"]["Name"] == "Test"
+
+
+def test_bom_handling(parser):
+    """UTF-8 BOM stripped from content."""
+    content = "\ufeff# @IDENTITY\nName: BOM"
+    assert parser.parse(content).directives["IDENTITY"]["Name"] == "BOM"
+
+
+# =============================================================================
+# Source Mapping & Comments
+# =============================================================================
+
+
+def test_source_mapping(parser):
+    """Source map tracks section line numbers. Comments preserved."""
+    content = "# C1\n# @T1\nK1: V1\n\n# @T2"
     result = parser.parse(content)
-    assert "IDENTITY" in result.directives
-    assert result.directives["IDENTITY"]["Name"] == "Store"
+    assert result.source_map["T1"] == 2
+    assert result.source_map["T2"] == 5
+    assert result.comments[1] == "C1"
+
+
+def test_parser_unicode_preservation(parser):
+    """Unicode in keys and values preserved."""
+    content = "# @МЕНЮ\nКатегория: Храна 🍎"
+    result = parser.parse(content)
+    assert result.directives["МЕНЮ"]["Категория"] == "Храна 🍎"
+
+
+def test_nested_list_handling_complex(parser):
+    """Nested children attached to parent item."""
+    content = "# @S\n- P\n  - C1\n  - C2"
+    result = parser.parse(content)
+    children = result.directives["S"]["items"][0]["children"]
+    assert len(children) == 2
+    assert children[0]["value"] == "C1"
+
+
+def test_auto_indent_detection(parser):
+    """Auto-detect overrides initial indent width."""
+    p = CommerceTXTParser(indent_width=4, auto_detect_indent=True)
+    content = "# @S\n- A\n  - B"
+    p.parse(content)
+    assert p.indent_width == 2
+
+
+def test_inconsistent_indent_strict(parser):
+    """Strict mode raises on inconsistent indentation."""
+    content = "# @S\n- A\n   - B"
+    p = CommerceTXTParser(strict=True, auto_detect_indent=False, indent_width=2)
+    with pytest.raises(ValueError, match="Inconsistent indentation"):
+        p.parse(content)
+
+
+def test_unknown_syntax_warning(parser):
+    """Unrecognized syntax produces warning."""
+    result = parser.parse("# @S\n!!! This is not KV or List")
+    assert any("Unknown syntax" in w for w in result.warnings)
+
+
+def test_url_list_item_with_pipe(parser):
+    """List item URL with pipe metadata."""
+    result = parser.parse("# @S\n- http://ex.com | note: test")
+    assert result.directives["S"]["items"][0]["value"] == "http://ex.com"
+    assert result.directives["S"]["items"][0]["note"] == "test"
+
+
+def test_multi_value_collisions(parser):
+    """Multi-value handles duplicates, empties, and URLs."""
+    result = parser.parse("# @S\nK: V1 | V2")
+    assert result.directives["S"]["K"]["values"] == ["V1", "V2"]
+
+    result = parser.parse("# @S\nK: V1 | | V2")
+    assert len(result.directives["S"]["K"]["values"]) == 2
+
+    result = parser.parse("# @S\nK: note: A | NOTE: B")
+    assert result.directives["S"]["K"]["NOTE"] == "B"
+
+    result = parser.parse("# @S\nK: http://a.com | http://b.com")
+    assert result.directives["S"]["K"]["url"] == "http://a.com"
+    assert result.directives["S"]["K"]["value"] == "http://b.com"
+
+    result = parser.parse("# @S\nK: http://first.com | https: //second.com")
+    assert result.directives["S"]["K"]["url"] == "http://first.com"
+    assert result.directives["S"]["K"]["value"] == "https: //second.com"
+
+
+def test_smart_split_specials(parser):
+    """Double slash not treated as URL. Space exits URL mode."""
+    result = parser.parse("# @S\nK: //comment-like-url | note: test")
+    assert result.directives["S"]["K"]["value"] == "//comment-like-url"
+    assert result.directives["S"]["K"]["note"] == "test"
+
+    result = parser.parse("# @S\nK: http://ex.com?q=1 path | note: test")
+    assert result.directives["S"]["K"]["url"] == "http://ex.com?q=1 path"
+
+
+def test_indent_detection_limits(parser):
+    """Standard indents detected. Extreme indents capped at 8."""
+    p = CommerceTXTParser(auto_detect_indent=True)
+    p.parse("# @S\n    - A\n    - B")
+    assert p.indent_width == 4
+
+    p2 = CommerceTXTParser(auto_detect_indent=True)
+    p2.parse("# @S\n          - A\n          - B")
+    assert p2.indent_width == 8
+
+
+def test_list_item_complex_paths(parser):
+    """List item with name, path, and metadata."""
+    result = parser.parse("# @S\n- Item Name : /some/path | key: val")
+    item = result.directives["S"]["items"][0]
+    assert item["name"] == "Item Name"
+    assert item["path"] == "/some/path"
+    assert item["key"] == "val"
+
+
+def test_smart_split_mutation_killers(parser):
+    """Pipe in URL query preserved. Pipe after whitespace splits."""
+    result = parser.parse("# @S\nURL: http://ex.com?a=1|b=2 | note: test")
+    assert result.directives["S"]["URL"]["url"] == "http://ex.com?a=1|b=2"
+
+    result = parser.parse("# @S\nK: http://ex.com  | note: test")
+    assert result.directives["S"]["K"]["url"] == "http://ex.com"
+    assert result.directives["S"]["K"]["note"] == "test"
+
+
+def test_indent_parity_mutation_killer(parser):
+    """Indent zero is valid. Non-multiple indent warns."""
+    p = CommerceTXTParser(auto_detect_indent=False, indent_width=2)
+
+    result = p.parse("# @S\nK: V")
     assert not result.warnings
 
+    result2 = p.parse("# @S\n K: V")
+    assert len(result2.warnings) > 0
 
-def test_multiline_empty_space():
-    """Deeply indented empty lines must not affect nesting stack."""
-    parser = CommerceTXTParser()
-    content = "# @S\n- Item 1\n\n    \n- Item 2"
+
+def test_key_replacement_case_killer(parser):
+    """Old key deleted before adding case-variant."""
+    result = parser.parse("# @S\nname: old\nNAME: new")
+    assert "name" not in result.directives["S"]
+    assert result.directives["S"]["NAME"] == "new"
+
+
+def test_regex_stability_paranoid(parser):
+    """Sections only match word characters."""
+    result = parser.parse("# @SECTION WITH SPACES\nK: V")
+    assert "SECTION" not in result.directives
+    assert any("Unknown syntax" in w for w in result.warnings)
+
+
+def test_state_isolation_paranoid(parser):
+    """New section resets indent state."""
+    content = "# @S1\n- P\n  - C\n# @S2\n- NewItem"
     result = parser.parse(content)
-    assert len(result.directives["S"]["items"]) == 2
+    assert result.directives["S2"]["items"] == [{"value": "NewItem"}]
 
 
-def test_escaped_colon_logic():
-    """Verify that only the first colon acts as a delimiter."""
-    parser = CommerceTXTParser()
-    result = parser.parse("# @S\nKey: Value: With: Colons")
-    assert result.directives["S"]["Key"] == "Value: With: Colons"
+def test_encoding_fallback_deep(tmp_path):
+    """Invalid bytes in all encodings raises UnicodeDecodeError."""
+    f = tmp_path / "total_garbage.bin"
+    f.write_bytes(b"\xff\xfe\xfd\xfc\x00\x00\x00")
+    with pytest.raises(
+        UnicodeDecodeError, match="Could not decode file with any supported encoding"
+    ):
+        read_commerce_file(f)
 
 
-def test_indentation_tabs_vs_spaces():
-    """Mixing tabs and spaces should trigger a warning."""
-    parser = CommerceTXTParser()
-    result = parser.parse("# @S\n\t- Item")
-    assert any("Inconsistent indentation" in w for w in result.warnings)
+def test_indent_detection_noise(parser):
+    """Detection works even with 100+ comment lines."""
+    content = "# Comment\n" * 105 + "  - Indented Item"
+    p = CommerceTXTParser(auto_detect_indent=True)
+    p.parse(content)
+    assert p.indent_width == 2
 
 
-def test_directive_start_without_name():
-    """Line starting with # @ but no name should be ignored."""
-    parser = CommerceTXTParser()
-    result = parser.parse("# @ \nKey: Value")
-    assert not result.directives
+def test_multi_value_pipe_with_url_at_end(parser):
+    """URL at end of multi-value extracted."""
+    result = parser.parse("# @S\nK: label | http://example.com")
+    assert result.directives["S"]["K"]["url"] == "http://example.com"
+    assert result.directives["S"]["K"]["value"] == "label"
 
 
-def test_trailing_whitespace_in_directives():
-    """Directives with trailing spaces must be normalized."""
-    parser = CommerceTXTParser()
-    result = parser.parse("# @IDENTITY   \nName: Store")
-    assert "IDENTITY" in result.directives
+def test_list_item_with_only_colon(parser):
+    """List item with just colon is valid."""
+    result = parser.parse("# @S\n- :")
+    assert len(result.directives["S"]["items"]) == 1
 
 
-def test_empty_lines_between_items():
-    """Empty lines should not break list nesting logic."""
-    parser = CommerceTXTParser()
-    content = "# @S\n- A\n\n- B"
+def test_bom_removal_mutation_killer(parser):
+    """BOM present or absent both parse correctly."""
+    res1 = parser.parse("\ufeff# @S\nK: V")
+    assert "S" in res1.directives
+
+    res2 = parser.parse("# @S\nK: V")
+    assert "S" in res2.directives
+
+
+def test_detect_indent_extra_cases(parser):
+    """Most common indent wins in frequency detection."""
+    content = "# @S\n  - A\n  - B\n    - C\n  - D"
+    p = CommerceTXTParser(auto_detect_indent=True)
+    p.parse(content)
+    assert p.indent_width == 2
+
+
+def test_try_read_encoding_failures(tmp_path):
+    """Invalid sequence returns None from try_read."""
+    f = tmp_path / "test.txt"
+    f.write_bytes(b"\xff\xfe\x00")
+    assert _try_read_with_encoding(f, "utf-8") is None
+
+
+def test_section_chars_validation(parser):
+    """Sections reject spaces and special characters."""
+    content = "# @MY SECTION\nK: V"
     result = parser.parse(content)
-    assert len(result.directives["S"]["items"]) == 2
+    assert "MY SECTION" not in result.directives
+
+    content2 = "# @S%ECTION\nK: V"
+    result2 = parser.parse(content2)
+    assert "S%ECTION" not in result2.directives
 
 
-def test_case_insensitive_metadata():
-    """Metadata keys like Version should be case-insensitive."""
-    parser = CommerceTXTParser()
-    result = parser.parse("version: 1.0.1\nlastupdated: 2024")
-    assert result.version == "1.0.1"
-    assert result.last_updated == "2024"
+def test_line_skip_logic_paranoid(parser):
+    """Empty lines are skipped without error."""
+    content = "# @S\n\n\n\nK: V\n\n\n# @S2\nK2: V2"
+    result = parser.parse(content)
+    assert len(result.directives) == 2
+    assert result.directives["S"]["K"] == "V"
+    assert result.directives["S2"]["K2"] == "V2"
 
 
-def test_parser_list_named_path_vs_url():
-    """Test the branch distinguishing named paths from protocols."""
-    p = CommerceTXTParser()
-    # Path with colon (not a URL).
-    item = p._parse_list_item_content("Manual: /docs/guide.pdf")
-    assert item["name"] == "Manual"
-    assert item["path"] == "/docs/guide.pdf"
+def test_encoding_unsupported_paranoid():
+    """Manual encoding override works if file matches."""
+    import os
 
+    from commercetxt.parser import read_commerce_file
 
-def test_parser_list_pipe_without_colon():
-    """Test behavior for list items with pipes but no colons."""
-    p = CommerceTXTParser()
-    content = "Standard Shipping | 3-5 Days"
-    item = p._parse_list_item_content(content)
-    assert item["value"] == "Standard Shipping | 3-5 Days"
+    p = "unsupported.txt"
+    with open(p, "w", encoding="ascii") as f:
+        f.write("test")
 
-
-def test_logging_handler_reuse():
-    """Ensure get_logger does not duplicate handlers on multiple calls."""
-    l1 = get_logger("commercetxt.test")
-    l2 = get_logger("commercetxt.test")
-    assert l1 == l2
-    assert len(l1.handlers) == 1
-
-
-def test_cache_logic():
-    """Verify that repeated calls return the same object (fast)."""
-    content = "# @IDENTITY\nName: CacheTest\nCurrency: USD"
-    res1 = parse_cached(content)
-    res2 = parse_cached(content)
-
-    assert res1 is res2  # Проверка за еднакъв адрес в паметта (cache hit)
-    assert res1.directives["IDENTITY"]["Name"] == "CacheTest"
-
-
-def test_parser_edge_cases(tmp_path, run_cli):
-    """Test edge cases via CLI interface."""
-    empty = tmp_path / "empty.txt"
-    empty.write_text("", encoding="utf-8")
-    code, stdout, stderr = run_cli([str(empty)])
-    assert code == 1
-    assert "Missing @IDENTITY" in stderr or "ERROR" in stdout
-
-    bad_syntax = tmp_path / "syntax.txt"
-    bad_syntax.write_text("This line has no colon and no at-sign", encoding="utf-8")
-    code, stdout, stderr = run_cli([str(bad_syntax)])
-
-    assert "Unknown syntax" in stdout or "WARN" in stdout
+    try:
+        content, enc = read_commerce_file(p, encoding="ascii")
+        assert enc == "ascii"
+    finally:
+        if os.path.exists(p):
+            os.remove(p)

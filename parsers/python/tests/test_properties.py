@@ -3,12 +3,13 @@ Property-based tests for CommerceTXT parser, validator, and resolver.
 Ensures robustness, correctness, and security across diverse inputs.
 """
 
-from hypothesis import given, strategies as st, settings, HealthCheck
+from hypothesis import HealthCheck, given, settings
+from hypothesis import strategies as st
 
-from commercetxt.parser import CommerceTXTParser
-from commercetxt.validator import CommerceTXTValidator
-from commercetxt.resolver import CommerceTXTResolver
 from commercetxt.model import ParseResult
+from commercetxt.parser import CommerceTXTParser
+from commercetxt.resolver import CommerceTXTResolver
+from commercetxt.validator import CommerceTXTValidator
 
 # ---------------------------------------------------------
 # Common setup
@@ -134,4 +135,5 @@ def test_security_layer_never_crashes(random_text):
     try:
         resolver.merge(result, result)
     except Exception as exc:
-        assert False, f"Security layer crashed: {exc}"
+        msg = f"Security layer crashed: {exc}"
+        raise AssertionError(msg) from exc

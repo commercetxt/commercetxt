@@ -1,0 +1,73 @@
+# commerce.txt - Full Product with All Sections
+# Tests PRODUCT, OFFER, INVENTORY, REVIEWS, SPECS, VARIANTS, IMAGES
+
+Version: 1.0.3
+LastUpdated: 2025-12-31T09:00:00Z
+
+# @IDENTITY
+Name: Premium Electronics Store
+URL: https://premium.example.com
+Currency: USD
+
+# @PRODUCT
+Name: Premium Wireless Headphones
+SKU: PWH-XM5-BLK
+GTIN: 027242919412
+URL: https://premium.example.com/products/premium-headphones
+Brand: AudioTech
+Model: XM5
+
+# @OFFER
+Price: 349.00
+Availability: InStock
+Condition: New
+TaxIncluded: False
+PriceValidUntil: 2026-01-31
+
+# @INVENTORY
+Stock: 42
+LowStockThreshold: 10
+StockStatus: InStock
+MaxQuantityPerOrder: 5
+LastUpdated: 2025-12-31T08:00:00Z
+
+# @REVIEWS
+Rating: 4.7
+RatingScale: 5.0
+Count: 1243
+Verified: 89%
+TopTags: "Great sound", "Comfortable", "Long battery", "Premium build", "Pricey"
+Source: https://www.trustpilot.com/review/premium.example.com
+LastUpdated: 2025-12-31T06:00:00Z
+
+# @SPECS
+Driver: 40mm Dynamic
+FrequencyResponse: 4Hz - 40kHz
+Bluetooth: 5.2
+BatteryLife: 30 hours
+Weight: 250g
+Noise Cancelling: Yes
+Microphone: Built-in
+
+# @VARIANTS
+Type: Color
+Options:
+  - Black: 349.00 | SKU: PWH-XM5-BLK | Stock: 25
+  - Silver: 349.00 | SKU: PWH-XM5-SLV | Stock: 12
+  - Blue: 369.00 | SKU: PWH-XM5-BLU | Stock: 5 | Note: Limited Edition
+
+# @IMAGES
+- Main: https://cdn.example.com/headphones-main.jpg | Alt: Premium headphones front view
+- Gallery: https://cdn.example.com/headphones-side.jpg | Alt: Side profile
+- Gallery: https://cdn.example.com/headphones-case.jpg | Alt: With carrying case
+
+# @IN_THE_BOX
+- Premium Headphones
+- USB-C Charging Cable
+- 3.5mm Audio Cable
+- Carrying Case
+- Quick Start Guide
+
+# @COMPATIBILITY
+Devices: iPhone, Android, PC, Mac, PlayStation 5
+Platforms: Spotify, Apple Music, YouTube Music

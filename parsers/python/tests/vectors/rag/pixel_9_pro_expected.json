@@ -1,0 +1,40 @@
+{
+  "product": {
+    "ITEM": "Google Pixel 9 Pro",
+    "BRAND": "Google",
+    "PRICE": "999.00",
+    "CURRENCY": "USD",
+    "AVAILABILITY": "InStock",
+    "CONDITION": "New",
+    "SPECS": {
+      "Display": "6.3\" LTPO OLED (Super Actua)",
+      "Processor": "Google Tensor G4",
+      "RAM": "16GB LPDDR5X",
+      "Storage": "128GB / 256GB / 512GB",
+      "Weight": "199g",
+      "Dimensions": "152.8 x 72.0 x 8.5 mm",
+      "Material": "Glass front (Gorilla Glass Victus 2), Aluminum frame, Glass back",
+      "Battery": "4700 mAh"
+    },
+    "DESCRIPTION": "Premium AI-powered smartphone with advanced camera system and 7 years of updates"
+  },
+  "expected_tags": [
+    "luxury",
+    "ready_to_ship",
+    "brand_new_condition",
+    "brand_google",
+    "electronics",
+    "lightweight",
+    "glass_ceramic_material",
+    "metal_material",
+    "metal"
+  ],
+  "expected_shard_types": [
+    "subject_anchor",
+    "price",
+    "currency",
+    "specification",
+    "description"
+  ]
+}
+

@@ -1,0 +1,40 @@
+{
+  "product": {
+    "ITEM": "Modern Oak Wood Dining Table",
+    "BRAND": "HomeStyle",
+    "PRICE": "1299.00",
+    "CURRENCY": "USD",
+    "AVAILABILITY": "InStock",
+    "CONDITION": "New",
+    "SPECS": {
+      "Material": "Solid Oak Wood with FSC certification",
+      "Weight": "45 kg",
+      "Dimensions": "180 x 90 x 75 cm",
+      "Finish": "Natural oil finish",
+      "Seating": "6-8 people"
+    },
+    "DESCRIPTION": "Handcrafted dining table made from sustainable oak wood"
+  },
+  "expected_tags": [
+    "luxury",
+    "ready_to_ship",
+    "brand_new_condition",
+    "brand_homestyle",
+    "home_goods",
+    "heavy_shipping",
+    "freight_required",
+    "oversized_item",
+    "special_handling",
+    "natural_material",
+    "wooden",
+    "fsc_certified"
+  ],
+  "expected_shard_types": [
+    "subject_anchor",
+    "price",
+    "currency",
+    "specification",
+    "description"
+  ]
+}
+

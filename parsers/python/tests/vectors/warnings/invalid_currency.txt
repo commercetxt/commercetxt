@@ -1,0 +1,18 @@
+# commerce.txt - Invalid Currency Code
+# Tests currency validation (must be 3-letter ISO 4217)
+
+Version: 1.0.3
+LastUpdated: 2025-12-31T09:00:00Z
+
+# @IDENTITY
+Name: Invalid Currency Store
+URL: https://invalid.example.com
+Currency: USDD
+
+# @PRODUCT
+Name: Test Product
+SKU: TP-001
+
+# @OFFER
+Price: 19.99
+Availability: InStock

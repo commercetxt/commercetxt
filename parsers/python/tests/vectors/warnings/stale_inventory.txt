@@ -1,0 +1,23 @@
+# commerce.txt - Stale Inventory
+# Tests inventory staleness validation (>72 hours old)
+
+Version: 1.0.3
+LastUpdated: 2025-12-20T09:00:00Z
+
+# @IDENTITY
+Name: Stale Inventory Store
+URL: https://stale.example.com
+Currency: USD
+
+# @PRODUCT
+Name: Possibly Out of Stock Item
+SKU: STALE-001
+
+# @OFFER
+Price: 99.99
+Availability: InStock
+
+# @INVENTORY
+Stock: 5
+StockStatus: LowStock
+LastUpdated: 2025-12-20T08:00:00Z

@@ -1,0 +1,36 @@
+# commerce.txt - Subscription Product
+# Tests @SUBSCRIPTION directive with plans and trial
+
+Version: 1.0.3
+LastUpdated: 2025-12-31T09:00:00Z
+
+# @IDENTITY
+Name: CloudSync Services
+URL: https://cloudsync.example.com
+Currency: USD
+
+# @PRODUCT
+Name: CloudSync Pro
+SKU: CS-PRO-MONTHLY
+URL: https://cloudsync.example.com/products/pro
+
+# @OFFER
+Price: 29.99
+Availability: InStock
+
+# @SUBSCRIPTION
+Plans:
+  - Monthly: 29.99 | BilledAs: "$29.99/month"
+  - Annual: 299.00 | BilledAs: "$299/year" | Savings: "Save 17%"
+  - Lifetime: 699.00 | BilledAs: "One-time payment" | Note: "Best Value"
+Trial: 14 Days Free
+CancelAnytime: True
+AutoRenew: True
+MinCommitment: None
+
+# @SPECS
+Storage: 1TB
+Users: Up to 5
+Sync: Real-time
+Encryption: AES-256
+Support: Priority 24/7

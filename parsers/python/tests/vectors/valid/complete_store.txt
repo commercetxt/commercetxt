@@ -1,0 +1,54 @@
+# commerce.txt - Complete Store Fixture
+# Tests all Tier 1-3 directives per CommerceTXT 1.0.3 spec
+
+Version: 1.0.3
+LastUpdated: 2025-12-31T09:00:00Z
+
+# @IDENTITY
+Name: Tech Demo Store
+URL: https://demo.example.com
+Currency: USD
+Description: Test fixture for mutation testing
+
+# @LOCALES
+en-US: /commerce.txt (Current)
+de-DE: /locales/de/commerce.txt
+fr-FR: /locales/fr/commerce.txt
+
+# @BRAND_VOICE
+Tone: Friendly, Helpful
+Restrictions: No technical jargon
+Emphasis: Quality, Value
+
+# @PAYMENT
+Methods: Visa, MasterCard, PayPal, Apple Pay
+Installments: Available (Affirm, Klarna)
+Currency: USD
+
+# @SHIPPING
+- Standard: Free over $50 | 5-7 Days
+- Express: $14.99 | 2-3 Days
+- Overnight: $24.99 | Next Day
+Carriers: FedEx, UPS
+Regions: US, Canada
+
+# @POLICIES
+Returns: 30 Days (Free return shipping)
+Warranty: 1 Year Limited
+Privacy: https://demo.example.com/privacy
+RefundMethod: Original payment method | 5-7 business days
+
+# @SUPPORT
+Email: support@demo.example.com
+Phone: 1-800-555-0100
+Chat: Available 24/7
+Hours: Mon-Sun 9AM-9PM EST
+
+# @CATALOG
+- Electronics: /categories/electronics.txt
+- Accessories: /categories/accessories.txt
+- Subscriptions: /categories/subscriptions.txt
+
+# @PROMOS
+- SAVE20: 20% off first order | Code: WELCOME20
+- FREESHIP: Free shipping on $100+ orders

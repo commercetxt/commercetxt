@@ -1,0 +1,22 @@
+# commerce.txt - Invalid Age Restriction
+# Tests non-numeric MinimumAge validation
+
+Version: 1.0.3
+LastUpdated: 2025-12-31T09:00:00Z
+
+# @IDENTITY
+Name: Invalid Age Store
+URL: https://invalid-age.example.com
+Currency: USD
+
+# @PRODUCT
+Name: Test Product
+SKU: TP-001
+
+# @OFFER
+Price: 29.99
+Availability: InStock
+
+# @AGE_RESTRICTION
+MinimumAge: eighteen
+Reason: Invalid numeric value

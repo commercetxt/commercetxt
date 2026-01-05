@@ -3,24 +3,27 @@ Stress and Performance tests for CommerceTXT.
 Tests boundaries, concurrency, and heavy data loads.
 """
 
-import time
-import random
+import secrets
 import string
-import pytest
+import time
 from concurrent.futures import ThreadPoolExecutor
-from commercetxt.limits import MAX_NESTING_DEPTH, MAX_SECTIONS
-from commercetxt.async_parser import AsyncCommerceTXTParser
+
+import pytest
+
 from commercetxt import (
     CommerceTXTParser,
-    CommerceTXTValidator,
     CommerceTXTResolver,
+    CommerceTXTValidator,
     ParseResult,
 )
+from commercetxt.async_parser import AsyncCommerceTXTParser
+from commercetxt.limits import MAX_NESTING_DEPTH, MAX_SECTIONS
 
 
 def generate_random_string(length=10):
-    """Generates a random alphanumeric string."""
-    return "".join(random.choices(string.ascii_letters + string.digits, k=length))
+    """Generates a cryptographically secure random alphanumeric string."""
+    chars = string.ascii_letters + string.digits
+    return "".join(secrets.choice(chars) for _ in range(length))
 
 
 def generate_massive_content(lines=10000):
@@ -88,7 +91,10 @@ def test_malformed_input_bomb():
     """Tests resilience against chaotic text."""
     parser = CommerceTXTParser(strict=False)
     garbage = "\n".join(
-        ["".join(random.choices(string.printable, k=100)) for _ in range(1000)]
+        [
+            "".join(secrets.choice(string.printable) for _ in range(100))
+            for _ in range(1000)
+        ]
     )
 
     result = parser.parse(garbage)
@@ -155,7 +161,7 @@ def test_max_indentation_depth():
     # Count actual depth achieved
     current_item = section["items"][0]
     depth_count = 1
-    while "children" in current_item and current_item["children"]:
+    while current_item.get("children"):
         current_item = current_item["children"][0]
         depth_count += 1
 

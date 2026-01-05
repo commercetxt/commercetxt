@@ -3,12 +3,47 @@ Bridge between CommerceTXT and Large Language Models.
 Optimized for low token usage and high reliability.
 """
 
-from .model import ParseResult
+from typing import Any
+
+from .constants import (
+    DEFAULT_AVAILABILITY,
+    DEFAULT_CURRENCY,
+    DEFAULT_ITEM_NAME,
+    DEFAULT_PRICE,
+    DEFAULT_STORE_NAME,
+    GRADE_A_THRESHOLD,
+    GRADE_B_THRESHOLD,
+    MAX_SHIPPING_METHODS_DISPLAY,
+    MAX_SPECS_DISPLAY,
+    MAX_VARIANT_OPTIONS_DISPLAY,
+    PENALTY_MISSING_OFFER,
+    PENALTY_MISSING_VERSION,
+    PENALTY_PER_ERROR,
+    PENALTY_STALE_INVENTORY,
+)
 from .metrics import get_metrics
+from .model import ParseResult
 
 
 class CommerceAIBridge:
-    """Connects parsed data to AI systems."""
+    """
+    Connects parsed data to AI systems.
+
+    Important: For accurate AI readiness scoring, run CommerceTXTValidator
+    BEFORE creating the bridge. The validator populates trust_flags
+    (e.g., 'inventory_stale') which are used by calculate_readiness_score().
+
+    Example:
+        # Correct usage:
+        parser = CommerceTXTParser()
+        result = parser.parse(content)
+
+        validator = CommerceTXTValidator()
+        validator.validate(result)  # Populates trust_flags
+
+        bridge = CommerceAIBridge(result)
+        score = bridge.calculate_readiness_score()  # Uses trust_flags
+    """
 
     def __init__(self, result: ParseResult):
         self.result = result
@@ -17,102 +52,192 @@ class CommerceAIBridge:
     def generate_low_token_prompt(self) -> str:
         """Create a clean, dense text prompt for LLMs."""
         d = self.result.directives
-        lines = []
+        lines: list[str] = []
 
-        # === IDENTITY ===
-        identity = d.get("IDENTITY", {})
-        if identity:
-            lines.append(f"STORE: {identity.get('Name', 'Unknown')}")
-            lines.append(f"CURRENCY: {identity.get('Currency', 'USD')}")
+        self._add_identity(lines, d.get("IDENTITY", {}))
+        self._add_product(lines, d.get("PRODUCT", {}))
+        self._add_offer(lines, d.get("OFFER", {}))
+        self._add_inventory(lines, d.get("INVENTORY", {}))
+        self._add_reviews(lines, d.get("REVIEWS", {}))
+        self._add_specs(lines, d.get("SPECS", {}))
+        self._add_variants(lines, d.get("VARIANTS", {}))
+        self._add_shipping(lines, d.get("SHIPPING", {}))
+        self._add_extras(lines, d)  # Promos, Compatibility, Images, etc.
+        self._add_ai_guidance(lines, d)
 
-        # === PRODUCT ===
-        product = d.get("PRODUCT", {})
-        if product:
-            lines.append(f"ITEM: {product.get('Name', 'Unknown Item')}")
-            if product.get("SKU"):
-                lines.append(f"SKU: {product['SKU']}")
-            if product.get("Brand"):
-                lines.append(f"BRAND: {product['Brand']}")
+        return "\n".join(lines)
 
-        # === OFFER ===
-        offer = d.get("OFFER", {})
-        if offer:
-            lines.append(f"PRICE: {offer.get('Price', 'N/A')}")
-            lines.append(f"AVAILABILITY: {offer.get('Availability', 'Unknown')}")
-            if offer.get("Condition"):
-                lines.append(f"CONDITION: {offer['Condition']}")
+    def _add_identity(self, lines: list[str], data: dict[str, Any]) -> None:
+        """Add store/identity information to prompt."""
+        if not data:
+            return
 
-        # === INVENTORY ===
-        inventory = d.get("INVENTORY", {})
-        if inventory:
-            stock = inventory.get("Stock")
-            if stock is not None:
-                lines.append(f"STOCK: {stock} units")
-            if inventory.get("LastUpdated"):
-                lines.append(f"STOCK_UPDATED: {inventory['LastUpdated']}")
+        name = data.get("Name", DEFAULT_STORE_NAME)
+        currency = data.get("Currency", DEFAULT_CURRENCY)
 
-        # === REVIEWS ===
-        reviews = d.get("REVIEWS", {})
-        if reviews:
-            rating = reviews.get("Rating")
-            count = reviews.get("Count")
-            if rating and count:
-                lines.append(f"RATING: {rating}/5 ({count} reviews)")
-            if reviews.get("TopTags"):
-                lines.append(f"TAGS: {reviews['TopTags']}")
+        lines.append(f"STORE: {name}")
+        lines.append(f"CURRENCY: {currency}")
 
-        # === SPECS (top 5 most important) ===
-        specs = d.get("SPECS", {})
-        if specs:
-            lines.append("SPECS:")
-            # Get first 5 specs to avoid token bloat
-            spec_items = list(specs.items())[:5]
-            for key, value in spec_items:
-                if key != "items":  # Skip internal structure
-                    lines.append(f"  {key}: {value}")
+    def _add_product(self, lines: list[str], data: dict[str, Any]) -> None:
+        """Add product information to prompt."""
+        if not data:
+            return
 
-        # === VARIANTS (summarized) ===
-        variants = d.get("VARIANTS", {})
-        if variants and "Options" in variants:
-            options = variants["Options"]
-            if isinstance(options, list) and len(options) > 0:
-                variant_type = variants.get("Type", "Options")
-                option_names = [
-                    opt.get("name") or opt.get("value") for opt in options[:3]
-                ]
-                lines.append(f"{variant_type.upper()}: {', '.join(option_names)}")
-                if len(options) > 3:
-                    lines.append(f"  (+{len(options) - 3} more)")
+        # Always add name with explicit default
+        name = data.get("Name", DEFAULT_ITEM_NAME)
+        lines.append(f"ITEM: {name}")
 
-        # === SHIPPING ===
-        shipping = d.get("SHIPPING", {})
-        if shipping and "items" in shipping:
-            lines.append("SHIPPING:")
-            for item in shipping["items"][:2]:  # First 2 methods
-                if isinstance(item, dict):
-                    name = item.get("name", "")
-                    path = item.get("path", "")
-                    lines.append(f"  {name}: {path}")
+        # Optional fields - explicit None checks
+        sku = data.get("SKU")
+        if sku is not None and sku != "":
+            lines.append(f"SKU: {sku}")
 
-        # === URL ===
-        buy_link = offer.get("URL") or product.get("URL")
-        if buy_link:
-            lines.append(f"URL: {buy_link}")
+        brand = data.get("Brand")
+        if brand is not None and brand != "":
+            lines.append(f"BRAND: {brand}")
 
-        # === TRUST FLAGS ===
+        url = data.get("URL")
+        if url is not None and url != "":
+            lines.append(f"URL: {url}")
+
+    def _add_offer(self, lines: list[str], data: dict[str, Any]) -> None:
+        """Add offer/pricing information to prompt."""
+        if not data:
+            return
+
+        # Always add price and availability with explicit defaults
+        price = data.get("Price", DEFAULT_PRICE)
+        availability = data.get("Availability", DEFAULT_AVAILABILITY)
+
+        lines.append(f"PRICE: {price}")
+        lines.append(f"AVAILABILITY: {availability}")
+
+        # Optional fields - explicit None checks
+        condition = data.get("Condition")
+        if condition is not None and condition != "":
+            lines.append(f"CONDITION: {condition}")
+
+        url = data.get("URL")
+        if url is not None and url != "":
+            lines.append(f"URL: {url}")
+
+    def _add_inventory(self, lines: list[str], data: dict[str, Any]) -> None:
+        """Add inventory information to prompt."""
+        if not data:
+            return
+
+        stock = data.get("Stock")
+        # Explicit type and value checks - allows stock=0 but rejects negative
+        if stock is not None and isinstance(stock, (int, float, str)):
+            # Convert to numeric for validation
+            try:
+                stock_value = float(stock) if isinstance(stock, str) else stock
+                # Only show non-negative stock (>= 0 allows zero)
+                if stock_value >= 0:
+                    lines.append(f"STOCK: {stock} units")
+            except (ValueError, TypeError):
+                # Invalid stock value (e.g., "abc"), skip it
+                pass
+
+        last_updated = data.get("LastUpdated")
+        if last_updated is not None and last_updated != "":
+            lines.append(f"STOCK_UPDATED: {last_updated}")
+
+        # Trust flags check (moved outside the data check for clarity)
         if "inventory_stale" in self.result.trust_flags:
             lines.append("NOTE: Inventory data may be outdated")
 
-        # === PROMOS ===
+    def _add_reviews(self, lines: list[str], data: dict[str, Any]) -> None:
+        """Add review information to prompt."""
+        if not data:
+            return
+
+        rating = data.get("Rating")
+        count = data.get("Count")
+
+        # Both must be present and non-empty
+        if rating is not None and rating != "" and count is not None and count != "":
+            lines.append(f"RATING: {rating}/5 ({count} reviews)")
+
+        top_tags = data.get("TopTags")
+        if top_tags is not None and top_tags != "":
+            lines.append(f"TAGS: {top_tags}")
+
+    def _add_specs(self, lines: list[str], data: dict[str, Any]) -> None:
+        """Add specification information to prompt."""
+        if not data:
+            return
+
+        lines.append("SPECS:")
+
+        # Explicitly limit to MAX_SPECS_DISPLAY
+        count = 0
+        for key, value in data.items():
+            if key != "items":  # Skip metadata
+                lines.append(f"  {key}: {value}")
+                count += 1
+                if count >= MAX_SPECS_DISPLAY:
+                    break
+
+    def _add_variants(self, lines: list[str], data: dict[str, Any]) -> None:
+        """Add variant information to prompt."""
+        if not data:
+            return
+
+        options = data.get("Options")
+
+        # Explicit checks for list type and non-empty
+        if not isinstance(options, list):
+            return
+
+        if len(options) == 0:
+            return
+
+        variant_type = data.get("Type", "Options")
+
+        # Extract names safely, filtering out non-dict items
+        names = [
+            opt.get("name") or opt.get("value")
+            for opt in options[:MAX_VARIANT_OPTIONS_DISPLAY]
+            if isinstance(opt, dict)
+        ]
+
+        if names:
+            # Filter out None values for type safety
+            valid_names = [str(n) for n in names if n is not None]
+            if valid_names:
+                lines.append(f"{variant_type.upper()}: {', '.join(valid_names)}")
+
+            remaining = len(options) - MAX_VARIANT_OPTIONS_DISPLAY
+            if remaining > 0:
+                lines.append(f"  (+{remaining} more)")
+
+    def _add_shipping(self, lines: list[str], data: dict[str, Any]) -> None:
+        """Add shipping information to prompt."""
+        if not data:
+            return
+
+        items = data.get("items")
+        if not isinstance(items, list) or len(items) == 0:
+            return
+
+        lines.append("SHIPPING:")
+        for item in items[:MAX_SHIPPING_METHODS_DISPLAY]:
+            if isinstance(item, dict):
+                name = item.get("name", "")
+                path = item.get("path", "")
+                lines.append(f"  {name}: {path}")
+
+    def _add_extras(self, lines: list[str], d: dict[str, Any]) -> None:
+        """Handles Promos, Compatibility, Images, Age."""
+        # Promos
         promos = d.get("PROMOS", {}).get("items", [])
         if promos:
             lines.append("PROMOS:")
             for p in promos:
-                name = p.get("name", "Promo")
-                val = p.get("value", "")
-                lines.append(f"  - {name}: {val}")
+                lines.append(f"  - {p.get('name', 'Promo')}: {p.get('value', '')}")
 
-        # === COMPATIBILITY ===
+        # Compatibility
         comp = d.get("COMPATIBILITY", {})
         if comp:
             lines.append("COMPATIBILITY:")
@@ -120,15 +245,28 @@ class CommerceAIBridge:
                 if k != "items":
                     lines.append(f"  {k}: {v}")
 
-        # === AI GUIDANCE (Logic & Voice) ===
+        # Images
+        images = d.get("IMAGES", {}).get("items", [])
+        if images:
+            lines.append("VISUALS:")
+            for img in images:
+                name = img.get("name", "Image")
+                alt = img.get("Alt", "").strip('"')
+                desc = f"Describes {alt}" if alt else f"Available at {img.get('path')}"
+                lines.append(f"  - {name}: {desc}")
+
+        # Age
+        age = d.get("AGE_RESTRICTION", {})
+        if age.get("MinimumAge"):
+            lines.append(f"SAFETY: Restricted to ages {age['MinimumAge']}+")
+
+    def _add_ai_guidance(self, lines: list[str], d: dict[str, Any]) -> None:
         logic = d.get("SEMANTIC_LOGIC", {}).get("items", [])
         if logic:
             lines.append("AI_LOGIC_RULES:")
             for rule in logic:
-                question = rule.get("name", "")
-                answer = rule.get("path", "")
-                if question and answer:
-                    lines.append(f"  - {question} -> {answer}")
+                if isinstance(rule, dict) and rule.get("name") and rule.get("path"):
+                    lines.append(f"  - {rule['name']} -> {rule['path']}")
                 else:
                     val = rule.get("value") if isinstance(rule, dict) else rule
                     lines.append(f"  - {val}")
@@ -139,51 +277,40 @@ class CommerceAIBridge:
             if voice.get("Guidelines"):
                 lines.append(f"VOICE_GUIDELINES: {voice['Guidelines']}")
 
-        # === IMAGES ===
-        images = d.get("IMAGES", {}).get("items", [])
-        if images:
-            lines.append("VISUALS:")
-            for img in images:
-                name = img.get("name", "Image")
-                alt = img.get("Alt", "").strip('"')
-                if alt:
-                    lines.append(f"  - {name}: Describes {alt}")
-                else:
-                    lines.append(f"  - {name}: Available at {img.get('path', 'N/A')}")
-
-        # === SAFETY & RESTRICTIONS ===
-        age = d.get("AGE_RESTRICTION", {})
-        if age.get("MinimumAge"):
-            lines.append(f"SAFETY: Restricted to ages {age['MinimumAge']}+")
-        return "\n".join(lines)
-
     def calculate_readiness_score(self) -> dict:
-        """Measure if data is fit for AI consumption."""
+        """
+        Calculate AI readiness score based on completeness and freshness.
+        Note: This validates internal consistency only. For full Trust Score
+        compliance (Section 9.1.1), external verification against HTML and
+        Schema.org markup is required (not implemented in this validator).
+        """
+
         score = 100
         reasons = []
 
         if not self.result.version:
-            score -= 10
+            score -= PENALTY_MISSING_VERSION
             reasons.append("Missing version directive")
 
         offer = self.result.directives.get("OFFER", {})
         if not offer.get("Price") or not offer.get("Availability"):
-            score -= 30
+            score -= PENALTY_MISSING_OFFER
             reasons.append("Missing core offer data (Price/Availability)")
 
-        # Errors damage reliability. Subtract heavily.
         if self.result.errors:
-            score -= len(self.result.errors) * 20
+            score -= len(self.result.errors) * PENALTY_PER_ERROR
 
         if "inventory_stale" in self.result.trust_flags:
-            score -= 15
+            score -= PENALTY_STALE_INVENTORY
             reasons.append("Stale inventory reduces reliability")
 
         final_score = max(0, score)
         self.metrics.set_gauge("llm_readiness_score", final_score)
 
-        return {
-            "score": final_score,
-            "grade": "A" if final_score > 90 else "B" if final_score > 70 else "C",
-            "issues": reasons,
-        }
+        grade = "C"
+        if final_score > GRADE_A_THRESHOLD:
+            grade = "A"
+        elif final_score > GRADE_B_THRESHOLD:
+            grade = "B"
+
+        return {"score": final_score, "grade": grade, "issues": reasons}

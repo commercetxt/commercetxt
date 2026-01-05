@@ -458,6 +458,15 @@ TopTags: "Great battery"</code></pre>
         - Front: cdn.example.com/front.jpg</code></pre>
                 <p><strong>Impact:</strong> Instant image discovery without DOM parsing.</p>
             </div>
+
+            <div class="feature-card">
+                <h3>@AGE_RESTRICTION</h3>
+                <p>Compliance for regulated goods like alcohol.</p>
+                <pre><code>MinimumAge: 18
+Reason: "Alcohol"
+Verification: Required</code></pre>
+                <p><strong>Impact:</strong> AI warns users before purchase intent.</p>
+            </div>
         
         
     </section>
@@ -830,6 +839,34 @@ AddToCart: POST https://api.example.com/cart/add
         </div>
     </section>
 
+    <section id="faq">
+        <h2>Common Questions</h2>
+        <div class="value-props">
+            <div class="prop">
+                <h3>Why not just use Schema.org?</h3>
+                <p>We use Schema.org vocabulary but in a <strong>token-optimized format</strong>. Schema.org is often buried in heavy HTML (2.5MB). CommerceTXT provides the same data in ~5KB, reducing token costs by 95%.</p>
+            </div>
+            
+            <div class="prop">
+                <h3>Is this secure?</h3>
+                <p>Yes. CommerceTXT only exposes public data (prices, inventory) that is already visible on your website. Rate limiting and WAF rules apply just like any other web traffic.</p>
+            </div>
+
+            <div class="prop">
+                <h3>Who owns the standard?</h3>
+                <p>No one. It's <strong>CC0 Public Domain</strong>. It is maintained by an open working group and isn't owned by any single company.</p>
+            </div>
+            
+            <div class="prop">
+                <h3>How do I handle multi-currency?</h3>
+                <p>Use the <code>@LOCALES</code> directive to point to region-specific files (e.g., <code>/us/commerce.txt</code>, <code>/eu/commerce.txt</code>).</p>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 1rem;">
+            <a href="https://github.com/commercetxt/commercetxt/blob/main/FAQ.md" style="font-weight: 600;">View Full FAQ →</a>
+        </div>
+    </section>
+
     <section id="adoption">
         <h2>Quick Start</h2>
         <div class="comparison-grid">
@@ -842,12 +879,13 @@ AddToCart: POST https://api.example.com/cart/add
             
             <div class="compare-item">
                 <h3>For Developers</h3>
-                <p>Parse deterministic data, not HTML soup.</p>
-                <pre><code># Python Example
-import requests
-# ... parser logic ...
-print(data['@OFFER']['Price'])</code></pre>
-                <p><a href="https://github.com/commercetxt/commercetxt/blob/main/parsers/README.md">View Parsers →</a></p>
+                <p>Parse deterministic data with our Reference Parser v1.0.3.</p>
+                <pre><code># Python Reference Parser
+pip install commercetxt
+
+# Bridge for AI Agents
+commercetxt https://example.com --prompt</code></pre>
+                <p><a href="https://github.com/commercetxt/commercetxt/tree/main/parsers/python">View Python Parser →</a></p>
             </div>
         </div>
     </section>
@@ -872,7 +910,7 @@ print(data['@OFFER']['Price'])</code></pre>
         </div>
         
         <p style="margin-top: 2rem; font-size: 0.8rem; opacity: 0.7;">
-            v1.0.1 Stable • Last Updated: Dec 17, 2025
+            v1.0.3 Stable • Last Updated: Jan 5, 2026
         </p>
     </footer>
 
