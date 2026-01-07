@@ -1,0 +1,35 @@
+# @PRODUCT
+Name: IVAR cabinet with doors, gray-green mesh
+SKU: 50531252
+Brand: IKEA
+LastUpdated: 2025-07-15T00:00:00Z
+URL: https://www.ikea.com/us/en/p/ivar-cabinet-with-doors-gray-green-mesh-50531252/
+Category: All parts
+Description: , 311/2x325/8" IVAR mesh cabinet fits perfectly in IVAR storage system or alone on the wall. Spacious, durable and with a mesh net produced in a way which minimizes the amount of waste during producti...
+
+# @OFFER
+Price: 100
+Currency: USD
+Availability: InStock
+Condition: New
+TaxIncluded: False
+TaxNote: "Sales tax calculated at checkout"
+
+# @SPECS
+Materials: Frame: Steel, Steel, Epoxy/polyester powder coating, Main parts/ Door: Steel, Epoxy/polyester powder coating
+Features: 1 adjustable shelf included. | Only for indoor use. | Dimensioned for IVAR shelving sections 35x11⅞x48⅞", 35x11⅞x70½", and 35x11⅞x88⅞".
+Care: Wipe clean using a damp cloth and a mild cleaner. | Wipe dry with a clean cloth.
+
+# @IMAGES
+Main: https://www.ikea.com/us/en/images/products/ivar-cabinet-with-doors-gray-green-mesh__1175904_pe894869_s5.jpg
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

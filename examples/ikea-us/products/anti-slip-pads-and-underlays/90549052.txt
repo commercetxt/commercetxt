@@ -1,0 +1,35 @@
+# @PRODUCT
+Name: STOPP anti-slip underlay
+SKU: 90549052
+Brand: IKEA
+LastUpdated: 2025-07-15T00:00:00Z
+URL: https://www.ikea.com/us/en/p/stopp-anti-slip-underlay-90549052/
+Category: Anti-slip pads & underlays
+Description: , 2'3"x6'7" Put anti-slip underlay under all your rugs so that they stay securely in place when you vacuum, do yoga or walk on them. Keeps the rug in place, which reduces the risk of slipping and make...
+
+# @OFFER
+Price: 6.99
+Currency: USD
+Availability: InStock
+Condition: New
+TaxIncluded: False
+TaxNote: "Sales tax calculated at checkout"
+
+# @SPECS
+Materials: Polyethylene, Synthetic rubber
+Features: STOPP anti-slip underlay can be used on all types of flooring, even those with underfloor heating.
+Care: If the anti-slip underlay starts losing friction, just wash it for improved grip.
+
+# @IMAGES
+Main: https://www.ikea.com/us/en/images/products/stopp-anti-slip-underlay__0603121_pe680683_s5.jpg
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

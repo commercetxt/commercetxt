@@ -1,0 +1,35 @@
+# @PRODUCT
+Name: UPPÅTVIND filter for particle removal
+SKU: 90551498
+Brand: IKEA
+LastUpdated: 2025-07-15T00:00:00Z
+URL: https://www.ikea.com/us/en/p/uppatvind-filter-for-particle-removal-90551498/
+Category: Air purifiers & filters
+Description: UPPÅTVIND filter for particle removal absorbs airborne particles such as dust, pollen and cigarette smoke. The filter is easy to install and remove to replace with a new filter.
+
+# @OFFER
+Price: 14
+Currency: USD
+Availability: InStock
+Condition: New
+TaxIncluded: False
+TaxNote: "Sales tax calculated at checkout"
+
+# @SPECS
+Materials: Base: Non-woven polypropylene, Frame: PET plastic
+Features: The particle filter is optimized to filter away approximately 99.5% of smaller airborne particles such as PM2.5 particles, dust, and pollen. | PM2.5 are small inhalable particles, that measure 0.1-2.5 micrometers. | The particle filter is tested according to EN 1822-1 and ISO 29463-3 which corresponds to class EPA12.
+Care: This filter can only be replaced.
+
+# @IMAGES
+Main: https://www.ikea.com/us/en/images/products/uppatvind-filter-for-particle-removal__1124264_pe875119_s5.jpg
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

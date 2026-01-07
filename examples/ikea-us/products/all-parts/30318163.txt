@@ -1,0 +1,36 @@
+# @PRODUCT
+Name: IVAR shelf, pine
+SKU: 30318163
+Brand: IKEA
+LastUpdated: 2025-07-15T00:00:00Z
+URL: https://www.ikea.com/us/en/p/ivar-shelf-pine-30318163/
+Category: All parts
+Description: , 33x12" Since IVAR storage system is so good at what it does, it has faithfully served customers’ needs across the home for over 50 years. Attics, living rooms, pantries and bedrooms – they all love ...
+
+# @OFFER
+Price: 10
+Currency: USD
+Availability: InStock
+Condition: New
+TaxIncluded: False
+TaxNote: "Sales tax calculated at checkout"
+
+# @SPECS
+Materials: Solid pine
+Dimensions: Fits IVAR storage, depth 12".
+Features: Product is possible to recycle or use for energy recovery, if available in your community. | Cylinder pins included. | To be completed with IVAR side unit, sold separately.
+Care: Wipe clean with a dry cloth. | Stains can be removed by using an eraser or fine sandpaper.
+
+# @IMAGES
+Main: https://www.ikea.com/us/en/images/products/ivar-shelf-pine__0559951_pe675918_s5.jpg
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

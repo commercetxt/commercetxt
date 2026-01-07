@@ -1,0 +1,27 @@
+# @CATEGORY
+Name: Anti-slip pads & underlays
+ProductCount: 5
+
+# @FILTERS
+PriceRange: $3.99 - $17.99
+Materials: Fabric: 100% polyester (min. 90% recycled), Polyethylene, Synthetic rubber, Surface coating: Synthetic latex
+Brand: IKEA
+
+# @ITEMS
+- STOPP FILT rug underlay with anti-slip: /products/anti-slip-pads-and-underlays/90550210.txt
+- STOPP FILT rug underlay with anti-slip: /products/anti-slip-pads-and-underlays/90132261.txt
+- STOPP FILT rug underlay with anti-slip: /products/anti-slip-pads-and-underlays/30550213.txt
+- STOPP FILT rug underlay with anti-slip: /products/anti-slip-pads-and-underlays/20550204.txt
+- STOPP anti-slip underlay: /products/anti-slip-pads-and-underlays/90549052.txt
+
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

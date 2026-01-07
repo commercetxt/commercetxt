@@ -1,0 +1,687 @@
+# IKEA US - CommerceTXT v1.0
+# Generated: 2025-07-15 | Static snapshot for research purposes
+
+Version: 1.0
+LastUpdated: 2025-07-15T00:00:00Z
+
+# @IDENTITY
+Name: IKEA US
+URL: https://www.ikea.com/us/en/
+Currency: USD
+Description: Swedish-designed furniture and home accessories
+
+# @PAYMENT
+Methods: Visa, MasterCard, Amex, Discover, PayPal, IKEA Visa Credit Card
+Installments: Available via Affirm (0% APR options)
+Currency: USD
+
+# @SHIPPING
+- Parcel: 9.99 | Carrier: UPS, FedEx | Time: 3-7 business days
+- Furniture: Variable | Carrier: IKEA Delivery Service | Time: Scheduled delivery
+- ClickAndCollect: Free | Location: IKEA stores | Time: Next day for in-stock items
+Regions: US (all 50 states)
+International: Not available
+
+# @POLICIES
+Returns: 365 days (with receipt, unused and unassembled)
+Warranty: Varies by product (10 years furniture, 25 years kitchen)
+Privacy: https://www.ikea.com/us/en/customer-service/privacy-policy/
+RefundMethod: Original payment method
+RefundTime: 7-14 business days
+PriceMatch: Not available
+
+# @SUPPORT
+Phone: 1-888-888-4532
+Chat: Available Mon-Fri 8AM-9PM ET, Sat-Sun 9AM-6PM ET
+Hours: Mon-Fri 8AM-9PM ET, Sat-Sun 9AM-6PM ET
+ContactURL: https://www.ikea.com/us/en/customer-service/contact-us/
+
+# @CATALOG
+- Base cabinets: /categories/base-cabinets.txt
+- High cabinets: /categories/high-cabinets.txt
+- Wall cabinets: /categories/wall-cabinets.txt
+- Cabinets for built-in appliances: /categories/cabinets-for-built-in-appliances.txt
+- Other: /categories/other.txt
+- PAX wardrobes with doors: /categories/pax-wardrobes-with-doors.txt
+- Bookshelves & bookcases: /categories/bookshelves-and-bookcases.txt
+- Bed frames with storage: /categories/bed-frames-with-storage.txt
+- Bed sheets: /categories/bed-sheets.txt
+- Storage shelves & shelving units: /categories/storage-shelves-and-shelving-units.txt
+- Dining sets up to 4 seats: /categories/dining-sets-up-to-4-seats.txt
+- Bed frames: /categories/bed-frames.txt
+- TROFAST combinations: /categories/trofast-combinations.txt
+- Combinations: /categories/combinations.txt
+- Sofas with chaise: /categories/sofas-with-chaise.txt
+- PAX Interior organizers: /categories/pax-interior-organizers.txt
+- Duvet covers & duvet cover sets: /categories/duvet-covers-and-duvet-cover-sets.txt
+- Fabric armchairs: /categories/fabric-armchairs.txt
+- SEKTION Cover panels & deco strips: /categories/sektion-cover-panels-and-deco-strips.txt
+- Sectionals: /categories/sectionals.txt
+- Modular sofas: /categories/modular-sofas.txt
+- Throw pillow covers: /categories/throw-pillow-covers.txt
+- BESTÅ sideboards: /categories/bestå-sideboards.txt
+- Indoor plant pots: /categories/indoor-plant-pots.txt
+- Three-seat sofas: /categories/three-seat-sofas.txt
+- BESTÅ TV benches: /categories/bestå-tv-benches.txt
+- Picture & photo frames: /categories/picture-and-photo-frames.txt
+- ÄNGSJÖN vanity units with sink: /categories/ängsjön-vanity-units-with-sink.txt
+- MITTZON office desks: /categories/mittzon-office-desks.txt
+- EKET pre-designed combinations: /categories/eket-pre-designed-combinations.txt
+- Fabric ottomans: /categories/fabric-ottomans.txt
+- Cabinets, hutches & cupboards: /categories/cabinets-hutches-and-cupboards.txt
+- HAVBÄCK vanity units with sink: /categories/havbäck-vanity-units-with-sink.txt
+- Loveseats: /categories/loveseats.txt
+- BESTÅ wall mounted units: /categories/bestå-wall-mounted-units.txt
+- Complete wall shelves: /categories/complete-wall-shelves.txt
+- Dressers & chests of drawers: /categories/dressers-and-chests-of-drawers.txt
+- Knobs and handles: /categories/knobs-and-handles.txt
+- Fitted wardrobes: /categories/fitted-wardrobes.txt
+- Medium, large and extra-large rugs: /categories/medium-large-and-extra-large-rugs.txt
+- Upholstered beds: /categories/upholstered-beds.txt
+- Scented candles: /categories/scented-candles.txt
+- Paper & media storage boxes: /categories/paper-and-media-storage-boxes.txt
+- PAX sliding doors: /categories/pax-sliding-doors.txt
+- SMÅSTAD combinations: /categories/småstad-combinations.txt
+- ENHET bathroom combinations: /categories/enhet-bathroom-combinations.txt
+- MITTZON conference tables: /categories/mittzon-conference-tables.txt
+- BESTÅ doors & drawer fronts: /categories/bestå-doors-and-drawer-fronts.txt
+- Pendant lighting: /categories/pendant-lighting.txt
+- Beds with mattresses included: /categories/beds-with-mattresses-included.txt
+- Dining sets up to 6 seats: /categories/dining-sets-up-to-6-seats.txt
+- Comforters & comforter sets: /categories/comforters-and-comforter-sets.txt
+- FINNALA covers: /categories/finnala-covers.txt
+- SKYTTA sliding door combinations: /categories/skytta-sliding-door-combinations.txt
+- Outdoor dining sets: /categories/outdoor-dining-sets.txt
+- Dining chairs: /categories/dining-chairs.txt
+- TV & media storage: /categories/tv-and-media-storage.txt
+- TÄNNFORSEN vanity units with sink: /categories/tännforsen-vanity-units-with-sink.txt
+- ENHET kitchen cabinets: /categories/enhet-kitchen-cabinets.txt
+- KIVIK covers: /categories/kivik-covers.txt
+- Outdoor lounge furniture: /categories/outdoor-lounge-furniture.txt
+- Kitchen wall organizers: /categories/kitchen-wall-organizers.txt
+- EKET cube shelves & cabinets: /categories/eket-cube-shelves-and-cabinets.txt
+- Dining sets up to 2 seats: /categories/dining-sets-up-to-2-seats.txt
+- Pillow cases: /categories/pillow-cases.txt
+- Twin beds & single beds: /categories/twin-beds-and-single-beds.txt
+- Light filtering curtains: /categories/light-filtering-curtains.txt
+- Wall Storage: /categories/wall-storage.txt
+- SÖDERHAMN covers: /categories/söderhamn-covers.txt
+- Outdoor chair cushions: /categories/outdoor-chair-cushions.txt
+- UPPLAND covers: /categories/uppland-covers.txt
+- Display cabinets: /categories/display-cabinets.txt
+- Wall art: /categories/wall-art.txt
+- Blankets & throws: /categories/blankets-and-throws.txt
+- PAX doors without hinges: /categories/pax-doors-without-hinges.txt
+- PAX doors with hinges: /categories/pax-doors-with-hinges.txt
+- Table lamps: /categories/table-lamps.txt
+- Flower vases: /categories/flower-vases.txt
+- BESTÅ storage combinations: /categories/bestå-storage-combinations.txt
+- BESTÅ media combinations: /categories/bestå-media-combinations.txt
+- Upholstered chairs: /categories/upholstered-chairs.txt
+- Drawer dividers: /categories/drawer-dividers.txt
+- Desks for home: /categories/desks-for-home.txt
+- Coffee tables: /categories/coffee-tables.txt
+- Floor lamps: /categories/floor-lamps.txt
+- Spring & hybrid mattresses: /categories/spring-and-hybrid-mattresses.txt
+- HYLTARP covers: /categories/hyltarp-covers.txt
+- Candle holders: /categories/candle-holders.txt
+- Baskets: /categories/baskets.txt
+- BESTÅ floor standing units: /categories/bestå-floor-standing-units.txt
+- Outdoor dining chairs: /categories/outdoor-dining-chairs.txt
+- Bedspreads: /categories/bedspreads.txt
+- TV stands & benches: /categories/tv-stands-and-benches.txt
+- Laminate countertops: /categories/laminate-countertops.txt
+- BOAXEL storage combinations: /categories/boaxel-storage-combinations.txt
+- Outdoor bistro sets: /categories/outdoor-bistro-sets.txt
+- Food containers: /categories/food-containers.txt
+- All parts: /categories/all-parts.txt
+- BESTÅ display combinations: /categories/bestå-display-combinations.txt
+- Nightstands: /categories/nightstands.txt
+- Frames, rails, legs & toekicks: /categories/frames-rails-legs-and-toekicks.txt
+- Faux desk plants: /categories/faux-desk-plants.txt
+- Conference chairs: /categories/conference-chairs.txt
+- BESTÅ frames: /categories/bestå-frames.txt
+- Outdoor dining tables: /categories/outdoor-dining-tables.txt
+- Flatware: /categories/flatware.txt
+- Daybeds: /categories/daybeds.txt
+- End tables & side tables: /categories/end-tables-and-side-tables.txt
+- Coffee mugs & tea cups: /categories/coffee-mugs-and-tea-cups.txt
+- BOAXEL parts: /categories/boaxel-parts.txt
+- AURDAL storage combinations: /categories/aurdal-storage-combinations.txt
+- Handmade rugs: /categories/handmade-rugs.txt
+- ENHET doors & drawer fronts: /categories/enhet-doors-and-drawer-fronts.txt
+- Cooking & baking utensils: /categories/cooking-and-baking-utensils.txt
+- Bedroom furniture sets: /categories/bedroom-furniture-sets.txt
+- Kids bedding & duvet covers: /categories/kids-bedding-and-duvet-covers.txt
+- VEDHAMN oak fronts: /categories/vedhamn-oak-fronts.txt
+- Soft toys: /categories/soft-toys.txt
+- ENKÖPING white wood effect fronts: /categories/enköping-white-wood-effect-fronts.txt
+- ENKÖPING brown walnut fronts: /categories/enköping-brown-walnut-fronts.txt
+- Desk chairs for home: /categories/desk-chairs-for-home.txt
+- BODBYN off-white fronts: /categories/bodbyn-off-white-fronts.txt
+- BODBYN gray fronts: /categories/bodbyn-gray-fronts.txt
+- LERHYTTAN light gray fronts: /categories/lerhyttan-light-gray-fronts.txt
+- LERHYTTAN black stained fronts: /categories/lerhyttan-black-stained-fronts.txt
+- Buffet tables, sideboards & buffet cabinets: /categories/buffet-tables-sideboards-and-buffet-cabinets.txt
+- Blackout blinds & shades: /categories/blackout-blinds-and-shades.txt
+- Bathroom sinks: /categories/bathroom-sinks.txt
+- AXSTAD matte white fronts: /categories/axstad-matte-white-fronts.txt
+- AXSTAD matte blue fronts: /categories/axstad-matte-blue-fronts.txt
+- AXSTAD gray-green fronts: /categories/axstad-gray-green-fronts.txt
+- Placemats, tablemats & coasters: /categories/placemats-tablemats-and-coasters.txt
+- PAX frames for hinge doors: /categories/pax-frames-for-hinge-doors.txt
+- Bath mats & rugs: /categories/bath-mats-and-rugs.txt
+- Runners & small rugs: /categories/runners-and-small-rugs.txt
+- Hand towels: /categories/hand-towels.txt
+- Bowls: /categories/bowls.txt
+- VOXTORP dark gray-brown fronts: /categories/voxtorp-dark-gray-brown-fronts.txt
+- UPPLÖV matte anthracite fronts: /categories/upplöv-matte-anthracite-fronts.txt
+- Drinking glasses & glassware sets: /categories/drinking-glasses-and-glassware-sets.txt
+- Door mats: /categories/door-mats.txt
+- Chair pads & seat cushions: /categories/chair-pads-and-seat-cushions.txt
+- Cellular shades & honeycomb blinds: /categories/cellular-shades-and-honeycomb-blinds.txt
+- Bath towels & sets: /categories/bath-towels-and-sets.txt
+- VOXTORP dark gray fronts: /categories/voxtorp-dark-gray-fronts.txt
+- VEDDINGE white fronts: /categories/veddinge-white-fronts.txt
+- VALLSTENA white fronts: /categories/vallstena-white-fronts.txt
+- TISTORP brown walnut effect fronts: /categories/tistorp-brown-walnut-effect-fronts.txt
+- Sleeper sofa beds: /categories/sleeper-sofa-beds.txt
+- SINARP brown fronts: /categories/sinarp-brown-fronts.txt
+- Room darkening curtains & drapes: /categories/room-darkening-curtains-and-drapes.txt
+- RINGHULT high gloss white fronts: /categories/ringhult-high-gloss-white-fronts.txt
+- Plates: /categories/plates.txt
+- NICKEBO gray-green fronts: /categories/nickebo-gray-green-fronts.txt
+- NICKEBO anthracite fronts: /categories/nickebo-anthracite-fronts.txt
+- HAVSTORP light gray fronts: /categories/havstorp-light-gray-fronts.txt
+- HAVSTORP deep green fronts: /categories/havstorp-deep-green-fronts.txt
+- HAVSTORP beige fronts: /categories/havstorp-beige-fronts.txt
+- ASKERSUND light ash effect fronts: /categories/askersund-light-ash-effect-fronts.txt
+- Standard light bulbs: /categories/standard-light-bulbs.txt
+- Lamp shades: /categories/lamp-shades.txt
+- Kitchen islands & carts: /categories/kitchen-islands-and-carts.txt
+- Drawer units for home: /categories/drawer-units-for-home.txt
+- Cooking preparation tools: /categories/cooking-preparation-tools.txt
+- Bath sheets: /categories/bath-sheets.txt
+- Bar stools & chairs: /categories/bar-stools-and-chairs.txt
+- Mix & match food containers & lids: /categories/mix-and-match-food-containers-and-lids.txt
+- Gaming desk & chair sets: /categories/gaming-desk-and-chair-sets.txt
+- Lounge chairs: /categories/lounge-chairs.txt
+- Jars & tins: /categories/jars-and-tins.txt
+- Extendable tables: /categories/extendable-tables.txt
+- Down alternative duvet inserts: /categories/down-alternative-duvet-inserts.txt
+- Desk accessories: /categories/desk-accessories.txt
+- Arts and crafts supplies for kids: /categories/arts-and-crafts-supplies-for-kids.txt
+- Plastic storage boxes: /categories/plastic-storage-boxes.txt
+- Office chairs: /categories/office-chairs.txt
+- MAXIMERA drawers: /categories/maximera-drawers.txt
+- Leather armchairs: /categories/leather-armchairs.txt
+- Kitchen knives: /categories/kitchen-knives.txt
+- Desk lamps: /categories/desk-lamps.txt
+- Clothes boxes: /categories/clothes-boxes.txt
+- Wash cloths: /categories/wash-cloths.txt
+- VOXTORP matte white fronts: /categories/voxtorp-matte-white-fronts.txt
+- Up to 4 seats: /categories/up-to-4-seats.txt
+- STENSUND beige fronts: /categories/stensund-beige-fronts.txt
+- Modular outdoor furniture: /categories/modular-outdoor-furniture.txt
+- Side plates: /categories/side-plates.txt
+- Kids boxes & baskets: /categories/kids-boxes-and-baskets.txt
+- Foam mattresses: /categories/foam-mattresses.txt
+- Curtain & drapery rods: /categories/curtain-and-drapery-rods.txt
+- Chaise lounges: /categories/chaise-lounges.txt
+- TROFAST boxes & lids: /categories/trofast-boxes-and-lids.txt
+- Serving bowls: /categories/serving-bowls.txt
+- POÄNG covers: /categories/poäng-covers.txt
+- PAX frames for sliding doors: /categories/pax-frames-for-sliding-doors.txt
+- Narrow wardrobes: /categories/narrow-wardrobes.txt
+- Napkins: /categories/napkins.txt
+- Kitchen shelves: /categories/kitchen-shelves.txt
+- Frying pans & skillets: /categories/frying-pans-and-skillets.txt
+- ENHET frames & legs: /categories/enhet-frames-and-legs.txt
+- Curtain hardware: rod brackets, hooks & finials: /categories/curtain-hardware-rod-brackets-hooks-and-finials.txt
+- Sheer curtains: /categories/sheer-curtains.txt
+- Plant stands: /categories/plant-stands.txt
+- Other covers: /categories/other-covers.txt
+- KNOXHULT kitchen cabinets & parts: /categories/knoxhult-kitchen-cabinets-and-parts.txt
+- BESTÅ fittings & inside organizers: /categories/bestå-fittings-and-inside-organizers.txt
+- Trays: /categories/trays.txt
+- Smart LED light bulbs: /categories/smart-led-light-bulbs.txt
+- Outdoor umbrellas & bases: /categories/outdoor-umbrellas-and-bases.txt
+- Modular outdoor seating: /categories/modular-outdoor-seating.txt
+- Wall mirrors: /categories/wall-mirrors.txt
+- Trash cans & waste baskets: /categories/trash-cans-and-waste-baskets.txt
+- Snacks & sweets: /categories/snacks-and-sweets.txt
+- SMÅSTAD doors & drawers: /categories/småstad-doors-and-drawers.txt
+- Gaming accessories: /categories/gaming-accessories.txt
+- Bathroom countertops: /categories/bathroom-countertops.txt
+- Bathrobes, slippers & spa accessories: /categories/bathrobes-slippers-and-spa-accessories.txt
+- Baking tools & gadgets: /categories/baking-tools-and-gadgets.txt
+- Wi-Fi speakers: /categories/wi-fi-speakers.txt
+- SKYTTA accessories: /categories/skytta-accessories.txt
+- Outdoor kitchen kits: /categories/outdoor-kitchen-kits.txt
+- Office & desk plants: /categories/office-and-desk-plants.txt
+- Mattress protectors: /categories/mattress-protectors.txt
+- HEMNES vanity units with sink: /categories/hemnes-vanity-units-with-sink.txt
+- Edison bulbs: /categories/edison-bulbs.txt
+- Clothes racks & stands: /categories/clothes-racks-and-stands.txt
+- Artificial flower stems: /categories/artificial-flower-stems.txt
+- AURDAL parts: /categories/aurdal-parts.txt
+- Unscented candles: /categories/unscented-candles.txt
+- Table decor & decorative accessories: /categories/table-decor-and-decorative-accessories.txt
+- Kitchen sinks: /categories/kitchen-sinks.txt
+- Kitchen faucets: /categories/kitchen-faucets.txt
+- Desk & chair sets: /categories/desk-and-chair-sets.txt
+- Cutting boards: /categories/cutting-boards.txt
+- AXSTAD dark gray fronts: /categories/axstad-dark-gray-fronts.txt
+- Vanity cabinets with sink: /categories/vanity-cabinets-with-sink.txt
+- Underbed storage bags & bins: /categories/underbed-storage-bags-and-bins.txt
+- Shoe cabinets: /categories/shoe-cabinets.txt
+- Ovenware: /categories/ovenware.txt
+- Mattress toppers: /categories/mattress-toppers.txt
+- Loveseat sleepers: /categories/loveseat-sleepers.txt
+- KNOXHULT complete modular kitchens: /categories/knoxhult-complete-modular-kitchens.txt
+- Cleaning accessories: /categories/cleaning-accessories.txt
+- Bed frame covers: /categories/bed-frame-covers.txt
+- Pretend play sets & toys: /categories/pretend-play-sets-and-toys.txt
+- Outdoor storage: shelves, cabinets & boxes: /categories/outdoor-storage-shelves-cabinets-and-boxes.txt
+- Dogs: /categories/dogs.txt
+- Spice jars & condiment containers: /categories/spice-jars-and-condiment-containers.txt
+- Shopping bags & reusable tote bags: /categories/shopping-bags-and-reusable-tote-bags.txt
+- Shelves: /categories/shelves.txt
+- PAX wardrobes without doors: /categories/pax-wardrobes-without-doors.txt
+- Natural & down duvet inserts: /categories/natural-and-down-duvet-inserts.txt
+- Indoor lanterns: /categories/indoor-lanterns.txt
+- ENHET vanity units without sink: /categories/enhet-vanity-units-without-sink.txt
+- Dish racks & drying mats: /categories/dish-racks-and-drying-mats.txt
+- Deep plates: /categories/deep-plates.txt
+- Butcher block countertops: /categories/butcher-block-countertops.txt
+- ÄNGSJÖN vanity units without sink: /categories/ängsjön-vanity-units-without-sink.txt
+- TROFAST frames & shelves: /categories/trofast-frames-and-shelves.txt
+- Serving dishes & plates: /categories/serving-dishes-and-plates.txt
+- Sectional sleeper sofas: /categories/sectional-sleeper-sofas.txt
+- Roller shades & roller blinds: /categories/roller-shades-and-roller-blinds.txt
+- Pitchers & carafes: /categories/pitchers-and-carafes.txt
+- Office storage cabinets & units: /categories/office-storage-cabinets-and-units.txt
+- EKHOLMA covers: /categories/ekholma-covers.txt
+- Bathroom shelves: /categories/bathroom-shelves.txt
+- Bathroom faucets & sink taps: /categories/bathroom-faucets-and-sink-taps.txt
+- Toilet brushes: /categories/toilet-brushes.txt
+- Tablecloths & runners: /categories/tablecloths-and-runners.txt
+- Table tops: /categories/table-tops.txt
+- TROTTEN office storage & drawer units: /categories/trotten-office-storage-and-drawer-units.txt
+- RELATERA children's desk: /categories/relatera-childrens-desk.txt
+- Outdoor patio lounge chairs: /categories/outdoor-patio-lounge-chairs.txt
+- Mattress foundations & bases: /categories/mattress-foundations-and-bases.txt
+- ENHET vanity units with sink: /categories/enhet-vanity-units-with-sink.txt
+- Display shelves & picture ledges: /categories/display-shelves-and-picture-ledges.txt
+- Cable management & cord organizers: /categories/cable-management-and-cord-organizers.txt
+- Brackets: /categories/brackets.txt
+- Blackout curtains: /categories/blackout-curtains.txt
+- Wall sconces & lamps: /categories/wall-sconces-and-lamps.txt
+- TROTTEN office desks & tables: /categories/trotten-office-desks-and-tables.txt
+- Soap dispensers & soap dishes: /categories/soap-dispensers-and-soap-dishes.txt
+- Plant supplies & accessories: /categories/plant-supplies-and-accessories.txt
+- Outdoor rugs: /categories/outdoor-rugs.txt
+- Medicine cabinets with mirror: /categories/medicine-cabinets-with-mirror.txt
+- MITTZON room & desk dividers: /categories/mittzon-room-and-desk-dividers.txt
+- Lamp bases & cords: /categories/lamp-bases-and-cords.txt
+- Fabric: for upholstery, sewing & more: /categories/fabric-for-upholstery-sewing-and-more.txt
+- Cooking & stock pots: /categories/cooking-and-stock-pots.txt
+- Bluetooth speakers: /categories/bluetooth-speakers.txt
+- Accent & throw pillows: /categories/accent-and-throw-pillows.txt
+- Smart integrated lighting: /categories/smart-integrated-lighting.txt
+- Pastries, desserts & cookies: /categories/pastries-desserts-and-cookies.txt
+- Motorized blinds: /categories/motorized-blinds.txt
+- JÄTTEBO covers: /categories/jättebo-covers.txt
+- Headboards: /categories/headboards.txt
+- Gaming chairs: /categories/gaming-chairs.txt
+- ENHET laundry combinations: /categories/enhet-laundry-combinations.txt
+- ENHET doors & fronts: /categories/enhet-doors-and-fronts.txt
+- Crib bedding & fitted sheets: /categories/crib-bedding-and-fitted-sheets.txt
+- Chair covers: /categories/chair-covers.txt
+- Wine & champagne glasses: /categories/wine-and-champagne-glasses.txt
+- Sofa & armchair cushions & headrests: /categories/sofa-and-armchair-cushions-and-headrests.txt
+- SMÅSTAD interior fittings: /categories/småstad-interior-fittings.txt
+- Post, side units & interiors: /categories/post-side-units-and-interiors.txt
+- Outdoor light chains: /categories/outdoor-light-chains.txt
+- Outdoor kitchen & grilling accessories: /categories/outdoor-kitchen-and-grilling-accessories.txt
+- Kids rugs: /categories/kids-rugs.txt
+- Kids night lights & lamps: /categories/kids-night-lights-and-lamps.txt
+- Inner drawers: /categories/inner-drawers.txt
+- Hooks: /categories/hooks.txt
+- Footstool & ottoman covers: /categories/footstool-and-ottoman-covers.txt
+- ENHET bathroom cabinets: /categories/enhet-bathroom-cabinets.txt
+- Decorative mirrors: /categories/decorative-mirrors.txt
+- Art posters and prints: /categories/art-posters-and-prints.txt
+- Wall clocks: /categories/wall-clocks.txt
+- Venetian blinds: /categories/venetian-blinds.txt
+- Up to 6 seats: /categories/up-to-6-seats.txt
+- Shoe racks & stands: /categories/shoe-racks-and-stands.txt
+- PÄRUP covers: /categories/pärup-covers.txt
+- Leather ottomans: /categories/leather-ottomans.txt
+- Large mirrors: /categories/large-mirrors.txt
+- Kids single beds: /categories/kids-single-beds.txt
+- Kids room pillows & blankets: /categories/kids-room-pillows-and-blankets.txt
+- HEMNES vanity units without sink: /categories/hemnes-vanity-units-without-sink.txt
+- Cooking accessories: /categories/cooking-accessories.txt
+- Bathroom countertop & drawer organizers: /categories/bathroom-countertop-and-drawer-organizers.txt
+- Baking pans & molds: /categories/baking-pans-and-molds.txt
+- USB chargers, portable chargers & more: /categories/usb-chargers-portable-chargers-and-more.txt
+- Stools: /categories/stools.txt
+- Smart light starter kits: /categories/smart-light-starter-kits.txt
+- Shower curtains: /categories/shower-curtains.txt
+- Shower accessories: /categories/shower-accessories.txt
+- Sauce pans: /categories/sauce-pans.txt
+- SEKTION High & cleaning cabinet solutions: /categories/sektion-high-and-cleaning-cabinet-solutions.txt
+- Round mirrors: /categories/round-mirrors.txt
+- Resealable bags & food storage accessories: /categories/resealable-bags-and-food-storage-accessories.txt
+- Outdoor kitchen modules & parts: /categories/outdoor-kitchen-modules-and-parts.txt
+- Laundry baskets, hampers & bags: /categories/laundry-baskets-hampers-and-bags.txt
+- Kids decoration & accessories: /categories/kids-decoration-and-accessories.txt
+- HAVBÄCK vanity units without sink: /categories/havbäck-vanity-units-without-sink.txt
+- Gaming Desks: /categories/gaming-desks.txt
+- Food storage container sets: /categories/food-storage-container-sets.txt
+- Curtain track systems for ceiling & walls: /categories/curtain-track-systems-for-ceiling-and-walls.txt
+- Bathroom shelving units: /categories/bathroom-shelving-units.txt
+- Accessories for appliances: /categories/accessories-for-appliances.txt
+- Wooden toys: /categories/wooden-toys.txt
+- TÄNNFORSEN vanity units without sink: /categories/tännforsen-vanity-units-without-sink.txt
+- Track lighting: /categories/track-lighting.txt
+- Sofa beds with chaise: /categories/sofa-beds-with-chaise.txt
+- Roman shades & blinds: /categories/roman-shades-and-blinds.txt
+- Polyester pillows: /categories/polyester-pillows.txt
+- Outdoor planters & plant pots: /categories/outdoor-planters-and-plant-pots.txt
+- Nursing, feeding & eating: /categories/nursing-feeding-and-eating.txt
+- Junior & extendable beds: /categories/junior-and-extendable-beds.txt
+- High chairs: /categories/high-chairs.txt
+- EKET inserts & accessories: /categories/eket-inserts-and-accessories.txt
+- Dinnerware sets: /categories/dinnerware-sets.txt
+- Chair beds: /categories/chair-beds.txt
+- TROTTEN desk tops & underframes: /categories/trotten-desk-tops-and-underframes.txt
+- Smart air purifiers: /categories/smart-air-purifiers.txt
+- Remote light switches: /categories/remote-light-switches.txt
+- Rattan armchairs: /categories/rattan-armchairs.txt
+- Legs & trestles: /categories/legs-and-trestles.txt
+- Hangers: /categories/hangers.txt
+- Dish cloths, sponges, rags & more: /categories/dish-cloths-sponges-rags-and-more.txt
+- Colanders & strainers: /categories/colanders-and-strainers.txt
+- Bulletin boards, peg boards, pin boards & more: /categories/bulletin-boards-peg-boards-pin-boards-and-more.txt
+- Beverages: /categories/beverages.txt
+- Artificial indoor trees & faux floor plants: /categories/artificial-indoor-trees-and-faux-floor-plants.txt
+- Activity toys for babies: /categories/activity-toys-for-babies.txt
+- Serving utensils: /categories/serving-utensils.txt
+- Outdoor wall lamps: /categories/outdoor-wall-lamps.txt
+- Laptop tables: /categories/laptop-tables.txt
+- Kitchen trash cans & bins: /categories/kitchen-trash-cans-and-bins.txt
+- Kitchen towels: /categories/kitchen-towels.txt
+- Kids armchairs: /categories/kids-armchairs.txt
+- Free-standing refrigerators & freezers: /categories/free-standing-refrigerators-and-freezers.txt
+- ENHET mirror & mirror cabinets: /categories/enhet-mirror-and-mirror-cabinets.txt
+- ENHET bathroom accessories: /categories/enhet-bathroom-accessories.txt
+- Condiments & spreads: /categories/condiments-and-spreads.txt
+- Bookcase & cabinet lighting: /categories/bookcase-and-cabinet-lighting.txt
+- BACKSÄLEN covers: /categories/backsälen-covers.txt
+- Active play toys: /categories/active-play-toys.txt
+- ÄNGSJÖN storage: /categories/ängsjön-storage.txt
+- Storage benches: /categories/storage-benches.txt
+- SMÅSTAD knobs, handles & accessories: /categories/småstad-knobs-handles-and-accessories.txt
+- Ranges: /categories/ranges.txt
+- Post unit combinations: /categories/post-unit-combinations.txt
+- Outdoor tiles & flooring: /categories/outdoor-tiles-and-flooring.txt
+- Outdoor chaise lounges: /categories/outdoor-chaise-lounges.txt
+- Outdoor benches: /categories/outdoor-benches.txt
+- Kids tableware & dinnerware: /categories/kids-tableware-and-dinnerware.txt
+- Kids desks: /categories/kids-desks.txt
+- Junior dining chairs: /categories/junior-dining-chairs.txt
+- Hand & power tools: /categories/hand-and-power-tools.txt
+- Hallway benches: /categories/hallway-benches.txt
+- Cookware sets: /categories/cookware-sets.txt
+- Console, sofa & entryway tables: /categories/console-sofa-and-entryway-tables.txt
+- Bathroom vanity lights: /categories/bathroom-vanity-lights.txt
+- BESTÅ legs: /categories/bestå-legs.txt
+- Accessories for SUNNERSTA: /categories/accessories-for-sunnersta.txt
+- Wall spotlights: /categories/wall-spotlights.txt
+- VINLIDEN covers: /categories/vinliden-covers.txt
+- Table lights: /categories/table-lights.txt
+- Sofa legs: /categories/sofa-legs.txt
+- Nesting tables: /categories/nesting-tables.txt
+- Kitchen measuring tools: /categories/kitchen-measuring-tools.txt
+- Kids tables: /categories/kids-tables.txt
+- Kids bed tents & canopies: /categories/kids-bed-tents-and-canopies.txt
+- Folding chairs: /categories/folding-chairs.txt
+- Down & feather pillows: /categories/down-and-feather-pillows.txt
+- Conference table & chair sets: /categories/conference-table-and-chair-sets.txt
+- Collage picture & gallery wall frames: /categories/collage-picture-and-gallery-wall-frames.txt
+- Closet lighting: /categories/closet-lighting.txt
+- Changing accessories: /categories/changing-accessories.txt
+- Ceiling fans: /categories/ceiling-fans.txt
+- Cake & serving stands: /categories/cake-and-serving-stands.txt
+- Bathroom stools & benches: /categories/bathroom-stools-and-benches.txt
+- Alarm clocks: /categories/alarm-clocks.txt
+- Air purifiers & filters: /categories/air-purifiers-and-filters.txt
+- Wall accents: /categories/wall-accents.txt
+- String lights: /categories/string-lights.txt
+- Storage shelves & racks: /categories/storage-shelves-and-racks.txt
+- Sink base cabinets: /categories/sink-base-cabinets.txt
+- Side unit combinations: /categories/side-unit-combinations.txt
+- Rechargeable batteries & battery chargers: /categories/rechargeable-batteries-and-battery-chargers.txt
+- ROCKSJÖN covers: /categories/rocksjön-covers.txt
+- Pot holders & oven mitts: /categories/pot-holders-and-oven-mitts.txt
+- Outdoor BBQ grills: /categories/outdoor-bbq-grills.txt
+- Microwave ovens: /categories/microwave-ovens.txt
+- Makeup vanities & dressing tables: /categories/makeup-vanities-and-dressing-tables.txt
+- Magazine files: /categories/magazine-files.txt
+- MITTZON acoustic products: /categories/mittzon-acoustic-products.txt
+- Kids desk chairs: /categories/kids-desk-chairs.txt
+- JONAXEL parts: /categories/jonaxel-parts.txt
+- Ergonomic & orthopedic pillows: /categories/ergonomic-and-orthopedic-pillows.txt
+- Dried florals, flowers and plants: /categories/dried-florals-flowers-and-plants.txt
+- Dishwashers: /categories/dishwashers.txt
+- Decorative bowls & plates: /categories/decorative-bowls-and-plates.txt
+- Cribs: /categories/cribs.txt
+- Coffee makers & accessories: /categories/coffee-makers-and-accessories.txt
+- Ceiling lamps: /categories/ceiling-lamps.txt
+- Bed slats: /categories/bed-slats.txt
+- Bathroom wall lights: /categories/bathroom-wall-lights.txt
+- BESTÅ top panels: /categories/bestå-top-panels.txt
+- Wall mounted range hoods: /categories/wall-mounted-range-hoods.txt
+- Up to 2 seats: /categories/up-to-2-seats.txt
+- Shoe boxes & organizers: /categories/shoe-boxes-and-organizers.txt
+- STENSTA brown fronts: /categories/stensta-brown-fronts.txt
+- Round tables: /categories/round-tables.txt
+- Recycling bins: /categories/recycling-bins.txt
+- Popsicle molds & ice trays: /categories/popsicle-molds-and-ice-trays.txt
+- Kids stools & benches: /categories/kids-stools-and-benches.txt
+- Kids mattresses: /categories/kids-mattresses.txt
+- Induction cooktops: /categories/induction-cooktops.txt
+- Indoor trees & floor plants: /categories/indoor-trees-and-floor-plants.txt
+- IDÅSEN storage combinations: /categories/idåsen-storage-combinations.txt
+- IDÅSEN parts: /categories/idåsen-parts.txt
+- IDÅSEN desk combinations: /categories/idåsen-desk-combinations.txt
+- HOLMSUND covers: /categories/holmsund-covers.txt
+- HEMNES mirror & mirror cabinets: /categories/hemnes-mirror-and-mirror-cabinets.txt
+- HASSLARP brown patterned fronts: /categories/hasslarp-brown-patterned-fronts.txt
+- Fridge organizers: /categories/fridge-organizers.txt
+- Bathroom wall cabinets: /categories/bathroom-wall-cabinets.txt
+- Baby towels & washcloths: /categories/baby-towels-and-washcloths.txt
+- Artificial hanging plants: /categories/artificial-hanging-plants.txt
+- Watering cans & plant misters: /categories/watering-cans-and-plant-misters.txt
+- Vegetarian & plant based: /categories/vegetarian-and-plant-based.txt
+- Toothbrush holders: /categories/toothbrush-holders.txt
+- Tea pots, kettles & accessories: /categories/tea-pots-kettles-and-accessories.txt
+- Soft toys for babies: /categories/soft-toys-for-babies.txt
+- Sheepskin, cowhide & faux fur rugs: /categories/sheepskin-cowhide-and-faux-fur-rugs.txt
+- Potties & baby baths: /categories/potties-and-baby-baths.txt
+- Pillow protectors: /categories/pillow-protectors.txt
+- Outdoor table lamps: /categories/outdoor-table-lamps.txt
+- Outdoor furniture covers: /categories/outdoor-furniture-covers.txt
+- Laptop stands & phone holders: /categories/laptop-stands-and-phone-holders.txt
+- Kids chairs: /categories/kids-chairs.txt
+- KLIPPAN covers: /categories/klippan-covers.txt
+- JONAXEL combinations: /categories/jonaxel-combinations.txt
+- Hanging planters: /categories/hanging-planters.txt
+- Fish & seafood: /categories/fish-and-seafood.txt
+- ENHET kitchen combinations: /categories/enhet-kitchen-combinations.txt
+- Drinking accessories & straws: /categories/drinking-accessories-and-straws.txt
+- Dining benches: /categories/dining-benches.txt
+- Cube storage: /categories/cube-storage.txt
+- Changing tables: /categories/changing-tables.txt
+- Cabinet hinges & dampers: /categories/cabinet-hinges-and-dampers.txt
+- Bar tables sets: /categories/bar-tables-sets.txt
+- Baby proofing & child safety: /categories/baby-proofing-and-child-safety.txt
+- Wood treatment oils & furniture paint: /categories/wood-treatment-oils-and-furniture-paint.txt
+- Water bottle & travel mugs: /categories/water-bottle-and-travel-mugs.txt
+- Vanity mirrors: /categories/vanity-mirrors.txt
+- TÄNNFORSEN mirror & mirror cabinets: /categories/tännforsen-mirror-and-mirror-cabinets.txt
+- Travel accessories: /categories/travel-accessories.txt
+- Sliding panel curtains: /categories/sliding-panel-curtains.txt
+- Sink accessories: /categories/sink-accessories.txt
+- Sauté pans: /categories/sauté-pans.txt
+- Round rugs: /categories/round-rugs.txt
+- Pillow inserts: /categories/pillow-inserts.txt
+- Outdoor coffee tables & side tables: /categories/outdoor-coffee-tables-and-side-tables.txt
+- NYSJÖN storage & mirrors: /categories/nysjön-storage-and-mirrors.txt
+- NOGSTA stainless steel fronts: /categories/nogsta-stainless-steel-fronts.txt
+- Mixing bowls: /categories/mixing-bowls.txt
+- Kitchen countertop organizers: /categories/kitchen-countertop-organizers.txt
+- HAVBÄCK storage: /categories/havbäck-storage.txt
+- Gas cooktops: /categories/gas-cooktops.txt
+- Futons: /categories/futons.txt
+- Frames for SMÅSTAD: /categories/frames-for-småstad.txt
+- Filters: /categories/filters.txt
+- Faux flower bouquets: /categories/faux-flower-bouquets.txt
+- FRÖJERED light bamboo fronts: /categories/fröjered-light-bamboo-fronts.txt
+- Desks for office: /categories/desks-for-office.txt
+- Corner wardrobes: /categories/corner-wardrobes.txt
+- Bar tables: /categories/bar-tables.txt
+- Bags: /categories/bags.txt
+- Baby blankets & quilts: /categories/baby-blankets-and-quilts.txt
+- Artificial garlands & wreaths: /categories/artificial-garlands-and-wreaths.txt
+- Aprons: /categories/aprons.txt
+- Vacuum flasks: /categories/vacuum-flasks.txt
+- VRETSTORP covers: /categories/vretstorp-covers.txt
+- Step stools & step ladders: /categories/step-stools-and-step-ladders.txt
+- Standing desks: /categories/standing-desks.txt
+- Screw kits, wall hooks & more: /categories/screw-kits-wall-hooks-and-more.txt
+- Reclining chairs: /categories/reclining-chairs.txt
+- Rechargeable lamps: /categories/rechargeable-lamps.txt
+- Rattan ottomans: /categories/rattan-ottomans.txt
+- Open wardrobes: /categories/open-wardrobes.txt
+- Napkin holders: /categories/napkin-holders.txt
+- Kids clothes & shoe organization: /categories/kids-clothes-and-shoe-organization.txt
+- Hanging clothes organizers: /categories/hanging-clothes-organizers.txt
+- Flameless candles: /categories/flameless-candles.txt
+- Faux wall plants & panels: /categories/faux-wall-plants-and-panels.txt
+- ENHET legs & plinths: /categories/enhet-legs-and-plinths.txt
+- Decorative pendant lamps: /categories/decorative-pendant-lamps.txt
+- Crib mattresses: /categories/crib-mattresses.txt
+- Chandeliers: /categories/chandeliers.txt
+- Bathroom ceiling lights & wall lamps: /categories/bathroom-ceiling-lights-and-wall-lamps.txt
+- Bathroom Carts: /categories/bathroom-carts.txt
+- Bar & cocktail glasses: /categories/bar-and-cocktail-glasses.txt
+- Baby comforters & pillows: /categories/baby-comforters-and-pillows.txt
+- Anti-slip pads & underlays: /categories/anti-slip-pads-and-underlays.txt
+- Accessories for RELATERA: /categories/accessories-for-relatera.txt
+- Accessories & fittings: /categories/accessories-and-fittings.txt
+- Woks: /categories/woks.txt
+- TÄNNFORSEN storage: /categories/tännforsen-storage.txt
+- TROTTEN meeting tables: /categories/trotten-meeting-tables.txt
+- Shower sets & rails: /categories/shower-sets-and-rails.txt
+- Room dividers: /categories/room-dividers.txt
+- RELATERA desk tops & underframes: /categories/relatera-desk-tops-and-underframes.txt
+- Potpourri: /categories/potpourri.txt
+- Play tents: /categories/play-tents.txt
+- Outdoor pillows & pillow covers: /categories/outdoor-pillows-and-pillow-covers.txt
+- Outdoor floor lamps: /categories/outdoor-floor-lamps.txt
+- Moving supplies: /categories/moving-supplies.txt
+- Magnifying & makeup mirrors: /categories/magnifying-and-makeup-mirrors.txt
+- Laundry accessories: /categories/laundry-accessories.txt
+- Ironing boards: /categories/ironing-boards.txt
+- Hinged wardrobes: /categories/hinged-wardrobes.txt
+- HEJSTA white fronts: /categories/hejsta-white-fronts.txt
+- HEJSTA anthracite fronts: /categories/hejsta-anthracite-fronts.txt
+- Grill pans & griddles: /categories/grill-pans-and-griddles.txt
+- Dining table tops & underframes: /categories/dining-table-tops-and-underframes.txt
+- Cooler bags: /categories/cooler-bags.txt
+- Clothes drying racks: /categories/clothes-drying-racks.txt
+- Children's wardrobes: /categories/childrens-wardrobes.txt
+- Children's hooks & wall organization: /categories/childrens-hooks-and-wall-organization.txt
+- Cats: /categories/cats.txt
+- Bunk beds & frames: /categories/bunk-beds-and-frames.txt
+- Bread & dairy: /categories/bread-and-dairy.txt
+- Bed legs: /categories/bed-legs.txt
+- Wine racks: /categories/wine-racks.txt
+- Up to 8 seats: /categories/up-to-8-seats.txt
+- Under cabinet and built-in range hoods: /categories/under-cabinet-and-built-in-range-hoods.txt
+- Toy boxes & shelves: /categories/toy-boxes-and-shelves.txt
+- Toiletry bags, accessory bags & more travel bag organizers: /categories/toiletry-bags-accessory-bags-and-more-travel-bag-organizers.txt
+- Smart lamps: /categories/smart-lamps.txt
+- Sharpening tools: /categories/sharpening-tools.txt
+- Ovens: /categories/ovens.txt
+- Outdoor privacy screens & shades: /categories/outdoor-privacy-screens-and-shades.txt
+- Outdoor gazebos & backyard canopies: /categories/outdoor-gazebos-and-backyard-canopies.txt
+- Messenger backpacks, tote bag backpacks & more: /categories/messenger-backpacks-tote-bag-backpacks-and-more.txt
+- Meat: /categories/meat.txt
+- LED strip lights: /categories/led-strip-lights.txt
+- LED panel lights: /categories/led-panel-lights.txt
+- Home safety: /categories/home-safety.txt
+- Full length standing mirrors: /categories/full-length-standing-mirrors.txt
+- Flowering plants: /categories/flowering-plants.txt
+- End of bed benches: /categories/end-of-bed-benches.txt
+- Curtain wires, clips & hooks: /categories/curtain-wires-clips-and-hooks.txt
+- Cleaning organizers: /categories/cleaning-organizers.txt
+- Art cards: /categories/art-cards.txt
+- Accessories for TROTTEN: /categories/accessories-for-trotten.txt
+- ÖNNERUP complete kichenettes: /categories/önnerup-complete-kichenettes.txt
+- ÄSPINGE complete kitchenettes: /categories/äspinge-complete-kitchenettes.txt
+- Wrapping paper and bags: /categories/wrapping-paper-and-bags.txt
+- Wireless chargers & accessories: /categories/wireless-chargers-and-accessories.txt
+- Wall-mounted tables: /categories/wall-mounted-tables.txt
+- Sink parts: /categories/sink-parts.txt
+- Side dishes & sauces: /categories/side-dishes-and-sauces.txt
+- Sewing supplies & accessories: /categories/sewing-supplies-and-accessories.txt
+- Self watering plant pots: /categories/self-watering-plant-pots.txt
+- SUNNERSTA complete kitchenette: /categories/sunnersta-complete-kitchenette.txt
+- Picnic accessories: /categories/picnic-accessories.txt
+- Pantry shelving: /categories/pantry-shelving.txt
+- Outdoor pendant lamps: /categories/outdoor-pendant-lamps.txt
+- Multifunctional tables: /categories/multifunctional-tables.txt
+- Kitchen dish soap dispensers: /categories/kitchen-dish-soap-dispensers.txt
+- Kids dressers & chest of drawers: /categories/kids-dressers-and-chest-of-drawers.txt
+- Hanging plants & indoor climbing plants: /categories/hanging-plants-and-indoor-climbing-plants.txt
+- HEMNES storage: /categories/hemnes-storage.txt
+- Countertop accessories: /categories/countertop-accessories.txt
+- Christmas & holiday ornaments: /categories/christmas-and-holiday-ornaments.txt
+- Ceramic glass cooktops: /categories/ceramic-glass-cooktops.txt
+- Candle accessories: /categories/candle-accessories.txt
+- Vanity mirrors with lights: /categories/vanity-mirrors-with-lights.txt
+- Sinks & faucets for ENHET: /categories/sinks-and-faucets-for-enhet.txt
+- Shower heads: /categories/shower-heads.txt
+- Range hoods for SEKTION: /categories/range-hoods-for-sektion.txt
+- Pressure cookers: /categories/pressure-cookers.txt
+- NYSJÖN vanity units with sink: /categories/nysjön-vanity-units-with-sink.txt
+- Lumbar support pillows: /categories/lumbar-support-pillows.txt
+- Loft beds: /categories/loft-beds.txt
+- Kids outdoor furniture: /categories/kids-outdoor-furniture.txt
+- Island and ceiling mounted range hoods: /categories/island-and-ceiling-mounted-range-hoods.txt
+- Integrated fridges & freezers: /categories/integrated-fridges-and-freezers.txt
+- IDÅSEN conference & meeting tables: /categories/idåsen-conference-and-meeting-tables.txt
+- EKTORP covers: /categories/ektorp-covers.txt
+- Conference tables: /categories/conference-tables.txt
+- Closet fresheners: /categories/closet-fresheners.txt
+- Accessories for SEKTION: /categories/accessories-for-sektion.txt
+
+# @BRAND_VOICE
+Tone: Friendly, Democratic, Straightforward
+Focus: Functionality and affordability
+Values: Democratic design, Sustainability
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

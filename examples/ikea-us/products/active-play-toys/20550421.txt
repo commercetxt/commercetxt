@@ -1,0 +1,35 @@
+# @PRODUCT
+Name: SKRATTMÅS obstacle course
+SKU: 20550421
+Brand: IKEA
+LastUpdated: 2025-07-15T00:00:00Z
+URL: https://www.ikea.com/us/en/p/skrattmas-obstacle-course-20550421/
+Category: Active play toys
+Description: Jump, crawl, run forwards or backwards! There are so many ways to set up and play with this obstacle course. Fun to play with by yourself, but even more fun if siblings and friends join in. Older chil...
+
+# @OFFER
+Price: 19.99
+Currency: USD
+Availability: InStock
+Condition: New
+TaxIncluded: False
+TaxNote: "Sales tax calculated at checkout"
+
+# @SPECS
+Materials: Fabric: 100% polyester (min. 90% recycled), Insert: Polypropylene
+Features: Comprises: 2 hurdles and 6 cones. | May be completed with more sets to create a longer obstacle course. | May be combined with PLUFSIG gym mat and SPARKA soft toys.
+Care: Do not wash. | Do not bleach.
+
+# @IMAGES
+Main: https://www.ikea.com/us/en/images/products/skrattmas-obstacle-course__1180942_pe896516_s5.jpg
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

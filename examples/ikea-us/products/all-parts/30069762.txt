@@ -1,0 +1,35 @@
+# @PRODUCT
+Name: OMAR Bottle shelving unit, galvanized
+SKU: 30069762
+Brand: IKEA
+LastUpdated: 2025-07-15T00:00:00Z
+URL: https://www.ikea.com/us/en/p/omar-bottle-shelving-unit-galvanized-30069762/
+Category: All parts
+Description: . Easy to assemble – no tools required. Also stands steady on an uneven floor since the feet can be adjusted.
+
+# @OFFER
+Price: 39.99
+Currency: USD
+Availability: InStock
+Condition: New
+TaxIncluded: False
+TaxNote: "Sales tax calculated at checkout"
+
+# @SPECS
+Materials: Shelf/ Post: Steel, Galvanized, Foot: Steel, Polyamide, Galvanized
+Features: Safety strap for mounting to wall included. | Holds 24 bottles. | The material in this product may be recyclable. Please check the recycling rules in your community and if recycling facilities exist in your area.
+Care: Wipe clean with a soft cloth dampened with water and a mild dish detergent or soap, if necessary.
+
+# @IMAGES
+Main: https://www.ikea.com/us/en/images/products/omar-bottle-shelving-unit-galvanized__0650974_pe706615_s5.jpg
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

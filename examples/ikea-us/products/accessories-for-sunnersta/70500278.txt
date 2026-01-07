@@ -1,0 +1,34 @@
+# @PRODUCT
+Name: SUNNERSTA storage unit
+SKU: 70500278
+Brand: IKEA
+LastUpdated: 2025-07-15T00:00:00Z
+URL: https://www.ikea.com/us/en/p/sunnersta-storage-unit-70500278/
+Category: Accessories for SUNNERSTA
+Description: , 22x15" This slim storage unit is surprisingly sturdy and robust. The clean lines make is easy to place – as an extra workspace in the kitchen, as handy storage in the hallway or as a convenient beds...
+
+# @OFFER
+Price: 34.99
+Currency: USD
+Availability: InStock
+Condition: New
+TaxIncluded: False
+TaxNote: "Sales tax calculated at checkout"
+
+# @SPECS
+Materials: Steel, Powder coating
+Care: Wipe dry with a clean cloth. | Wipe clean with a water dampened soft cloth and a mild non-abrasive dish detergent or soap, if necessary.
+
+# @IMAGES
+Main: https://www.ikea.com/us/en/images/products/sunnersta-storage-unit__1012592_pe828951_s5.jpg
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

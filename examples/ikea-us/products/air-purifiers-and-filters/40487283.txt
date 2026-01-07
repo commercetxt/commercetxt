@@ -1,0 +1,35 @@
+# @PRODUCT
+Name: FÖRNUFTIG filter for gas cleaning
+SKU: 40487283
+Brand: IKEA
+LastUpdated: 2025-07-15T00:00:00Z
+URL: https://www.ikea.com/us/en/p/foernuftig-filter-for-gas-cleaning-40487283/
+Category: Air purifiers & filters
+Description: FÖRNUFTIG filter for gas cleaning absorbs various gaseous pollutants such as formaldehyde, which can be found in things like cleaning/household products and various fabrics and materials in your home....
+
+# @OFFER
+Price: 23
+Currency: USD
+Availability: InStock
+Condition: New
+TaxIncluded: False
+TaxNote: "Sales tax calculated at checkout"
+
+# @SPECS
+Materials: Frame: Polypropylene, Core filling: Activated carbon
+Features: Only to be used with FÖRNUFTIG air purifier. Can be used alone or together with FÖRNUFTIG filter for particle removal.
+Care: This filter can only be replaced.
+
+# @IMAGES
+Main: https://www.ikea.com/us/en/images/products/foernuftig-filter-for-gas-cleaning__0832972_pe777904_s5.jpg
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

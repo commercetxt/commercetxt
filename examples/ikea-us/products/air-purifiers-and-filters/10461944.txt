@@ -1,0 +1,35 @@
+# @PRODUCT
+Name: FÖRNUFTIG filter for particle removal
+SKU: 10461944
+Brand: IKEA
+LastUpdated: 2025-07-15T00:00:00Z
+URL: https://www.ikea.com/us/en/p/foernuftig-filter-for-particle-removal-10461944/
+Category: Air purifiers & filters
+Description: FÖRNUFTIG filter is good for particle removal absorbs airborne particles such as dust, pollen and cigarette smoke. The filter is easy to install and remove to replace with a new filter.
+
+# @OFFER
+Price: 17
+Currency: USD
+Availability: InStock
+Condition: New
+TaxIncluded: False
+TaxNote: "Sales tax calculated at checkout"
+
+# @SPECS
+Materials: Base: Non-woven polypropylene, Frame: PET plastic
+Features: Only to be used with FÖRNUFTIG air purifier. | Can be used alone or together with FÖRNUFTIG filter for gas cleaning. | The particle filter is optimized to filter away approximately 99.5% of smaller airborne particles such as PM2.5 particles, dust, and pollen.
+Care: This filter can only be replaced.
+
+# @IMAGES
+Main: https://www.ikea.com/us/en/images/products/foernuftig-filter-for-particle-removal__0832450_pe777680_s5.jpg
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

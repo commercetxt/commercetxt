@@ -1,0 +1,35 @@
+# @PRODUCT
+Name: VINDSTYRKA air quality sensor, smart
+SKU: 30498239
+Brand: IKEA
+LastUpdated: 2025-07-15T00:00:00Z
+URL: https://www.ikea.com/us/en/p/vindstyrka-air-quality-sensor-smart-30498239/
+Category: Air purifiers & filters
+Description: Want to know more about the air you breathe at home? This easy-to-use air quality sensor gives you all the information you need. You can also make it a part of your smart home for more great functions...
+
+# @OFFER
+Price: 59.99
+Currency: USD
+Availability: InStock
+Condition: New
+TaxIncluded: False
+TaxNote: "Sales tax calculated at checkout"
+
+# @SPECS
+Materials: ABS plastic
+Features: Activities in the home like cooking, using an open fireplace, and aerosols can release harmful PM2.5 particles. They can also seep in from polluted outdoor air. | PM2.5 are small inhalable particles, that measure 0.1-2.5 micrometers. | This product is part of our smart home range. Connect it, along with other smart products, to DIRIGERA hub and IKEA Home smart app for more features and functions, that you can control from anywhere, not just when you're at home.
+Care: Wipe clean with a damp cloth. | After cleaning, be sure to wipe dry with a soft cloth.
+
+# @IMAGES
+Main: https://www.ikea.com/us/en/images/products/vindstyrka-air-quality-sensor-smart__1137096_pe880020_s5.jpg
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

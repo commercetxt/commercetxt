@@ -1,0 +1,35 @@
+# @PRODUCT
+Name: ÄNGSJÖN / BACKSJÖN Bathroom vanity with sink & faucet, oak effect/white marble effect
+SKU: 29536398
+Brand: IKEA
+LastUpdated: 2025-07-15T00:00:00Z
+URL: https://www.ikea.com/us/en/p/aengsjoen-backsjoen-bathroom-vanity-with-sink-faucet-oak-effect-white-marble-effect-s29536398/
+Category: ÄNGSJÖN vanity units with sink
+Description: , 49x211/2x281/4" When you like to keep things organized and out of sight. Here are 4 drawers in 2 sizes for your personal care items. The countertop adds character and is ideal for having things hand...
+
+# @OFFER
+Price: 733
+Currency: USD
+Availability: InStock
+Condition: New
+TaxIncluded: False
+TaxNote: "Sales tax calculated at checkout"
+
+# @SPECS
+Materials: Frame/ Middle rail/ Bottom panel/ Drawer divider/ Drawer sides/ Drawer back: Particleboard, Plastic foil, Plastic edging, Plastic edging (min. 50% recycled), Top rail: Fiberboard, Plastic foil, Plastic edging, Plastic edging (min. 50% recycled), Drawer front: Particleboard, Fiberboard, Plastic foil, Plastic edging, Plastic edging (min. 50% recycled)
+Features: Comprises: 2 washstand with drawers, 1 countertop, 1 semi-recessed sink, 1 water trap and 1 faucet. | If you are uncertain about the installation, contact a professional. The installation shall be made in accordance with valid local building and plumbing regulations. | Silicone is needed for installation, not included.
+Care: Wipe clean with a mild soapy solution. | Wipe dry with a clean cloth.
+
+# @IMAGES
+Main: https://www.ikea.com/us/en/images/products/aengsjoen-backsjoen-bathroom-vanity-with-sink-faucet-oak-effect-white-marble-effect__1217577_pe912905_s5.jpg
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

@@ -1,0 +1,35 @@
+# @PRODUCT
+Name: OMAR shelf unit, galvanized
+SKU: 30483073
+Brand: IKEA
+LastUpdated: 2025-07-15T00:00:00Z
+URL: https://www.ikea.com/us/en/p/omar-shelf-unit-galvanized-30483073/
+Category: All parts
+Description: , 235/8x97/8x153/4" OMAR storage offers lots of room in a kitchen, bathroom and hallway. Things like food or towels lie visible and secure on the metal shelves. Easy to assemble and complete with stor...
+
+# @OFFER
+Price: 15
+Currency: USD
+Availability: InStock
+Condition: New
+TaxIncluded: False
+TaxNote: "Sales tax calculated at checkout"
+
+# @SPECS
+Materials: Shelf/ Post: Steel, Galvanized, Foot: Steel, Polyamide, Galvanized
+Features: Safety strap for mounting to wall included. | The material in this product may be recyclable. Please check the recycling rules in your community and if recycling facilities exist in your area. | Only for indoor use.
+Care: Wipe clean with a soft cloth dampened with water and a mild dish detergent or soap, if necessary.
+
+# @IMAGES
+Main: https://www.ikea.com/us/en/images/products/omar-shelf-unit-galvanized__0945020_pe797537_s5.jpg
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

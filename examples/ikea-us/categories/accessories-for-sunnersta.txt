@@ -1,0 +1,33 @@
+# @CATEGORY
+Name: Accessories for SUNNERSTA
+ProductCount: 11
+
+# @FILTERS
+PriceRange: $0.99 - $34.99
+Materials: ABS plastic, ABS plastic (min. 20% recycled), Bush/ End cap: Polypropylene, Container: Polypropylene plastic (min. 20% recycled), End cap: Polypropylene, Holder: Polypropylene plastic (min. 20% recycled), Polypropylene, Polypropylene plastic (min. 20% recycled), Polypropylene, Polypropylene, Rack/ Insert nut/ Nut: Steel, Powder coating
+Brand: IKEA
+
+# @ITEMS
+- SUNNERSTA storage unit: /products/accessories-for-sunnersta/70500278.txt
+- SUNNERSTA shelf/dish drainer: /products/accessories-for-sunnersta/30443930.txt
+- SUNNERSTA shelf: /products/accessories-for-sunnersta/90443927.txt
+- SUNNERSTA rail with 4 hooks and 2 containers, white: /products/accessories-for-sunnersta/40454560.txt
+- SUNNERSTA papertowel holder: /products/accessories-for-sunnersta/80500008.txt
+- SUNNERSTA hook: /products/accessories-for-sunnersta/40303726.txt
+- SUNNERSTA container, white: /products/accessories-for-sunnersta/50303735.txt
+- SUNNERSTA container, bright orange: /products/accessories-for-sunnersta/70606048.txt
+- SUNNERSTA container, blue-gray: /products/accessories-for-sunnersta/30606050.txt
+- SUNNERSTA container, beige: /products/accessories-for-sunnersta/10606065.txt
+- SUNNERSTA adjustable rack with hooks: /products/accessories-for-sunnersta/20440951.txt
+
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

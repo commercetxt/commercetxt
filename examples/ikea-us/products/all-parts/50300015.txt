@@ -1,0 +1,35 @@
+# @PRODUCT
+Name: BROR Cabinet with 2 doors, black
+SKU: 50300015
+Brand: IKEA
+LastUpdated: 2025-07-15T00:00:00Z
+URL: https://www.ikea.com/us/en/p/bror-cabinet-with-2-doors-black-50300015/
+Category: All parts
+Description: . Heavy-duty, our way – a sturdy storage system that withstands moisture, dirt and heavy loads. Also easy to assemble, complete as needed and fits everywhere thanks to its clean design.
+
+# @OFFER
+Price: 149
+Currency: USD
+Availability: InStock
+Condition: New
+TaxIncluded: False
+TaxNote: "Sales tax calculated at checkout"
+
+# @SPECS
+Materials: Top panel/ Side panel/ Door/ Bottom panel/ Frame: Galvanized steel, Epoxy/polyester powder coating, Back panel/ Shelf: Steel, Epoxy/polyester powder coating
+Features: Only for indoor use.
+Care: Wipe clean with a soft cloth dampened with water and a mild dish detergent or soap, if necessary.
+
+# @IMAGES
+Main: https://www.ikea.com/us/en/images/products/bror-cabinet-with-2-doors-black__0605748_pe682232_s5.jpg
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

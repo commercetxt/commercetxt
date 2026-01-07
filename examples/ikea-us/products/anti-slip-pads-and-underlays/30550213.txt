@@ -1,0 +1,35 @@
+# @PRODUCT
+Name: STOPP FILT rug underlay with anti-slip
+SKU: 30550213
+Brand: IKEA
+LastUpdated: 2025-07-15T00:00:00Z
+URL: https://www.ikea.com/us/en/p/stopp-filt-rug-underlay-with-anti-slip-30550213/
+Category: Anti-slip pads & underlays
+Description: , 2'4"x4'7" Your floor will be happy because the underlay gathers the dirt and protects it from scratching. It keeps your rug from sliding around and makes it even softer to walk on. The thick felt ma...
+
+# @OFFER
+Price: 3.99
+Currency: USD
+Availability: InStock
+Condition: New
+TaxIncluded: False
+TaxNote: "Sales tax calculated at checkout"
+
+# @SPECS
+Materials: Fabric: 100% polyester (min. 90% recycled), Surface coating: Synthetic latex
+Features: STOPP FILT anti-slip rug underlay can be used on all types of flooring, even those with underfloor heating.
+Care: Machine wash cold, durable-press cycle. | To be washed separately.
+
+# @IMAGES
+Main: https://www.ikea.com/us/en/images/products/stopp-filt-rug-underlay-with-anti-slip__39410_pe097520_s5.jpg
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

@@ -1,0 +1,35 @@
+# @PRODUCT
+Name: UPPSTÅ stacking rings, multicolor
+SKU: 00513892
+Brand: IKEA
+LastUpdated: 2025-07-15T00:00:00Z
+URL: https://www.ikea.com/us/en/p/uppsta-stacking-rings-multicolor-00513892/
+Category: Activity toys for babies
+Description: On the soft stick, your child can stack rings while learning both colors and shapes. Let your child experiment and try it again and again. Try to stack the rings from biggest to the smallest or vice v...
+
+# @OFFER
+Price: 14.99
+Currency: USD
+Availability: InStock
+Condition: New
+TaxIncluded: False
+TaxNote: "Sales tax calculated at checkout"
+
+# @SPECS
+Materials: Wooden part(s): Solid beech, Stain, Clear acrylic lacquer, Head: ABS plastic, Printed acrylic paint, Rubber part: Synthetic rubber
+Features: Comprises: 1 wooden base with soft stick, 6 rings and one knob shaped like a fox head. | Each part is carefully tested and withstands your child throwing, beating and chewing on it. | Matches other products in the UPPSTÅ and BRUMMIG series.
+Care: Wipe dry with a clean cloth.
+
+# @IMAGES
+Main: https://www.ikea.com/us/en/images/products/uppsta-stacking-rings-multicolor__1041614_pe841099_s5.jpg
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

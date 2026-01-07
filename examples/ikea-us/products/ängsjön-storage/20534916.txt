@@ -1,0 +1,35 @@
+# @PRODUCT
+Name: ALMAÅN leg, stainless steel
+SKU: 20534916
+Brand: IKEA
+LastUpdated: 2025-07-15T00:00:00Z
+URL: https://www.ikea.com/us/en/p/almaan-leg-stainless-steel-20534916/
+Category: ÄNGSJÖN storage
+Description: , 43/4-77/8" ALMAÅN legs in durable stainless steel add a design element to your HAVBÄCK, ÄNGSJÖN or TÄNNFORSEN bathroom solution, but are also practical when you want to increase the stability of you...
+
+# @OFFER
+Price: 20
+Currency: USD
+Availability: InStock
+Condition: New
+TaxIncluded: False
+TaxNote: "Sales tax calculated at checkout"
+
+# @SPECS
+Materials: Mounting plate/ Nut/ Outer tube/ Inner tube/ Cover cap: Stainless steel, Adjustment nut/ Threaded Pin: Acetal plastic, Underside foot: Polypropylene
+Features: 2 legs included. | Fits HAVBÄCK, ÄNGSJÖN and TÄNNFORSEN washstands and high cabinets. | To be attached at the front of the cabinet only.
+Care: Wipe clean with a mild soapy solution. | Wipe dry with a clean cloth.
+
+# @IMAGES
+Main: https://www.ikea.com/us/en/images/products/almaan-leg-stainless-steel__1194913_pe902159_s5.jpg
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

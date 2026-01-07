@@ -1,0 +1,35 @@
+# @PRODUCT
+Name: BONDTOLVAN alarm clock, digital/green, 7 ¾x3 ¼"
+SKU: 30486444
+Brand: IKEA
+LastUpdated: 2025-07-15T00:00:00Z
+URL: https://www.ikea.com/us/en/p/bondtolvan-alarm-clock-digital-green-30486444/
+Category: Alarm clocks
+Description: Let your mobile phone sleep elsewhere and wake up instead with BONDTOLVAN digital alarm clock. It is designed by Aaron Probyn and has 2 alarms, a snooze function – and shows the time and day of the we...
+
+# @OFFER
+Price: 19.99
+Currency: USD
+Availability: InStock
+Condition: New
+TaxIncluded: False
+TaxNote: "Sales tax calculated at checkout"
+
+# @SPECS
+Materials: Clock frame: Polystyrene plastic (min. 20% recycled), Clock face: Polycarbonate plastic
+Features: USB-cable not included with the product. IKEA recommends that you use LILLHULT USB-A to USB-micro cable.
+Care: Clean with a duster.
+
+# @IMAGES
+Main: https://www.ikea.com/us/en/images/products/bondtolvan-alarm-clock-digital-green__1100001_pe866033_s5.jpg
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

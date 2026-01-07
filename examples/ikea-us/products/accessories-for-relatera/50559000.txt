@@ -1,0 +1,35 @@
+# @PRODUCT
+Name: RELATERA add-on unit, light gray-green
+SKU: 50559000
+Brand: IKEA
+LastUpdated: 2025-07-15T00:00:00Z
+URL: https://www.ikea.com/us/en/p/relatera-add-on-unit-light-gray-green-50559000/
+Category: Accessories for RELATERA
+Description: , 153/4x145/8" This shelf creates extra storage space on RELATERA desk and makes it easier for your child to keep everything from pens and books to toys organized. The shelf is easy to screw in place ...
+
+# @OFFER
+Price: 15
+Currency: USD
+Availability: InStock
+Condition: New
+TaxIncluded: False
+TaxNote: "Sales tax calculated at checkout"
+
+# @SPECS
+Materials: Tubular frame/ Shelf/ Washer/ Hook: Steel, Epoxy/polyester powder coating, Nut: Steel
+Features: Can only be fixed on RELATERA desk.
+Care: Wipe clean with a damp cloth. | Wipe dry with a clean cloth.
+
+# @IMAGES
+Main: https://www.ikea.com/us/en/images/products/relatera-add-on-unit-light-gray-green__1292485_pe935028_s5.jpg
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

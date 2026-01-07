@@ -1,0 +1,35 @@
+# @PRODUCT
+Name: RELATERA drawer, white
+SKU: 30558997
+Brand: IKEA
+LastUpdated: 2025-07-15T00:00:00Z
+URL: https://www.ikea.com/us/en/p/relatera-drawer-white-30558997/
+Category: Accessories for RELATERA
+Description: , 195/8x141/8x31/8" In this drawer your child can keep pens, notepads and small things close at hand when it's time for homework or crafts at RELATERA desk. Easy to pull out and with a drawer stop to ...
+
+# @OFFER
+Price: 20
+Currency: USD
+Availability: InStock
+Condition: New
+TaxIncluded: False
+TaxNote: "Sales tax calculated at checkout"
+
+# @SPECS
+Materials: Front: Fiberboard, Fiberboard, Acrylic paint, Drawer side/ Drawer back: Particleboard, Plastic foil, Paper foil, Drawer bottom: Fiberboard, Plastic foil, Acrylic paint, Paper foil
+Features: Can be mounted on the right or left side of RELATERA table top, 46x23½ in– or in the middle of the RELATERA table top, 35½x23½ in
+Care: Wipe clean with a dry cloth. | Wipe dry with a clean cloth.
+
+# @IMAGES
+Main: https://www.ikea.com/us/en/images/products/relatera-drawer-white__1292756_pe935092_s5.jpg
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

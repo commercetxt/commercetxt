@@ -1,0 +1,35 @@
+# @PRODUCT
+Name: LUSTIGT dart game
+SKU: 50385364
+Brand: IKEA
+LastUpdated: 2025-07-15T00:00:00Z
+URL: https://www.ikea.com/us/en/p/lustigt-dart-game-50385364/
+Category: Active play toys
+Description: This dart game is perfect to play with younger children. The small figures have a touch-and-close fastening on top ‒ and since the target’s sides have 2 motifs, you can learn both numbers and colors.
+
+# @OFFER
+Price: 24.99
+Currency: USD
+Availability: InStock
+Condition: New
+TaxIncluded: False
+TaxNote: "Sales tax calculated at checkout"
+
+# @SPECS
+Materials: Fabric: 100% polyester (min. 90% recycled), Insert: 100 % polypropylene, Filling: 100 % polyester - hollow fiber (100% recycled)
+Features: Includes: 1 target and 6 figures with touch-and-close fastening.
+Care: Do not wash. | Do not bleach.
+
+# @IMAGES
+Main: https://www.ikea.com/us/en/images/products/lustigt-dart-game__0542468_pe654083_s5.jpg
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

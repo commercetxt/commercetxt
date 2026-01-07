@@ -1,0 +1,35 @@
+# @PRODUCT
+Name: FÖRNUFTIG air purifier, white
+SKU: 50461961
+Brand: IKEA
+LastUpdated: 2025-07-15T00:00:00Z
+URL: https://www.ikea.com/us/en/p/foernuftig-air-purifier-white-50461961/
+Category: Air purifiers & filters
+Description: , 12x18" Improves indoor air quality so you breathe cleaner air. Comes with a particle filter and can be completed with a gas filter to purify air from odors, pollen and pollutants such as dust, smoke...
+
+# @OFFER
+Price: 79.99
+Currency: USD
+Availability: InStock
+Condition: New
+TaxIncluded: False
+TaxNote: "Sales tax calculated at checkout"
+
+# @SPECS
+Materials: Back Cover/ Housing: Polystyrene, Front panel: 100 % polyester, Polystyrene, Leg: Steel, Powder coating
+Features: The air purifier comes with a particle filter so it purifies the air from various particles as efficiently as possible. You can also buy a gas filter and use the two filters together. | Particle filter included. Gas filter sold separately. | Purifies the air in a space of up to 85-105 square feet, depending on which fan speed the air purifier is set to.
+Care: Wipe clean with a damp cloth. | After cleaning, be sure to wipe dry with a soft cloth.
+
+# @IMAGES
+Main: https://www.ikea.com/us/en/images/products/foernuftig-air-purifier-white__0832294_pe777645_s5.jpg
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

@@ -1,0 +1,35 @@
+# @PRODUCT
+Name: UPPSTÅ shape sorter, multicolor
+SKU: 90592088
+Brand: IKEA
+LastUpdated: 2025-07-15T00:00:00Z
+URL: https://www.ikea.com/us/en/p/uppsta-shape-sorter-multicolor-90592088/
+Category: Activity toys for babies
+Description: Why doesn’t the block fit in the hole? Aha, it has a different shape! With this shape sorter that looks like a birdhouse, your child can easily learn about different colors and shapes. Develops fine m...
+
+# @OFFER
+Price: 9.99
+Currency: USD
+Availability: InStock
+Condition: New
+TaxIncluded: False
+TaxNote: "Sales tax calculated at checkout"
+
+# @SPECS
+Materials: Wooden part(s): Solid beech, Acrylic paint, Clear lacquer, Plastic part: Polypropylene
+Features: Comprises: 1 house with removable roof and 6 blocks in different shapes and colors. | Each part is carefully tested and withstands your child throwing, beating and chewing on it. | Matches other products in the UPPSTÅ and BRUMMIG series.
+Care: Wipe dry with a clean cloth.
+
+# @IMAGES
+Main: https://www.ikea.com/us/en/images/products/uppsta-shape-sorter-multicolor__1293803_pe935269_s5.jpg
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

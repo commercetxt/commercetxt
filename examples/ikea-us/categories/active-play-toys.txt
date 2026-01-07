@@ -1,0 +1,34 @@
+# @CATEGORY
+Name: Active play toys
+ProductCount: 12
+
+# @FILTERS
+PriceRange: $1.49 - $39.99
+Materials: Block: Solid beech, Printed acrylic paint, Box bottom: Fiberboard, Acrylic paint, Clear acrylic lacquer, Box/ Scoop/ Cup: Polypropylene, Bucket/ Handle/ Strainer/ Mold: Polyethylene, Connector: Reinforced polyamide, Fabric/ Mesh: 100% polyester (min. 90% recycled), Fabric: 100 %polyester, Fabric: 100% polyester (min. 90% recycled), Fabric: 100% polyester (min. 90% recycled), 100 % PEVA plastic, Filling: 100 % polyester - hollow fiber (100% recycled)
+Brand: IKEA
+
+# @ITEMS
+- SPORTSLIG ball storage/goal: /products/active-play-toys/70504238.txt
+- SPARKA soft toy, soccer ball/black white: /products/active-play-toys/70506765.txt
+- SKRATTMÅS obstacle course: /products/active-play-toys/20550421.txt
+- SANDIG Shovel, blue: /products/active-play-toys/60577678.txt
+- SANDIG 7-piece sand play set, multicolor: /products/active-play-toys/00577676.txt
+- SANDIG 10-piece sand ice-cream set, multicolor: /products/active-play-toys/50577674.txt
+- PLUFSIG folding gym mat, pink/red: /products/active-play-toys/00552275.txt
+- PLUFSIG folding gym mat, green: /products/active-play-toys/90552271.txt
+- PLUFSIG folding gym mat, blue: /products/active-play-toys/50552268.txt
+- LUSTIGT dart game: /products/active-play-toys/50385364.txt
+- FJÄLLVRÅK stacking game: /products/active-play-toys/30582351.txt
+- FJÄLLVRÅK puzzle: /products/active-play-toys/70582354.txt
+
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

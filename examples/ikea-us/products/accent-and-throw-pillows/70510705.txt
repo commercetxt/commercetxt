@@ -1,0 +1,34 @@
+# @PRODUCT
+Name: SANDTRAV cushion, gray/white
+SKU: 70510705
+Brand: IKEA
+LastUpdated: 2025-07-15T00:00:00Z
+URL: https://www.ikea.com/us/en/p/sandtrav-cushion-gray-white-70510705/
+Category: Accent & throw pillows
+Description: , 18x18" No pattern needed! The heavy cotton fabric has a robust, tactile texture that gives this grey/white cushion plenty of character. Filled with feathers for soft and plump comfort in your sofa o...
+
+# @OFFER
+Price: 19.99
+Currency: USD
+Availability: InStock
+Condition: New
+TaxIncluded: False
+TaxNote: "Sales tax calculated at checkout"
+
+# @SPECS
+Materials: Outer fabric/ Inner fabric: 100 % cotton, Filling: Duck feathers
+Care: Inner cushion: Tumble dry after washing until the filling is completely dry. | Inner cushion: Machine wash warm (max 140°F/60°C) normal cycle.
+
+# @IMAGES
+Main: https://www.ikea.com/us/en/images/products/sandtrav-cushion-gray-white__0980452_pe814960_s5.jpg
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

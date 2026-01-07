@@ -1,0 +1,35 @@
+# @PRODUCT
+Name: LEKA baby gym, birch plywood/multicolor
+SKU: 70575080
+Brand: IKEA
+LastUpdated: 2025-07-15T00:00:00Z
+URL: https://www.ikea.com/us/en/p/leka-baby-gym-birch-plywood-multicolor-70575080/
+Category: Activity toys for babies
+Description: Under this gym, your baby can lie on their back and reach for the colorful figures or lie on their stomach and spin the small side plates. Great for visual recognition and hand-eye coordination. A per...
+
+# @OFFER
+Price: 39.99
+Currency: USD
+Availability: InStock
+Condition: New
+TaxIncluded: False
+TaxNote: "Sales tax calculated at checkout"
+
+# @SPECS
+Materials: Layer glued frame: Layer-glued wood veneer, Clear acrylic lacquer, Mobiles: ABS plastic, Leg: Birch plywood, Acrylic paint, Clear acrylic lacquer
+Features: Reaching out for toys stimulates the baby's development of hand-eye coordination. | Playing with different colors and patterns improves the child's ability to understand their surroundings. | Movement and strong contrast stimulate the baby's vision and curiosity.
+Care: Wipe dry with a clean cloth.
+
+# @IMAGES
+Main: https://www.ikea.com/us/en/images/products/leka-baby-gym-birch-plywood-multicolor__1342135_pe949008_s5.jpg
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

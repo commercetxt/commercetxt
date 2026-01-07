@@ -1,0 +1,25 @@
+# @CATEGORY
+Name: Accessories for TROTTEN
+ProductCount: 3
+
+# @FILTERS
+PriceRange: $40.00 - $229.99
+Materials: Frame/ Base: Steel, Epoxy/polyester powder coating, Frame: Steel, Epoxy/polyester powder coating, Inner fabric/ Outer fabric: 100% polyester (min. 50% recycled), Panel: 100 % polyester
+Brand: IKEA
+
+# @ITEMS
+- TROTTEN noticeboard, white: /products/accessories-for-trotten/90474768.txt
+- TROTTEN noticeboard, anthracite: /products/accessories-for-trotten/30492690.txt
+- ELLOVEN whiteboard/noticeboard with casters, white: /products/accessories-for-trotten/70474769.txt
+
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

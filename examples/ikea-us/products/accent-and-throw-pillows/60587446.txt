@@ -1,0 +1,34 @@
+# @PRODUCT
+Name: TURILL cushion, white/black
+SKU: 60587446
+Brand: IKEA
+LastUpdated: 2025-07-15T00:00:00Z
+URL: https://www.ikea.com/us/en/p/turill-cushion-white-black-60587446/
+Category: Accent & throw pillows
+Description: , 16x16" How about adding a little softness to the sofa? This cushion with a cover made of super-soft microfiber is cozy nice to lean your cheek against when you take a nap. The cover feels ultra soft...
+
+# @OFFER
+Price: 2.99
+Currency: USD
+Availability: InStock
+Condition: New
+TaxIncluded: False
+TaxNote: "Sales tax calculated at checkout"
+
+# @SPECS
+Materials: Cushion cover: 100 %polyester, Filling: 100 % polyester - hollow fiber (100% recycled)
+Care: Machine wash warm, normal cycle. | Do not bleach.
+
+# @IMAGES
+Main: https://www.ikea.com/us/en/images/products/turill-cushion-white-black__0545087_pe655316_s5.jpg
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

@@ -1,0 +1,34 @@
+# @PRODUCT
+Name: SMÄCKER flatware tray, anthracite
+SKU: 10601459
+Brand: IKEA
+LastUpdated: 2025-07-15T00:00:00Z
+URL: https://www.ikea.com/us/en/p/smaecker-flatware-tray-anthracite-10601459/
+Category: Accessories for SEKTION
+Description: , 121/4x101/4" Helps keep the kitchen drawer organized, so you can spend more time on setting the table nicely and less on looking for lost cutlery. A simple and practical cutlery tray in plastic that...
+
+# @OFFER
+Price: 1.49
+Currency: USD
+Availability: InStock
+Condition: New
+TaxIncluded: False
+TaxNote: "Sales tax calculated at checkout"
+
+# @SPECS
+Materials: Polypropylene plastic (min. 50% recycled), polypropylene (min. 50% recycled), Polypropylene plastic (min. 50% recycled)
+Care: Wipe clean using a damp cloth and a mild cleaner. | Wipe dry with a clean cloth.
+
+# @IMAGES
+Main: https://www.ikea.com/us/en/images/products/smaecker-flatware-tray-anthracite__1393948_pe966369_s5.jpg
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

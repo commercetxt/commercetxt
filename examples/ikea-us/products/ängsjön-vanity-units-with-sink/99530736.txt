@@ -1,0 +1,35 @@
+# @PRODUCT
+Name: ÄNGSJÖN / ORRSJÖN Bathroom vanity with sink & faucets, brown oak effect
+SKU: 99530736
+Brand: IKEA
+LastUpdated: 2025-07-15T00:00:00Z
+URL: https://www.ikea.com/us/en/p/aengsjoen-orrsjoen-bathroom-vanity-with-sink-faucets-brown-oak-effect-s99530736/
+Category: ÄNGSJÖN vanity units with sink
+Description: , 371/8x213/4x275/8" ÄNGSJÖN bathroom furniture has a modern appeal with minimal details so you can start each day with a clean slate. This combo has 2 spacious drawers and a double wash-basin that ca...
+
+# @OFFER
+Price: 589
+Currency: USD
+Availability: InStock
+Condition: New
+TaxIncluded: False
+TaxNote: "Sales tax calculated at checkout"
+
+# @SPECS
+Materials: Frame/ Middle rail/ Bottom panel/ Drawer divider/ Drawer sides/ Drawer back: Particleboard, Plastic foil, Plastic edging, Plastic edging (min. 50% recycled), Top rail: Fiberboard, Plastic foil, Plastic edging, Plastic edging (min. 50% recycled), Drawer front: Particleboard, Fiberboard, Plastic foil, Plastic edging, Plastic edging (min. 50% recycled)
+Features: Comprises: 1 washstand with drawers, 1 integrated sink, 1 water trap and 2 faucet. | If you are uncertain about the installation, contact a professional. The installation shall be made in accordance with valid local building and plumbing regulations. | Silicone is needed for installation, not included.
+Care: Wipe clean with a mild soapy solution. | Wet marks should always be dried off as soon as possible to stop moisture penetration.
+
+# @IMAGES
+Main: https://www.ikea.com/us/en/images/products/aengsjoen-orrsjoen-bathroom-vanity-with-sink-faucets-brown-oak-effect__1217268_pe912656_s5.jpg
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

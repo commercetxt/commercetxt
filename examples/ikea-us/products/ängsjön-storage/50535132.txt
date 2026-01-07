@@ -1,0 +1,35 @@
+# @PRODUCT
+Name: ALMAÅN leg, white
+SKU: 50535132
+Brand: IKEA
+LastUpdated: 2025-07-15T00:00:00Z
+URL: https://www.ikea.com/us/en/p/almaan-leg-white-50535132/
+Category: ÄNGSJÖN storage
+Description: , 7" ALMAÅN legs in sturdy solid wood add a design element to your HAVBÄCK, ÄNGSJÖN or TÄNNFORSEN bathroom solution, but are also practical when you want to increase the stability of your cabinets. 10...
+
+# @OFFER
+Price: 30
+Currency: USD
+Availability: InStock
+Condition: New
+TaxIncluded: False
+TaxNote: "Sales tax calculated at checkout"
+
+# @SPECS
+Materials: Leg: Solid beech, Acrylic paint, Plate: Stainless steel
+Features: 2 legs included. | Fits HAVBÄCK, ÄNGSJÖN and TÄNNFORSEN washstands and high cabinets. | To be attached at the front of the cabinet only.
+Care: Wipe clean with a mild soapy solution. | Wipe dry with a clean cloth.
+
+# @IMAGES
+Main: https://www.ikea.com/us/en/images/products/almaan-leg-white__1197690_pe903695_s5.jpg
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

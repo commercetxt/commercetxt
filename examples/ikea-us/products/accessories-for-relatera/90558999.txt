@@ -1,0 +1,35 @@
+# @PRODUCT
+Name: RELATERA writing board+whiteboard, set of 2, light gray-green
+SKU: 90558999
+Brand: IKEA
+LastUpdated: 2025-07-15T00:00:00Z
+URL: https://www.ikea.com/us/en/p/relatera-writing-board-whiteboard-set-of-2-light-gray-green-90558999/
+Category: Accessories for RELATERA
+Description: A practical duo. On the whiteboard your child can attach notes or pictures with magnets and write down important things – and the angled writing board is a perfect support for a notepad or book.
+
+# @OFFER
+Price: 20
+Currency: USD
+Availability: InStock
+Condition: New
+TaxIncluded: False
+TaxNote: "Sales tax calculated at checkout"
+
+# @SPECS
+Materials: Tubular frame/ Washer/ Shelf/ Whiteboard: Steel, Epoxy/polyester powder coating, Stand: Polystyrene, Nut: Steel
+Features: Comprises: 1 writing board (11x3½x13") and 1 whiteboard (14⅝x3½x14⅝"). | Can only be fixed on RELATERA desk.
+Care: Wipe clean with a damp cloth. | Wipe dry with a clean cloth.
+
+# @IMAGES
+Main: https://www.ikea.com/us/en/images/products/relatera-writing-board-whiteboard-set-of-2-light-gray-green__1292582_pe935056_s5.jpg
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

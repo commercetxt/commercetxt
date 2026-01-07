@@ -1,0 +1,35 @@
+# @PRODUCT
+Name: ÄNGSJÖN high cabinet with doors, brown oak effect
+SKU: 20535322
+Brand: IKEA
+LastUpdated: 2025-07-15T00:00:00Z
+URL: https://www.ikea.com/us/en/p/aengsjoen-high-cabinet-with-doors-brown-oak-effect-20535322/
+Category: ÄNGSJÖN storage
+Description: , 18x15x77" The contemporary feel of ÄNGSJÖN bathroom series is enhanced with integrated handles and a refined minimalist expression. This high cabinet uses vertical space for storage, taking up littl...
+
+# @OFFER
+Price: 259
+Currency: USD
+Availability: InStock
+Condition: New
+TaxIncluded: False
+TaxNote: "Sales tax calculated at checkout"
+
+# @SPECS
+Materials: Frame/ Fixed shelf/ Adjustable shelf: Particleboard, Plastic foil, Plastic edging, Plastic edging (min. 50% recycled), Door: Particleboard, Fiberboard, Plastic foil, Plastic foil, Plastic edging, Plastic edging (min. 50% recycled), Shelf: Tempered glass
+Features: If you are uncertain about the installation, contact a professional. The installation shall be made in accordance with valid local building and plumbing regulations. | Comprises: 1 cabinet, 1 door, 3 hinges, 1 fixed wooden shelf, 2 adjustable wooden shelves, 3 adjustable glass shelves and suspension rail. | May be completed with 2 ALMAÅN legs, sold separately.
+Care: Wipe dry with a clean cloth. | Wipe clean with a water dampened soft cloth and a mild non-abrasive dish detergent or soap, if necessary.
+
+# @IMAGES
+Main: https://www.ikea.com/us/en/images/products/aengsjoen-high-cabinet-with-doors-brown-oak-effect__1197642_pe903653_s5.jpg
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

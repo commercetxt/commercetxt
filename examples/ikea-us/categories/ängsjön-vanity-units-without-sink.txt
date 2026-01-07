@@ -1,0 +1,43 @@
+# @CATEGORY
+Name: ÄNGSJÖN vanity units without sink
+ProductCount: 21
+
+# @FILTERS
+PriceRange: $139.00 - $349.00
+Materials: Drawer front: Particleboard, Fiberboard, Plastic foil, Plastic edging, Plastic edging (min. 50% recycled), Frame/ Bottom panel: Particleboard, Plastic foil (min. 50% recycled), Plastic foil, Plastic edging, Plastic edging, Frame/ Middle rail/ Bottom panel/ Drawer divider/ Drawer sides/ Drawer back: Particleboard, Plastic foil, Plastic edging, Plastic edging (min. 50% recycled), Middle rail/ Drawer divider/ Drawer sides/ Drawer back: Particleboard, Plastic foil, Plastic edging, Plastic edging, Top rail: Fiberboard, Plastic foil (min. 50% recycled), Plastic edging, Plastic edging, Top rail: Fiberboard, Plastic foil, Plastic edging, Plastic edging (min. 50% recycled)
+Brand: IKEA
+
+# @ITEMS
+- ÄNGSJÖN Bathroom vanity with drawers, oak effect: /products/ängsjön-vanity-units-without-sink/90535328.txt
+- ÄNGSJÖN Bathroom vanity with drawers, oak effect: /products/ängsjön-vanity-units-without-sink/20535355.txt
+- ÄNGSJÖN Bathroom vanity with drawers, oak effect: /products/ängsjön-vanity-units-without-sink/10535365.txt
+- ÄNGSJÖN Bathroom vanity with drawers, oak effect: /products/ängsjön-vanity-units-without-sink/10535346.txt
+- ÄNGSJÖN Bathroom vanity with drawers, oak effect: /products/ängsjön-vanity-units-without-sink/00535337.txt
+- ÄNGSJÖN Bathroom vanity with drawers, high gloss white: /products/ängsjön-vanity-units-without-sink/90535352.txt
+- ÄNGSJÖN Bathroom vanity with drawers, high gloss white: /products/ängsjön-vanity-units-without-sink/80535343.txt
+- ÄNGSJÖN Bathroom vanity with drawers, high gloss white: /products/ängsjön-vanity-units-without-sink/70535334.txt
+- ÄNGSJÖN Bathroom vanity with drawers, high gloss white: /products/ängsjön-vanity-units-without-sink/50535325.txt
+- ÄNGSJÖN Bathroom vanity with drawers, high gloss white: /products/ängsjön-vanity-units-without-sink/00535361.txt
+- ÄNGSJÖN Bathroom vanity with drawers, brown oak effect: /products/ängsjön-vanity-units-without-sink/60535358.txt
+- ÄNGSJÖN Bathroom vanity with drawers, brown oak effect: /products/ängsjön-vanity-units-without-sink/50535368.txt
+- ÄNGSJÖN Bathroom vanity with drawers, brown oak effect: /products/ängsjön-vanity-units-without-sink/50535349.txt
+- ÄNGSJÖN Bathroom vanity with drawers, brown oak effect: /products/ängsjön-vanity-units-without-sink/40535340.txt
+- ÄNGSJÖN Bathroom vanity with drawers, brown oak effect: /products/ängsjön-vanity-units-without-sink/30535331.txt
+- ÄNGSJÖN Bathroom vanity with drawer, oak effect: /products/ängsjön-vanity-units-without-sink/80535376.txt
+- ÄNGSJÖN Bathroom vanity with drawer, oak effect: /products/ängsjön-vanity-units-without-sink/70535386.txt
+- ÄNGSJÖN Bathroom vanity with drawer, high gloss white: /products/ängsjön-vanity-units-without-sink/90535371.txt
+- ÄNGSJÖN Bathroom vanity with drawer, high gloss white: /products/ängsjön-vanity-units-without-sink/40535383.txt
+- ÄNGSJÖN Bathroom vanity with drawer, brown oak effect: /products/ängsjön-vanity-units-without-sink/20535379.txt
+- ÄNGSJÖN Bathroom vanity with drawer, brown oak effect: /products/ängsjön-vanity-units-without-sink/10535389.txt
+
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

@@ -1,0 +1,34 @@
+# @PRODUCT
+Name: GULDVÄVARE mobile, multicolor
+SKU: 40573657
+Brand: IKEA
+LastUpdated: 2025-07-15T00:00:00Z
+URL: https://www.ikea.com/us/en/p/guldvaevare-mobile-multicolor-40573657/
+Category: Activity toys for babies
+Description: This mobile with soft round figures in various colors creates an exciting eye-catcher above the changing table. Just what’s needed to create a calm vibe when changing diapers. Movement and sharp contr...
+
+# @OFFER
+Price: 14.99
+Currency: USD
+Availability: InStock
+Condition: New
+TaxIncluded: False
+TaxNote: "Sales tax calculated at checkout"
+
+# @SPECS
+Materials: Frame: Solid pine, Clear acrylic lacquer, Fabric: 100% polyester (min. 90% recycled), Filling: 100 % polyester - hollow fiber (100% recycled)
+Care: Do not wash. | Do not bleach.
+
+# @IMAGES
+Main: https://www.ikea.com/us/en/images/products/guldvaevare-mobile-multicolor__1362294_pe955044_s5.jpg
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

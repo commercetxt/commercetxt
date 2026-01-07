@@ -1,0 +1,32 @@
+# @CATEGORY
+Name: Air purifiers & filters
+ProductCount: 10
+
+# @FILTERS
+PriceRange: $14.00 - $102.99
+Materials: ABS plastic, Back Cover/ Housing: Polystyrene, Base: Non-woven polypropylene, Core filling: Activated carbon, Frame: PET plastic, Frame: Polypropylene, Front panel: 100 % polyester, Polystyrene, Leg: Steel, Powder coating, Polystyrene
+Brand: IKEA
+
+# @ITEMS
+- VINDSTYRKA air quality sensor, smart: /products/air-purifiers-and-filters/30498239.txt
+- UPPÅTVIND filter for particle removal: /products/air-purifiers-and-filters/90551498.txt
+- UPPÅTVIND air purifier: /products/air-purifiers-and-filters/60498228.txt
+- FÖRNUFTIG filter for particle removal: /products/air-purifiers-and-filters/10461944.txt
+- FÖRNUFTIG filter for gas cleaning: /products/air-purifiers-and-filters/40487283.txt
+- FÖRNUFTIG air purifier, white: /products/air-purifiers-and-filters/50461961.txt
+- FÖRNUFTIG air purifier, black: /products/air-purifiers-and-filters/60488069.txt
+- FÖRNUFTIG air purifier/additional gas filter, white: /products/air-purifiers-and-filters/19471241.txt
+- FÖRNUFTIG air purifier/additional gas filter, black: /products/air-purifiers-and-filters/69471253.txt
+- FÖRNUFTIG 2-piece filter set: /products/air-purifiers-and-filters/19444196.txt
+
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

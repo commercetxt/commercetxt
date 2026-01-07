@@ -1,0 +1,35 @@
+# @PRODUCT
+Name: NYTTIG ventilated plinth, stainless steel
+SKU: 20499729
+Brand: IKEA
+LastUpdated: 2025-07-15T00:00:00Z
+URL: https://www.ikea.com/us/en/p/nyttig-ventilated-plinth-stainless-steel-20499729/
+Category: Accessories for appliances
+Description: , 24" Even the smaller details are important when you are planning a complete kitchen. It all depends on your needs and wishes – but maybe it’s just this small part that will make a big difference.
+
+# @OFFER
+Price: 18.99
+Currency: USD
+Availability: InStock
+Condition: New
+TaxIncluded: False
+TaxNote: "Sales tax calculated at checkout"
+
+# @SPECS
+Materials: Plinth/ Wallbracket/ Cover: Stainless steel, Plastic parts: Polypropylene
+Features: To be used with RENGJORD fully integrated dishwasher.
+Care: Wipe dry with a clean cloth. | Wipe clean with a water dampened soft cloth and a mild non-abrasive dish detergent or soap, if necessary.
+
+# @IMAGES
+Main: https://www.ikea.com/us/en/images/products/nyttig-ventilated-plinth-stainless-steel__1017899_pe830991_s5.jpg
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

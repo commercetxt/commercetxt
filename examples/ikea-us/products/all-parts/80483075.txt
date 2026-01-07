@@ -1,0 +1,35 @@
+# @PRODUCT
+Name: OMAR shelving unit with 3 baskets, galvanized
+SKU: 80483075
+Brand: IKEA
+LastUpdated: 2025-07-15T00:00:00Z
+URL: https://www.ikea.com/us/en/p/omar-shelving-unit-with-3-baskets-galvanized-80483075/
+Category: All parts
+Description: , 361/4x14x37" OMAR storage offers lots of room in a kitchen, bathroom and hallway. Things like food or towels lie visible and secure in the metal baskets. Easy to assemble and complete with storage f...
+
+# @OFFER
+Price: 49.99
+Currency: USD
+Availability: InStock
+Condition: New
+TaxIncluded: False
+TaxNote: "Sales tax calculated at checkout"
+
+# @SPECS
+Materials: Shelf/ Post: Steel, Galvanized, Foot: Steel, Polyamide, Galvanized
+Features: Safety strap for mounting to wall included. | The material in this product may be recyclable. Please check the recycling rules in your community and if recycling facilities exist in your area. | Only for indoor use.
+Care: Wipe clean with a soft cloth dampened with water and a mild dish detergent or soap, if necessary.
+
+# @IMAGES
+Main: https://www.ikea.com/us/en/images/products/omar-shelving-unit-with-3-baskets-galvanized__0924643_pe788606_s5.jpg
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

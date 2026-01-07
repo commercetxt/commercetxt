@@ -1,0 +1,35 @@
+# @CATEGORY
+Name: Activity toys for babies
+ProductCount: 13
+
+# @FILTERS
+PriceRange: $2.99 - $69.99
+Materials: Ball: ABS plastic, Bead: Solid beech, Acrylic paint, Clear acrylic lacquer, Bead: Solid birch, Fabric/ Pillow filling: 100 %polyester, Fabric: 100 %polyester, Fabric: 100% polyester (min. 90% recycled), Filling: 100 % polyester - hollow fiber (100% recycled), Filling: Polyester/recycled fiber wadding, Frame: Solid pine, Clear acrylic lacquer, Handle/ Rocker/ Horn: Solid rubberwood, Clear acrylic lacquer
+Brand: IKEA
+
+# @ITEMS
+- UPPSTÅ toy hammering block, multicolor: /products/activity-toys-for-babies/60513889.txt
+- UPPSTÅ toddler walker, green: /products/activity-toys-for-babies/10513896.txt
+- UPPSTÅ stacking rings, multicolor: /products/activity-toys-for-babies/00513892.txt
+- UPPSTÅ stack &nest cups, multicolor: /products/activity-toys-for-babies/70513884.txt
+- UPPSTÅ shape sorter, multicolor: /products/activity-toys-for-babies/90592088.txt
+- UPPSTÅ pull toy, hedgehog/multicolor: /products/activity-toys-for-babies/90504666.txt
+- UPPSTÅ bead maze, multicolor: /products/activity-toys-for-babies/10562491.txt
+- SANDBI mobile, Scandinavian nature/multicolor: /products/activity-toys-for-babies/20564461.txt
+- LEKA baby gym, birch plywood/multicolor: /products/activity-toys-for-babies/70575080.txt
+- GULLIGAST baby gym, multicolor: /products/activity-toys-for-babies/90484277.txt
+- GULDVÄVARE mobile, multicolor: /products/activity-toys-for-babies/40573657.txt
+- GRÖNFINK play book, multicolor: /products/activity-toys-for-babies/50572469.txt
+- EKORRE rocking moose, red/rubberwood: /products/activity-toys-for-babies/50060713.txt
+
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

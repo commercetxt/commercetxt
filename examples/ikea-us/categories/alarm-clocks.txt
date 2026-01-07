@@ -1,0 +1,32 @@
+# @CATEGORY
+Name: Alarm clocks
+ProductCount: 10
+
+# @FILTERS
+PriceRange: $1.99 - $19.99
+Materials: Clock face/ Housing/ Base: ABS plastic (min. 20% recycled), Clock face: Polycarbonate plastic, Clock frame: ABS plastic (min. 50% recycled), Tinted clear acrylic lacquer, Clock frame: Polystyrene plastic (min. 20% recycled), Clock frame: Steel, Epoxy/polyester powder coating, Frame: ABS plastic, Frame: ABS plastic (min. 20% recycled), Front protection: Acrylic, Front protection: Glass, Front protection: Polycarbonate plastic
+Brand: IKEA
+
+# @ITEMS
+- TJINGA alarm clock, pale yellow, 3 ¼x3 ¼": /products/alarm-clocks/40592123.txt
+- KUPONG alarm clock, green, 1 ½x2 ¼": /products/alarm-clocks/30358781.txt
+- KUPONG alarm clock, bright blue, 2 ¾x2 ¼": /products/alarm-clocks/90592125.txt
+- KLOCKIS clock/thermometer/alarm/timer, white, 2 ¾x2 ¾": /products/alarm-clocks/80277004.txt
+- KLOCKIS clock/thermometer/alarm/timer, white, 2 ¾x2 ¾": /products/alarm-clocks/70590453.txt
+- FILMIS clock/thermometer/alarm, black, 6 ½x3 ½": /products/alarm-clocks/30540827.txt
+- DEKAD alarm clock, white: /products/alarm-clocks/70540482.txt
+- DEKAD alarm clock, black: /products/alarm-clocks/30540479.txt
+- BONDTOLVAN alarm clock, digital/green, 7 ¾x3 ¼": /products/alarm-clocks/30486444.txt
+- BONDTOLVAN alarm clock, analog/pale pink, 3 ¼x3 ½": /products/alarm-clocks/30511014.txt
+
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

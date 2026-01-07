@@ -1,0 +1,34 @@
+# @PRODUCT
+Name: FÖRNUFTIG 2-piece filter set
+SKU: 19444196
+Brand: IKEA
+LastUpdated: 2025-07-15T00:00:00Z
+URL: https://www.ikea.com/us/en/p/foernuftig-2-piece-filter-set-s19444196/
+Category: Air purifiers & filters
+Description: FÖRNUFTIG filter is good for particle removal absorbs airborne particles such as dust, pollen and cigarette smoke. The filter for gas cleaning helps to reduce the odor of smoke, cooking odours and oth...
+
+# @OFFER
+Price: 40
+Currency: USD
+Availability: InStock
+Condition: New
+TaxIncluded: False
+TaxNote: "Sales tax calculated at checkout"
+
+# @SPECS
+Materials: Frame: Polypropylene, Core filling: Activated carbon, Base: Non-woven polypropylene
+Features: Only to be used with FÖRNUFTIG air purifier. | The particle filter is optimized to filter away approximately 99.5% of smaller airborne particles such as PM2.5 particles, dust, and pollen. | PM2.5 are small inhalable particles, that measure 0.1-2.5 micrometers.
+
+# @IMAGES
+Main: https://www.ikea.com/us/en/images/products/foernuftig-2-piece-filter-set__1052010_pe845875_s5.jpg
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

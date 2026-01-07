@@ -1,0 +1,34 @@
+# @PRODUCT
+Name: VARIERA shelf insert, white
+SKU: 40542958
+Brand: IKEA
+LastUpdated: 2025-07-15T00:00:00Z
+URL: https://www.ikea.com/us/en/p/variera-shelf-insert-white-40542958/
+Category: Accessories & fittings
+Description: , 177/8x51/2x61/4" Just when you thought you were running out of space inside your cabinets, this shelf insert comes to the rescue. Simply add one or more inserts for that wonderful extra storage spac...
+
+# @OFFER
+Price: 13.99
+Currency: USD
+Availability: InStock
+Condition: New
+TaxIncluded: False
+TaxNote: "Sales tax calculated at checkout"
+
+# @SPECS
+Materials: Steel, Epoxy/polyester powder coating
+Care: Wipe clean using a damp cloth and a mild cleaner. | Wipe dry with a clean cloth.
+
+# @IMAGES
+Main: https://www.ikea.com/us/en/images/products/variera-shelf-insert-white__1098199_pe865318_s5.jpg
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

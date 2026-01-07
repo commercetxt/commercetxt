@@ -1,0 +1,35 @@
+# @PRODUCT
+Name: UPPÅTVIND air purifier
+SKU: 60498228
+Brand: IKEA
+LastUpdated: 2025-07-15T00:00:00Z
+URL: https://www.ikea.com/us/en/p/uppatvind-air-purifier-60498228/
+Category: Air purifiers & filters
+Description: A small and flexible air purifier that makes a big difference. It cleans the indoor air from harmful particles and pollen, and you can easily move it to always breathe cleaner air at home. UPPÅTVIND a...
+
+# @OFFER
+Price: 39.99
+Currency: USD
+Availability: InStock
+Condition: New
+TaxIncluded: False
+TaxNote: "Sales tax calculated at checkout"
+
+# @SPECS
+Materials: Polystyrene
+Features: The air purifier comes with a particle filter to clean the air from different particles as efficiently as possible. The replacement filter to be used is UPPÅTVIND filter for particle removal. | Optimized for rooms of 75 sq. ft., where air is filtered through the air purifier 5 times per hour. It is also fine to use in larger rooms, with a bit longer cleaning time – or use several to cover a larger area. | The particle filter is optimized to filter away more than 99.5% of small airborne particles such as PM2.5 particles, dust and pollen.
+Care: The pre-filter can be cleaned with a vacuum cleaner. | The particle filter must be replaced when it is dirty.
+
+# @IMAGES
+Main: https://www.ikea.com/us/en/images/products/uppatvind-air-purifier__1113273_pe871676_s5.jpg
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

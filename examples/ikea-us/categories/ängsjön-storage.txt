@@ -1,0 +1,33 @@
+# @CATEGORY
+Name: ÄNGSJÖN storage
+ProductCount: 11
+
+# @FILTERS
+PriceRange: $20.00 - $289.00
+Materials: Adjustment nut/ Threaded Pin: Acetal plastic, Door: Fiberboard, Plastic foil (min. 50% recycled), Plastic foil, Plastic edging, Plastic edging, Door: Particleboard, Fiberboard, Plastic foil, Plastic foil, Plastic edging, Plastic edging (min. 50% recycled), Frame/ Fixed shelf/ Adjustable shelf: Particleboard, Plastic foil, Plastic edging, Plastic edging (min. 50% recycled), Frame: Particleboard, Plastic foil (min. 50% recycled), Plastic foil, Plastic edging, Plastic edging, Frame: Particleboard, Plastic foil (min. 50% recycled), Plastic foil, Plastic foil, Plastic edging, Frame: Particleboard, Plastic foil, Plastic edging, Plastic edging (min. 50% recycled), Leg: Solid beech, Acrylic paint, Mounting plate/ Nut/ Outer tube/ Inner tube/ Cover cap: Stainless steel, Plate: Stainless steel
+Brand: IKEA
+
+# @ITEMS
+- ALMAÅN leg, white: /products/ängsjön-storage/90535540.txt
+- ALMAÅN leg, white: /products/ängsjön-storage/50535132.txt
+- ALMAÅN leg, stainless steel: /products/ängsjön-storage/20534916.txt
+- ALMAÅN leg, light gray: /products/ängsjön-storage/70535541.txt
+- ALMAÅN leg, light gray: /products/ängsjön-storage/30535133.txt
+- ÄNGSJÖN wall cabinet with door, oak effect: /products/ängsjön-storage/70535310.txt
+- ÄNGSJÖN wall cabinet with door, high gloss white: /products/ängsjön-storage/30535307.txt
+- ÄNGSJÖN wall cabinet with door, brown oak effect: /products/ängsjön-storage/10535313.txt
+- ÄNGSJÖN high cabinet with doors, oak effect: /products/ängsjön-storage/80535319.txt
+- ÄNGSJÖN high cabinet with doors, high gloss white: /products/ängsjön-storage/40535316.txt
+- ÄNGSJÖN high cabinet with doors, brown oak effect: /products/ängsjön-storage/20535322.txt
+
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

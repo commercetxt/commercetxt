@@ -1,0 +1,35 @@
+# @PRODUCT
+Name: SANDIG 7-piece sand play set, multicolor
+SKU: 00577676
+Brand: IKEA
+LastUpdated: 2025-07-15T00:00:00Z
+URL: https://www.ikea.com/us/en/p/sandig-7-piece-sand-play-set-multicolor-00577676/
+Category: Active play toys
+Description: Dig, rake, pour, build and demolish – again and again! Playing with sand is fun and develops motor skills. This set includes everything a creative builder needs to have fun at the beach or in the sand...
+
+# @OFFER
+Price: 9.99
+Currency: USD
+Availability: InStock
+Condition: New
+TaxIncluded: False
+TaxNote: "Sales tax calculated at checkout"
+
+# @SPECS
+Materials: Bucket/ Handle/ Strainer/ Mold: Polyethylene, Shovel/ Rake: Polypropylene
+Features: Includes: 1 sieve, 1 bucket, 1 rake, 1 spade and 3 sand molds.
+Care: Wipe clean with a dry cloth.
+
+# @IMAGES
+Main: https://www.ikea.com/us/en/images/products/sandig-7-piece-sand-play-set-multicolor__1234300_pe917123_s5.jpg
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

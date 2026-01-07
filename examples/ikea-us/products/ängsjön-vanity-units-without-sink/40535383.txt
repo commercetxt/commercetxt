@@ -1,0 +1,35 @@
+# @PRODUCT
+Name: ÄNGSJÖN Bathroom vanity with drawer, high gloss white
+SKU: 40535383
+Brand: IKEA
+LastUpdated: 2025-07-15T00:00:00Z
+URL: https://www.ikea.com/us/en/p/aengsjoen-bathroom-vanity-with-drawer-high-gloss-white-40535383/
+Category: ÄNGSJÖN vanity units without sink
+Description: , 30x21x131/8" The contemporary feel of ÄNGSJÖN bathroom series is enhanced with integrated handles and a refined minimalist expression. This wash-stand with drawer is designed for a countertop and/or...
+
+# @OFFER
+Price: 189
+Currency: USD
+Availability: InStock
+Condition: New
+TaxIncluded: False
+TaxNote: "Sales tax calculated at checkout"
+
+# @SPECS
+Materials: Frame/ Bottom panel: Particleboard, Plastic foil (min. 50% recycled), Plastic foil, Plastic edging, Plastic edging, Top rail: Fiberboard, Plastic foil (min. 50% recycled), Plastic edging, Plastic edging, Middle rail/ Drawer divider/ Drawer sides/ Drawer back: Particleboard, Plastic foil, Plastic edging, Plastic edging
+Features: If you are uncertain about the installation, contact a professional. The installation shall be made in accordance with valid local building and plumbing regulations. | Suitable for both wall- and floor-mounted water outlet. | Comprises: 1 cabinet, 1 inner drawer, 1 drawer front and suspension rail.
+Care: Wipe dry with a clean cloth. | Wipe clean with a water dampened soft cloth and a mild non-abrasive dish detergent or soap, if necessary.
+
+# @IMAGES
+Main: https://www.ikea.com/us/en/images/products/aengsjoen-bathroom-vanity-with-drawer-high-gloss-white__1197649_pe903660_s5.jpg
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

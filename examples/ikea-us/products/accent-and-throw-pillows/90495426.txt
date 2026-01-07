@@ -1,0 +1,34 @@
+# @PRODUCT
+Name: KÄRLEKSGRÄS cushion, green
+SKU: 90495426
+Brand: IKEA
+LastUpdated: 2025-07-15T00:00:00Z
+URL: https://www.ikea.com/us/en/p/kaerleksgraes-cushion-green-90495426/
+Category: Accent & throw pillows
+Description: , 16x16" A squishy, comfy cushion in a forest green melange with a delicate sheen. Mix n’ match with cushions of different colors and sizes to bring new life to your sofa or bed. Made with 100% recycl...
+
+# @OFFER
+Price: 3.99
+Currency: USD
+Availability: InStock
+Condition: New
+TaxIncluded: False
+TaxNote: "Sales tax calculated at checkout"
+
+# @SPECS
+Materials: Filling: 100 % polyester - hollow fiber (100% recycled), Fabric: 100% polyester (min. 80% recycled)
+Care: Machine wash warm, normal cycle. | Do not bleach.
+
+# @IMAGES
+Main: https://www.ikea.com/us/en/images/products/kaerleksgraes-cushion-green__0963827_pe808768_s5.jpg
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

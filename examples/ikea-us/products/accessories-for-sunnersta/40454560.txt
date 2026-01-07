@@ -1,0 +1,35 @@
+# @PRODUCT
+Name: SUNNERSTA rail with 4 hooks and 2 containers, white
+SKU: 40454560
+Brand: IKEA
+LastUpdated: 2025-07-15T00:00:00Z
+URL: https://www.ikea.com/us/en/p/sunnersta-rail-with-4-hooks-and-2-containers-white-40454560/
+Category: Accessories for SUNNERSTA
+Description: When every little centimeter counts SUNNERSTA accessories come to the rescue with storage possibilities that keep things close at hand and your countertop free from clutter. Can be used in high humidi...
+
+# @OFFER
+Price: 4.99
+Currency: USD
+Availability: InStock
+Condition: New
+TaxIncluded: False
+TaxNote: "Sales tax calculated at checkout"
+
+# @SPECS
+Materials: Rail: Steel, Polyester powder coating, End cap: Polypropylene, Container: Polypropylene plastic (min. 20% recycled)
+Features: Recommended for indoor use only. | May be used with SUNNERSTA kitchen accessories. | Can be fixed with suitable screws/fittings from our TRIXIG series.
+Care: Wipe dry with a clean cloth. | Wipe clean with a water dampened soft cloth and a mild non-abrasive dish detergent or soap, if necessary.
+
+# @IMAGES
+Main: https://www.ikea.com/us/en/images/products/sunnersta-rail-with-4-hooks-and-2-containers-white__0832809_pe777827_s5.jpg
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

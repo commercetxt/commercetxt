@@ -1,0 +1,37 @@
+# @CATEGORY
+Name: Accessories for appliances
+ProductCount: 15
+
+# @FILTERS
+PriceRange: $10.00 - $28.99
+Materials: Acrylic, Clear polyester lacquer, Galvanized steel, Epoxy powder coating, Particleboard, Melamine foil, Plastic edging, Particleboard, Melamine foil, Polypropylene, Plastic parts: Polypropylene, Plinth/ Wallbracket/ Cover: Stainless steel, Solid pine, Clear acrylic lacquer, Stain, Solid pine, Steel, Clear acrylic lacquer, Stain, Powder coating, Steel, Epoxy powder coating, Steel, Epoxy/polyester powder coating
+Brand: IKEA
+
+# @ITEMS
+- VÅGLIG connecting rail for fronts: /products/accessories-for-appliances/50514380.txt
+- VÅGLIG connecting rail for fronts: /products/accessories-for-appliances/20591025.txt
+- NYTTIG ventilated plinth, stainless steel: /products/accessories-for-appliances/20499729.txt
+- NYTTIG toekick, stainless steel: /products/accessories-for-appliances/50592924.txt
+- NYTTIG support bracket for micro trim kit, black/wood: /products/accessories-for-appliances/50591024.txt
+- NYTTIG support bracket for micro trim kit, 2 pack: /products/accessories-for-appliances/10484455.txt
+- NYTTIG Filler piece/stove separator: /products/accessories-for-appliances/60290676.txt
+- NYTTIG filler piece for wall oven/micro: /products/accessories-for-appliances/10591115.txt
+- NYTTIG filler piece f over the range micro: /products/accessories-for-appliances/90523660.txt
+- NYTTIG filler piece f over the range micro: /products/accessories-for-appliances/00531235.txt
+- NYTTIG filler pc wall oven/base cab f oven: /products/accessories-for-appliances/90594054.txt
+- NYTTIG cooktop to drawer separator: /products/accessories-for-appliances/80290675.txt
+- NYTTIG back filler piece, for over the range micro/hood: /products/accessories-for-appliances/70523661.txt
+- NYTTIG back filler piece, for over the range micro/hood: /products/accessories-for-appliances/10536505.txt
+- FIXA Diffusion barrier, chrome plated: /products/accessories-for-appliances/04375085.txt
+
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

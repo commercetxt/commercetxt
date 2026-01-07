@@ -38,3 +38,4 @@ yarn.lock
 *.faiss.index
 *.meta.sqlite
 cosmic_ray.toml
+examples/ikea-us-full/

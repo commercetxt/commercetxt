@@ -1,0 +1,35 @@
+# @PRODUCT
+Name: FILMIS clock/thermometer/alarm, black, 6 ½x3 ½"
+SKU: 30540827
+Brand: IKEA
+LastUpdated: 2025-07-15T00:00:00Z
+URL: https://www.ikea.com/us/en/p/filmis-clock-thermometer-alarm-black-30540827/
+Category: Alarm clocks
+Description: A battery-operated clock with 3 different functions: time, alarm and temperature. The clock has a LED backlight and is lit when pressing the button. The alarm clock has a snooze function and the alarm...
+
+# @OFFER
+Price: 17.99
+Currency: USD
+Availability: InStock
+Condition: New
+TaxIncluded: False
+TaxNote: "Sales tax calculated at checkout"
+
+# @SPECS
+Materials: Clock frame: ABS plastic (min. 50% recycled), Tinted clear acrylic lacquer, Front protection: Acrylic
+Features: Batteries sold separately. IKEA recommends LADDA rechargeable battery. This alarm clock also works with alkaline batteries, 2xAA.
+Care: Wipe clean with a dry cloth.
+
+# @IMAGES
+Main: https://www.ikea.com/us/en/images/products/filmis-clock-thermometer-alarm-black__0588935_pe673258_s5.jpg
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

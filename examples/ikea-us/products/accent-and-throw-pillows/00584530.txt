@@ -1,0 +1,34 @@
+# @PRODUCT
+Name: SANDMOTT cushion, bright red/bright pink
+SKU: 00584530
+Brand: IKEA
+LastUpdated: 2025-07-15T00:00:00Z
+URL: https://www.ikea.com/us/en/p/sandmott-cushion-bright-red-bright-pink-00584530/
+Category: Accent & throw pillows
+Description: , 12x23" SANDMOTT cushion offers a Scandinavian flair with its vibrant red/pink pattern that brightens your home. Coordinates easily with other cushion covers and throws in our range. Fits comfortably...
+
+# @OFFER
+Price: 7.99
+Currency: USD
+Availability: InStock
+Condition: New
+TaxIncluded: False
+TaxNote: "Sales tax calculated at checkout"
+
+# @SPECS
+Materials: Fabric: 100 % cotton, Filling: 100 % polyester - hollow fiber (100% recycled)
+Care: Machine wash warm, normal cycle. | Do not bleach.
+
+# @IMAGES
+Main: https://www.ikea.com/us/en/images/products/sandmott-cushion-bright-red-bright-pink__1284483_pe932899_s5.jpg
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

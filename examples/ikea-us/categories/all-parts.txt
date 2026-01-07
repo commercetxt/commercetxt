@@ -1,0 +1,72 @@
+# @CATEGORY
+Name: All parts
+ProductCount: 50
+
+# @FILTERS
+PriceRange: $5.00 - $200.00
+Materials: Back panel/ Shelf: Steel, Epoxy/polyester powder coating, Back panel: Fiberboard, Bracket: Galvanized steel, Powder coating, Door frame: Solid pine, Door panel: 100 %polyester, Drawer rail: Steel, Epoxy/polyester powder coating, Foot: Steel, Polyamide, Galvanized, Frame: Steel, Steel, Epoxy/polyester powder coating, Galvanized steel, Epoxy/polyester powder coating, Galvanized steel, Powder coating
+Brand: IKEA
+
+# @ITEMS
+- OMAR shelving unit with clothes rail, galvanized: /products/all-parts/60530978.txt
+- OMAR shelving unit with 3 baskets, galvanized: /products/all-parts/80483075.txt
+- OMAR shelf unit, galvanized: /products/all-parts/70483071.txt
+- OMAR shelf unit, galvanized: /products/all-parts/30483073.txt
+- OMAR Shelf unit, galvanized, Width: 36 1/: /products/all-parts/10069763.txt
+- OMAR Shelf unit, galvanized, Width: 18 1/: /products/all-parts/00069768.txt
+- OMAR Bottle shelving unit, galvanized: /products/all-parts/30069762.txt
+- OBSERVATÖR cross-brace, galvanized: /products/all-parts/87749600.txt
+- IVAR side unit: /products/all-parts/90484654.txt
+- IVAR side unit: /products/all-parts/83756609.txt
+- IVAR side unit: /products/all-parts/63756709.txt
+- IVAR side unit: /products/all-parts/60484655.txt
+- IVAR side unit: /products/all-parts/50484651.txt
+- IVAR side unit: /products/all-parts/30484652.txt
+- IVAR shelf, white metal: /products/all-parts/70566981.txt
+- IVAR shelf, white metal: /products/all-parts/50566982.txt
+- IVAR shelf, white metal: /products/all-parts/30566983.txt
+- IVAR shelf, white metal: /products/all-parts/10566984.txt
+- IVAR shelf unit, pine: /products/all-parts/00522330.txt
+- IVAR shelf, pine: /products/all-parts/80318165.txt
+- IVAR shelf, pine: /products/all-parts/70318161.txt
+- IVAR shelf, pine: /products/all-parts/30318163.txt
+- IVAR shelf, pine: /products/all-parts/10318159.txt
+- IVAR shelf, dark gray/felt: /products/all-parts/30534572.txt
+- IVAR folding table, pine: /products/all-parts/40512466.txt
+- IVAR door, dark gray/felt: /products/all-parts/30534567.txt
+- IVAR cabinet with doors, gray-green mesh: /products/all-parts/89508118.txt
+- IVAR cabinet with doors, gray-green mesh: /products/all-parts/50531252.txt
+- IVAR cabinet with doors, black mesh: /products/all-parts/99508108.txt
+- IVAR cabinet with doors, black mesh: /products/all-parts/00531240.txt
+- IVAR Cabinet, pine: /products/all-parts/40033763.txt
+- IVAR box shelf with divider, pine: /products/all-parts/20596382.txt
+- IVAR Bottle rack, gray: /products/all-parts/40310208.txt
+- IVAR base on legs, pine: /products/all-parts/00488901.txt
+- BROR shelf, gray-green/pine plywood: /products/all-parts/80547911.txt
+- BROR shelf, gray-green/pine plywood: /products/all-parts/60547907.txt
+- BROR shelf for wall upright, black: /products/all-parts/00570420.txt
+- BROR shelf for wall upright, black: /products/all-parts/00570415.txt
+- BROR shelf, black/pine plywood: /products/all-parts/20343163.txt
+- BROR shelf, black: /products/all-parts/80333284.txt
+- BROR shelf, black: /products/all-parts/30512283.txt
+- BROR shelf, black: /products/all-parts/30333842.txt
+- BROR shelf, black: /products/all-parts/00512289.txt
+- BROR rail with hooks, black: /products/all-parts/80570421.txt
+- BROR post, gray-green: /products/all-parts/70547370.txt
+- BROR Post, black, Depth: 1 5/8" Height: 74 3/4". Order today!: /products/all-parts/10333287.txt
+- BROR Post, black, Depth: 1 5/8" Height: 43 1/4". Order here!: /products/all-parts/00333278.txt
+- BROR drawer, black: /products/all-parts/00494662.txt
+- BROR Cabinet with 2 doors, black: /products/all-parts/50300015.txt
+- BROR 2 uprights/1 suspension rail set, black: /products/all-parts/20570419.txt
+
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

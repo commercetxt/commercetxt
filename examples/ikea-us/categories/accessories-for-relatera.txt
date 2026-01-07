@@ -1,0 +1,27 @@
+# @CATEGORY
+Name: Accessories for RELATERA
+ProductCount: 5
+
+# @FILTERS
+PriceRange: $5.00 - $20.00
+Materials: Drawer bottom: Fiberboard, Plastic foil, Acrylic paint, Paper foil, Drawer side/ Drawer back: Particleboard, Plastic foil, Paper foil, Flexi joint: Steel, Steel, Synthetic rubber, Galvanized, Front: Fiberboard, Fiberboard, Acrylic paint, Nut: Steel, Stand/ Tube: Steel, Epoxy/polyester powder coating, Stand: Polystyrene, Steel, Epoxy powder coating, Tubular frame/ Shelf/ Washer/ Hook: Steel, Epoxy/polyester powder coating, Tubular frame/ Washer/ Shelf/ Whiteboard: Steel, Epoxy/polyester powder coating
+Brand: IKEA
+
+# @ITEMS
+- RELATERA writing board+whiteboard, set of 2, light gray-green: /products/accessories-for-relatera/90558999.txt
+- RELATERA 'phone/tablet holder, with clamp/light gray-green: /products/accessories-for-relatera/10559002.txt
+- RELATERA drawer, white: /products/accessories-for-relatera/30558997.txt
+- RELATERA bookend, light gray-green, 2 pieces: /products/accessories-for-relatera/30559001.txt
+- RELATERA add-on unit, light gray-green: /products/accessories-for-relatera/50559000.txt
+
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

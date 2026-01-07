@@ -1,0 +1,35 @@
+# @PRODUCT
+Name: ÄNGSJÖN Bathroom vanity with drawers, brown oak effect
+SKU: 50535368
+Brand: IKEA
+LastUpdated: 2025-07-15T00:00:00Z
+URL: https://www.ikea.com/us/en/p/aengsjoen-bathroom-vanity-with-drawers-brown-oak-effect-50535368/
+Category: ÄNGSJÖN vanity units without sink
+Description: , 48x21x251/8" The contemporary feel of ÄNGSJÖN bathroom series is enhanced with integrated handles and a refined minimalist expression. This wash-stand with drawers is designed for a countertop and/o...
+
+# @OFFER
+Price: 319
+Currency: USD
+Availability: InStock
+Condition: New
+TaxIncluded: False
+TaxNote: "Sales tax calculated at checkout"
+
+# @SPECS
+Materials: Frame/ Middle rail/ Bottom panel/ Drawer divider/ Drawer sides/ Drawer back: Particleboard, Plastic foil, Plastic edging, Plastic edging (min. 50% recycled), Top rail: Fiberboard, Plastic foil, Plastic edging, Plastic edging (min. 50% recycled), Drawer front: Particleboard, Fiberboard, Plastic foil, Plastic edging, Plastic edging (min. 50% recycled)
+Features: If you are uncertain about the installation, contact a professional. The installation shall be made in accordance with valid local building and plumbing regulations. | Suitable for both wall- and floor-mounted water outlet. | Comprises: 1 cabinet, 2 inner drawers, 2 drawer fronts and suspension rail.
+Care: Wipe dry with a clean cloth. | Wipe clean with a water dampened soft cloth and a mild non-abrasive dish detergent or soap, if necessary.
+
+# @IMAGES
+Main: https://www.ikea.com/us/en/images/products/aengsjoen-bathroom-vanity-with-drawers-brown-oak-effect__1256035_pe924871_s5.jpg
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

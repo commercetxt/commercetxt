@@ -1,0 +1,35 @@
+# @PRODUCT
+Name: PLUFSIG folding gym mat, blue
+SKU: 50552268
+Brand: IKEA
+LastUpdated: 2025-07-15T00:00:00Z
+URL: https://www.ikea.com/us/en/p/plufsig-folding-gym-mat-blue-50552268/
+Category: Active play toys
+Description: , 303/4x727/8" Little acrobats can practice somersaults, vaults and jumping as much as they like on this soft foldable gym mat. That they also develop motor skills and coordination is something only u...
+
+# @OFFER
+Price: 39.99
+Currency: USD
+Availability: InStock
+Condition: New
+TaxIncluded: False
+TaxNote: "Sales tax calculated at checkout"
+
+# @SPECS
+Materials: Fabric: 100% polyester (min. 90% recycled), 100 % PEVA plastic, Filling: Polyethylene foam
+Features: Recommended for indoor use only.
+Care: Do not wash. | Do not bleach.
+
+# @IMAGES
+Main: https://www.ikea.com/us/en/images/products/plufsig-folding-gym-mat-blue__1151605_pe884961_s5.jpg
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

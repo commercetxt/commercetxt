@@ -1,0 +1,41 @@
+# @CATEGORY
+Name: Accent & throw pillows
+ProductCount: 19
+
+# @FILTERS
+PriceRange: $2.99 - $29.99
+Materials: Back fabric/ Inner fabric: 100 % cotton, Cover: 100 % cotton, Cushion cover: 100 % polyester (100% recycled), Cushion cover: 100 %polyester, Cushion cover: 56 % polyester, 44 % cotton, Embroidery thread: 100 % polyester, Embroidery: 100 % polyester, Fabric: 100 % cotton, Fabric: 100% polyester (min. 80% recycled), Filling material: Duck feathers
+Brand: IKEA
+
+# @ITEMS
+- VÄNDEROT cushion, white: /products/accent-and-throw-pillows/90474198.txt
+- TURILL cushion, white/black: /products/accent-and-throw-pillows/60587446.txt
+- STOCKHOLM cushion, black/white: /products/accent-and-throw-pillows/80297667.txt
+- SKUGGNÄVA cushion, white/gray: /products/accent-and-throw-pillows/20517790.txt
+- SKOGSKORN cushion, dark gray/multicolor: /products/accent-and-throw-pillows/40450816.txt
+- SANDTRAV cushion, yellow-beige/white: /products/accent-and-throw-pillows/20563466.txt
+- SANDTRAV cushion, gray/white: /products/accent-and-throw-pillows/70510705.txt
+- SANDTRAV cushion, gray-green/white: /products/accent-and-throw-pillows/10563457.txt
+- SANDMOTT cushion, bright red/bright pink: /products/accent-and-throw-pillows/00584530.txt
+- SANDMOTT cushion, bright green/dark blue: /products/accent-and-throw-pillows/70584602.txt
+- RÖDARV cushion, multicolor: /products/accent-and-throw-pillows/60334915.txt
+- KUSTFYR cushion, black: /products/accent-and-throw-pillows/20563621.txt
+- KRANSBORRE cushion, white: /products/accent-and-throw-pillows/80559819.txt
+- KRANSBORRE cushion, light pink: /products/accent-and-throw-pillows/60486659.txt
+- KRANSBORRE cushion, gray: /products/accent-and-throw-pillows/50559608.txt
+- KRANSBORRE cushion, dark blue: /products/accent-and-throw-pillows/00559818.txt
+- KÄRLEKSGRÄS cushion, green: /products/accent-and-throw-pillows/90495426.txt
+- KÄRLEKSGRÄS cushion, gray: /products/accent-and-throw-pillows/40495400.txt
+- HANNELISE cushion, multicolor: /products/accent-and-throw-pillows/10466611.txt
+
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

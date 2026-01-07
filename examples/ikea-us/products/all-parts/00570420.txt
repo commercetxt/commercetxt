@@ -1,0 +1,35 @@
+# @PRODUCT
+Name: BROR shelf for wall upright, black
+SKU: 00570420
+Brand: IKEA
+LastUpdated: 2025-07-15T00:00:00Z
+URL: https://www.ikea.com/us/en/p/bror-shelf-for-wall-upright-black-00570420/
+Category: All parts
+Description: , 331/2x153/4" Practical storage for tight spaces in your garage or storage room. Use these shelves for BROR wall system to create your own solution and store everything from plant pots to cans of pai...
+
+# @OFFER
+Price: 35
+Currency: USD
+Availability: InStock
+Condition: New
+TaxIncluded: False
+TaxNote: "Sales tax calculated at checkout"
+
+# @SPECS
+Materials: Galvanized steel, Powder coating
+Features: The recommended maximum weight applies when the weight load is evenly distributed across the surface. | Complete with BROR vertical uprights and BROR suspension rail, sold separately.
+Care: Wipe clean with a soft cloth dampened with water and a mild dish detergent or soap, if necessary.
+
+# @IMAGES
+Main: https://www.ikea.com/us/en/images/products/bror-shelf-for-wall-upright-black__1296383_pe935810_s5.jpg
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

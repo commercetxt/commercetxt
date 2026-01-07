@@ -1,0 +1,35 @@
+# @PRODUCT
+Name: ÄNGSJÖN wall cabinet with door, oak effect
+SKU: 70535310
+Brand: IKEA
+LastUpdated: 2025-07-15T00:00:00Z
+URL: https://www.ikea.com/us/en/p/aengsjoen-wall-cabinet-with-door-oak-effect-70535310/
+Category: ÄNGSJÖN storage
+Description: , 18x6x37" The contemporary feel of ÄNGSJÖN bathroom series is enhanced with integrated handles and a refined minimalist expression. This shallow wall cabinet keeps things close at hand and takes up l...
+
+# @OFFER
+Price: 129
+Currency: USD
+Availability: InStock
+Condition: New
+TaxIncluded: False
+TaxNote: "Sales tax calculated at checkout"
+
+# @SPECS
+Materials: Frame: Particleboard, Plastic foil, Plastic edging, Plastic edging (min. 50% recycled), Door: Particleboard, Fiberboard, Plastic foil, Plastic foil, Plastic edging, Plastic edging (min. 50% recycled), Shelf: Tempered glass
+Features: If you are uncertain about the installation, contact a professional. The installation shall be made in accordance with valid local building and plumbing regulations. | This cabinet is to be wall mounted. | Comprises: 1 cabinet, 1 door, 2 hinges, 4 adjustable glass shelves and suspension rail.
+Care: Wipe dry with a clean cloth. | Wipe clean with a water dampened soft cloth and a mild non-abrasive dish detergent or soap, if necessary.
+
+# @IMAGES
+Main: https://www.ikea.com/us/en/images/products/aengsjoen-wall-cabinet-with-door-oak-effect__1197654_pe903665_s5.jpg
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

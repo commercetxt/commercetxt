@@ -1,0 +1,27 @@
+# @CATEGORY
+Name: Accessories & fittings
+ProductCount: 5
+
+# @FILTERS
+PriceRange: $2.99 - $27.00
+Materials: Frame: Particleboard, Melamine foil, Plastic edging, Metal parts: Steel, Galvanized, Polyethylene, Steel, Epoxy powder coating, Steel, Epoxy/polyester powder coating, Steel, Nickel plated
+Brand: IKEA
+
+# @ITEMS
+- VARIERA shelf insert, white: /products/accessories-and-fittings/40542958.txt
+- VARIERA cover plate, white: /products/accessories-and-fittings/00226315.txt
+- UTRUSTA reinforced ventilated shelf, white, 30x24"331 lb: /products/accessories-and-fittings/70487347.txt
+- UTRUSTA Connection hardware for doors: /products/accessories-and-fittings/30366917.txt
+- UTRUSTA Connecting rail for fronts: /products/accessories-and-fittings/20277436.txt
+
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt

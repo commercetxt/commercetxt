@@ -201,6 +201,43 @@ AI: [Reads 5 KB file, 380 tokens]
 
 ---
 
+## Production-Scale Example: IKEA US Dataset
+
+The [IKEA US Example](./examples/ikea-us/) demonstrates CommerceTXT at production scale with **30,511 real products** converted from scraped JSON data.
+
+### Key Features
+- ✅ **30,511 products** - Complete IKEA US catalog (July 2025)
+- ✅ **632 categories** - Auto-generated @CATALOG with full taxonomy
+- ✅ **Token efficient** - ~24% average savings vs JSON
+- 🤗 **[Hugging Face Dataset](https://huggingface.co/datasets/tsazan/ikea-us-commercetxt)** - Ready to use!
+
+**Full Dataset Comparison (including catalog structure):**
+
+| Component | JSON Tokens | CommerceTXT Tokens | Savings |
+|-----------|-------------|-------------------|---------|
+| **Products (30,511)** | 14,894,623 | 10,212,452 | 31.44% |
+| **Categories (632)** | N/A* | 1,073,051 | - |
+| **Root Catalog** | N/A* | 11,180 | - |
+| **TOTAL** | **14,894,623** | **11,296,683** | **24.16%** |
+
+\* JSON has no built-in catalog structure (requires separate database/index)
+
+**Per Product Average:**
+- JSON: 488 tokens/product
+- CommerceTXT: 370 tokens/product (including catalog overhead)
+- **Savings: 118 tokens/product (24%)**
+
+**Cost Impact (GPT-4o at $2.50/1M input tokens):**
+- 1 query/day: **$269/month saved**
+- 10 queries/day: **$2,690/month saved**
+- 100 queries/day: **$26,900/month saved**
+
+> **Note:** CommerceTXT includes structured navigation via `@CATALOG` and category files, which JSON lacks. Categories list all products, adding ~1.08M tokens. Even with this catalog overhead, CommerceTXT saves **3.6M tokens (24%)**!
+
+[View Full Dataset →](./examples/ikea-us/) | [Download from HuggingFace 🤗](https://huggingface.co/datasets/tsazan/ikea-us-commercetxt)
+
+---
+
 # Roadmap (Community-Driven)
 
 ---

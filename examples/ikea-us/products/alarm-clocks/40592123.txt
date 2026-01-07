@@ -1,0 +1,35 @@
+# @PRODUCT
+Name: TJINGA alarm clock, pale yellow, 3 ¼x3 ¼"
+SKU: 40592123
+Brand: IKEA
+LastUpdated: 2025-07-15T00:00:00Z
+URL: https://www.ikea.com/us/en/p/tjinga-alarm-clock-pale-yellow-40592123/
+Category: Alarm clocks
+Description: Heavy sleeper? The pale-yellow TJINGA alarm clock is a peppy injection of energy. You set the alarm easily on the back of the clock – and the button on the front allows you to snooze for five more min...
+
+# @OFFER
+Price: 4.99
+Currency: USD
+Availability: InStock
+Condition: New
+TaxIncluded: False
+TaxNote: "Sales tax calculated at checkout"
+
+# @SPECS
+Materials: Main parts: Polypropylene plastic (min. 20% recycled), Hands: ABS plastic, Front protection: Polystyrene
+Features: Batteries sold separately. IKEA recommends LADDA rechargeable batteries. This alarm clock also works with alkaline batteries, 1xAA.
+Care: Clean with a duster. | The hands are set using the dial on the back of the clock mechanism. Moving the hands directly with your fingers can destroy the clock mechanism.
+
+# @IMAGES
+Main: https://www.ikea.com/us/en/images/products/tjinga-alarm-clock-pale-yellow__1357334_pe953522_s5.jpg
+
+---
+# DISCLAIMER
+This file is part of an unofficial research dataset created solely to demonstrate the CommerceTXT protocol.
+Not affiliated with or endorsed by IKEA or Inter IKEA Systems B.V.
+Data is a static snapshot from July 2025 and may be outdated or inaccurate.
+IKEA® is a registered trademark of Inter IKEA Systems B.V.
+For non-commercial, educational, and research purposes only.
+No warranty of any kind. Use at your own risk.
+
+For more info: https://github.com/commercetxt/commercetxt
