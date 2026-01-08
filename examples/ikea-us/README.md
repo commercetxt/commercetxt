@@ -1,25 +1,3 @@
----
-license: cc0-1.0
-task_categories:
-- text-generation
-- question-answering
-- text-retrieval
-language:
-- en
-tags:
-- commercetxt
-- e-commerce
-- product-catalog
-- ikea
-- retail
-- rag
-- llm-optimization
-- token-efficiency
-pretty_name: IKEA US CommerceTXT Dataset
-size_categories:
-- 10K<n<100K
----
-
 # IKEA US - CommerceTXT Dataset
 
 **30,511 IKEA US products in CommerceTXT v1.0.1 format** - A token-optimized, human-readable alternative to JSON for e-commerce data.
@@ -166,6 +144,9 @@ Care: Wipe clean with a cloth
 ## 💰 Token Efficiency
 
 **CommerceTXT vs JSON Comparison:**
+
+> **Clarification:** Disclaimer section is not included in any of the token counts or savings calculations.
+
 
 | Component | JSON Tokens | CommerceTXT Tokens | Savings |
 |-----------|-------------|-------------------|---------|
