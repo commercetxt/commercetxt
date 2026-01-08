@@ -4,7 +4,7 @@
 [![Status](https://img.shields.io/badge/status-stable-success.svg)]()
 
 **Version:** 1.0.1  
-**Date:** 2025-12-17  
+**Date:** 2026-01-08  
 **Status:** Stable Release  
 **Maintainer:** Open Merchant Context Workgroup  
 **License:** CC0 1.0 Universal (Public Domain)
@@ -947,8 +947,25 @@ RestrictedRegions: All
 
 ---
 
+## 5. Auto-Discovery (robots.txt)
 
-## 5. Schema.org Mapping Table
+To ensure AI Agents and Crawlers can locate the `commerce.txt` file reliably (especially if redirects or non-standard paths are used), publishers SHOULD include a discovery directive in their `robots.txt` file.
+
+**Syntax:**
+`Commerce-TXT: <absolute_url>`
+
+**Example:**
+
+```
+User-agent: *
+Disallow: /checkout/
+Disallow: /cart/
+
+Sitemap: https://example.com/sitemap.xml
+Commerce-TXT: https://example.com/commerce.txt
+```
+
+## 6. Schema.org Mapping Table
 
 | Directive | CommerceTXT Key | Schema.org Property | Type |
 |-----------|----------------|---------------------|------|
@@ -975,7 +992,7 @@ RestrictedRegions: All
 | @AGE_RESTRICTION | MinimumAge | offer.eligibleAge | Integer |
 ---
 
-## 6. Compliance Tiers
+## 7. Compliance Tiers
 
 To accommodate different store sizes, compliance is defined in tiers.
 
@@ -1016,7 +1033,7 @@ To accommodate different store sizes, compliance is defined in tiers.
 
 ---
 
-## 7. Locale Resolution & Internationalization
+## 8. Locale Resolution & Internationalization
 
 For multi-regional stores, Agents MUST use the **@LOCALES** directive (see Section 4.9) in the Root file to determine the correct context.
 
@@ -1025,11 +1042,11 @@ For multi-regional stores, Agents MUST use the **@LOCALES** directive (see Secti
 2. **Match:** Exact locale → Language fallback → Root fallback
 3. **Load:** Corresponding file path from @LOCALES
 
-For complete details and examples, see **Section 4.9 @LOCALES**.
+For complete details and examples, see **Section 4.11 @LOCALES**.
 
 ---
 
-## 8. Versioning Policy
+## 9. Versioning Policy
 
 This protocol adheres to Semantic Versioning (SemVer).
 
@@ -1041,9 +1058,9 @@ This protocol adheres to Semantic Versioning (SemVer).
 
 ---
 
-## 9. Error Handling, Security & Trust
+## 10. Error Handling, Security & Trust
 
-### 9.1 Cross-Verification & Trust Scores (Anti-Hallucination Policy)
+### 10.1 Cross-Verification & Trust Scores (Anti-Hallucination Policy)
 
 To prevent merchants from providing false context (e.g., inflating @REVIEWS ratings or misrepresenting @OFFER prices compared to checkout), AI Agents and Crawlers are advised to perform Cross-Verification.
 
@@ -1053,7 +1070,7 @@ To prevent merchants from providing false context (e.g., inflating @REVIEWS rati
 2. **Trust Score Penalty:** If a discrepancy exceeding 5% is detected (e.g., Price in commerce.txt is $100 but checkout shows $110+), the domain's Trust Score should be downgraded.
 3. **Verification Sources:** For @REVIEWS, Agents SHOULD prioritize data backed by a verifiable Source URL (e.g., Trustpilot, Google Customer Reviews, Yotpo).
 
-#### 9.1.1 Trust Score Model (Conceptual Framework)
+#### 10.1.1 Trust Score Model (Conceptual Framework)
 
 The following is a **conceptual framework** for implementing merchant trust mechanisms. AI platforms are expected to develop their own sophisticated trust models (e.g., Bayesian scoring, machine learning-based reputation systems) adapted to their specific requirements and user protection needs.
 
@@ -1103,16 +1120,16 @@ AI platforms MAY implement stricter or more lenient trust mechanisms based on:
 - User complaint and return rate data
 - Regulatory requirements in their jurisdiction
 
-### 9.2 404 Not Found
+### 10.2 404 Not Found
 Agents MUST halt traversal for that specific branch and log "Context Unavailable".
 
-### 9.3 Malformed Syntax
+### 10.3 Malformed Syntax
 Agents MUST discard the specific line and continue parsing the rest of the file.
 
-### 9.4 PII & Secrets
+### 10.4 PII & Secrets
 Files MUST NOT contain personally identifiable information (employee emails) or API secrets. Agents MUST ignore keys resembling credentials (e.g., client_secret, api_key).
 
-### 9.5 Competitive Scraping & Data Protection
+### 10.5 Competitive Scraping & Data Protection
 
 **Merchant Concern:**
 A common objection to CommerceTXT is: "Won't this make it easier for competitors to steal my prices and undercut me?"
@@ -1173,9 +1190,21 @@ Some merchants may consider obfuscating prices (e.g., "Price: [REDACTED], visit 
 **Bottom Line:**
 CommerceTXT trades off marginal convenience for competitors (who can already scrape you) for massive convenience for legitimate AI assistants (driving traffic to your store). The benefits far outweigh the risks.
 
+### 10.6 Size & Complexity Limits (DoS Protection)
+
+**Requirement:** Agents and Parsers MUST enforce strict limits to prevent Denial of Service (DoS) attacks and resource exhaustion.
+
+**Standard Limits:**
+- **Max File Size:** 10 MB (10,485,760 bytes)
+- **Max Line Length:** 100 KB (102,400 bytes)
+
+**Implementation Behavior:**
+- Parsers reading from a stream SHOULD abort the connection if limits are exceeded.
+- Parsers MUST reject files larger than the 10 MB limit to protect memory.
+
 ---
 
-## 10. Telemetry & Analytics
+## 11. Telemetry & Analytics
 
 Agents are RECOMMENDED to include the following headers in HTTP requests when fetching CommerceTXT files:
 
@@ -1218,11 +1247,11 @@ Access-Control-Allow-Origin: *
 
 ---
 
-## 11. Future Considerations (Community Discussion Required)
+## 12. Future Considerations (Community Discussion Required)
 
 The following directives are proposed for future versions but require broader community input and real-world testing before inclusion in the standard.
 
-### 11.1 @ACTIONS (Proposed for v2.0+)
+### 12.1 @ACTIONS (Proposed for v2.0+)
 
 **Purpose:** Enable AI agents to perform transactional actions (add to cart, apply coupons, check real-time inventory via API).
 
@@ -1283,7 +1312,7 @@ CommerceTXT v1.0 should remain **read-only**. Transactional capabilities should 
 
 ---
 
-### 11.2 @SUSTAINABILITY (Proposed for v1.1)
+### 12.2 @SUSTAINABILITY (Proposed for v1.1)
 
 **Purpose:** Verified environmental and ethical claims to reduce greenwashing.
 
@@ -1329,7 +1358,7 @@ TradeIn: $200 credit for old devices
 
 ---
 
-## 12. Complete Example: Full Implementation
+## 13. Complete Example: Full Implementation
 
 This section provides a complete example of a Tier 3 (Rich) implementation across all three hierarchy levels.
 
@@ -1569,7 +1598,7 @@ Note: "ID verification required at delivery"
 
 ---
 
-## 13. Contributing & Governance
+## 14. Contributing & Governance
 
 CommerceTXT is an open standard maintained by the community.
 
@@ -1612,8 +1641,7 @@ These tools enforce critical validation rules:
 ## End of Specification
 
 **Version:** 1.0.1 (Stable Release)  
-**Release Date:** December 17, 2025  
-**Last Modified:** 2025-12-17  
+**Last Modified:** 2026-01-08  
 **Contact:** hello@commercetxt.org  
 **GitHub:** https://github.com/commercetxt/commercetxt/
 **Website:** https://commercetxt.org
