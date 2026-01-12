@@ -160,10 +160,10 @@ CC0 license—no permission needed to implement. Vendor-neutral infrastructure.
 ### For AI Platforms
 
 **Anthropic / OpenAI / Google:**
+- **Feeds Transactional Protocols:** The perfect lightweight discovery layer for agents using Google UCP or similar checkout frameworks.
 - 95% cost reduction on commerce queries
 - Eliminates price/inventory hallucinations
 - Better agent experience (no "let me check" loops)
-- Legal/reputational risk mitigation
 
 ### For Merchants
 

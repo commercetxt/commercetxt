@@ -65,6 +65,19 @@ No. CommerceTXT is **complementary** to existing infrastructure:
 
 Everything continues to work normally. This is an *additional* interface.
 
+
+### How does this relate to Google's Universal Commerce Protocol (UCP)?
+**They are complementary layers.**
+
+* **Google UCP (Transaction Layer):** Handles *how to buy* (identity, cart, checkout, payments).
+* **CommerceTXT (Discovery Layer):** Handles *what to buy* (product context, real-time inventory, pricing rules).
+
+**The Synergy:** Before a UCP agent can execute a transaction, it needs to find the product and verify it's in stock.
+* **Without CommerceTXT:** The UCP agent must scrape heavy HTML to find product details, wasting tokens and risking hallucinations before the checkout even begins.
+* **With CommerceTXT:** The agent reads the lightweight text file to get deterministic data, then uses UCP to complete the purchase.
+
+**Formula:** `CommerceTXT (Read)` + `UCP (Buy)` = The complete Agentic Commerce stack.
+
 ### Won't competitors scrape my prices and undercut me?
 **Reality check:** Your prices are already public in your HTML. Competitors who want to scrape you are already doing so.
 
