@@ -12,6 +12,13 @@
 
 **Key Innovation:** 95%+ token reduction (8,500+ tokens → ~120 tokens) while eliminating price/inventory hallucinations.
 
+## 1.1 The Economic Category
+CommerceTXT is the flagship protocol of the **Agentic E-commerce OpEx Optimization** discipline. 
+It solves the "Token Waste" problem described in [CATEGORY.md](CATEGORY.md).
+
+**Impact Analysis:**
+- **Traditional Scraping:** High OpEx ($27k/mo @ 1M SKUs), High Latency, Low Trust.
+- **OpEx Optimization (CommerceTXT):** Low OpEx (Static Files), Zero Latency, Cryptographic Trust.
 ---
 
 ## 2. Repository Structure
@@ -45,6 +52,8 @@ commercetxt/
 │
 ├── README.md                  # Project overview
 ├── CONTEXT.md                 # This file (AI context)
+├── CATEGORY.md                # Category definition
+├── POSITIONING.md             # Market positioning
 ├── MANIFESTO.md               # Why AI platforms should adopt this
 ├── CHANGELOG.md               # Version history
 └── FAQ.md                     # Frequently asked questions
@@ -238,7 +247,8 @@ CommerceTXT **uses Schema.org vocabulary** but not JSON-LD serialization. The pr
 - **Discussions:** https://github.com/commercetxt/commercetxt/discussions
 - **Specification:** [spec/README.md](spec/README.md)
 - **Python Parser:** [parsers/python/README.md](parsers/python/README.md)
-
+- **Category Definition:** [CATEGORY.md](CATEGORY.md)
+- **Market Positioning:** [POSITIONING.md](POSITIONING.md)
 ---
 
 *Last updated: 2026-01-05  

@@ -153,6 +153,12 @@ CC0 license—no permission needed to implement. Vendor-neutral infrastructure.
 - **[Python Parser](./parsers/python/)** - Reference implementation (v1.0.3)
 - **[Website](https://commercetxt.org)** - Interactive guides
 
+**Strategic Documents:**
+- **[Category Definition](./CATEGORY.md)** - What is Agentic E-commerce OpEx Optimization?
+- **[Market Positioning](./POSITIONING.md)** - How CommerceTXT compares to alternatives
+- **[Manifesto](./MANIFESTO.md)** - Why AI platforms should support this
+- **[FAQ](./FAQ.md)** - Common questions answered
+- **[AI Context](./CONTEXT.md)** - For AI platform developers
 ---
 
 ## Why This Matters

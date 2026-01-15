@@ -1,6 +1,7 @@
 # Why AI Platforms Should Support CommerceTXT
 
 A neutral infrastructure layer for Agentic Commerce
+> This project is the reference implementation of the [Agentic E-commerce OpEx Optimization](./CATEGORY.md) initiative.
 
 ---
 
