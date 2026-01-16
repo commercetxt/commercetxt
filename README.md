@@ -252,34 +252,80 @@ The [IKEA US Example](./examples/ikea-us/) demonstrates CommerceTXT at productio
 
 ### Discovery Improvements (The "Frictionless" Update)
 * **HTML Link Discovery:** Support for `<link rel="commercetxt" href="...">` in `<head>` 
-  - Enables merchants on restricted platforms (Shopify, Wix) to point to externally hosted files
-  - Fallback for environments where root file access is blocked
+  - Enables merchants on restricted platforms (Shopify, Wix) to point to externally hosted files.
+  - Fallback for environments where root file access is blocked.
   
 * **Well-Known First:** Mandate `/.well-known/commerce.txt` as primary path (RFC 8615 compliant)
-  - Root `/commerce.txt` becomes legacy fallback
-  - Aligns with IETF best practices (credit: HN community feedback)
+  - Root `/commerce.txt` becomes legacy fallback.
+  - Aligns with IETF best practices (credit: HN community feedback).
 
 * **Technical Rigor (Schema.org Integration):**
     * **Formal Grammar:** Strict rules for escaping special characters (`|`, `:`, `\n`) to ensure parser stability.
     * **Semantic Mapping:** Publishing formal Turtle definitions to ensure 1:1 mapping with Schema.org vocabulary.
     * **Graph Flattening:** Standardized way to represent multi-currency offers and complex product models in a flat-file format.
 
-### Data Integrity & Freshness
-* **@TIMESTAMP (Global):** Document-level timestamp for freshness validation
-  - Prevents "stale inventory" hallucinations
-  - Enables agent-side caching strategies
-  - Format: ISO-8601 timestamp
+### Trust & Technical Compliance (The "Reliability" Update)
+
+**Context:** Recent Fortune analysis (January 2026) highlighted that AI models 
+are inconsistent and error-prone on governance, certification, and compliance 
+queries—precisely the data that influences major procurement decisions. These 
+directives provide merchant-controlled ground truth for regulated commerce.
+
+* **@RESOURCES:** Direct links to official documentation
+  - Prevents agents from guessing or hallucinating technical details
+  - Required for products with assembly, safety, or configuration needs
+  - Example format:
+```
+    # @RESOURCES
+    Manual: https://example.com/manuals/XM5.pdf
+    SafetySheet (MSDS): https://example.com/safety/XM5-msds.pdf
+    Drivers: https://example.com/drivers/XM5
+    AssemblyVideo: https://youtube.com/watch?v=abc123
+```
+
+* **@CERTIFICATIONS:** Formal technical and regulatory standards
+  - Critical for B2B procurement and regulated industries
+  - MUST include certification body and dates where applicable
+  - Example format:
+```
+    # @CERTIFICATIONS
+    Standards: IP68, CE, FCC ID: ABC123, UL-Listed, ISO-9001
+    VerifiedBy: TUV Rheinland
+    Issued: 2025-03-15
+    Expires: 2030-03-15
+```
+
+* **@ATTESTATIONS:** Verified legal or ethical claims
+  - For claims requiring strict liability or third-party verification
+  - MUST include verification URL or certification body
+  - Claims without verification SHOULD be ignored by agents
+  - Example format:
+```
+    # @ATTESTATIONS
+    Claims: Gluten-Free, Vegan, Made in EU
+    VerifiedBy: https://certifications.example.com/batch-12345
+    NotTestedOnAnimals: Yes | Certified: Leaping Bunny
+```
 
 * **@SUSTAINABILITY (Optional):** Verified environmental claims
   - Carbon footprint, recycled materials, repair programs
-  - Requires third-party verification URL (anti-greenwashing)
-  - Example: `CarbonNeutral: Yes | Verified: https://climatepartner.com/cert/12345`
+  - **Requirement:** MUST include third-party verification URL (anti-greenwashing)
+  - Example format:
+```
+    # @SUSTAINABILITY
+    CarbonNeutral: Yes
+    Verified: https://climatepartner.com/cert/12345
+    RecycledMaterials: 75%
+    RepairProgram: https://example.com/repair
+```
 
-### Reference Implementations
-* **Openfront Integration:** First production implementation
-  - Open source Shopify alternative by @theturtletalks
-  - Provides real-world validation of spec
-  - Case study: [link to be added]
+**Reference:** [Fortune: Companies shouldn't trust 'GEO' in agentic AI world](https://fortune.com/2026/01/13/agentic-commerce-generative-engine-optimization-geo-unreliable-aivo-standard/)
+
+### Data Integrity & Freshness
+* **@TIMESTAMP (Global):** Document-level timestamp for freshness validation
+  - Prevents "stale inventory" hallucinations.
+  - Enables agent-side caching strategies.
+  - Format: ISO-8601 timestamp.
 
 ### Ethical Sales Guidance
 * **@PURCHASE_ADVICE:** Merchant-defined key selling points
@@ -287,13 +333,18 @@ The [IKEA US Example](./examples/ikea-us/) demonstrates CommerceTXT at productio
   - Example: `Highlights: 5-year warranty, Free repairs, Carbon-neutral shipping`
 
 * **@COMPARISON_CONTEXT:** How to position vs competitors
-  - Transparent competitive advantages
+  - Transparent competitive advantages.
   - Example: `vs. CompetitorX: Better battery (30h vs 20h), Lower price ($200 less)`
+
+### Reference Implementations
+* **Openfront Integration:** First production implementation
+  - Open source Shopify alternative by @theturtletalks.
+  - Provides real-world validation of spec.
 
 ### Advanced Features (Experimental)
 * **Multi-Variant @BRAND_VOICE:** A/B testing for brand personality
-  - Requires analytics infrastructure (out of scope for v1.x)
-  - Community feedback needed before standardization
+  - Requires analytics infrastructure (out of scope for v1.x).
+  - Community feedback needed before standardization.
 
 ---
 

@@ -479,7 +479,7 @@ LastUpdated: 2025-12-16T08:00:00Z
 - RatingScale → aggregateRating.bestRating
 - Count → aggregateRating.reviewCount
 
-#### 4.7.1 @REVIEWS Source Validation
+#### 4.9.1 @REVIEWS Source Validation
 
 Agents SHOULD validate Source URLs against known review platforms to ensure authenticity.
 
